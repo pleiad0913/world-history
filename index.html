@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>世界史分期速記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: friendly study notes, plain words, one fact per line
+   IDEA: the textbook's coloured period ribbon, opened up into a pocket timeline
+   PICTURE: five-colour ribbon; each period unfolds into small stages with dated events
+   COLOUR and TYPE: textbook period colours on warm paper / night ink; Noto Serif TC titles, Noto Sans TC body
+   LAYOUT: one column; ribbon, how-to-read, period sections (stages > events), quiz */
+:root{color-scheme:light dark;
+--bg:light-dark(#fbf8f2,#16151a);--card:light-dark(#ffffff,#211f27);--ink:light-dark(#22201c,#efece6);--mute:light-dark(#6d665c,#a9a39a);--line:light-dark(#e6e0d4,#34313b);--soft:light-dark(#f4efe5,#2b2832);
+--p1:#c9961a;--p2:#df5a4b;--p3:#bf448f;--p4:#7d52bd;--p5:#3f73c9}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans TC",system-ui,sans-serif;overflow-x:clip}
+.wrap{max-width:720px;margin:0 auto;padding:24px 16px 56px}
+h1{font:900 clamp(30px,8vw,44px)/1.1 "Noto Serif TC",serif;margin:0 0 6px}
+h2{font:700 24px/1.2 "Noto Serif TC",serif;margin:40px 0 12px}
+.sub{color:var(--mute);margin:0 0 18px}
+.ribbon{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgb(0 0 0/.12)}
+.ribbon a{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:96px;color:#fff;text-decoration:none;font:900 clamp(17px,5vw,24px)/1.1 "Noto Serif TC",serif;padding:8px 2px;text-align:center}
+.ribbon a:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+.ribbon small{font:500 12px/1.3 "Noto Sans TC",sans-serif;margin-top:6px}
+.how{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:18px;font-size:15px}
+.how b{font-size:16px}
+.how ol{margin:6px 0 0;padding-left:1.3em}
+.period{margin-top:36px;scroll-margin-top:12px}
+.phead{color:#fff;border-radius:16px 16px 0 0;padding:16px 18px}
+.phead h2{margin:0;color:#fff;font-size:30px}
+.phead .yr{font-weight:700;margin-top:2px}
+.phead p{margin:8px 0 0;font-size:16px}
+.pbody{background:var(--card);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;padding:6px 14px 14px}
+.stage{margin-top:14px}
+.stage h3{margin:0 0 4px;font:700 18px/1.35 "Noto Serif TC",serif;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.stage h3 span{font:500 13px "Noto Sans TC",sans-serif;color:var(--mute)}
+.ev{display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.ev:last-of-type{border-bottom:0}
+.ev .y{font-weight:700;font-size:14px;white-space:nowrap;padding-top:2px}
+.ev b{display:block;font-size:16px}
+.ev small{display:block;color:var(--mute);font-size:14px;line-height:1.5}
+.cn{margin-top:8px;font-size:14px;background:var(--soft);border-radius:10px;padding:7px 12px}
+.why{margin-top:14px;font-size:15px;border-left:4px solid;padding:4px 0 4px 12px}
+.threads{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.threads button{min-height:40px;font-size:15px;border-radius:999px;padding:4px 14px}
+.threads button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tline{font-size:15px;font-weight:700;background:var(--soft);border-radius:12px;padding:10px 14px;line-height:1.7}
+.tline:empty{display:none}
+.foh{font:700 20px/1.3 "Noto Serif TC",serif;margin:18px 0 4px}
+.fop{font-size:15px;color:var(--mute);margin:0 0 10px}
+.fogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:12px}
+.fogrid button.fo{text-align:left;display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:12px;font-weight:400;height:auto}
+.fogrid button.fo b{font-size:16px}.fogrid button.fo span{font-size:14px;line-height:1.5}.fogrid button.fo small{font-size:13px;color:var(--mute)}
+.fogrid button.fo.on{border-color:var(--ink);background:var(--card);box-shadow:inset 0 0 0 1px var(--ink)}
+.fos{display:flex;flex-wrap:wrap;gap:6px}.fos button{min-height:34px;font-size:13px;border-radius:999px;padding:2px 10px}
+.fo-h{font-size:17px}.fo-c{margin-top:6px;font-size:14px}
+.tline{font-weight:500}
+.pph{font:900 24px/1.2 "Noto Serif TC",serif;margin:26px 0 8px;display:flex;gap:10px;align-items:baseline}
+.pph span{font:700 13px "Noto Sans TC",sans-serif;color:var(--mute)}
+.pp{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.pm{width:52px;height:52px;border-radius:50%;color:#fff;display:grid;place-items:center;font:900 24px "Noto Serif TC",serif}
+.pn{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:2px}.pn b{font-size:18px}.pn span{font-size:13px;color:var(--mute);font-weight:700}
+.term{all:unset;cursor:pointer;color:inherit;border-bottom:2px dotted var(--p5);font-weight:700}
+.term:focus-visible{outline:2px solid var(--p5)}
+.tip{max-height:60vh;overflow:auto;position:fixed;left:12px;right:12px;bottom:12px;z-index:9;background:var(--ink);color:var(--bg);border-radius:16px;padding:16px 18px;box-shadow:0 10px 30px rgb(0 0 0/.3);max-width:620px;margin:0 auto}
+.tip b{font-size:19px}.tip .tipg{display:block;margin-top:8px;font-size:15px;line-height:1.6;border-top:1px solid rgb(255 255 255/.25);padding-top:8px}.tip .tipg b{font-size:15px}.tip .term{border-bottom-color:currentColor}.tip p{margin:6px 0;font-size:16px}.tip small{opacity:.7}
+.nr.what{background:var(--soft);border-radius:10px;padding:8px 10px;margin:6px 0}
+.nr.what .k{color:var(--ink)}
+.mg{font-weight:400;font-size:14px;margin-top:6px;background:var(--soft);border-radius:10px;padding:8px 10px;line-height:1.6}
+.lnav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 8px}
+.lnav button{flex:none;width:44px;border-radius:50%;padding:0}
+.lhead{color:#fff;border-radius:16px;padding:16px 18px;margin-top:8px}
+.lhead h2{color:#fff;margin:4px 0;font-size:28px}.lhead span{font-weight:700;font-size:14px;opacity:.95}
+.lprog{display:flex;gap:4px;margin:10px 0}.lprog i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.lsec{margin-top:22px;scroll-margin-top:70px}
+.lsec h3{font:700 20px/1.3 "Noto Serif TC",serif;display:flex;gap:10px;align-items:center;margin:0 0 10px}
+.lsec h3 span{color:#fff;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 15px "Noto Sans TC",sans-serif;flex:none}
+.lb{margin:0;padding-left:1.2em;font-size:17px;line-height:1.8}
+.lf{margin-top:10px;background:var(--soft);border-radius:12px;padding:10px 12px;font-size:15px}
+.fo1{display:inline-block;border:1.5px solid var(--ink);border-radius:999px;padding:0 10px;margin:2px 4px 2px 0;font-size:13px;font-weight:700}
+.lp{color:var(--mute);font-size:15px}
+.gl{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}.gl>b{font-size:18px}
+.rgrow{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:8px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px}.rgrow b{font-size:14px}
+.lnext{width:100%;margin-top:22px;min-height:54px;font-size:17px}
+.lqq{margin-bottom:16px}
+body{padding-left:64px;padding-bottom:150px}
+body.syncmin{padding-bottom:56px}
+.rail{position:fixed;left:0;top:0;bottom:142px;width:58px;z-index:5;background:var(--card);border-right:1px solid var(--line);cursor:pointer;overflow:hidden}
+body.syncmin .rail{bottom:48px}
+.rseg{position:absolute;left:0;width:8px;opacity:.9}
+.rseg span{position:absolute;left:10px;top:3px;font-size:10px;font-weight:700;color:var(--mute)}
+.rtick{position:absolute;left:10px;right:2px;transform:translateY(-50%);font-size:10px;font-weight:700;color:var(--ink);border-top:1px solid var(--line);padding-top:0;line-height:1.2;text-align:right;padding-right:9px}
+.rdot{position:absolute;right:2px;width:5px;height:5px;border-radius:50%;background:var(--mute);transform:translateY(-50%);opacity:.6}
+.rmark{position:absolute;left:0;right:0;height:0;border-top:3px solid #e63946;transition:top .3s}
+.rmark b{position:absolute;right:2px;top:-22px;background:#e63946;color:#fff;font-size:11px;border-radius:6px;padding:1px 4px;white-space:nowrap}
+.sync{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--card);border-top:2px solid var(--ink);box-shadow:0 -6px 18px rgb(0 0 0/.12);padding:6px 8px 8px}
+.synch{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;padding:0 4px 4px}
+.synch b{font-size:16px;font-family:"Noto Serif TC",serif}
+.synch button{min-height:32px;font-size:13px;padding:2px 10px;border-radius:999px;flex:none}
+.syncc{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.sync.min .syncc{display:none}
+.sc{flex:none;width:128px;min-height:84px;text-align:left;display:flex;flex-direction:column;gap:1px;padding:6px 8px;border-radius:10px;border:1px solid var(--line);border-top:4px solid var(--line);background:var(--bg);font-weight:400}
+.sc small{font-size:11px;color:var(--mute);font-weight:700}
+.sc b{font-size:14px;line-height:1.3}
+.sc b.none{color:var(--mute)}
+.sc span{font-size:11px;color:var(--mute);line-height:1.3}
+.tip{bottom:160px}
+@media(min-width:900px){body{padding-left:96px}.rail{width:88px}.rtick{font-size:12px}}
+.syncg{display:flex;gap:4px;overflow-x:auto;padding:0 2px 6px}
+.syncg button{flex:none;min-height:30px;font-size:12px;padding:2px 10px;border-radius:999px}
+.syncg button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sync.min .syncg{display:none}
+.syncc.wide .sc{width:min(230px,70vw)}
+.sc em{font-style:normal;font-size:12px;line-height:1.4;color:var(--ink);margin-top:2px}
+body{padding-bottom:190px}.rail{bottom:182px}.tip{bottom:200px}
+.rail{display:flex;flex-direction:column;width:76px;cursor:default}
+body{padding-left:82px}
+.rnav{min-height:44px;border-radius:0;border:0;border-bottom:1px solid var(--line);background:var(--soft);font-size:14px;padding:2px;display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.rnav small{font-size:9px;color:var(--mute);font-weight:500}
+#rdn{border-bottom:0;border-top:1px solid var(--line)}
+.rnav:disabled{opacity:.35}
+.rhead{color:#fff;font-size:11px;font-weight:700;text-align:center;padding:4px 2px;line-height:1.3}
+.rbody{position:relative;flex:1;cursor:pointer;background:linear-gradient(90deg,var(--line) 0 2px,transparent 2px) 10px 0/100% 100% no-repeat}
+.rtk{position:absolute;left:16px;right:2px;transform:translateY(-50%);font-size:10px;color:var(--mute);font-weight:700;border-top:1px dashed var(--line);line-height:1.1;padding-top:1px}
+.rev{all:unset;position:absolute;left:5px;right:1px;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:3px;white-space:nowrap;overflow:hidden;cursor:pointer;line-height:1.2}
+.rev i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--ink);border:2px solid var(--card)}
+.rmark{position:absolute;left:0;right:0;height:0;border-top:3px solid #e63946;transition:top .3s;pointer-events:none}
+.rmark b{position:absolute;right:1px;top:2px;background:#e63946;color:#fff;font-size:11px;border-radius:6px;padding:1px 4px;white-space:nowrap}
+@media(min-width:900px){body{padding-left:126px}.rail{width:120px}.rev{font-size:13px}.rtk{font-size:12px}}
+body.home{padding-left:0;padding-bottom:0}
+body.home .rail,body.home .sync{display:none}
+#home .ribbon{grid-template-columns:minmax(0,1fr);border-radius:18px;margin-top:8px}
+#home .ribbon button{all:unset;cursor:pointer;color:#fff;display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:12px;padding:20px 20px;min-height:44px;transition:filter .2s}
+#home .ribbon button:hover,#home .ribbon button:focus-visible{filter:brightness(1.1)}
+#home .ribbon button:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+#home .ribbon b{font:900 clamp(28px,8vw,40px)/1 "Noto Serif TC",serif}
+#home .ribbon small{font-size:15px;font-weight:700;opacity:.95}
+#home .ribbon em{font-style:normal;font-size:14px;font-weight:700;background:rgb(255 255 255/.22);border-radius:999px;padding:2px 10px}
+.hgo{width:100%;margin-top:14px;min-height:54px;font-size:16px}
+.hless{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.hph{display:flex;gap:8px;align-items:baseline;margin-bottom:6px}.hph b{font:900 20px "Noto Serif TC",serif}.hph span{font-size:13px;color:var(--mute);font-weight:700}
+.hp button{width:100%;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:10px;text-align:left;padding:8px 12px;margin-bottom:6px;font-size:15px;align-items:center;border-radius:12px;height:auto}
+.hp button span{grid-row:span 2;width:28px;height:28px;border-radius:50%;color:#fff;display:grid;place-items:center;font-size:14px}
+.hp button small{font-size:12px;color:var(--mute);font-weight:500}
+.backhome{min-height:40px;font-size:14px;border-radius:999px;padding:4px 14px;margin-bottom:8px}
+.rcol{min-height:36px;border:0;border-radius:0;border-bottom:1px solid var(--line);background:var(--card);font-size:12px;padding:2px}
+body.railmin{padding-left:44px}
+body.railmin .rail{width:38px}
+.rexp{all:unset;cursor:pointer;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:10px 0;color:#fff}
+.rexp span{writing-mode:vertical-rl;font:900 18px "Noto Serif TC",serif;letter-spacing:.1em}
+.rexp b{writing-mode:vertical-rl;font-size:14px;background:#e63946;border-radius:6px;padding:6px 2px}
+.rexp small{font-size:11px;writing-mode:vertical-rl}
+.rexp:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+@media(min-width:900px){body.railmin{padding-left:44px}}
+body.home.railmin{padding-left:0}
+.lsticky{position:sticky;top:var(--tabsH,64px);z-index:3;background:var(--bg);padding:8px 0 6px;margin-top:8px;border-bottom:1px solid var(--line)}
+.lst{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;margin-bottom:6px}
+.lst b{font-size:14px}.lst span{color:var(--mute);font-weight:700}
+.lprog{display:flex;gap:4px;margin:0}
+.lprog button{all:unset;flex:1;height:10px;border-radius:5px;background:var(--line);cursor:pointer;position:relative}
+.lprog button::after{content:"";position:absolute;inset:-12px 0}
+.lprog button:disabled{cursor:default}
+.lprog button.on{opacity:.45}
+.lprog button.cur{opacity:1;outline:2px solid var(--ink);outline-offset:1px}
+.lprog button:focus-visible{outline:3px solid var(--ink)}
+.lrow{display:flex;gap:8px;margin-top:22px}
+.lrow .lnext{margin-top:0;flex:2}
+.lprev{flex:1;min-height:54px;font-size:15px}
+.ranc{grid-column:1/-1;display:flex;gap:10px;align-items:center;font-size:13px;font-weight:500;line-height:1.4;opacity:.97}
+.ranc svg{width:30px;height:30px;flex:none}
+.ranc strong{display:block;font-size:16px}
+#home .ribbon button{grid-template-columns:auto 1fr auto;row-gap:8px}
+.gates{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.gate{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gc);border-radius:12px;padding:10px 12px;font-size:15px}
+.gate .gn{text-align:center;font-size:11px;font-weight:700;color:var(--mute)}
+.gate .gn b{display:block;font:900 30px/1.1 "Noto Serif TC",serif;color:var(--gc)}
+.gate .gy{font-size:13px;font-weight:700;color:var(--mute)}.gate .gy b{color:var(--gc);font-size:16px}
+.gate small{color:var(--mute);font-size:13px}
+.gnow{margin-bottom:12px}
+.hgame{width:100%;min-height:54px;font-size:16px;margin:6px 0 10px}
+#hgates h2{margin-top:26px}
+.lcn{font-size:14px;margin-top:6px;opacity:.95}
+.pbadge{font-style:normal;color:#fff;border-radius:999px;padding:1px 8px;margin-right:6px;font-size:12px}
+.rhead small{font-weight:500;font-size:10px}
+.gstat{font-weight:700;color:var(--mute);margin:10px 0}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center}
+.gcard small{color:var(--mute);font-weight:700}.gcard>b{display:block;font:900 28px/1.3 "Noto Serif TC",serif;margin:6px 0}
+.gq{color:var(--mute)}
+.gbtns{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-top:12px}
+.gbtns button{height:auto;min-height:64px;border:3px solid var(--gc);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gbtns button b{font:900 20px "Noto Serif TC",serif;color:var(--gc)}.gbtns button small{font-size:12px;color:var(--mute)}
+.gbtns button.ok{background:var(--gc);border-color:var(--gc)}.gbtns button.ok b,.gbtns button.ok small{color:#fff}
+.gbtns button.no{background:#d64545;border-color:#d64545}.gbtns button.no b,.gbtns button.no small{color:#fff}
+.gfb{margin:12px 0;font-size:16px;line-height:1.6;min-height:2em}.gfb>b{margin-right:4px}
+.gcn{font-size:14px;color:var(--mute);margin-top:4px}
+.gnext{width:100%;min-height:52px}
+.gseq{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:12px}
+.gseq span{border:2px dashed var(--line);border-radius:10px;min-height:44px;display:grid;place-items:center;font-weight:700;color:var(--mute)}
+#gwrong h3{font:700 18px "Noto Serif TC",serif;margin:22px 0 8px}
+.gw{display:flex;justify-content:space-between;gap:8px;border-left:5px solid;background:var(--card);border-radius:8px;padding:8px 12px;margin-bottom:6px;font-size:15px}.gw span{color:var(--mute);font-size:13px;white-space:nowrap}
+#gmodes button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fun{background:light-dark(#fff6d6,#3a3320);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:15px;line-height:1.6}
+.fun b{display:inline-block;background:#c9961a;color:#fff;border-radius:999px;font-size:12px;padding:0 8px;margin-right:6px}
+.story{margin:0 0 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.story small{color:var(--mute);font-weight:700;font-size:13px}
+.story>b{display:block;font:700 19px/1.4 "Noto Serif TC",serif;margin:2px 0 6px}
+.story p{margin:0;font-size:16px;line-height:1.8}
+.pm{display:none}.pp{grid-template-columns:minmax(0,1fr)!important}
+body.tlmode .rail,body.tlmode .sync{display:none}
+body.tlmode{padding-left:0;padding-bottom:0}
+@media(min-width:900px){body.tlmode{padding-left:0}}
+.tlhead{font-size:14px;color:var(--mute);font-weight:700;margin:4px 0 8px}
+.tlwrap{position:relative;display:grid;grid-template-columns:118px minmax(0,1fr);gap:10px;height:calc(100dvh - var(--tabsH,64px) - 70px);min-height:420px}
+.tlrule{overflow-y:auto;scroll-snap-type:y proximity;border-right:2px solid var(--line);position:relative;-webkit-overflow-scrolling:touch}
+.tlpad{height:50%}
+.tli{scroll-snap-align:center;min-height:46px;padding:6px 8px 6px 0;display:flex;flex-direction:column;justify-content:center;border-top:1px dashed var(--line);color:var(--mute);transition:color .2s}
+.tli b{font-size:15px}.tli span{font-size:11px;line-height:1.3;color:var(--ink);font-weight:700}
+.tli.on{color:#e63946}.tli.on b{font-size:19px}
+.tlmid{position:absolute;left:0;width:118px;top:50%;height:46px;transform:translateY(-50%);border-top:2px solid #e63946;border-bottom:2px solid #e63946;background:rgb(230 57 70/.08);pointer-events:none}
+.tlmid::after{content:"";position:absolute;right:-14px;top:50%;transform:translateY(-50%);border:7px solid transparent;border-left-color:#e63946}
+.tlinfo{overflow-y:auto;padding-right:4px}
+.tly{font:900 34px/1.1 "Noto Serif TC",serif;margin:2px 0}.tly small{display:block;font:700 13px "Noto Sans TC",sans-serif;color:var(--mute);margin-top:4px}
+.tlcn{font-size:15px;font-weight:700;margin:6px 0 2px}
+.tlinfo h4{font:700 16px "Noto Serif TC",serif;margin:14px 0 6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.tlcat{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;margin-bottom:6px}
+.tlcat span{color:#fff;font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px}
+.tlcat em{font-style:normal;font-size:14px;font-weight:700;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:2px 8px}
+.tlg{margin-bottom:8px}.tlg>b{font-size:13px;color:var(--mute)}
+.tlr{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:6px;font-size:14px;padding:2px 0}
+.tlr span{color:var(--mute);font-size:12px;padding-top:2px}.tlr em{font-style:normal;font-weight:700}.tlr em.none{color:var(--mute);font-weight:400}
+.tle{font-size:14px;padding:3px 0}.tle b{display:inline-block;min-width:5.5em;color:var(--mute);font-size:12px}
+.tlnav{display:flex;justify-content:space-between;gap:8px;margin-top:8px}.tlnav button{min-height:44px;font-size:15px;border-radius:999px;padding:4px 16px}
+.gtnow{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin:8px 0 6px;height:112px;overflow:hidden;contain:layout}
+.gyear{flex:none;text-align:center;width:96px}.gyear b{display:block;font:900 22px/1.1 "Noto Serif TC",serif;white-space:nowrap}.gyear span{font-size:12px;color:var(--mute);font-weight:700}
+.gact{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:14px;font-weight:700;align-content:flex-start;height:100%;overflow-y:auto;flex:1;min-width:0}
+.gact small{display:block;font-size:11px;color:var(--mute);font-weight:500}.gact .none{color:var(--mute);font-weight:400}
+.gsel{position:absolute;left:8px;right:8px;top:8px;z-index:7;background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.6;max-height:45%;overflow:auto;box-shadow:0 6px 18px rgb(0 0 0/.25)}
+.gsel .term{border-bottom-color:currentColor}.gsel .gsg{color:var(--mute);font-size:13px}
+.gcolh{display:grid;gap:4px;font-size:12px;font-weight:700;color:var(--mute);text-align:center;padding:0 4px 4px 0;line-height:1.2}
+.gwrap{position:relative}
+.gbody{overscroll-behavior:contain;height:max(380px,calc(100svh - var(--tabsH,64px) - 290px));overflow-y:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);-webkit-overflow-scrolling:touch}
+.gpad{height:calc(max(380px,calc(100svh - var(--tabsH,64px) - 290px)) / 2)}
+.gbodyin{position:relative;display:grid;gap:4px;padding-right:4px}
+.gax{position:relative;border-right:1px solid var(--line)}
+.gt{position:absolute;left:0;right:0;border-top:1px dashed var(--line);font-size:11px;color:var(--mute);padding-left:4px;line-height:1.1}
+.gt.gtm{border-top-style:solid;font-weight:700}
+.gev{all:unset;position:absolute;left:0;min-width:28px;min-height:28px;display:flex;align-items:center;font-size:11px;font-weight:700;color:var(--ink);transform:translateY(-50%);white-space:nowrap;background:var(--card);padding:0 3px 0 2px;z-index:3;cursor:pointer;border-radius:6px;max-width:58px;overflow:hidden}
+.gev:focus-visible,.gev:hover{outline:2px solid #e63946}
+.gsr{margin-top:4px}.gsr i{font-style:normal;font-size:12px;opacity:.75;margin-right:6px}
+.gcol{position:relative}
+.gbar{all:unset;position:absolute;left:0;right:0;border-radius:6px;cursor:pointer;overflow:clip;border:1px solid rgb(0 0 0/.12);box-sizing:border-box;display:flex;justify-content:center}
+.gbar span{writing-mode:vertical-rl;font-size:12px;font-weight:700;color:#1d1b18;padding:4px 0;letter-spacing:.05em;max-height:100%;position:sticky;top:8px;align-self:flex-start}
+.gbar.hit{box-shadow:inset 0 0 0 3px rgb(0 0 0/.55);z-index:2}
+.gbar:focus-visible{outline:3px solid var(--ink)}
+.gmid{position:absolute;left:0;right:0;top:50%;border-top:3px solid #e63946;pointer-events:none;z-index:5}
+.gmid::before{content:"";position:absolute;left:-2px;top:-8px;border:7px solid transparent;border-left-color:#e63946}
+.tipm{display:block;font-size:13px;opacity:.8;margin-bottom:4px}
+.sc .term{border-bottom-width:2px}
+.scgo{all:unset;cursor:pointer;margin-top:auto;font-size:11px;color:var(--mute);font-weight:700;padding-top:4px}
+.node{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;scroll-margin-top:72px}
+.nh{color:#fff;padding:10px 14px;display:flex;gap:4px 10px;flex-wrap:wrap;align-items:baseline}
+.nh{flex-wrap:nowrap!important;align-items:center!important;gap:14px!important;padding:12px 14px!important}
+.nh svg{flex:none;width:60px;height:60px;background:rgb(255 255 255/.18);border-radius:14px;padding:6px}
+.nh div{display:flex;flex-direction:column}
+.photo{display:inline-flex;align-items:center;min-height:40px;margin-top:4px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.nh b{font:900 20px/1.3 "Noto Serif TC",serif}
+.nh span{font-weight:700;font-size:14px;white-space:nowrap}
+.nb{padding:6px 14px 12px}
+.nr{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:8px;padding:6px 0;font-size:15px}
+.nr .k{font-weight:700;font-size:13px;color:var(--mute);padding-top:2px}
+.nr.today .k{color:#2f9e5b}
+.arrow{text-align:center;color:var(--mute);font-size:14px;padding:6px 0;font-weight:700}
+:root{--land:light-dark(#e4dfd6,#3a3742);--sea:light-dark(#eaf2f7,#1c2430)}
+.mcap{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:8px}
+.myear{font:900 clamp(34px,9vw,48px)/1 "Noto Serif TC",serif}
+.mtext{font-size:16px;font-weight:500;min-height:3.2em;margin:8px 0}
+.mapfig{position:relative;min-height:0;aspect-ratio:1.9/1;border-radius:14px;overflow:hidden;background:var(--sea)}
+.mapfig svg{position:absolute;inset:0;width:100%;height:100%}
+.mapfig path.c{cursor:pointer;stroke:rgb(255 255 255/.7);stroke-width:.5}
+.mapfig path.c.sel{stroke:var(--ink);stroke-width:2}
+.mapfig text{font:700 11px "Noto Sans TC",sans-serif;fill:#1d1b18;paint-order:stroke;stroke:rgb(255 255 255/.85);stroke-width:3px;pointer-events:none}
+.minfo{font-weight:700;font-size:15px;margin:8px 0;min-height:1.6em}
+#mslider{width:100%;height:44px;accent-color:var(--ink);margin:4px 0}
+.mlbl{font-size:13px;color:var(--mute);margin:12px 0 4px;font-weight:700}
+.chips2{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.chips2 button{flex:none;min-height:40px;font-size:14px;border-radius:999px;padding:4px 12px}
+.chips2 button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mopts{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 12px 10px;margin-top:12px}
+.mdiff{font-size:14px;min-height:1.4em;margin:0 0 8px;color:var(--ink)}
+.mapfig svg{transition:opacity .35s}
+.mapfig path.c.hl{stroke:#fff;stroke-width:1}
+.spark{margin:4px 0 8px}
+.sbar{display:flex;align-items:flex-end;gap:1px;height:60px;border-bottom:1px solid var(--line)}
+.sbar i{flex:1;border-radius:2px 2px 0 0}
+.scap{font-size:13px;color:var(--mute);margin-top:4px}
+:root{--neu:light-dark(#cfc9bf,#4a4652)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mute);margin-top:10px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:5px}
+.legend i.tribe{background:repeating-linear-gradient(45deg,#d9ccb0 0 3px,#efe6d2 3px 6px)}
+.tabs{display:flex!important;overflow-x:auto;gap:6px}
+.tabs button{flex:none;padding:6px 14px!important}
+.wrap2{flex-wrap:wrap}
+.rgl{margin-top:12px;position:relative}
+.rgi{display:grid;grid-template-columns:14px minmax(0,1fr);gap:12px;position:relative;padding-bottom:14px}
+.rgi:before{content:"";position:absolute;left:6px;top:14px;bottom:0;width:2px;background:var(--line)}
+.rgi:last-child:before{display:none}
+.rgd{width:14px;height:14px;border-radius:50%;margin-top:4px}
+.rgy{font-size:13px;font-weight:700;color:var(--mute);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.rgy .tag{font-size:11px;padding:0 8px}
+.ty{font-size:12px;border:1.5px solid;border-radius:999px;padding:0 8px;font-weight:700}
+.rgb b{display:block;font-size:17px;margin-top:2px}
+.rgb small{display:block;color:var(--mute);font-size:14px;line-height:1.5}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:20px;position:sticky;top:0;z-index:2;background:var(--bg);padding:8px 0}
+.tabs button{font-size:15px;padding:6px 4px}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[hidden]{display:none!important}
+.slice{margin-top:28px;scroll-margin-top:72px}
+.shead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.shead h2{margin:0;font-size:28px}
+.tag{color:#fff;font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px}
+.wow{background:var(--card);border:2px solid;border-radius:14px;padding:12px 14px;margin:10px 0;font-size:16px;font-weight:500}
+.wow b{display:block;font-size:13px;margin-bottom:2px}
+.reg{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.reg .r{font-weight:700;font-size:14px;padding-top:1px}
+.reg small{display:block;color:var(--mute);font-size:14px;line-height:1.5}
+.jump{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px}
+.jump a{flex:none;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--card)}
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.qmeta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--mute);font-size:14px}
+.q{font:700 20px/1.45 "Noto Serif TC",serif;margin:12px 0 16px;min-height:2.9em}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+button{font:700 16px "Noto Sans TC",sans-serif;min-height:48px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;padding:6px 10px}
+button:focus-visible{outline:3px solid var(--p5);outline-offset:2px}
+button.ok{background:#2f9e5b;border-color:#2f9e5b;color:#fff}
+button.no{background:#d64545;border-color:#d64545;color:#fff}
+button:disabled{cursor:default}
+.fb{min-height:3em;margin:12px 0 4px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row button{flex:1}
+.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.note{font-size:13px;color:var(--mute);margin-top:28px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="rail" id="rail" aria-label="時間軸（點一下跳到那個年代）"></nav>
+<aside class="sync" id="sync"><div class="synch"><div id="syncy"></div><button id="synct">收起 ▾</button></div><div class="syncg" id="syncg"></div><div class="syncc" id="syncc"></div></aside>
+<div class="wrap">
+<div id="home">
+<h1>世界史分期速記</h1>
+<p class="sub">導言・世界歷史的分期｜<b>點一個時期，開始學</b></p>
+<nav class="ribbon" id="ribbon"></nav>
+<div class="hyears" id="hyears"></div>
+<div id="hcont"></div>
+<div id="hgates"></div>
+<div class="hless" id="hless"></div>
+
+<div class="how">
+<b>怎麼讀這頁</b>
+<ol>
+<li>先記五大期的順序：<b>上古 → 古典 → 中世紀 → 近代 → 現代</b></li>
+<li><b>因果鏈</b>：一件事接一件事，看「為什麼」會這樣變化，以及背後的六種根本力量</li>
+<li><b>列國分合</b>：每個地區的政權怎麼分分合合，變成今天的國家</li>
+<li><b>版圖演變</b>：48 張地圖，可以放大地區、追蹤大國興衰、看一戰二戰陣營</li>
+<li><b>關鍵人物</b>：每個時代改變歷史的人</li>
+<li>最後用練習題測自己</li>
+</ol>
+</div>
+</div>
+<div id="game" hidden>
+<button class="backhome" id="gback">← 回到五個時期</button>
+<h1 style="font-size:30px">時代分類挑戰</h1>
+<div class="chips2" id="gmodes"><button data-m="sort">放進對的時期</button><button data-m="order">五個時期排順序</button></div>
+<div class="gstat" id="gstat"></div>
+<div id="gbody"></div>
+<div id="gwrong"></div>
+</div>
+<div id="app" hidden>
+<button class="backhome" id="backhome">← 回到五個時期</button>
+<div class="tabs" role="tablist">
+<button role="tab" id="t6" aria-selected="true">一課一課學</button>
+<button role="tab" id="t7" aria-selected="false">時間軸</button>
+<button role="tab" id="t0" aria-selected="false">因果鏈</button>
+<button role="tab" id="t4" aria-selected="false">列國分合</button>
+<button role="tab" id="t3" aria-selected="false">版圖演變</button>
+<button role="tab" id="t5" aria-selected="false">關鍵人物</button>
+<button role="tab" id="t1" aria-selected="false">分期細節</button>
+<button role="tab" id="t2" aria-selected="false">各地比較</button>
+</div>
+<div id="mapv" hidden>
+<p>拖動時間軸或按「播放」，看世界版圖從西元前3000年一步步變成今天，一共48個年份。可以放大某個地區、追蹤一個大國的興衰，或看一戰、二戰的陣營。</p>
+<div id="mapcorehome"><div id="mapcore"><div class="mcap"><div class="myear" id="myear"></div><span class="tag" id="mtag"></span></div>
+<p class="mtext" id="mtext"></p>
+<p class="mdiff" id="mdiff"></p>
+<div class="fig mapfig" id="mapfig"><svg id="msvg" role="img" aria-label="世界版圖"></svg></div>
+<div class="minfo" id="minfo" aria-live="polite">點地圖上的區域看名稱</div>
+<div class="spark" id="spark" hidden><div class="sbar" id="sbars"></div><div class="scap" id="scap"></div></div>
+<input type="range" id="mslider" min="0" max="47" value="0" aria-label="選擇年份">
+<div class="row"><button id="mprev">◀ 上一個</button><button class="primary" id="mplay">▶ 播放</button><button id="mnext">下一個 ▶</button></div></div></div>
+<div class="mopts"><div class="mlbl">看哪裡</div>
+<div class="chips2" id="mregion"></div>
+<div class="mlbl">追蹤一個大國</div>
+<div class="chips2" id="mtrack"></div>
+<div class="mlbl">世界大戰</div>
+<div class="chips2" id="mwar"></div>
+</div><div class="row" style="margin-top:8px"><span class="mlbl" style="margin:0;align-self:center">播放速度</span><div class="chips2" id="mspeed" style="margin:0"></div></div>
+<div class="legend" id="mlegend"></div>
+<p class="note">地圖資料：<a href="https://github.com/aourednik/historical-basemaps">historical-basemaps</a>（A. Ourednik，GPL-3.0），邊界為大約範圍，古代尤其粗略；殖民地大多以統治國的顏色表示。戰爭陣營以參戰國本土和主要殖民地表示，是整場戰爭的陣營，不是某一天的戰線。</p>
+</div>
+<div id="rgv" hidden>
+<p>每個地區的政權怎麼一個接一個出現，分了又合、被統治又獨立，最後變成今天的國家。</p>
+<div class="chips2 wrap2" id="rgchips"></div>
+<div class="legend"><span><i style="background:#2f9e5b"></i>統一</span><span><i style="background:#d64545"></i>分裂</span><span><i style="background:#8a6d3b"></i>外來統治</span><span><i style="background:#3f73c9"></i>新政權</span></div>
+<div class="tline" id="rgsum" style="margin-top:10px"></div>
+<div class="rgl" id="rglist"></div>
+</div>
+<div id="ppl" hidden><p>每個時代都有幾個人，他們做的事情改變了歷史的方向。</p><div id="pplist"></div></div>
+<div id="learn"><p id="lintro"></p><div class="lnav" id="lnav"></div><div id="lbody"></div></div>
+<div id="tlv" hidden><div class="tlhead" id="tlhead"></div><div class="chips2 wrap2" id="ggroups"></div>
+<div class="gtnow"><div class="gyear" id="gyear"></div><div class="gact" id="gact" aria-live="polite"></div></div>
+<div class="gcolh" id="gcolh"></div>
+<div class="gwrap"><div class="gsel" id="gsel" hidden></div><div class="gbody" id="gtbody"><div class="gpad"></div><div class="gbodyin" id="gtin"></div><div class="gpad"></div></div><div class="gmid" aria-hidden="true"></div></div>
+<div class="tlnav" id="tlnav"></div></div>
+<div id="chain" hidden>
+<p>用上面的分期表當骨架，一件一件往下看：<b>因為</b>前一件事，<b>所以</b>發生這件事，最後<b>變成今天</b>的樣子。每件事都標出「關鍵人物」和「根本原因」。</p>
+<h3 class="foh">推動歷史的六種根本力量</h3><p class="fop">每件大事背後，幾乎都是這六種力量在推動。點一種力量，下面就只留下和它有關的事件，可以看出它怎麼一路影響到今天。</p><div class="fogrid" id="fogrid"></div><div class="threads" id="threads"></div>
+<div class="tline" id="tline"></div>
+<div id="nodes"></div>
+</div>
+<div id="periods" hidden></div>
+<div id="world" hidden>
+<p>把時間停在某一年，看看同一顆星球上各地在做什麼。差距有時大得驚人。</p>
+<div class="jump" id="jump"></div>
+<div id="slices"></div>
+</div>
+
+<div id="tip" class="tip" hidden><b id="tipt"></b><p id="tipd"></p><small>點其他地方關閉</small></div>
+<div id="pracwrap" hidden><h2 id="practice">練習一下</h2>
+<div class="quiz">
+<div class="qmeta"><span id="qn"></span><span id="score"></span></div>
+<div class="q" id="q"></div>
+<div class="opts" id="opts"></div>
+<div class="fb" id="fb" aria-live="polite"></div>
+<div class="row"><button class="primary" id="next">下一題</button><button id="reset">重新計分</button></div>
+</div></div>
+
+</div>
+<p class="note">分期年份依課本「導言：世界歷史的分期」。「前」代表西元前。</p>
+</div>
+
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/topojson-client.min.js"></script>
+<script>
+{
+const P=[
+{id:"p1",n:"上古",c:"var(--p1)",y:"約前3500～前500",
+ one:"兩河流域與尼羅河流域發明了文字，是世界文明的起源之一。",
+ st:[
+  {s:"大河文明誕生",r:"約前3500～前2000",e:[
+   ["約前3500","西亞古文明：楔形文字","兩河流域的蘇美人在泥板上壓出文字，是世界最早的文字之一"],
+   ["約前3100","埃及古文明","尼羅河兩岸統一，法老統治，使用象形文字"],
+   ["約前2500","印度河流域文明","在今天的巴基斯坦一帶，城市有規劃整齊的排水系統"]]},
+  {s:"愛琴文明與王國",r:"約前2000～前1000",e:[
+   ["約前2000","愛琴文明","克里特島和希臘本土的海上文明，希臘文明的前身"],
+   ["約前1750","漢摩拉比法典","巴比倫國王刻在石柱上的法律"]]},
+  {s:"希臘興起與波斯帝國",r:"約前1000～前500",e:[
+   ["約前800","希臘城邦興起","雅典、斯巴達等幾百個城市國家"],
+   ["前550","波斯帝國","第一個橫跨亞、非、歐的大帝國"],
+   ["前509","羅馬共和","羅馬人趕走國王，改由選出來的官員治理"]]}],
+ cn:"史前、商、西周、東周（春秋）",
+ why:"為什麼從前3500開始？因為兩河流域與尼羅河流域發明了文字，有文字才有「歷史」。"},
+{id:"p2",n:"古典",c:"var(--p2)",y:"約前500～500",
+ one:"古希臘與古羅馬文化，為西方的哲學、文藝、法律與制度奠下基礎；基督教也在這時萌芽。",
+ st:[
+  {s:"希臘文明的高峰",r:"約前500～前323",e:[
+   ["前5世紀","雅典民主","公民一起投票決定城邦大事，民主政治的起源"],
+   ["前5～前4世紀","希臘哲學","蘇格拉底、柏拉圖、亞里斯多德"],
+   ["約前500","佛教創立","釋迦牟尼在印度創立（同時期中國有孔子）"]]},
+  {s:"希臘化文化",r:"前323～前30",e:[
+   ["前334","亞歷山大東征","馬其頓國王一路打到印度邊境"],
+   ["其後","希臘化文化","希臘文化和東方文化混合在一起"]]},
+  {s:"羅馬帝國",r:"前27～476",e:[
+   ["前27","羅馬帝國時期","屋大維成為第一位皇帝，地中海變成羅馬的內湖"],
+   ["1世紀","基督教萌芽","耶穌傳教，392年成為羅馬國教"],
+   ["395","羅馬分裂","分成西羅馬帝國和東羅馬帝國"],
+   ["476","西羅馬帝國滅亡","被日耳曼人消滅，古典時期結束"]]}],
+ cn:"東周（戰國）、秦、西漢、東漢、魏晉南北朝",
+ why:"為什麼在約500年換期？因為476年西羅馬帝國滅亡。"},
+{id:"p3",n:"中世紀",c:"var(--p3)",y:"約500～1400",
+ one:"拜占庭帝國、伊斯蘭世界與西歐基督教世界，三者關係密切，並互相競爭。",
+ st:[
+  {s:"三大世界形成",r:"約500～800",e:[
+   ["395～1453","東羅馬帝國（拜占庭帝國）","首都君士坦丁堡，延續羅馬傳統將近一千年"],
+   ["7世紀初","伊斯蘭教創立","穆罕默德在阿拉伯半島創立"],
+   ["7～13世紀","阿拉伯帝國","信仰伊斯蘭教的帝國，擴張到三大洲"],
+   ["800","查理曼加冕","西歐基督教世界的代表"]]},
+  {s:"西歐的封建社會",r:"約800～1300",e:[
+   ["9世紀起","封建制度與莊園","國王把土地分給貴族，貴族效忠國王，農奴在莊園耕種"],
+   ["1096～1291","十字軍東征","西歐基督徒為了奪回聖地耶路撒冷，多次出兵"]]},
+  {s:"蒙古與黑死病",r:"約1200～1400",e:[
+   ["1206","蒙古帝國","成吉思汗建立，是歷史上陸地面積最大的帝國之一"],
+   ["14世紀","黑死病","鼠疫在歐洲大流行，死了約三分之一人口"]]}],
+ cn:"隋、唐、五代、北宋、南宋、元",
+ why:"為什麼在約1400年換期？因為文藝復興開始，歐洲走出中世紀。"},
+{id:"p4",n:"近代",c:"var(--p4)",y:"約1400～1700",
+ one:"科學革命與啟蒙運動，推動了歐洲的科學發展和理性精神。",
+ st:[
+  {s:"文藝復興與大航海",r:"14～16世紀",e:[
+   ["14世紀起","文藝復興","從義大利開始，重新重視希臘羅馬文化和「人」的價值"],
+   ["15～17世紀","大航海時代","哥倫布1492年抵達美洲，歐洲人航向全世界"],
+   ["1517","宗教改革","馬丁路德批評教會，基督教分出新教"]]},
+  {s:"東方的大帝國",r:"15～17世紀",e:[
+   ["1453","鄂圖曼帝國攻下君士坦丁堡","拜占庭帝國滅亡"],
+   ["1526","蒙兀兒帝國","在印度建立的伊斯蘭帝國"]]},
+  {s:"科學與理性",r:"16世紀～17世紀末",e:[
+   ["16～17世紀","科學革命","哥白尼、伽利略、牛頓用觀察和實驗了解自然"],
+   ["17世紀末起","啟蒙運動","主張用理性思考，提出人權、三權分立等觀念"]]}],
+ cn:"明、清（前期）；臺灣：大航海時代、清帝國時期開始",
+ why:"為什麼在約1700年進入現代？之後的工業革命、美國獨立、法國大革命等巨大變革，開始塑造現代世界。"},
+{id:"p5",n:"現代",c:"var(--p5)",y:"1700～今日",
+ one:"工業革命與美國獨立、法國大革命塑造了現代世界；帝國主義的競爭導致兩次世界大戰；戰後美蘇冷戰，蘇聯解體後世界進入多元的新局面。",
+ st:[
+  {s:"雙元革命",r:"18世紀",e:[
+   ["約1760","工業革命","英國改良蒸汽機，工廠和機器取代手工"],
+   ["1775～1783","美國獨立戰爭","北美殖民地脫離英國，建立美國"],
+   ["1789","法國大革命","推翻國王，提出「自由、平等、博愛」"]]},
+  {s:"19世紀帝國主義",r:"19世紀～1914",e:[
+   ["19世紀","帝國主義","工業國家瓜分亞洲、非洲"],
+   ["1840","鴉片戰爭","清朝戰敗，被迫開港"],
+   ["1912","中華民國建立","中國結束兩千多年的帝制"]]},
+  {s:"兩次世界大戰",r:"1914～1945",e:[
+   ["1914～1918","第一次世界大戰","兩大對抗集團開戰，四大帝國瓦解"],
+   ["1939～1945","第二次世界大戰","規模最大的戰爭，最後以原子彈結束"]]},
+  {s:"冷戰到今天",r:"1945～今日",e:[
+   ["1947～1991","冷戰","美國和蘇聯兩強對立，但沒有直接開戰"],
+   ["1991","蘇聯解體","冷戰結束，世界進入多元的新局面"]]}],
+ cn:"清、中華民國、中華人民共和國；臺灣：清帝國時期、日治時期、中華民國在臺灣",
+ why:"從約1700年開始，一直到今天。"}
+];
+
+document.getElementById('ribbon').innerHTML=P.map(p=>`<a href="#${p.id}" style="background:${p.c}">${p.n}<small>${p.y.replace('約','')}</small></a>`).join('');
+document.getElementById('periods').innerHTML=P.map(p=>`
+<section class="period" id="${p.id}">
+ <div class="phead" style="background:${p.c}"><h2>${p.n}</h2><div class="yr">${p.y}</div><p>${p.one}</p></div>
+ <div class="pbody">
+  ${p.st.map(s=>`<div class="stage"><h3>${s.s}<span>${s.r}</span></h3>
+   ${s.e.map(e=>`<div class="ev"><div class="y" style="color:${p.c}">${e[0]}</div><div><b>${e[1]}</b><small>${e[2]}</small></div></div>`).join('')}
+  </div>`).join('')}
+  <div class="cn">同時期的中國：${p.cn}</div>
+  <div class="why" style="border-color:${p.c}">${p.why}</div>
+ </div>
+</section>`).join('');
+
+const S=[
+{y:"約前2500年",p:0,wow:"埃及人蓋金字塔、印度河有整齊的排水城市時，中國還沒有文字，美洲人剛開始學種玉米。",r:[
+ ["西亞・埃及","蘇美城邦用楔形文字記帳；埃及法老蓋大金字塔"],
+ ["印度","印度河流域的城市，有規劃整齊的街道和下水道"],
+ ["中國","新石器時代（龍山文化），會做陶器，還沒有文字"],
+ ["歐洲","新石器時代，英國正在建造巨石陣"],
+ ["美洲","以狩獵採集為主，早期農業正在發展"]]},
+{y:"約前500年",p:1,wow:"孔子、佛陀、希臘哲學家幾乎活在同一個世紀，卻互相不知道對方存在。",r:[
+ ["中國","春秋時代，孔子在各國之間周遊講學"],
+ ["印度","釋迦牟尼創立佛教"],
+ ["歐洲","希臘城邦，雅典實行民主；蘇格拉底等哲學家出現"],
+ ["西亞","波斯帝國統治從埃及到印度邊境的廣大土地"],
+ ["美洲","墨西哥一帶有奧爾梅克文明，會雕巨大石頭人像"]]},
+{y:"約西元元年",p:1,wow:"漢朝和羅馬是同時代的兩大帝國，絲綢經過絲路賣到羅馬，但兩國幾乎沒有直接往來。",r:[
+ ["中國","漢朝，透過絲路和西方間接貿易"],
+ ["歐洲","羅馬帝國剛成立（屋大維），控制整個地中海"],
+ ["西亞","安息帝國夾在漢朝與羅馬中間，做轉手生意"],
+ ["美洲","馬雅人開始建造城市與金字塔神廟"]]},
+{y:"約西元800年",p:2,wow:"長安和巴格達是當時世界上數一數二的大城，同一時間西歐的城市卻又小又少。",r:[
+ ["中國","唐朝，長安人口可能接近百萬，各國商人、使節雲集"],
+ ["西亞","阿拉伯帝國首都巴格達，翻譯希臘書籍，學術發達"],
+ ["歐洲","查理曼在800年加冕為皇帝；以封建莊園農業為主"],
+ ["日本","794年遷都平安京（京都），大量學習唐朝文化"],
+ ["美洲","馬雅許多大城市在這段時間逐漸衰落"]]},
+{y:"約西元1250年",p:2,wow:"一個蒙古帝國，把中國、西亞、俄羅斯都連在一起，東西方交流變得更方便。",r:[
+ ["蒙古","蒙古帝國橫跨歐亞，是陸地面積最大的帝國之一"],
+ ["中國","南宋，活字印刷、指南針、火藥都已出現"],
+ ["歐洲","十字軍東征末期；巴黎、牛津等最早的大學出現"],
+ ["美洲","印加人在南美洲的安地斯山區興起"]]},
+{y:"約西元1500年",p:3,wow:"鄭和下西洋比哥倫布早了將近90年，船隊更大，但明朝後來停止遠航，歐洲卻開始航向全世界。",r:[
+ ["中國","明朝，鄭和七次下西洋（1405～1433）之後，逐漸限制海上活動"],
+ ["歐洲","文藝復興；1492年哥倫布抵達美洲"],
+ ["西亞","鄂圖曼帝國1453年攻下君士坦丁堡，拜占庭滅亡"],
+ ["美洲","阿茲特克、印加正強盛，不久就被西班牙征服"]]},
+{y:"約西元1800年",p:4,wow:"英國已經用蒸汽機開工廠時，清朝仍以農業為主，乾隆皇帝認為中國什麼都不缺。",r:[
+ ["中國","清朝；1793年拒絕英國使節（馬戛爾尼）通商的要求"],
+ ["歐洲","英國工業革命；1789年法國大革命"],
+ ["美洲","美國剛獨立（1776），拉丁美洲也快要掀起獨立運動"],
+ ["印度","逐漸被英國東印度公司控制"],
+ ["日本","江戶幕府鎖國，只和荷蘭、中國少量貿易"]]},
+{y:"約西元1950年",p:4,wow:"二戰剛結束，許多亞洲國家獨立，世界分成美國和蘇聯兩邊，開始冷戰。",r:[
+ ["全世界","美國與蘇聯成為兩大強國，冷戰開始"],
+ ["中國・臺灣","1949年中華民國政府遷到臺灣"],
+ ["印度","1947年脫離英國獨立"],
+ ["歐洲","從二戰的破壞中重建"]]}
+];
+const pc=["var(--p1)","var(--p2)","var(--p3)","var(--p4)","var(--p5)"];
+document.getElementById('jump').innerHTML=S.map((s,i)=>`<a href="#s${i}">${s.y.replace('約','')}</a>`).join('');
+function renderWorld(){document.getElementById('slices').innerHTML=S.map((s,i)=>`
+<section class="slice" id="s${i}">
+ <div class="shead"><h2>${s.y}</h2><span class="tag" style="background:${pc[s.p]}">${P[s.p].n}</span></div>
+ <div class="wow" style="border-color:${pc[s.p]}"><b style="color:${pc[s.p]}">差距在這裡</b>${T(s.wow)}</div>
+ ${s.r.map(r=>`<div class="reg"><div class="r">${r[0]}</div><div>${T(r[1])}</div></div>`).join('')}
+</section>`).join('');}
+const $=id=>document.getElementById(id);
+// [時期, 年份, 事件, 為什麼, 造成, 今天, 根本力量, 圖示, 照片關鍵字, 關鍵人物]
+const C=[
+[0,"約前8000","農業革命","冰河期結束，氣候變暖，人類學會種植和養動物","不用到處找食物，可以定居，人口變多，村落慢慢變成城市","我們吃的稻米、小麥、玉米，都是當時開始種的","地糧技",0,"新石器時代 農業",""],
+[0,"約前3500","城市與文字","大河旁土地肥沃、糧食多，城市變大，需要記帳、管理","兩河流域發明楔形文字，事情可以被記錄下來，「歷史」開始","沒有文字，就沒有課本、法律和歷史","糧技制",1,"楔形文字 泥板",""],
+[0,"約前2560","金字塔與法老","尼羅河每年氾濫帶來肥沃泥土，糧食充足，國王能動員大量人力","建造大金字塔；法老被當成神，權力高度集中","金字塔是古埃及留給世界最有名的建築","地糧制",29,"吉薩 金字塔","古夫法老"],
+[0,"約前2000","愛琴文明","愛琴海島嶼多、海路方便，克里特島和希臘本土的人靠航海貿易致富","發展出宮殿、城市和文字，為後來的希臘文明打下基礎","希臘神話裡的特洛伊戰爭、米諾陶洛斯迷宮，都和這個時期有關","地貿",18,"愛琴文明 克諾索斯宮殿",""],
+[0,"約前1750","漢摩拉比法典","國家越來越大，需要一套大家都要遵守的規則","法律被寫下來、公開讓人知道","今天的法律都是寫成條文、公開的","制",2,"漢摩拉比法典 石碑","漢摩拉比"],
+[0,"約前1046","周朝建立","商朝末年統治失去人心，周武王起兵","周朝用分封制度治理天下，提出「天命」觀念","「君主失德就會被取代」的天命觀，影響中國兩千多年","制思",23,"周武王 牧野之戰","周武王"],
+[0,"約前1000","腓尼基字母","腓尼基人在地中海到處做生意，需要簡單好學的文字","傳給希臘人，再傳給羅馬人，變成拉丁字母","英文的 ABC 就是從這裡來的","貿技",3,"腓尼基字母",""],
+[0,"約前800","希臘城邦興起","希臘多山，各地交通不便，很難統一成一個國家","形成雅典、斯巴達等幾百個城邦，各自發展出不同的制度","奧林匹克運動會的起源（前776年）","地制",9,"古希臘 城邦",""],
+[0,"前550","波斯帝國建立","伊朗的波斯人由居魯士大帝帶領，推翻原本的統治者後向外擴張","成為第一個橫跨亞、非、歐三洲的大帝國，修築道路、設置驛站，寬容對待被征服的民族","伊朗人至今以波斯文化為傲；希臘和波斯的對抗影響了後來的歷史","制地",23,"波斯帝國 波斯波利斯","居魯士大帝"],
+[0,"前509","羅馬共和建立","羅馬人不滿國王專制，把國王趕走","改由每年選出的兩位執政官和元老院治理，羅馬逐步統一義大利","「共和國」這個詞和觀念，就是從羅馬來的","制",9,"羅馬共和 元老院",""],
+[1,"約前500","思想大爆發","各地戰亂、社會變動大，人們開始思考「怎樣才是好的生活與好的國家」","孔子創儒家、釋迦牟尼創佛教、希臘出現哲學","東亞重視讀書與孝順、佛教寺廟、西方的科學思考","思",4,"孔子 佛陀 蘇格拉底","孔子、釋迦牟尼、蘇格拉底"],
+[1,"前5世紀","雅典民主","希臘多山，分成許多小城邦；公民一起上戰場，也要求一起決定國事","「人民自己做決定」的觀念出現","今天的投票選舉，源頭可追到這裡","地制思",5,"雅典 衛城","伯里克利"],
+[1,"前334","亞歷山大東征","馬其頓國王想打敗宿敵波斯帝國","希臘文化傳到西亞、埃及、印度邊境，形成希臘化文化","有些佛像的臉和衣服，帶有希臘雕像的風格","制貿",6,"亞歷山大大帝 東征","亞歷山大大帝"],
+[1,"前221","秦統一中國","戰國七雄互相兼併，秦國改革最徹底、最強","統一文字、貨幣、度量衡，建立皇帝制度","漢字能在廣大地區通用；統一的觀念延續到今天","制",7,"秦始皇 統一","秦始皇"],
+[1,"前2世紀","絲路","漢朝想聯合西域對抗匈奴，派張騫出使","絲綢、紙、佛教、葡萄等在東西方之間流傳","「東西方交流」從這時開始變得頻繁","貿",8,"絲路","漢武帝、張騫"],
+[1,"前27","羅馬帝國","羅馬共和打下整個地中海，將軍權力太大、內戰不斷，最後由皇帝統治","羅馬法、道路、拉丁文傳遍歐洲","歐美的法律，法文、西班牙文都受羅馬影響","制地",9,"羅馬帝國 競技場","凱撒、屋大維"],
+[1,"1世紀","基督教興起","耶穌在羅馬統治下的巴勒斯坦傳教，主張愛與平等，吸引窮人","313年羅馬承認基督教，392年成為國教","「西元」紀年、聖誕節、星期日休息","思",10,"早期基督教","耶穌、君士坦丁大帝"],
+[1,"476","西羅馬帝國滅亡","帝國太大難管、經濟衰退、內亂不斷；草原上的匈人西遷，把日耳曼人擠進羅馬","西歐分裂成許多小王國，教會成為生活中心","歐洲到今天仍分成許多國家","制地",11,"西羅馬帝國滅亡",""],
+[2,"527～565","拜占庭的全盛","東羅馬的首都君士坦丁堡位在歐亞交界，易守難攻、貿易富裕，沒有跟著西羅馬滅亡","查士丁尼皇帝整理羅馬法，蓋聖索菲亞大教堂，一度收復義大利","《查士丁尼法典》是歐洲各國民法的源頭","制地貿",2,"聖索菲亞大教堂","查士丁尼"],
+[2,"618～907","唐朝盛世","隋朝統一南北、開鑿大運河打好基礎，唐朝制度完善","長安成為國際大都市，日本、新羅派人來學習；科舉制度發展","日本的建築、服裝、漢字都深受唐朝影響","制貿",9,"唐朝 長安","唐太宗"],
+[2,"7世紀","伊斯蘭教與阿拉伯帝國","阿拉伯半島各部族分裂；穆罕默德創立伊斯蘭教，讓他們團結起來","阿拉伯帝國快速擴張到三大洲，保存並翻譯希臘學問，把印度數字傳到歐洲","我們用的 0、1、2、3 叫「阿拉伯數字」；伊斯蘭教是世界第二大宗教","思貿",12,"伊斯蘭 黃金時代","穆罕默德"],
+[2,"800","查理曼加冕","西羅馬滅亡後，法蘭克王國逐漸強大","查理曼統一西歐大部分地區，教宗為他加冕為皇帝；他死後帝國分成三塊","這三塊後來發展成法國、德國、義大利","制思",23,"查理曼 加冕","查理曼"],
+[2,"9～11世紀","封建制度與維京人","查理曼帝國分裂，維京人從北歐駕船四處劫掠，國王無力保護人民","地方貴族蓋城堡保護農民，形成封建制度；維京人在各地建國","英國、俄羅斯（基輔羅斯）的早期王國都和維京人有關","制地",18,"維京人 長船",""],
+[2,"1071","塞爾柱打敗拜占庭","塞爾柱突厥人從中亞西遷，信仰伊斯蘭教","拜占庭失去小亞細亞，向教宗求救","這場敗仗直接引發了十字軍東征","制地",14,"塞爾柱帝國",""],
+[2,"1096","十字軍東征","拜占庭求救，教宗號召西歐人奪回聖地耶路撒冷","東西方貿易增加，義大利城市變得富有","富有的義大利城市，後來成為文藝復興的起點","思貿",13,"十字軍東征","教宗烏爾班二世"],
+[2,"1206","蒙古帝國","草原遊牧民族擅長騎射，成吉思汗統一蒙古各部後向外征服","歐亞大陸被連成一片，火藥、指南針等傳到西方","東西交流更方便（但也讓疾病傳得更快）","地技",14,"蒙古帝國 成吉思汗","成吉思汗、忽必烈"],
+[2,"1271～1295","馬可波羅與東西交流","蒙古帝國打通歐亞，道路安全，商人可以一路走到中國","馬可波羅的遊記讓歐洲人嚮往東方的財富","吸引後來的哥倫布想找到去亞洲的新航路","貿",8,"馬可波羅","馬可波羅"],
+[2,"1347","黑死病","鼠疫沿著蒙古時代的貿易路線傳到歐洲","歐洲人口大減，勞力變貴，封建莊園開始瓦解","人類第一次見識到疾病可以改變整個社會","糧貿",15,"黑死病 歐洲",""],
+[3,"14世紀","文藝復興","義大利城市靠貿易致富，有錢人贊助藝術；學者帶來古希臘書籍","人們重新重視「人」和理性，藝術與科學發達","達文西、米開朗基羅的作品，現代科學精神的開端","貿思",16,"文藝復興 藝術","達文西、米開朗基羅"],
+[3,"1405～1433","鄭和下西洋","明成祖想宣揚國威、建立朝貢關係","船隊七次遠航到東南亞、印度、非洲東岸；之後明朝停止遠航","中國錯過了海洋擴張的時代，歐洲後來居上","貿制",18,"鄭和 寶船","鄭和"],
+[3,"約1450","活字印刷術","德國人古騰堡發明金屬活字印刷","書變得便宜，知識和新想法快速傳播","人人都能讀書，是宗教改革和科學革命的推手","技思",17,"古騰堡 印刷機","古騰堡"],
+[3,"1453","鄂圖曼攻下君士坦丁堡","鄂圖曼帝國崛起，用巨型大砲攻破城牆","拜占庭滅亡；鄂圖曼控制東西貿易路線；學者帶著古書逃到義大利","東西貿易被擋住，逼得歐洲人往海上找新航路","制貿技",11,"君士坦丁堡 陷落 1453","穆罕默德二世"],
+[3,"1492","大航海時代（地理大發現）","陸路貿易被擋住，加上指南針、造船技術進步，歐洲人想從海上直通亞洲","哥倫布抵達美洲，歐洲開始殖民全世界；美洲作物傳到各地","台灣吃得到的番茄、辣椒、地瓜、玉米，都來自美洲","貿技地",18,"哥倫布 帆船","哥倫布、麥哲倫"],
+[3,"1517","宗教改革","教會腐敗；印刷術讓批評教會的文章快速流傳","基督教分裂出新教，歐洲爆發多場宗教戰爭","台灣說的「基督教」（新教）和「天主教」，就是這時分開的","思技",19,"馬丁路德 九十五條論綱","馬丁路德"],
+[3,"16～17世紀","科學革命","文藝復興的理性精神，加上印刷術傳播知識","哥白尼、伽利略、牛頓用觀察和實驗解釋自然","「實驗、驗證」的科學方法","思技",20,"伽利略 望遠鏡","哥白尼、伽利略、牛頓"],
+[3,"1662","鄭成功來臺","明朝滅亡後，鄭成功想以臺灣作為反清基地","打敗統治臺灣的荷蘭人，漢人大量移入；1683年臺灣歸清朝","臺灣的漢人社會從這時大規模形成","制地",18,"鄭成功","鄭成功"],
+[3,"17世紀末～18世紀","啟蒙運動","科學的成功讓人相信，理性也能用來改善社會","提出人權、三權分立、人民主權","今天的憲法、人權觀念","思制",21,"啟蒙運動","孟德斯鳩、盧梭"],
+[4,"約1760","工業革命","英國有煤礦、有海外市場和資金，又改良了蒸汽機","工廠、鐵路、城市快速發展，生產力暴增","我們用的大量生產的商品、交通工具","技地貿",22,"工業革命 蒸汽機","瓦特"],
+[4,"1776／1789","美國獨立、法國大革命","啟蒙思想傳開，人民不滿重稅、國王和殖民統治","建立共和國、制定憲法、發表人權宣言；拿破崙把這些觀念帶到全歐洲","總統選舉、「自由、平等、博愛」","思制",23,"法國大革命","華盛頓、拿破崙"],
+[4,"1840","鴉片戰爭","英國用鴉片換中國的茶葉，清朝禁煙；英國有工業化的軍艦大砲","清朝戰敗，被迫開港、割讓香港","中國開始思考要不要學習西方","貿技",24,"鴉片戰爭","林則徐"],
+[4,"19世紀","帝國主義","工業國家需要原料和市場，又有先進武器","歐美列強殖民亞洲、非洲；日本明治維新後也加入","許多國家今天說英語或法語，國界也是那時劃的","貿技",24,"帝國主義 殖民地圖",""],
+[4,"1912","中華民國建立","清朝屢次戰敗、改革太慢，革命思想傳開","辛亥革命推翻清朝，結束兩千多年的帝制","亞洲第一個民主共和國","思制",23,"辛亥革命","孫中山"],
+[4,"1914～1918","第一次世界大戰","列強爭奪殖民地、互相結盟對立；1914年奧匈皇儲在塞拉耶佛被刺殺，點燃戰爭","德、奧匈、俄、鄂圖曼四大帝國瓦解；戰車、飛機、毒氣首次大量使用","今天中東和東歐的國家，很多是一戰後才出現的","制貿思",25,"第一次世界大戰 戰壕",""],
+[4,"1917","俄國革命","一戰讓俄國死傷慘重、糧食不足，人民不滿沙皇","列寧領導共產黨奪權，之後建立世界第一個共產國家蘇聯","共產主義和資本主義的對立，埋下冷戰的種子","思糧",23,"俄國革命 1917","列寧"],
+[4,"1919","凡爾賽條約","一戰的勝利國要懲罰德國","德國割地、賠鉅款、限制軍隊，德國人非常不滿","這份不滿成為二十年後二戰的重要原因","制",19,"凡爾賽條約",""],
+[4,"1929","經濟大恐慌","美國股市崩盤、銀行倒閉，影響全世界","大量失業，人民對民主政府失去信心，極端政黨崛起；1933年希特勒在德國掌權","各國政府會出手救經濟，就是從這次學到的教訓","貿糧",22,"經濟大恐慌","希特勒"],
+[4,"1931／1937","日本侵略中國","日本資源不足，想向外擴張領土","1931年九一八事變占領東北；1937年七七事變（盧溝橋事變）後，中國全面抗戰","中國對日抗戰持續到1945年","地貿制",25,"盧溝橋事變","蔣中正"],
+[4,"1939","德國入侵波蘭","希特勒想推翻凡爾賽條約、向東擴張","英法對德宣戰，第二次世界大戰在歐洲爆發","二戰是人類史上死傷最多的戰爭","制思",25,"德國入侵波蘭 1939","希特勒、邱吉爾"],
+[4,"1941","珍珠港事件","美國對日本禁運石油，日本決定先發制人","日本偷襲夏威夷珍珠港，美國參戰，二戰真正擴大成世界大戰","美國從此成為世界強國","貿技",18,"珍珠港事件","羅斯福"],
+[4,"1945","二戰結束","盟軍在歐洲打敗德國；美國在廣島、長崎投下原子彈","德、日投降；臺灣由中華民國接收；成立聯合國；殖民地紛紛獨立","聯合國、世界上大多數國家的獨立","制技",26,"第二次世界大戰 結束 1945",""],
+[4,"1947～1991","冷戰","美國和蘇聯兩大強國的制度與思想對立","核武競賽、太空競賽；美國為了國防發展網路技術；1991年蘇聯解體","人造衛星、GPS、網際網路的前身","思技",27,"冷戰 太空競賽","戈巴契夫"],
+[4,"今天","全球化與網路時代","印刷→電報→電腦，交流越來越快；貿易從絲路、大航海走到全世界","一件事可以在幾秒內傳遍全球","你現在用手機讀這頁，就是這條路的終點","技貿",28,"網際網路 全球化","提姆·柏納李"]
+];
+const FO=[["地","地理與氣候","住在哪裡，決定了能做什麼。大河帶來糧食、草原養出騎兵、海島要靠船。","大河文明、蒙古騎兵、英國靠海軍"],
+["糧","糧食與人口","能養活多少人，就決定國家能多大；饑荒和疾病會讓社會崩潰。","農業革命、黑死病、俄國革命"],
+["技","技術與工具","誰先掌握新技術，誰就變強。","文字、印刷術、大砲、蒸汽機、原子彈"],
+["貿","財富與貿易","爭奪商路、資源和市場，常常是探險和戰爭真正的原因。","絲路、十字軍、地理大發現、帝國主義"],
+["思","思想與信仰","新的想法會改變人們願意為什麼團結或反抗。","宗教、民主、啟蒙運動、共產主義"],
+["制","權力與制度","國家怎麼組織、權力怎麼分配，決定它能不能長久。","法典、皇帝制度、封建制度、憲法"]];
+const IC=[
+'<path d="M32 58V14"/><path d="M32 22c-8-2-10-8-10-12 6 0 10 4 10 12zM32 22c8-2 10-8 10-12-6 0-10 4-10 12zM32 34c-8-2-10-8-10-12 6 0 10 4 10 12zM32 34c8-2 10-8 10-12-6 0-10 4-10 12zM32 46c-8-2-10-8-10-12 6 0 10 4 10 12zM32 46c8-2 10-8 10-12-6 0-10 4-10 12z"/>',
+'<rect x="14" y="8" width="36" height="48" rx="6"/><path d="M22 20l5 3-5 3zM33 20l5 3-5 3zM22 32l5 3-5 3zM35 32l5 3-5 3zM26 44l5 3-5 3z"/>',
+'<path d="M18 56V18a14 14 0 0 1 28 0v38z"/><path d="M24 28h16M24 36h16M24 44h16M12 56h40"/>',
+'<text x="32" y="41" text-anchor="middle" font-size="22" font-weight="900" fill="currentColor" stroke="none" font-family="sans-serif">ABC</text><path d="M8 52h48"/>',
+'<path d="M32 16c-6-4-14-4-22-2v38c8-2 16-2 22 2 6-4 14-4 22-2V14c-8-2-16-2-22 2zM32 16v38"/>',
+'<rect x="12" y="32" width="40" height="24" rx="3"/><path d="M22 32h20"/><path d="M26 32V10h12v22"/><path d="M30 16h4M30 22h4"/>',
+'<circle cx="26" cy="38" r="16"/><circle cx="26" cy="38" r="5"/><path d="M46 6l10 2-4 9zM52 10L36 34"/>',
+'<path d="M4 56V36h8v-6h6v6h8v-6h6v6h8v-6h6v6h8v20z"/><path d="M14 44h4M30 44h4M46 44h4"/>',
+'<path d="M6 50c10 0 10-16 20-16s10 12 20 12 6-24 12-26" stroke-dasharray="4 5"/><circle cx="6" cy="50" r="4"/><circle cx="58" cy="20" r="4"/>',
+'<path d="M10 56V22h44v34M22 56V40a10 10 0 0 1 20 0v16M6 22h52M12 14h40"/>',
+'<path d="M16 56V30l16-12 16 12v26zM32 18V6M27 11h10M28 56V44h8v12"/>',
+'<path d="M18 8h28M22 8v20l6 4-4 4 4 4v16M42 8v16l-6 6 6 4v18M12 56h40"/>',
+'<text x="32" y="42" text-anchor="middle" font-size="20" font-weight="900" fill="currentColor" stroke="none" font-family="sans-serif">0123</text>',
+'<path d="M32 6l20 8v16c0 14-9 22-20 28-11-6-20-14-20-28V14z"/><path d="M32 16v32M22 28h20"/>',
+'<path d="M18 8c18 8 18 40 0 48"/><path d="M18 8v48"/><path d="M8 32h46M48 26l6 6-6 6"/>',
+'<ellipse cx="30" cy="38" rx="16" ry="10"/><path d="M14 38c-4 0-6 6-10 6M44 34l10 4-10 4"/><circle cx="40" cy="28" r="4"/><circle cx="48" cy="37" r="1" fill="currentColor"/>',
+'<path d="M32 8C16 8 6 20 6 32s10 22 22 22c4 0 4-4 2-7s0-7 4-7h8c10 0 16-6 16-14C58 16 46 8 32 8z"/><circle cx="20" cy="26" r="3"/><circle cx="32" cy="18" r="3"/><circle cx="44" cy="24" r="3"/>',
+'<path d="M8 56h48M14 56V10h36v46M14 18h36M32 18v12M22 30h20v8H22zM22 48h20"/>',
+'<path d="M8 44h48l-8 12H16z"/><path d="M32 44V6M32 10l16 14H32M32 14L18 34h14"/>',
+'<path d="M14 58V8h36v50"/><rect x="24" y="18" width="16" height="20"/><path d="M28 24h8M28 30h8"/><circle cx="32" cy="15" r="1.5" fill="currentColor"/>',
+'<path d="M8 30l36-14 4 10-36 14zM44 16l8-3 4 10-8 3M26 34l-8 22M30 33l8 23"/>',
+'<path d="M24 44c0-6-8-10-8-20a16 16 0 0 1 32 0c0 10-8 14-8 20zM24 50h16M26 56h12"/>',
+'<path d="M6 56V32l12 8v-8l12 8v-8l12 8V14h8v42zM4 56h56"/><path d="M44 9c2-4 8-4 10 0"/>',
+'<path d="M14 58V6M14 8h36l-8 10 8 10H14"/>',
+'<circle cx="28" cy="38" r="20"/><path d="M8 38h40M28 18c-8 8-8 32 0 40M28 18c8 8 8 32 0 40"/><path d="M44 24V4h14l-4 4 4 4H44"/>',
+'<path d="M10 42a22 20 0 0 1 44 0z"/><path d="M4 42h56M18 42v8M46 42v8"/>',
+'<circle cx="32" cy="28" r="18"/><path d="M14 28h36M32 10c-7 7-7 29 0 36M32 10c7 7 7 29 0 36"/><path d="M12 56c6-5 14-5 20 0 6-5 14-5 20 0"/>',
+'<path d="M32 4c10 8 12 22 8 36H24c-4-14-2-28 8-36z"/><circle cx="32" cy="22" r="4"/><path d="M24 40l-8 10h10M40 40l8 10H38M28 46l4 12 4-12"/>',
+'<rect x="20" y="24" width="24" height="36" rx="4"/><path d="M30 54h4M18 16a20 20 0 0 1 28 0M10 9a32 32 0 0 1 44 0"/>',
+'<path d="M4 54L32 10l28 44z"/><path d="M32 10l8 44M17 34h22"/>'
+];
+const svg=i=>`<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${IC[i]||''}</svg>`;
+let th="";
+const renderChain=()=>{
+ const [PA,PB]=pRange();const list=C.filter(c=>c[11]>=PA&&c[11]<PB&&(!th||c[6].includes(th)));
+ $('threads').innerHTML=`<button aria-pressed="${!th}" data-t="">全部</button>`+FO.map(f=>`<button aria-pressed="${f[0]===th}" data-t="${f[0]}">${f[1]}</button>`).join('');
+ [...$('threads').children].forEach(b=>b.onclick=()=>{th=b.dataset.t;renderChain()});
+ const fo=FO.find(f=>f[0]===th);
+ $('tline').innerHTML=fo?`<div class="fo-h">${fo[1]}</div><div>${fo[2]}</div><div class="fo-c">${list.map(c=>c[2]).join(' → ')}</div>`:'';
+ $('nodes').innerHTML=nodeHTML(list);observeNodes();
+ $('nodes').querySelectorAll('.fos button').forEach(b=>b.onclick=()=>{th=b.dataset.t;renderChain();$('chain').scrollIntoView()});
+ $('fogrid').innerHTML=FO.map(f=>`<button class="fo${f[0]===th?' on':''}" data-t="${f[0]}"><b>${f[1]}</b><span>${f[2]}</span><small>例：${f[3]}</small></button>`).join('');
+ $('fogrid').querySelectorAll('button').forEach(b=>b.onclick=()=>{th=th===b.dataset.t?'':b.dataset.t;renderChain()});
+};
+let tab='learn';
+const setTab=w=>{tab=w;$('pracwrap').hidden=true;[['t6','learn'],['t7','tlv'],['t0','chain'],['t4','rgv'],['t3','mapv'],['t5','ppl'],['t1','periods'],['t2','world']].forEach(([b,v])=>{$(b).setAttribute('aria-selected',v===w);$(v).hidden=v!==w});if(w==='mapv'){const[PA,PB]=pRange();const idx=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=PA-1&&m[0]<PB).map(m=>m[1]);LR=idx.length?[idx[0],idx[idx.length-1]]:null;if(LR&&(mi<LR[0]||mi>LR[1]))mi=LR[0];LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'));syncSlider();drawMap()}document.body.classList.toggle('tlmode',w==='tlv');if(w==='tlv'){renderTL()}if(w==='learn')renderLesson();const tb=document.querySelector('.tabs');if(tb&&!$('app').hidden){const y=tb.getBoundingClientRect().top+scrollY-4;if(scrollY>y)window.scrollTo(0,y)}};
+$('t0').onclick=()=>setTab('chain');$('t1').onclick=()=>setTab('periods');$('t2').onclick=()=>setTab('world');$('t3').onclick=()=>setTab('mapv');$('t6').onclick=()=>setTab('learn');$('t7').onclick=()=>setTab('tlv');$('t4').onclick=()=>setTab('rgv');$('t5').onclick=()=>setTab('ppl');
+
+// 列國分合：[起始年, 年代, 政權, 說明, 類型(合/分/外/新/'')]
+const RG=[
+["中國",[
+[-2070,"約前2070～前1600","夏（傳說）","文獻記載的第一個王朝",""],
+[-1600,"約前1600～前1046","商","約前1600年推翻夏朝建立，留下甲骨文和精美的青銅器，是有文字記載的最早王朝",""],
+[-1046,"前1046～前771","西周","分封諸侯，提出天命觀",""],
+[-770,"前770～前221","春秋戰國","周天子衰弱，諸侯互相兼併；百家爭鳴","分"],
+[-221,"前221～前206","秦","秦滅六國，第一次大一統，建立皇帝制度","合"],
+[-202,"前202～220","漢","統一四百年；開通絲路，儒家成為正統","合"],
+[220,"220～280","三國","東漢瓦解，魏、蜀、吳三分天下","分"],
+[266,"266～316","西晉","司馬氏取代曹魏、滅吳統一全國，但不久就因內亂和北方民族入侵而崩潰","合"],
+[317,"317～589","東晉、十六國、南北朝","北方遊牧民族入主中原，南北分裂近三百年","分"],
+[581,"581～618","隋","重新統一南北，開鑿大運河、創科舉","合"],
+[618,"618～907","唐","國際大帝國，文化影響東亞","合"],
+[907,"907～979","五代十國","唐朝滅亡後，北方換了五個朝代、南方分成十幾個國家，分裂了七十多年","分"],
+[960,"960～1279","宋（北宋、南宋）","與遼、西夏、金並立；經濟與科技發達","分"],
+[1271,"1271～1368","元","蒙古人忽必烈建立的王朝，滅了南宋，第一次由北方遊牧民族統治全中國","外"],
+[1368,"1368～1644","明","漢人重建王朝；鄭和下西洋","合"],
+[1644,"1644～1912","清","滿洲人入關；康熙年間納入臺灣","外"],
+[1912,"1912～","中華民國","辛亥革命推翻清朝後建立，結束兩千多年的帝制，是亞洲第一個民主共和國","新"],
+[1949,"1949～","兩岸分治","中華民國政府遷臺；中華人民共和國在大陸成立","分"]]],
+["臺灣",[
+[-4000,"數千年前起","史前時代（原住民族社會）","南島語族在臺灣各地生活",""],
+[1624,"1624～1662","大航海時代（荷蘭、西班牙）","荷蘭統治南部，西班牙曾占領北部（1626～1642）","外"],
+[1662,"1662～1683","鄭氏時期","鄭成功打敗荷蘭人，以臺灣為反清基地","新"],
+[1683,"1683～1895","清帝國時期","1683年清朝把臺灣納入版圖，大量漢人從福建、廣東移民來開墾","外"],
+[1895,"1895～1945","日治時期","甲午戰爭後清朝割讓臺灣","外"],
+[1945,"1945～","中華民國在臺灣","二戰結束後接收；1949年中華民國政府遷臺","新"]]],
+["日本",[
+[-300,"約前300～300","彌生時代","從大陸傳入稻作和金屬器",""],
+[300,"約300～710","大和政權、飛鳥時代","統一各地豪族，引進佛教","合"],
+[710,"710～794","奈良時代","模仿唐朝的制度與都城",""],
+[794,"794～1185","平安時代","貴族文化，發展出假名文字",""],
+[1185,"1185～1333","鎌倉幕府","武士掌權，兩次擊退元軍",""],
+[1336,"1336～1573","室町幕府、戰國時代","幕府衰弱，各地大名混戰","分"],
+[1603,"1603～1867","江戶幕府","德川家統一日本，鎖國兩百多年","合"],
+[1868,"1868～1945","明治維新、大日本帝國","學習西方快速工業化，向外擴張","新"],
+[1945,"1945～","戰後日本","二戰戰敗，制定和平憲法","新"]]],
+["朝鮮半島",[
+[-300,"？～前108","古朝鮮","朝鮮半島北部最早出現的國家，前108年被漢武帝消滅",""],
+[-57,"約前1世紀～668","三國（高句麗、百濟、新羅）","半島上的三個王國：北方的高句麗、西南的百濟、東南的新羅，互相競爭了幾百年","分"],
+[668,"668～935","統一新羅","新羅聯合唐朝統一半島","合"],
+[918,"918～1392","高麗","英文 Korea 的由來",""],
+[1392,"1392～1910","朝鮮王朝","創造韓文（訓民正音）",""],
+[1910,"1910～1945","日本統治","1910年日本併吞朝鮮，統治到1945年二戰結束","外"],
+[1948,"1948～","南北韓分立","二戰後由美蘇分區占領，形成兩個國家","分"]]],
+["印度",[
+[-2600,"約前2600～前1900","印度河流域文明","在今天巴基斯坦一帶的古文明，有規劃整齊的城市和下水道，文字至今讀不懂",""],
+[-1500,"約前1500～前500","雅利安人、吠陀時代","形成種姓制度與婆羅門教","外"],
+[-600,"前6世紀","列國時代","北印度分成十幾個王國互相競爭，釋迦牟尼就在這時創立佛教","分"],
+[-322,"前322～前185","孔雀帝國","第一次統一大半個印度；阿育王推廣佛教","合"],
+[30,"1～3世紀","貴霜帝國","從中國西北遷來的月氏人建立，控制北印度和絲路中段，幫助佛教傳到中國","外"],
+[320,"約320～550","笈多帝國","印度教文化的黃金時代","合"],
+[550,"6～12世紀","各王國並立","北方分裂，南方王國興起","分"],
+[1206,"1206～1526","德里蘇丹國","伊斯蘭政權統治北印度","外"],
+[1526,"1526～1857","蒙兀兒帝國","帖木兒的後代從中亞攻入印度建立的伊斯蘭帝國，蓋了泰姬瑪哈陵","外"],
+[1858,"1858～1947","英屬印度","東印度公司之後由英國直接統治","外"],
+[1947,"1947～","印度、巴基斯坦獨立","依宗教分治；1971年孟加拉從巴基斯坦獨立","分"]]],
+["伊朗（波斯）",[
+[-550,"前550～前330","波斯帝國（阿契美尼德）","居魯士大帝建立，領土從埃及延伸到印度邊境，是當時世界最大的帝國","合"],
+[-330,"前330～前247","亞歷山大、塞琉古王國","波斯帝國被亞歷山大消滅，他死後由將軍塞琉古建立的希臘化王國統治","外"],
+[-247,"前247～224","安息帝國","伊朗東北的遊牧民族建立，趕走希臘人，和羅馬帝國長期對抗","新"],
+[224,"224～651","薩珊波斯","伊朗人重新建立的波斯王朝，波斯文化復興，最後被阿拉伯帝國消滅","新"],
+[651,"651～1501","阿拉伯、塞爾柱、蒙古等統治","伊斯蘭化；蒙古人建立伊兒汗國","外"],
+[1501,"1501～1736","薩法維王朝","以什葉派為國教，影響到今天","新"],
+[1789,"1789～1925","卡扎爾王朝","被英、俄兩國勢力夾擊",""],
+[1925,"1925～1979","巴勒維王朝","軍官禮薩汗建立的王朝，推動西化和現代化，1979年被伊斯蘭革命推翻",""],
+[1979,"1979～","伊朗伊斯蘭共和國","伊斯蘭革命後由宗教領袖掌權","新"]]],
+["西亞（兩河流域到土耳其）",[
+[-3500,"約前3500","蘇美城邦","蘇美人在兩河流域南部建立的一座座城市國家，發明了楔形文字",""],
+[-2300,"約前2300","阿卡德帝國","第一個統一兩河的帝國","合"],
+[-1800,"約前1800","古巴比倫","以巴比倫城為中心的王國，國王漢摩拉比統一兩河流域並頒布法典",""],
+[-900,"前9～前7世紀","亞述帝國","兩河北部的亞述人用強大軍隊和鐵製武器統一西亞，以嚴酷統治聞名","合"],
+[-626,"前626～前539","新巴比倫","亞述滅亡後巴比倫再度興起，國王尼布甲尼撒二世重建巴比倫城，有「空中花園」的傳說",""],
+[-539,"前539～7世紀","波斯、希臘化、羅馬、安息與薩珊","這一千年西亞沒有本地的大國，由波斯、亞歷山大的後繼者、羅馬、安息、薩珊等外來帝國輪流統治","外"],
+[661,"661～1258","阿拉伯帝國（伍麥亞、阿拔斯）","首都巴格達是世界學術中心","合"],
+[1037,"11～13世紀","塞爾柱突厥","打敗拜占庭，引發十字軍","外"],
+[1258,"1258","蒙古攻破巴格達","成吉思汗的孫子旭烈兀攻下巴格達，阿拉伯帝國的阿拔斯王朝滅亡","外"],
+[1299,"1299～1922","鄂圖曼帝國","1453年攻下君士坦丁堡，統治西亞六百年","合"],
+[1923,"1923～","土耳其及中東各國","一戰後帝國瓦解；伊拉克、敘利亞等先由英法託管，後來獨立；1948年以色列建國","分"]]],
+["埃及",[
+[-3100,"約前3100～前332","古埃及","法老、金字塔、象形文字","合"],
+[-332,"前332～前30","亞歷山大、托勒密王朝","希臘人統治，埃及豔后是最後一位法老","外"],
+[-30,"前30～641","羅馬、拜占庭","埃及被羅馬併吞，成為供應羅馬糧食的重要行省，之後歸東羅馬（拜占庭）統治","外"],
+[641,"641～969","阿拉伯帝國","641年阿拉伯軍隊佔領埃及，埃及人逐漸改信伊斯蘭教、改說阿拉伯語","外"],
+[969,"969～1171","法蒂瑪王朝","什葉派的伊斯蘭王朝，佔領埃及後建立開羅城",""],
+[1171,"1171～1250","阿尤布王朝","薩拉丁建立的王朝，打敗十字軍、收復耶路撒冷",""],
+[1250,"1250～1517","馬木路克王朝","奴隸出身的軍人在埃及建立的王朝，1260年擋住蒙古西進",""],
+[1517,"1517～1882","鄂圖曼帝國","1517年鄂圖曼帝國消滅馬木路克王朝，埃及成為鄂圖曼的一個行省","外"],
+[1882,"1882～1922","英國控制","為了保護通往印度的蘇伊士運河，英國出兵控制埃及","外"],
+[1922,"1922～","埃及獨立","1952年改為共和國","新"]]],
+["希臘、巴爾幹",[
+[-2000,"約前2000～前1100","米諾斯、邁錫尼文明","克里特島的米諾斯文明和希臘本土的邁錫尼文明，是愛琴海最早的文明",""],
+[-800,"前8～前4世紀","希臘城邦","雅典民主、斯巴達軍國","分"],
+[-338,"前338～前146","馬其頓、希臘化時代","北方的馬其頓王國統一希臘，亞歷山大東征後進入希臘化時代","合"],
+[-146,"前146～1453","羅馬、拜占庭","希臘文化在拜占庭延續一千年","外"],
+[1453,"1453～19世紀","鄂圖曼帝國","巴爾幹被統治近四百年","外"],
+[1830,"1830～1913","巴爾幹各國獨立","希臘、塞爾維亞、保加利亞等陸續獨立，成為「歐洲火藥庫」","分"],
+[1918,"1918～1991","南斯拉夫","一戰後成立，1990年代解體成多國","合"],
+[1991,"1991～","巴爾幹各國","南斯拉夫解體成斯洛維尼亞、克羅埃西亞、塞爾維亞等國","分"]]],
+["義大利",[
+[-509,"前509～前27","羅馬共和","羅馬人趕走國王，由選出來的執政官和元老院治理，逐步打下整個地中海","新"],
+[-27,"前27～476","羅馬帝國","西羅馬在476年滅亡","合"],
+[476,"476～11世紀","日耳曼王國、教皇國","東哥德、倫巴底人統治，教宗擁有土地","分"],
+[1000,"11～16世紀","威尼斯、佛羅倫斯等城邦","商業興盛，文藝復興的發源地","分"],
+[1500,"16～19世紀","外國統治","西班牙、奧地利、法國輪流控制","外"],
+[1861,"1861／1870","義大利統一","以薩丁尼亞王國為核心完成統一","合"],
+[1922,"1922～1943","法西斯政權","墨索里尼掌權，二戰加入軸心國",""],
+[1946,"1946～","義大利共和國","二戰後義大利公投廢除國王，改成共和國，一直到今天",""]]],
+["法國",[
+[-50,"前1世紀～5世紀","高盧（羅馬行省）","今天法國一帶古代叫高盧，凱撒征服後成為羅馬的行省","外"],
+[481,"481～843","法蘭克王國","800年查理曼加冕為皇帝","合"],
+[843,"843","凡爾登條約","查理曼帝國一分為三，西法蘭克就是法國的前身","分"],
+[987,"987～1328","卡佩王朝","法國國王逐漸集中權力",""],
+[1337,"1337～1453","英法百年戰爭","聖女貞德；戰後法國民族意識形成",""],
+[1589,"1589～1792","波旁王朝","路易十四：「朕即國家」",""],
+[1789,"1789～1815","法國大革命、拿破崙帝國","推翻王權，拿破崙征服大半歐洲","新"],
+[1870,"1870～","共和國","第三共和到今天的第五共和","新"]]],
+["德國",[
+[-100,"古代","日耳曼部落","羅馬人稱他們為「蠻族」",""],
+[843,"843","東法蘭克","查理曼帝國分裂後的東半部","分"],
+[962,"962～1806","神聖羅馬帝國","名義上的帝國，其實分成數百個小邦","分"],
+[1517,"1517～1648","宗教改革、三十年戰爭","德國成為宗教戰爭的戰場","分"],
+[1701,"1701～1871","普魯士崛起","德意志北部的普魯士王國以強大軍隊和效率聞名，逐漸成為德意志最強的國家",""],
+[1871,"1871～1918","德意志帝國","普魯士打敗奧地利和法國後統一德國，國王成為德意志皇帝","合"],
+[1919,"1919～1933","威瑪共和","一戰戰敗後德國皇帝退位，在威瑪制定憲法建立的民主共和國","新"],
+[1933,"1933～1945","納粹德國","希特勒領導的納粹黨獨裁統治德國，發動二戰並屠殺猶太人",""],
+[1949,"1949～1990","東德、西德","二戰後分裂成兩個國家","分"],
+[1990,"1990～","統一的德國","1989年柏林圍牆倒下，隔年東德併入西德，德國重新統一","合"]]],
+["英國",[
+[43,"43～410","羅馬不列顛","羅馬帝國征服不列顛島南部，統治了將近四百年","外"],
+[450,"5～11世紀","盎格魯－撒克遜諸國","日耳曼人移入；後來遭維京人入侵","分"],
+[1066,"1066","諾曼征服","法國諾曼第公爵征服英格蘭","外"],
+[1215,"1215","大憲章","國王的權力第一次受到限制",""],
+[1485,"1485～1603","都鐸王朝","英國國教會；伊莉莎白一世打敗西班牙無敵艦隊",""],
+[1688,"1688","光榮革命","國會趕走國王詹姆士二世，迎立新國王並通過《權利法案》，確立國王要受國會限制",""],
+[1707,"1707～","大不列顛聯合王國","英格蘭和蘇格蘭在1707年合併成一個國家，就是後來的英國","合"],
+[1800,"19世紀","大英帝國","工業革命；殖民地遍布全球，號稱「日不落國」",""],
+[1945,"1945～","大英國協","殖民地紛紛獨立，大英帝國改組為大英國協",""]]],
+["西班牙、葡萄牙",[
+[-200,"前2世紀～5世紀","羅馬行省","伊比利半島被羅馬征服，成為羅馬的行省，語言後來演變成西班牙語、葡萄牙語","外"],
+[418,"418～711","西哥德王國","日耳曼人的一支西哥德人，在西羅馬衰落時佔領伊比利半島建立的王國","新"],
+[711,"711～1492","伊斯蘭統治","阿拉伯人與北非柏柏人占領大半個半島","外"],
+[722,"722～1492","收復失地運動","北方基督教王國一路往南反攻；葡萄牙在12世紀建國",""],
+[1479,"1479～1492","西班牙統一","卡斯提爾與亞拉岡合併；1492年收復格拉納達，同年哥倫布出航","合"],
+[1500,"16世紀","海上帝國","西、葡瓜分新航路與美洲殖民地",""],
+[1810,"19世紀","殖民地紛紛獨立","拉丁美洲各國獨立，西、葡國力衰退",""],
+[1975,"1974～1975起","民主化的西班牙、葡萄牙","獨裁政權結束，後來加入歐洲共同體","新"]]],
+["俄羅斯",[
+[862,"約862～1240","基輔羅斯","維京人建立；988年改信東正教","新"],
+[1240,"1240～1480","蒙古統治（金帳汗國）","1240年蒙古攻下基輔，之後俄羅斯各公國要向蒙古金帳汗國納貢兩百多年","外"],
+[1480,"1480","莫斯科大公國獨立","莫斯科的大公伊凡三世不再向蒙古金帳汗國納貢，正式擺脫蒙古統治","新"],
+[1547,"1547","伊凡四世稱沙皇","莫斯科大公伊凡四世正式自稱「沙皇」（皇帝），俄羅斯開始向東擴張",""],
+[1613,"1613～1917","羅曼諾夫王朝","彼得大帝西化改革；一路擴張到太平洋，成為俄羅斯帝國","合"],
+[1917,"1917","俄國革命","一戰期間人民推翻沙皇，同年列寧領導的共產黨奪取政權","新"],
+[1922,"1922～1991","蘇聯","世界第一個共產國家；冷戰時的超級強權","合"],
+[1991,"1991～","俄羅斯聯邦與其他14國","1991年蘇聯解體，分成俄羅斯和烏克蘭、哈薩克等14個國家","分"]]],
+["北美洲",[
+[-10000,"上萬年前起","原住民各族","各地有不同的部族與文化",""],
+[1607,"17世紀起","英、法殖民","英國建立13州殖民地","外"],
+[1776,"1776／1783","美國獨立","北美13個英國殖民地不滿英國課稅，發表《獨立宣言》並打贏獨立戰爭","新"],
+[1803,"19世紀","西進擴張","買下路易斯安那，一路擴張到太平洋",""],
+[1861,"1861～1865","南北戰爭","北方勝利，廢除奴隸制度","分"],
+[1917,"20世紀","世界強權","參加兩次世界大戰，冷戰的超級強權",""]]],
+["中南美洲",[
+[-1200,"約前1200～前400","奧爾梅克文明","中美洲（今墨西哥南部）最早的文明，雕刻巨大的石頭人像",""],
+[250,"250～900","馬雅鼎盛期","城邦、金字塔神廟、曆法與文字","分"],
+[1325,"1325～1521","阿茲特克帝國","首都在今天的墨西哥城","合"],
+[1438,"1438～1533","印加帝國","南美洲安地斯山的大帝國","合"],
+[1521,"16～19世紀","西班牙、葡萄牙殖民","帶來天主教、西班牙語，也帶來傳染病","外"],
+[1810,"1810～1825","獨立運動","玻利瓦等人領導，形成今天的拉丁美洲各國","分"]]],
+["撒哈拉以南非洲",[
+[-1000,"前1000年起","班圖人遷徙","農業與鐵器傳遍非洲中南部",""],
+[700,"8～16世紀","迦納、馬利、桑海王國","靠黃金和鹽的貿易致富；大辛巴威在南部興起",""],
+[1450,"15～19世紀","奴隸貿易","歐洲人把上千萬非洲人賣到美洲","外"],
+[1884,"1884～1914","瓜分非洲","柏林會議後，列強把非洲幾乎瓜分完畢","外"],
+[1957,"1957～","非洲國家獨立","1960年有17國獨立，被稱為「非洲年」","新"]]]
+];
+const TY={"合":["統一","#2f9e5b"],"分":["分裂","#d64545"],"外":["外來統治","#8a6d3b"],"新":["新政權","#3f73c9"]};
+const pOf=y=>y<-500?0:y<500?1:y<1400?2:y<1700?3:4;
+let rg=0;
+const renderRG=()=>{
+ $('rgchips').innerHTML=RG.map((r,i)=>`<button aria-pressed="${i===rg}" data-i="${i}">${r[0]}</button>`).join('');
+ [...$('rgchips').children].forEach(b=>b.onclick=()=>{rg=+b.dataset.i;renderRG()});
+ const r=RG[rg],[PA,PB]=pRange();
+ const its=r[1].filter((x,i)=>{const e=i+1<r[1].length?r[1][i+1][0]:9999;return x[0]<PB&&e>PA});
+ $('rgsum').textContent=its.length?r[0]+'（'+P[LS[ls][4]].n+'）：'+its.map(x=>x[2]).join(' → '):r[0]+'：這個時期還沒有形成國家，或沒有整理到這一段';
+ $('rglist').innerHTML=its.map(x=>{const p=pOf(x[0]),t=TY[x[4]];return `<div class="rgi"><div class="rgd" style="background:${pc[p]}"></div><div class="rgb"><div class="rgy">${x[1]}<span class="tag" style="background:${pc[p]}">${P[p].n}</span>${t?`<span class="ty" style="color:${t[1]};border-color:${t[1]}">${t[0]}</span>`:''}</div><b>${TR(x[2],r[0])}</b>${x[3]?`<small>${T(x[3])}</small>`:''}</div></div>`}).join('');
+};
+
+// 關鍵人物：[時期, 名字, 年代, 做了什麼, 因此改變了什麼]
+const PP=[
+[0,"古夫法老","約前26世紀","下令建造埃及最大的金字塔","展現古埃及王權和工程能力的巔峰"],
+[0,"漢摩拉比","約前18世紀","巴比倫國王，把法律刻在石柱上公布","「法律要寫下來、大家都要遵守」的觀念從此出現"],
+[0,"周武王","約前11世紀","起兵推翻商朝，建立周朝","周朝提出「天命」，君主失德就會被取代，影響中國兩千多年"],
+[1,"孔子","前551～前479","周遊列國講學，主張仁愛與禮，開辦私人教育","儒家思想成為東亞社會的核心價值"],
+[1,"釋迦牟尼","約前6～前5世紀","在印度創立佛教，主張眾生平等、解脫痛苦","佛教傳到中國、日本、東南亞，成為世界三大宗教之一"],
+[1,"蘇格拉底、柏拉圖、亞里斯多德","前5～前4世紀","用提問和推理探討真理、政治與自然","奠定西方哲學與科學的基礎"],
+[0,"居魯士大帝","前6世紀","建立波斯帝國，以寬容對待被征服的民族","第一個橫跨亞非的大帝國，成為後來帝國的模範"],
+[1,"亞歷山大大帝","前356～前323","十年內征服波斯，一路打到印度邊境","希臘文化傳遍東方，開啟希臘化時代"],
+[1,"阿育王","前3世紀","統一大半個印度，後來厭惡戰爭、推廣佛教","佛教從印度向外傳播"],
+[1,"秦始皇","前259～前210","統一六國，統一文字、貨幣、度量衡","建立延續兩千年的皇帝制度和大一統觀念"],
+[1,"漢武帝、張騫","前2世紀","漢武帝派張騫出使西域，並獨尊儒術","開啟絲路；儒家成為中國的正統思想"],
+[1,"凱撒、屋大維","前1世紀","凱撒掌握羅馬大權；屋大維成為第一位皇帝","羅馬從共和變成帝國"],
+[1,"耶穌","約前4～約30","在巴勒斯坦傳教，主張愛與寬恕","基督教成為世界最大的宗教"],
+[1,"君士坦丁大帝","272～337","承認基督教合法，遷都君士坦丁堡","基督教成為歐洲主流；君士坦丁堡成為東羅馬一千年的首都"],
+[2,"查士丁尼","482～565","拜占庭皇帝，整理羅馬法，建造聖索菲亞大教堂","《查士丁尼法典》成為歐洲民法的源頭"],
+[2,"穆罕默德","約570～632","創立伊斯蘭教，統一阿拉伯半島","阿拉伯帝國迅速崛起，伊斯蘭教傳遍三大洲"],
+[2,"唐太宗","598～649","開創「貞觀之治」，被各族尊稱為「天可汗」","唐朝成為東亞的文化中心"],
+[2,"查理曼","742～814","統一西歐大部分地區，800年被教宗加冕為皇帝","他的帝國分裂後，發展成法國、德國、義大利"],
+[2,"教宗烏爾班二世","約1035～1099","1095年號召西歐人發動十字軍東征","東西方接觸增加，義大利城市致富"],
+[2,"成吉思汗","約1162～1227","統一蒙古各部，向外征服","建立歷史上最大的陸地帝國之一，打通歐亞交流"],
+[2,"忽必烈","1215～1294","建立元朝，統一中國","馬可波羅來到中國，東西交流達到高峰"],
+[3,"鄭和","1371～1433","率領龐大船隊七次下西洋","展現明朝的航海實力，但之後中國停止遠洋探索"],
+[3,"古騰堡","約1400～1468","發明金屬活字印刷","知識快速傳播，推動宗教改革和科學革命"],
+[3,"達文西","1452～1519","畫家也是發明家，研究人體、設計機器","文藝復興「全才」的代表"],
+[3,"哥倫布","1451～1506","1492年橫越大西洋抵達美洲","開啟歐洲殖民美洲，世界從此連成一體"],
+[3,"麥哲倫","約1480～1521","率領船隊完成第一次環球航行（他本人死於途中）","證明地球是圓的，海洋可以互相連通"],
+[3,"馬丁路德","1483～1546","1517年批評教會販賣贖罪券","基督教分裂出新教，歐洲宗教版圖改變"],
+[3,"牛頓","1643～1727","提出萬有引力和運動定律","用數學解釋自然，奠定現代物理"],
+[3,"鄭成功","1624～1662","打敗荷蘭人，以臺灣作為反清基地","漢人大量移入臺灣"],
+[4,"瓦特","1736～1819","改良蒸汽機，讓它更有效率","推動工業革命"],
+[4,"華盛頓","1732～1799","領導美國獨立戰爭，當首任總統，兩任後主動卸任","立下民主國家和平交接權力的榜樣"],
+[4,"拿破崙","1769～1821","征服大半個歐洲，頒布《拿破崙法典》","把法國大革命的平等觀念傳遍歐洲，也激起各地的民族主義"],
+[4,"孫中山","1866～1925","領導革命，推翻清朝","建立亞洲第一個民主共和國——中華民國"],
+[4,"列寧","1870～1924","領導俄國共產革命","建立蘇聯，共產主義成為影響二十世紀的力量"],
+[4,"甘地","1869～1948","用「非暴力不合作」對抗英國統治","印度1947年獨立，啟發各地的獨立與民權運動"],
+[4,"希特勒","1889～1945","納粹德國領導人，發動二戰並屠殺數百萬猶太人","二戰造成數千萬人死亡；戰後各國建立聯合國和人權規範"],
+[4,"邱吉爾、羅斯福","二戰期間","英國首相與美國總統，領導同盟國作戰","同盟國打贏二戰，並規劃戰後的聯合國"],
+[4,"戈巴契夫","1931～2022","推動蘇聯改革開放，不阻止東歐脫離蘇聯","冷戰結束，蘇聯解體"],
+[4,"提姆・柏納李","1955～","1989年發明全球資訊網（WWW）","網路走進每個人的生活，開啟資訊時代"]
+];
+function renderPP(){const cp=LS[ls][4];$('pplist').innerHTML=P.map((p,pi)=>pi!==cp?'':`<h3 class="pph" style="color:${pc[pi]}">${p.n}<span>${p.y}</span></h3>`+PP.filter(x=>x[0]===pi).map(x=>`<div class="pp"><div class="pm" style="background:${pc[pi]}">${x[1][0]}</div><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div><a class="photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(x[1].split('、')[0])}" target="_blank" rel="noopener">看畫像或照片 ↗</a></div></div>`).join('')).join('')}
+
+// 每件事「是什麼」（對應 C 的順序）
+const CW=[
+"人類從「打獵、採集野果」變成「自己種田、養牲畜」的大轉變。最早發生在西亞的「肥沃月彎」（今天的伊拉克、敘利亞一帶），人們開始種小麥、大麥，養羊和牛。",
+"兩河流域南部的蘇美人蓋了很多城市，並發明楔形文字：用削尖的蘆葦在濕泥板上壓出符號，晒乾就能保存。最早是用來記錄繳了多少糧食。",
+"古埃及國王（法老）的巨大石造陵墓。最大的古夫金字塔在開羅附近，原本高約146公尺，用了大約230萬塊巨石。",
+"地中海東部愛琴海一帶的古文明，包括克里特島上的米諾斯文明（有巨大的克諾索斯宮殿）和希臘本土的邁錫尼文明。",
+"一根兩公尺多高的黑色石柱，上面刻了將近300條法律。是古巴比倫（在今天的伊拉克）國王漢摩拉比下令刻的，立在城裡讓人民看。最有名的一條是「以眼還眼、以牙還牙」。這根石柱現在收藏在法國的羅浮宮。",
+"周原本是商朝西邊的一個小國（諸侯）。商朝最後一位國王紂王很殘暴，周武王聯合各地諸侯在「牧野之戰」打敗商朝，建立周朝。",
+"腓尼基人住在地中海東岸（今天的黎巴嫩），是很會做生意的航海民族。他們的文字只有22個字母，比楔形文字、象形文字簡單很多。",
+"希臘人在多山的半島和島嶼上建立了幾百個獨立的城市國家（城邦），例如雅典和斯巴達。各城邦說同樣的語言、拜同樣的神，前776年開始一起舉辦奧林匹克運動會。",
+"居魯士大帝在今天的伊朗建立波斯帝國，後來領土從埃及延伸到印度邊境。帝國修築「御道」、設置驛站，讓命令可以快速傳遍各地。",
+"義大利中部的城市羅馬，前509年趕走國王，改由每年選出的兩位執政官和元老院一起治理國家，這種制度叫共和。",
+"大約西元前500年前後，世界上幾個地方同時出現偉大的思想家：中國的孔子、老子，印度的釋迦牟尼（佛陀），希臘的蘇格拉底等人。",
+"雅典是希臘的一個城邦。成年男性公民可以到「公民大會」發言、投票，直接決定國家大事。不過女性、奴隸和外國人不能參加。",
+"亞歷山大是希臘北方馬其頓王國的國王，20歲即位。他從前334年開始帶兵向東打，滅了波斯帝國，一路打到埃及和印度邊境，32歲就病死了。",
+"戰國時代，中國分成七個大國互相打仗（戰國七雄）。西邊的秦國最強，秦王嬴政在前221年消滅其他六國，自稱「始皇帝」，就是秦始皇。",
+"不是一條路，而是連接中國和地中海的許多條商路的總稱，要穿過沙漠和高山。因為中國的絲綢是最有名的商品，後人把它叫做「絲路」。",
+"羅馬原本是義大利的一座城市，前509年起是共和國。打下整個地中海後，將軍們互相內戰；凱撒的養子屋大維獲勝，前27年成為第一位皇帝。",
+"耶穌是羅馬統治下巴勒斯坦地區的猶太人，傳教說上帝愛所有人。他被釘死在十字架上後，門徒繼續傳教，信徒越來越多。經典是《聖經》。",
+"395年羅馬帝國分成東、西兩半。西半部越來越弱，日耳曼人大批移入。476年一位日耳曼將領廢掉最後一位西羅馬皇帝，西羅馬帝國就此結束。",
+"東羅馬帝國後來被叫做「拜占庭帝國」，首都君士坦丁堡。查士丁尼皇帝在位時最強盛，他請學者把羅馬幾百年的法律整理成一套法典，又蓋了宏偉的聖索菲亞大教堂。",
+"中國繼隋朝之後的王朝，首都長安（今天的西安）。唐太宗李世民在位時政治清明，稱為「貞觀之治」；各國商人、留學生、僧侶都來到長安。",
+"穆罕默德是阿拉伯半島麥加城的商人，約610年開始傳教，說只有一位真神「阿拉」。信徒叫「穆斯林」，經典是《古蘭經》。他死後，繼承人（哈里發）帶領阿拉伯人向外征服。",
+"查理曼是法蘭克王國的國王（法蘭克人是日耳曼人的一支）。他打下西歐大部分地區，800年聖誕節，教宗在羅馬的教堂替他戴上皇冠。",
+"封建制度是國王把土地分給貴族，貴族答應替國王打仗；農奴在貴族的莊園種田。維京人是住在北歐（今天的挪威、瑞典、丹麥）的航海民族，駕著長船到處搶劫和貿易。",
+"塞爾柱人是從中亞往西遷移的突厥人，信仰伊斯蘭教。1071年他們在曼齊刻爾特戰役大敗拜占庭軍隊，占領小亞細亞。",
+"1095年教宗號召西歐的騎士和平民去「奪回聖地」耶路撒冷，參加的人衣服上縫著十字架，所以叫「十字軍」。前後打了大約兩百年。",
+"蒙古人是住在蒙古草原上的遊牧民族，騎馬射箭非常厲害。鐵木真在1206年統一各部落，被尊稱為「成吉思汗」（意思是偉大的統治者）。",
+"馬可波羅是義大利威尼斯的商人。他跟著父親和叔叔沿著絲路來到中國，在忽必烈的朝廷待了十幾年，回國後的見聞被寫成《馬可波羅遊記》。",
+"一種由老鼠身上的跳蚤傳染的鼠疫。1347年從黑海一帶傳進歐洲，幾年內死了大約三分之一的歐洲人。",
+"「文藝復興」的意思是讓古希臘、羅馬的文化重新復活。從14世紀義大利的城市（例如佛羅倫斯）開始，藝術家研究古代作品，畫出更真實的人體和風景，例如達文西的《蒙娜麗莎》。",
+"鄭和是明朝的宦官。明成祖派他率領兩百多艘船、兩萬多人的大船隊，七次航行到東南亞、印度、阿拉伯和非洲東岸。",
+"以前歐洲的書都要用手抄，非常貴。德國人古騰堡做出可以重複排列的金屬字塊，再把壓葡萄的壓榨機改成印刷機，一次就能印很多頁。他印的第一本大書是《聖經》。",
+"鄂圖曼帝國的蘇丹穆罕默德二世，帶兵包圍君士坦丁堡，用巨大的大砲轟破城牆。延續一千多年的拜占庭帝國從此滅亡，這座城後來改名伊斯坦堡。",
+"義大利航海家哥倫布得到西班牙女王資助，想往西橫越大西洋到印度和中國。他其實抵達的是加勒比海的島嶼（美洲），卻以為到了印度，所以美洲原住民被叫做「印第安人」。",
+"當時天主教會賣贖罪券。德國修士馬丁路德在1517年寫了《九十五條論綱》批評教會，主張信仰只看《聖經》。支持他的人另外成立教會，叫「新教」。",
+"16～17世紀，學者開始用觀察、實驗和數學研究自然：哥白尼提出地球繞著太陽轉，伽利略用望遠鏡觀察星空，牛頓提出萬有引力。",
+"鄭成功是明朝末年的將領，父親是海商鄭芝龍，母親是日本人。明朝滅亡後他繼續抵抗清朝，1661年渡海攻打臺灣，隔年趕走了統治臺灣38年的荷蘭人。",
+"18世紀歐洲的一場思想運動，「啟蒙」是用理性照亮無知的意思。孟德斯鳩主張三權分立；盧梭主張國家的權力來自人民。",
+"18世紀中期從英國開始，人們發明機器來織布，又改良蒸汽機當動力，工廠大量生產商品；後來又有火車和輪船。生產方式從「手工」變成「機器」。",
+"1776年，北美13個英國殖民地發表《獨立宣言》，打敗英國，建立美國。1789年，法國人民攻占巴士底監獄，推翻國王，發表《人權宣言》。",
+"英國人想買中國的茶，卻沒有中國想要的商品，就把印度種的鴉片（一種毒品）賣到中國。清朝派林則徐禁菸、燒毀鴉片，英國就出兵攻打中國（1840～1842）。",
+"強國用武力或經濟手段控制其他地區，把它們變成殖民地。19世紀英、法、德等工業國家瓜分非洲、控制亞洲很多地方，日本後來也加入。",
+"1911年10月10日革命黨人在武昌起義（所以這天叫「雙十節」），各省紛紛響應，叫做辛亥革命。1912年1月1日中華民國成立，孫中山擔任臨時大總統，清朝皇帝退位。",
+"1914年6月，奧匈帝國的皇儲（王位繼承人）在塞拉耶佛被一名塞爾維亞青年槍殺。各國早就互相結盟，一國宣戰就把盟友拖下水，變成大戰。戰爭打了4年，死了上千萬人。",
+"1917年，俄國人民因為戰爭和饑餓推翻了沙皇。同年，列寧領導的共產黨奪取政權。",
+"一戰結束後，戰勝國1919年在法國的凡爾賽宮和德國簽的和約，規定德國要承擔戰爭責任、割讓土地、賠償巨款、限制軍隊。",
+"1929年美國紐約的股票市場突然崩盤，大量銀行和公司倒閉，很多人失業。經濟危機擴散到全世界，持續了好幾年。",
+"1931年9月18日，日軍在中國東北製造事件後占領東北（九一八事變）。1937年7月7日，日軍在北京附近的盧溝橋和中國軍隊衝突（七七事變），中日全面開戰。",
+"1939年9月1日，納粹德國出兵攻打波蘭。兩天後，英國和法國對德國宣戰，第二次世界大戰在歐洲開始。",
+"珍珠港是美國海軍在夏威夷的基地。1941年12月7日，日本派飛機偷襲，炸毀許多美國軍艦，美國隔天就對日本宣戰。",
+"1945年5月德國投降。8月美國在日本的廣島、長崎投下兩顆原子彈，8月15日日本宣布投降，二戰結束。",
+"二戰後，以美國為首的民主陣營和以蘇聯為首的共產陣營互相對抗。兩邊沒有直接開戰（所以叫「冷」戰），而是比軍備、比太空科技。1991年蘇聯解體，冷戰結束。",
+"世界各國的貿易、資訊、文化越來越緊密地連在一起。網際網路從冷戰時美國的軍事網路發展而來，1990年代開始普及到一般人。"
+];
+if(CW.length!==C.length)console.error('CW length',CW.length,C.length);
+C.forEach((c,i)=>c[10]=CW[i]);
+// 冷知識（對應 C 的順序）
+const CT=[
+"最早被人類馴養的動物是狗，比種田還早了好幾千年。",
+"最早的楔形文字大多是在記帳：幾隻羊、幾袋大麥，不是詩或故事。",
+"古夫金字塔是古代世界七大奇蹟中，唯一保存到今天的一個。",
+"米諾斯人留下的文字「線形文字A」，到今天還沒有人讀得懂。",
+"漢摩拉比法典的處罰會看身分：傷害貴族和傷害奴隸，賠償完全不一樣。",
+"「中國」這兩個字，最早出現在西周一件叫「何尊」的青銅器銘文上。",
+"英文字母 A 原本是腓尼基文的「牛頭」符號，倒過來看還有點像牛角。",
+"古代奧運的冠軍沒有獎金，獎品只是一頂橄欖枝編的花冠。",
+"希臘史家形容波斯郵差風雨無阻；這段話後來被刻在紐約郵政大樓上，成了美國郵差的非官方格言。",
+"羅馬人用「SPQR」（羅馬元老院與人民）當國家標誌，今天羅馬市的人孔蓋上還看得到。",
+"孔子、佛陀、蘇格拉底都沒有親手寫書，我們讀到的都是學生記下來的。",
+"雅典人可以投票把危險人物趕出城十年，名字寫在陶片上，叫「陶片放逐法」。",
+"亞歷山大的老師是哲學家亞里斯多德；他一路建了好幾座「亞歷山大城」，最有名的在埃及。",
+"秦始皇陵的兵馬俑估計有八千多個，而且每個人的臉都不一樣。",
+"「絲路」這個名字不是古人取的，是19世紀德國地理學家李希霍芬取的。",
+"英文的七月 July、八月 August，就是來自凱撒（Julius）和屋大維（Augustus）。",
+"「西元」用耶穌出生當起點，但學者後來算出，耶穌其實大約生在西元前4年左右。",
+"最後一位西羅馬皇帝叫羅慕路斯・奧古斯都，名字剛好結合了羅馬的建城者和第一位皇帝。",
+"聖索菲亞大教堂當了快一千年的世界最大教堂；後來變成清真寺、博物館，2020年又改回清真寺。",
+"唐朝長安城被切成一百多個方塊狀的「坊」，晚上會關上坊門、實施宵禁。",
+"伊斯蘭曆從622年穆罕默德遷往麥地那開始算，而且一年只有354或355天。",
+"查理曼很努力學寫字，據說把寫字板放在枕頭下練習，但到老都沒學好。",
+"維京人的頭盔其實沒有角；有角的頭盔是19世紀歌劇的服裝設計。",
+"這場戰役中，拜占庭皇帝羅曼努斯四世被塞爾柱人活捉，震驚了整個基督教世界。",
+"第四次十字軍根本沒打到聖地，反而在1204年攻陷了同樣信基督教的君士坦丁堡。",
+"蒙古帝國的驛站讓信差可以一路換馬接力，消息能用很快的速度傳遍歐亞。",
+"《馬可波羅遊記》是他在監獄裡，口述給同一間牢房的作家寫下來的。",
+"「隔離」的英文 quarantine 來自義大利文的「四十天」，當時船隻要在港外等四十天才能上岸。",
+"達文西是左撇子，筆記常用「鏡像字」由右往左寫，要用鏡子照才好讀。",
+"鄭和的船隊曾把非洲的長頸鹿帶回中國，被當成傳說中的神獸「麒麟」。",
+"古騰堡印的《聖經》今天全世界只剩大約50本，是世界上最貴的書之一。",
+"鄂圖曼軍隊把船拖上陸地、翻過山丘運進港灣，繞過了守城方攔在海上的大鐵鍊。",
+"哥倫布到死都以為自己到的是亞洲；「美洲（America）」這個名字來自另一位航海家亞美利哥。",
+"馬丁路德把《九十五條論綱》「釘在教堂大門上」這個畫面，歷史學家到今天還在爭論是不是真的。",
+"牛頓除了研究物理，還當過英國皇家造幣廠的主管，親自追查偽造錢幣的人。",
+"鄭成功的母親是日本人，他在日本平戶出生，七歲才回到中國。",
+"很多啟蒙思想是在「沙龍」裡討論出來的，那是由貴族女主人在家裡舉辦的聚會。",
+"「馬力」這個單位是瓦特想出來的，用來告訴客戶一台蒸汽機抵得上幾匹馬；功率單位「瓦特」就是以他命名。",
+"法國大革命時曾推行「十進位時間」：一天10小時、一小時100分鐘，但很快就放棄了。",
+"當時英國人瘋狂愛喝茶，茶葉是英國從中國進口的最大宗商品之一。",
+"1884年瓜分非洲的柏林會議，十幾個與會國家裡沒有一個是非洲國家。",
+"中華民國成立後改用陽曆，但大家還是照農曆過年，於是農曆新年後來被改稱「春節」。",
+"1914年聖誕節，西線有些英國和德國士兵自動停火，走出戰壕交換禮物，叫「聖誕休戰」。",
+"「十月革命」其實發生在現在曆法的11月，因為俄國當時還用舊的儒略曆。",
+"德國的一戰賠款拖了將近一百年，最後一筆在2010年才付清。",
+"大恐慌最嚴重時，美國大約每四個想工作的人就有一個找不到工作。",
+"七七事變時，日軍說有一名士兵失蹤要求進城搜查；那名士兵其實不久就自己歸隊了。",
+"二戰開打時波蘭還有騎兵部隊；不過「波蘭騎兵拿長矛衝戰車」是被誇大的傳說。",
+"被炸沉的亞利桑那號至今仍沉在港內，船上還會冒出少量的油，被稱為「黑色眼淚」。",
+"日本士兵小野田寬郎不知道戰爭結束，在菲律賓叢林裡一直躲到1974年才出來投降。",
+"美蘇之間架設了「熱線」避免誤會引發核戰；它一開始其實是電傳打字機，不是電話。",
+"第一封電子郵件大約在1971年寄出，發明者後來說內容可能只是像「QWERTYUIOP」這樣的測試字。"
+];
+// 每課的小故事
+const LSTORY=[
+["被老師打手心的蘇美學生","蘇美的孩子在叫「泥板之家」的學校學寫楔形文字。考古學家找到一篇四千年前的學生作文，抱怨自己因為字寫不好、上課講話，一天被打了好幾次。後來他爸爸請老師吃飯、送禮物，老師才開始誇他。原來「請老師吃飯」這種事，四千年前就有了。"],
+["奧運期間不准打仗","古代奧運在奧林匹亞舉行。為了讓選手和觀眾能安全前往，各城邦約定比賽期間實施「神聖休戰」，不准互相攻擊。平常打來打去的希臘城邦，每四年會為了運動會暫時放下武器。"],
+["馬拉松的由來","前490年，雅典軍隊在馬拉松平原打敗了強大的波斯軍。傳說一位傳令兵一路跑回雅典報告勝利，說完「我們贏了」就倒地而死。這只是傳說，但現代奧運的馬拉松就是為了紀念它；42.195公里這個奇怪的距離，則是1908年倫敦奧運定下來的。"],
+["嫌贖金太低的凱撒","年輕的凱撒在海上被海盜綁架，海盜開出贖金。凱撒聽了竟然說太便宜，要他們把價錢提高。被關的時候他還常常跟海盜說：等我出去一定回來抓你們。海盜以為他在開玩笑。結果凱撒獲釋後真的帶船回來，把海盜全部抓了。"],
+["藏在手杖裡的蠶","絲綢很值錢，但只有中國人知道怎麼養蠶。據拜占庭史家記載，查士丁尼皇帝時，兩位修士把蠶卵藏在空心的手杖裡，從東方偷偷帶回君士坦丁堡。從此拜占庭自己也能生產絲綢。"],
+["蒙古的金牌通行證","蒙古帝國發給使者和官員一種刻字的金屬牌子，叫「牌子」。拿著它，就能在帝國各地的驛站換馬、吃飯、住宿。從中國到東歐，一塊牌子走遍天下，是當時最強的通行證。"],
+["哥倫布預言月食","1504年，哥倫布一行人被困在牙買加，當地人不再供應食物。哥倫布從天文曆書知道幾天後會有月食，就對當地人說：神生氣了，會讓月亮消失。月食果然發生，當地人嚇壞了，馬上送來食物。"],
+["牛頓的蘋果","牛頓晚年告訴朋友，他是在家鄉看到蘋果從樹上掉下來，才開始想：為什麼蘋果總是往下掉，不往旁邊或往上？這個故事是牛頓自己說的，不過蘋果應該沒有真的打到他的頭——那是後人加上去的。"],
+["把茶葉倒進海裡","1773年，北美殖民地的人民不滿英國不經他們同意就課稅。一群人假扮成原住民，登上停在波士頓港的英國商船，把342箱茶葉全部倒進海裡。這就是「波士頓茶黨事件」，是美國獨立戰爭的導火線之一。"],
+["出國考察兩年的日本使節團","明治維新後不久，日本派出一個大型使節團，花了將近兩年參觀美國和歐洲，看工廠、學校、鐵路、議會。回國後他們大力推動學習西方，日本在幾十年內就成為列強之一。"],
+["破解密碼的數學家","二戰時德國用一種叫「恩尼格瑪」的機器把電報加密，以為沒人能破解。英國召集了一批數學家，其中包括圖靈，造出機器破解了這些密碼。有學者估計，這讓戰爭提早結束了好幾年，圖靈也被稱為電腦科學之父。"],
+["說錯話打開的柏林圍牆","1989年11月9日，東德一位官員在記者會上宣布放寬出境規定。記者問什麼時候生效，他翻了翻文件說：「據我所知……立即生效。」其實原本是隔天才要開始。消息一播出，大批東德人湧向柏林圍牆，守衛擋不住，只好開門。圍牆就這樣倒了。"]
+];
+if(CT.length!==C.length)console.error('CT',CT.length,C.length);
+C.forEach((c,i)=>c[12]=CT[i]);
+
+// 名詞小辭典
+const TERM={"法老":"古埃及國王的稱號。","楔形文字":"兩河流域的文字，用蘆葦筆在泥板上壓出楔子（三角形）形狀的筆畫。","象形文字":"用圖畫表示意思的文字，古埃及文字和最早的漢字都是。","城邦":"一座城市加上周圍的鄉村，就是一個獨立的國家。古希臘有幾百個城邦。","共和國":"國家不由國王統治，而是由選出來的人治理。","帝國":"由皇帝統治、包含很多不同民族和地區的大國家。","諸侯":"被國王分封土地、管理一個地方的貴族。","分封":"國王把土地分給親戚和功臣去管理。","哈里發":"穆罕默德的繼承人，伊斯蘭世界的領袖。","蘇丹":"伊斯蘭國家國王的稱號。","沙皇":"俄國皇帝的稱號，這個字來自羅馬的「凱撒」。","教宗":"天主教會的最高領袖，住在羅馬。中世紀時權力很大，可以替國王加冕。","封建制度":"國王把土地分給貴族，貴族效忠國王、替他打仗的制度。","莊園":"貴族擁有的大片土地，農奴在上面耕種。","農奴":"不能隨便離開土地、要替貴族種田的農民。","日耳曼人":"原本住在羅馬帝國北方森林的民族，後來在西歐建立許多王國，是英國人、德國人等的祖先。","突厥":"中亞草原的遊牧民族，土耳其人的祖先之一。","遊牧":"不定居，趕著牛羊到處找草地的生活方式。","殖民地":"被外國占領、統治的地方。","希臘化":"亞歷山大東征後，希臘文化和東方文化混合在一起。","贖罪券":"天主教會賣的一種證書，聲稱買了可以減少死後的懲罰。","新教":"宗教改革後從天主教分出來的基督教派，就是台灣常說的「基督教」。","天主教":"以羅馬教宗為領袖的基督教派。","東正教":"以拜占庭為中心的基督教派，俄羅斯、希臘的人大多信仰它。","三權分立":"把國家權力分成立法（訂法律）、行政（執行）、司法（審判）三部分，互相監督。","共產":"主張財產歸大家共有、由國家統一分配的思想。","民主":"由人民決定國家大事。","兩河流域":"西亞的底格里斯河和幼發拉底河之間，就是今天的伊拉克。","小亞細亞":"今天土耳其的亞洲部分。","巴爾幹":"歐洲東南部的半島，有希臘、塞爾維亞、保加利亞等國。","宦官":"在皇宮裡服務的男性官員。","軸心國":"二戰時德國、義大利、日本這一方。","協約國":"一戰時英國、法國、俄國這一方。","聖地":"耶路撒冷。猶太教、基督教、伊斯蘭教都把它當成神聖的城市。","君士坦丁堡":"拜占庭帝國的首都，就是今天土耳其的伊斯坦堡。","科舉":"用考試選拔官員的制度。","朝貢":"外國派使節帶禮物向中國皇帝表示臣服，皇帝回贈更多禮物。","原子彈":"利用原子核分裂產生巨大爆炸的武器。","皇儲":"王位的繼承人。","公民大會":"雅典成年男性公民一起開會、投票決定國事的地方。","肥沃月彎":"西亞一塊彎月形的肥沃土地，從兩河流域延伸到地中海東岸，是農業最早出現的地方。","鼠疫":"由細菌引起的傳染病，經由老鼠身上的跳蚤傳給人。","穆斯林":"信仰伊斯蘭教的人。","維京人":"住在北歐的航海民族，8到11世紀四處劫掠和貿易。","騎士":"中世紀歐洲騎馬作戰的武士，替貴族打仗。"};
+// 名詞辭典擴充：地名、民族、國家、文明、朝代
+Object.assign(TERM,{
+"尼羅河":"非洲東北部的大河，流經埃及注入地中海，是世界最長的河之一。古埃及文明就在它兩岸發展。",
+"黃河":"中國北方的大河。中國最早的王朝（夏、商、周）都在黃河流域發展。",
+"黃河流域":"黃河兩岸的地區，中國文明最早發展的地方。",
+"印度河":"流經今天巴基斯坦的大河，印度河流域文明在它兩岸發展。",
+"地中海":"歐洲、亞洲、非洲之間的大內海。希臘、羅馬、埃及都在它周圍，是古代貿易和文化交流的中心。",
+"大西洋":"歐洲、非洲和美洲之間的大洋。",
+"加勒比海":"北美洲和南美洲之間的海，有很多島嶼，哥倫布最早抵達的就是這裡。",
+"黑海":"歐洲東南部和西亞之間的內海，北岸是今天的烏克蘭、俄羅斯。",
+"巴勒斯坦":"地中海東岸的地區，耶路撒冷就在這裡，是猶太教和基督教的發源地。",
+"耶路撒冷":"地中海東岸的古城，猶太教、基督教、伊斯蘭教都把它當成聖地；十字軍就是為了它出兵。",
+"麥加":"阿拉伯半島西部的城市，穆罕默德的出生地，伊斯蘭教最神聖的城市。",
+"阿拉伯半島":"西亞南部的大半島，大部分是沙漠，今天沙烏地阿拉伯所在地，伊斯蘭教的發源地。",
+"長安":"今天的陝西西安。漢朝、唐朝的首都，唐朝時是國際大都市。",
+"巴格達":"今天伊拉克的首都。阿拉伯帝國（阿拔斯王朝）的首都，當時世界的學術中心。",
+"開羅":"今天埃及的首都，法蒂瑪王朝在969年建立。",
+"伊斯坦堡":"土耳其最大的城市，就是以前的君士坦丁堡，橫跨歐亞兩洲。",
+"佛羅倫斯":"義大利中部的城市，文藝復興的中心，達文西、米開朗基羅都在這裡活動過。",
+"威尼斯":"義大利東北部建在水上的城市，中世紀靠海上貿易致富，馬可波羅的故鄉。",
+"雅典":"古希臘最有名的城邦，民主政治和哲學的發源地，今天是希臘的首都。",
+"斯巴達":"古希臘的城邦，以嚴格的軍事訓練聞名，和雅典是對手。",
+"高盧":"古代對今天法國一帶的稱呼，凱撒征服後成為羅馬的一部分。",
+"伊比利半島":"歐洲西南角的半島，今天的西班牙和葡萄牙。",
+"北歐":"歐洲北部，今天的挪威、瑞典、丹麥、芬蘭等國，維京人的家鄉。",
+"西歐":"歐洲西部，今天的法國、英國、德國西部、比利時、荷蘭一帶。",
+"東歐":"歐洲東部，今天的俄羅斯、烏克蘭、波蘭等國一帶。",
+"西亞":"亞洲西南部，包括今天的伊拉克、伊朗、土耳其、敘利亞、沙烏地阿拉伯等，也叫中東。",
+"中亞":"亞洲中部的草原和沙漠，今天的哈薩克、烏茲別克等國，絲路經過這裡。",
+"中東":"西亞和北非一帶的通稱。",
+"西域":"漢朝人對玉門關以西地區的稱呼，大約是今天的新疆和中亞。",
+"蒙古草原":"亞洲北部的大草原，匈奴、突厥、蒙古等遊牧民族的家鄉。",
+"青藏高原":"中國西南的高原，平均海拔4000公尺以上，藏族在這裡建立吐蕃。",
+"安地斯山":"南美洲西部的大山脈，印加帝國在這裡。",
+"伊拉克":"西亞的國家，古代兩河流域文明就在這裡。",
+"敘利亞":"西亞地中海東岸的國家。",
+"黎巴嫩":"地中海東岸的小國，古代腓尼基人住在這裡。",
+"巴基斯坦":"印度西邊的國家，1947年和印度分開獨立；印度河流域文明就在這裡。",
+"羅浮宮":"法國巴黎的大博物館，原本是皇宮。",
+"凡爾賽宮":"法國巴黎附近的華麗宮殿，國王路易十四建造；一戰的和約在這裡簽。",
+"塞拉耶佛":"今天波士尼亞的首都，在巴爾幹半島；1914年奧匈帝國皇儲在這裡被刺殺。",
+"夏威夷":"太平洋中的群島，今天是美國的一州，珍珠港在這裡。",
+"廣島":"日本的城市，1945年8月6日被投下原子彈。",
+"長崎":"日本的城市，1945年8月9日被投下原子彈。",
+"盧溝橋":"北京西南方的古橋，1937年七七事變在這裡發生。",
+"武昌":"今天湖北武漢的一部分，1911年辛亥革命從這裡開始。",
+"巴士底監獄":"巴黎的監獄，象徵國王的專制；1789年7月14日被人民攻占，這天成為法國國慶日。",
+"蘇伊士運河":"埃及境內連接地中海和紅海的運河，1869年開通，讓歐洲到亞洲不必繞過非洲。",
+"美洲":"南、北美洲的合稱。哥倫布1492年抵達後，歐洲人才知道它存在。",
+"蘇美人":"最早住在兩河流域南部的民族，發明楔形文字，建立最早的城市。",
+"腓尼基人":"住在地中海東岸（今天黎巴嫩）的航海商業民族，發明了字母。",
+"猶太人":"源自巴勒斯坦地區的民族，信仰猶太教；耶穌也是猶太人。二戰時遭納粹大屠殺。",
+"阿拉伯人":"原本住在阿拉伯半島的民族，說阿拉伯語；伊斯蘭教興起後擴散到西亞和北非。",
+"波斯人":"住在今天伊朗的民族，建立過波斯帝國。",
+"法蘭克人":"日耳曼人的一支，住在今天法國、德國一帶，建立法蘭克王國；「法國」的名字由此而來。",
+"斯拉夫人":"東歐的主要民族，今天俄羅斯、烏克蘭、波蘭、塞爾維亞等國人的祖先。",
+"蒙古人":"蒙古草原上的遊牧民族，成吉思汗統一後建立蒙古帝國。",
+"女真人":"中國東北的民族，建立過金朝；後來改稱滿洲人，建立清朝。",
+"滿洲人":"女真人後來的稱呼，建立清朝。",
+"契丹人":"中國北方的遊牧民族，建立遼朝。",
+"黨項人":"中國西北的民族，建立西夏。",
+"匈奴":"秦漢時蒙古草原上的遊牧民族聯盟，常南下攻打中國。",
+"匈人":"4～5世紀從亞洲草原西遷到歐洲的遊牧民族，把日耳曼人擠進羅馬帝國。（和匈奴是不是同一群人，學者還有爭論）",
+"雅利安人":"約前1500年從中亞進入印度的民族，帶來吠陀文化和種姓制度。",
+"班圖人":"非洲的一大民族群，從西非往中南部遷徙，把農業和鐵器帶到各地。",
+"南島語族":"說南島語言的民族，分布從臺灣、東南亞到太平洋島嶼和馬達加斯加；臺灣原住民族是其中一部分。",
+"原住民族":"在外來者到來之前，就住在當地的民族。",
+"印第安人":"美洲原住民的舊稱；哥倫布誤以為到了印度而這樣叫。",
+"柏柏人":"北非的原住民族。",
+"漢人":"中國人口最多的民族，名稱來自漢朝。",
+"藏族":"住在青藏高原的民族，建立過吐蕃。",
+"馬雅":"中美洲（今天墨西哥南部、瓜地馬拉）的古文明，有城邦、金字塔神廟、曆法和文字，鼎盛在250～900年。",
+"奧爾梅克":"中美洲最早的文明（約前1200～前400），會雕刻巨大的石頭人像。",
+"阿茲特克":"墨西哥中部的原住民帝國，首都在今天的墨西哥城，1521年被西班牙征服。",
+"印加":"南美洲安地斯山的原住民帝國，1533年被西班牙征服。",
+"古埃及":"約前3100年在尼羅河兩岸統一的古國，國王叫法老，延續近三千年。",
+"兩河流域文明":"在底格里斯河和幼發拉底河之間（今伊拉克）發展的古文明，最早有城市和文字。",
+"印度河流域文明":"約前2600～前1900年在今天巴基斯坦一帶的古文明。",
+"拜占庭帝國":"東羅馬帝國的另一個名稱，首都君士坦丁堡，存在到1453年。",
+"拜占庭":"指拜占庭帝國，也就是東羅馬帝國。",
+"東羅馬帝國":"395年羅馬帝國分裂後的東半部，後來被叫做拜占庭帝國。",
+"西羅馬帝國":"395年羅馬帝國分裂後的西半部，476年滅亡。",
+"羅馬帝國":"以義大利羅馬城為中心的大帝國，前27年起由皇帝統治，最大時包圍整個地中海。",
+"神聖羅馬帝國":"962～1806年以德意志地區為中心的帝國，其實是幾百個小邦的鬆散聯盟。",
+"法蘭克王國":"日耳曼的法蘭克人在西羅馬滅亡後建立的王國，法國和德國的前身。",
+"查理曼帝國":"法蘭克國王查理曼打下的大帝國，800年他被教宗加冕為皇帝。",
+"阿拉伯帝國":"7世紀伊斯蘭教興起後，阿拉伯人建立的大帝國，橫跨亞、非、歐三洲。",
+"鄂圖曼帝國":"突厥人在小亞細亞建立的帝國（1299～1922），1453年滅拜占庭，今天土耳其的前身。",
+"蒙古帝國":"成吉思汗1206年建立的大帝國，最大時從中國延伸到東歐。",
+"波斯帝國":"前550年在今天伊朗建立的大帝國，當時世界最大，前330年被亞歷山大消滅。",
+"塞爾柱帝國":"11世紀突厥人在西亞建立的伊斯蘭帝國。",
+"蒙兀兒帝國":"1526年帖木兒的後代在印度建立的伊斯蘭帝國，「蒙兀兒」就是「蒙古」。",
+"帖木兒帝國":"14世紀中亞的帖木兒建立的帝國。",
+"孔雀帝國":"前322年建立的印度帝國，第一次統一大半個印度。",
+"笈多帝國":"約320～550年的印度帝國，印度教文化的黃金時代。",
+"貴霜帝國":"1～3世紀在中亞和北印度的帝國，控制絲路中段。",
+"薩珊波斯":"224～651年的波斯王朝，被阿拉伯帝國消滅。",
+"安息帝國":"前247～224年在伊朗的帝國，和羅馬長期對抗。",
+"亞述":"兩河流域北部的古國，前9～前7世紀以武力統一西亞。",
+"巴比倫":"兩河流域的古城和古國，漢摩拉比是它最有名的國王。",
+"金帳汗國":"蒙古人在俄羅斯草原建立的汗國，統治俄羅斯兩百多年。",
+"伊兒汗國":"蒙古人在伊朗建立的汗國。",
+"吐蕃":"7～9世紀藏族在青藏高原建立的王國。",
+"普魯士":"德意志北部的強國，1871年統一德國。",
+"奧匈帝國":"1867年奧地利和匈牙利合組的帝國，一戰後瓦解。",
+"德意志帝國":"1871年普魯士統一德國後建立的帝國，一戰戰敗後結束。",
+"大英帝國":"英國和它遍布全球的殖民地，19世紀號稱「日不落國」。",
+"蘇聯":"1922～1991年以俄羅斯為中心的共產國家，冷戰時的超級強國。",
+"滿洲國":"日本1932年在中國東北扶植的政權，1945年消失。",
+"中華民國":"1912年推翻清朝後建立的國家，1949年政府遷到臺灣。",
+"中華人民共和國":"1949年在中國大陸成立的國家。",
+"聯合國":"1945年二戰結束後成立的國際組織，各國一起維護和平。",
+"馬其頓":"希臘北方的古王國，亞歷山大大帝的故鄉。",
+"迦太基":"腓尼基人在北非建立的貿易強國，前146年被羅馬消滅。",
+"商朝":"約前1600～前1046年的中國王朝，留下甲骨文和青銅器。",
+"周朝":"約前1046～前256年的中國王朝，分成西周和東周（春秋戰國）。",
+"秦朝":"前221～前206年，第一個統一中國的王朝。",
+"漢朝":"前202～220年的中國王朝，開通絲路；「漢人」「漢字」的漢就是從這裡來的。",
+"隋朝":"581～618年的中國王朝，重新統一南北，開鑿大運河。",
+"唐朝":"618～907年的中國王朝，首都長安，文化影響整個東亞。",
+"宋朝":"960～1279年的中國王朝，經濟和科技發達，和遼、金、西夏並立。",
+"元朝":"1271～1368年蒙古人在中國建立的王朝。",
+"明朝":"1368～1644年的中國王朝，鄭和下西洋。",
+"清朝":"1644～1912年滿洲人建立的中國王朝，1683年把臺灣納入版圖。",
+"春秋戰國":"前770～前221年，周天子衰弱，各國諸侯互相爭霸的時代。",
+"戰國七雄":"戰國時代最強的七個國家：秦、楚、齊、燕、韓、趙、魏。",
+"南北朝":"420～589年中國南北分裂的時代。",
+"五代十國":"907～979年唐朝滅亡後中國分裂的時代。",
+"鎌倉幕府":"1185～1333年日本由武士掌權的政府。",
+"江戶幕府":"1603～1867年德川家掌權的日本政府，實行鎖國。",
+"明治維新":"1868年起日本學習西方的大改革，讓日本快速變強。",
+"埃及":"非洲東北部的國家，古埃及文明的所在地。",
+"希臘":"歐洲東南部的國家，古希臘文明的所在地。",
+"義大利":"歐洲南部的國家，羅馬帝國和文藝復興的發源地。",
+"法國":"西歐的國家，前身是法蘭克王國的西半部。",
+"德國":"中歐的國家，1871年才統一成一個國家。",
+"英國":"歐洲西北方島上的國家，工業革命的發源地。",
+"西班牙":"伊比利半島上的國家，16世紀的海上強國。",
+"葡萄牙":"伊比利半島西邊的國家，最早開拓新航路的國家之一。",
+"荷蘭":"西歐的小國，17世紀靠海上貿易致富，曾統治臺灣。",
+"俄羅斯":"橫跨歐亞的國家，世界面積最大。",
+"俄國":"俄羅斯的簡稱。",
+"美國":"北美洲的國家，1776年脫離英國獨立。",
+"日本":"東亞的島國。",
+"印度":"南亞的大國，佛教和印度教的發源地。",
+"伊朗":"西亞的國家，就是古代的波斯。",
+"土耳其":"橫跨歐亞的國家，鄂圖曼帝國的後繼者。",
+"波蘭":"東歐的國家，1939年被德國入侵，引發二戰。",
+"塞爾維亞":"巴爾幹半島上的國家，一戰的導火線和它有關。",
+"臺灣":"東亞的島嶼，原住民族之後，先後經歷荷蘭、鄭氏、清朝、日本統治，1945年起由中華民國治理。"
+});
+Object.assign(TERM,{
+"愛琴文明":"約前2000～前1100年地中海東部愛琴海一帶的古文明，包括克里特島的米諾斯和希臘本土的邁錫尼，是希臘文明的前身。",
+"西亞古文明":"課本年表的分類：兩河流域一帶的古文明，包括蘇美、巴比倫、亞述等，最早發明文字。",
+"埃及古文明":"課本年表的分類：尼羅河流域的古埃及文明，有法老、金字塔和象形文字；約前525年被波斯征服後，不再由本地法老統治。",
+"希臘文明":"接在愛琴文明之後（約前1100年起），希臘人建立城邦，發展出民主、哲學、戲劇和奧運，是西方文化的源頭；課本年表畫到約西元元年。",
+"希臘化文化":"亞歷山大東征後，希臘文化和埃及、西亞、印度的文化混合在一起形成的文化。",
+"羅馬王政時期":"羅馬建城後由國王統治的時期（傳說前753～前509年）。",
+"羅馬共和時期":"前509～前27年，羅馬沒有國王，由選出來的執政官和元老院治理。",
+"羅馬帝國時期":"前27年屋大維成為皇帝之後，羅馬由皇帝統治的時期。",
+"東羅馬帝國（拜占庭帝國）":"395年羅馬分裂後的東半部，首都君士坦丁堡，延續到1453年。",
+"大航海時代":"15～17世紀，歐洲人航向全世界、發現美洲和新航路的時代。",
+"16～18世紀帝國主義":"大航海之後，西班牙、葡萄牙、荷蘭、英國、法國在美洲和亞洲建立殖民地的第一波擴張。",
+"19世紀帝國主義":"工業革命後，列強為了原料和市場瓜分亞洲、非洲的第二波擴張。",
+"文藝復興":"14～16世紀從義大利開始，重新研究古希臘羅馬文化、重視「人」的文化運動。",
+"宗教改革":"1517年馬丁路德批評教會開始，基督教分出新教的運動。",
+"科學革命":"16～17世紀，哥白尼、伽利略、牛頓等人用觀察和實驗研究自然的變革。",
+"啟蒙運動":"17世紀末到18世紀，主張用理性改造社會，提出人權、三權分立的思想運動。",
+"工業革命":"18世紀中期從英國開始，用機器和蒸汽動力取代手工生產的大轉變。",
+"美國獨立戰爭":"1775～1783年，北美13個殖民地脫離英國獨立的戰爭。",
+"法國大革命":"1789年法國人民推翻君主、提出「自由、平等、博愛」的革命。",
+"第一次世界大戰":"1914～1918年，以歐洲為主戰場的大戰，四大帝國因此瓦解。",
+"第二次世界大戰":"1939～1945年，軸心國（德、義、日）對抗同盟國的大戰，人類史上死傷最多的戰爭。",
+"冷戰":"1947～1991年美國和蘇聯兩大陣營的對抗，雙方沒有直接開戰。",
+"佛教":"約前500年釋迦牟尼在印度創立的宗教，主張解脫痛苦，傳到東亞和東南亞。",
+"基督教":"1世紀耶穌在巴勒斯坦傳教後形成的宗教，信仰上帝和耶穌，經典是《聖經》。",
+"伊斯蘭教":"7世紀穆罕默德在阿拉伯半島創立的宗教，信仰唯一真神阿拉，經典是《古蘭經》。",
+"教皇國":"教宗直接統治的領土，在義大利中部，19世紀義大利統一時被併入。",
+"盎格魯－撒克遜人":"5世紀從今天德國北部移入不列顛的日耳曼人，是英格蘭人的祖先。「英格蘭」就是「盎格魯人的土地」。",
+"收復失地運動":"伊比利半島北部的基督教王國，花了七百多年從穆斯林手中奪回土地，1492年完成。",
+"凡爾登條約":"843年查理曼的三個孫子把帝國分成三塊：西法蘭克、中法蘭克、東法蘭克。",
+"東法蘭克":"843年查理曼帝國分裂後的東半部，就是後來的德國。",
+"西法蘭克":"843年查理曼帝國分裂後的西半部，就是後來的法國。",
+"新羅":"朝鮮半島東南部的古國，668年聯合唐朝統一半島。",
+"統一新羅":"668年新羅統一朝鮮半島後的時期，大量學習唐朝文化。",
+"高句麗":"朝鮮半島北部和中國東北的古國，668年被新羅和唐朝聯軍消滅。",
+"百濟":"朝鮮半島西南部的古國，和日本關係密切，把佛教傳到日本。",
+"高麗":"918～1392年統一朝鮮半島的王朝，英文 Korea 就是從「高麗」來的。",
+"朝鮮王朝":"1392～1910年統治朝鮮半島的王朝，世宗大王創造了韓文。",
+"大和政權":"3～7世紀日本最早統一各地的政權，天皇家的起源。",
+"平安時代":"794～1185年，日本首都在平安京（今天的京都），貴族文化興盛。",
+"室町幕府":"1336～1573年足利家掌權的日本政府，後期進入群雄割據的戰國時代。",
+"迦納帝國":"西非最早的大帝國（約8～11世紀），靠黃金貿易致富。（和今天的迦納不在同一個地方）",
+"馬利帝國":"13～16世紀西非的伊斯蘭帝國，國王曼薩・穆薩據說是史上最富有的人之一。",
+"桑海帝國":"15～16世紀取代馬利的西非大帝國。",
+"伍麥亞王朝":"661～750年的阿拉伯帝國王朝，首都大馬士革，擴張到西班牙和中亞。",
+"阿拔斯王朝":"750～1258年的阿拉伯帝國王朝，首都巴格達，學術最發達的時期。",
+"法蒂瑪王朝":"909～1171年的什葉派伊斯蘭王朝，建立開羅。",
+"馬木路克王朝":"1250～1517年奴隸出身的軍人在埃及建立的王朝。",
+"西哥德王國":"日耳曼人的西哥德人在伊比利半島建立的王國，711年被阿拉伯人消滅。",
+"東哥德王國":"日耳曼人的東哥德人在義大利建立的王國。",
+"倫巴底人":"日耳曼人的一支，6世紀進入義大利北部建國，「倫巴底」地名就是從他們來的。",
+"卡佩王朝":"987～1328年統治法國的王朝，慢慢把權力集中到國王手上。",
+"波旁王朝":"1589～1792年統治法國的王朝，路易十四是代表；法國大革命時被推翻。",
+"都鐸王朝":"1485～1603年統治英格蘭的王朝，伊莉莎白一世時打敗西班牙無敵艦隊。",
+"羅曼諾夫王朝":"1613～1917年統治俄國的王朝，彼得大帝是代表；俄國革命時被推翻。",
+"莫斯科大公國":"蒙古統治下的一個俄羅斯小國，後來擺脫蒙古、統一各地，成為俄羅斯。",
+"基輔羅斯":"9～13世紀維京人在東歐建立的國家，俄羅斯、烏克蘭、白俄羅斯的共同源頭。",
+"德里蘇丹國":"1206～1526年以德里為首都、統治北印度的伊斯蘭國家。",
+"吠陀時代":"約前1500～前500年，雅利安人在印度的時代，留下宗教經典《吠陀》，形成種姓制度。",
+"卡扎爾王朝":"1789～1925年統治伊朗的王朝。",
+"阿卡德帝國":"約前2300年統一兩河流域的帝國，史上最早的帝國之一。",
+"新巴比倫":"前626～前539年再度興起的巴比倫王國，被波斯消滅。",
+"托勒密王朝":"亞歷山大的將軍托勒密在埃及建立的希臘人王朝，埃及豔后是最後一位統治者。",
+"阿尤布王朝":"1171～1250年薩拉丁在埃及建立的王朝，打敗十字軍、收復耶路撒冷。",
+"邁錫尼":"希臘本土的青銅時代文明，傳說中的特洛伊戰爭就是邁錫尼人打的。",
+"米諾斯":"克里特島上的古文明，有巨大的克諾索斯宮殿。",
+"威瑪共和":"1919～1933年德國的民主共和國，因經濟危機被納粹取代。",
+"納粹":"希特勒領導的「國家社會主義德國工人黨」，1933～1945年獨裁統治德國。",
+"光榮革命":"1688年英國國會不流血地換掉國王，確立國王要受國會限制。",
+"大憲章":"1215年英格蘭貴族逼國王簽下的文件，第一次限制國王的權力。",
+"諾曼征服":"1066年法國諾曼第公爵威廉渡海征服英格蘭，成為英格蘭國王。",
+"南北戰爭":"1861～1865年美國南方和北方的內戰，北方勝利後廢除奴隸制度。",
+"南斯拉夫":"1918年由塞爾維亞、克羅埃西亞等巴爾幹民族組成的國家，1990年代解體。",
+"四帝共治":"3世紀末羅馬帝國太大，由四位皇帝分區治理的制度。",
+"三國":"220～280年東漢滅亡後，魏、蜀、吳三國鼎立的時代。",
+"西晉":"266～316年短暫統一中國的王朝。",
+"東晉":"317～420年西晉滅亡後在南方重建的王朝。",
+"十六國":"4～5世紀北方遊牧民族在華北建立的十幾個國家。",
+"五代十國":"907～979年唐朝滅亡後，北方五個朝代、南方十幾個國家的分裂時代。",
+"西周":"約前1046～前771年，周朝前期，首都在今天的西安附近。",
+"阿拉伯帝國（伍麥亞、阿拔斯）":"7～13世紀阿拉伯人建立的伊斯蘭大帝國，先後是伍麥亞和阿拔斯兩個王朝。",
+"彌生時代":"約前300～300年的日本，從大陸傳入稻作和金屬器。",
+"古朝鮮":"朝鮮半島北部最早的國家，前108年被漢朝消滅。"
+});
+const TRE=new RegExp(Object.keys(TERM).sort((a,b)=>b.length-a.length).join('|'),'g');
+const T=s=>s?s.replace(TRE,m=>`<button class="term" data-t="${m}">${m}</button>`):s;
+const TR=(name,region)=>`<button class="term" data-t="${name}" data-rg="${region}">${name}</button>`;
+function rgTip(name,region){
+ const r=RG.find(x=>x[0]===region);const k=r?r[1].findIndex(x=>x[2]===name):-1;if(k<0)return null;
+ const x=r[1][k],e=k+1<r[1].length?r[1][k+1][1]:'',ty=TY[x[4]];
+ const parts=[name,...name.split(/[、（）\s]/)].filter((w,i,a)=>w&&w.length>=2&&TERM[w]&&a.indexOf(w)===i);
+ const g=glFind(name);
+ return `<span class="tipm">${region}・${x[1]}${ty?'・'+ty[0]:''}</span>${T(x[3])}`+parts.map(w=>`<span class="tipg"><b>${w}：</b>${TERM[w]}</span>`).join('')+(g?`<span class="tipg"><b>從哪裡來：</b>${g[3]}<br><b>後來：</b>${g[4]}</span>`:'');
+}
+document.addEventListener('click',e=>{const t=e.target.closest('.term');if(t){e.preventDefault();if(t.dataset.rg){const h=rgTip(t.dataset.t,t.dataset.rg);if(h){$('tipt').textContent=t.dataset.t;$('tipd').innerHTML=h;$('tip').hidden=false;$('tip').scrollTop=0;return}}
+const k=t.dataset.t,g=glFind(k);if(!TERM[k]){return}$('tipt').textContent=k;$('tipd').innerHTML=T(TERM[k]).replace(new RegExp(`<button class="term" data-t="${k}">${k}</button>`,'g'),k)+(g&&!TERM[k].includes(g[3].slice(0,12))?`<span class="tipg"><b>從哪裡來：</b>${g[3]}<br><b>後來：</b>${g[4]}</span>`:'');$('tip').hidden=false;$('tip').scrollTop=0;return}if(!e.target.closest('#tip'))$('tip').hidden=true});
+
+// ===== 國家由來 =====
+// [名稱, 比對, 第幾課, 從哪裡來, 後來]
+const GL=[
+["蘇美城邦",/蘇美|兩河流域城邦|烏爾/,0,"兩河流域南部的蘇美人，在河邊建立一座座獨立的城市國家，烏爾是其中之一。","後來被阿卡德、巴比倫等更大的國家統一。"],
+["古埃及",/^埃及$|古埃及/,0,"尼羅河兩岸原本分成上埃及、下埃及，約前3100年統一成一個國家，國王稱為法老。","延續近三千年，後來被波斯、希臘、羅馬輪流統治。"],
+["印度河流域文明",/印度河/,0,"在今天巴基斯坦一帶，有規劃整齊的城市和下水道。","約前1900年後衰落，原因到今天還不清楚。"],
+["巴比倫",/巴比倫/,0,"兩河流域的一座城市，漢摩拉比國王用它當中心統一兩河。","之後被亞述等國征服；前7世紀又復興為「新巴比倫」。"],
+["商朝、周朝",/商朝|周朝/,0,"商是黃河流域的部族，推翻夏建立王朝；周原本是商西邊的諸侯，周武王起兵滅商。","周朝後期諸侯互相兼併，進入春秋戰國。"],
+["亞述",/亞述/,1,"兩河流域北部的民族，以強大的軍隊和鐵製武器統一西亞。","前612年被新巴比倫等聯軍消滅。"],
+["波斯帝國",/^波斯帝國|阿契美尼德/,1,"今天伊朗南部的波斯人，居魯士大帝帶領他們推翻上層統治者後向外擴張。","前330年被亞歷山大消滅。波斯就是今天的伊朗。"],
+["希臘城邦",/希臘城邦/,1,"希臘多山，交通不便，所以分成許多獨立的城市國家，例如雅典、斯巴達。","前4世紀被北方的馬其頓統一。"],
+["亞歷山大帝國",/亞歷山大帝國|馬其頓/,2,"馬其頓是希臘北方的王國，國王腓力二世統一希臘，兒子亞歷山大再東征波斯。","亞歷山大死後，將軍們瓜分帝國，形成托勒密埃及、塞琉古等「希臘化王國」。"],
+["塞琉古、托勒密",/塞琉古|托勒密/,2,"亞歷山大的兩位將軍，一個占據西亞（塞琉古），一個占據埃及（托勒密）。","後來分別被安息和羅馬取代；埃及豔后是托勒密王朝最後一位統治者。"],
+["秦、漢",/^秦朝|^漢朝/,2,"秦是戰國七雄之一，統一六國；秦朝很快滅亡後，劉邦建立漢朝。","「漢人」「漢字」的「漢」，就是從漢朝來的。"],
+["匈奴",/匈奴/,3,"蒙古草原上的遊牧民族聯盟，擅長騎射。","和漢朝打了幾百年，後來分裂，一部分往西遷。"],
+["羅馬",/羅馬共和|^羅馬$|^羅馬帝國|四帝共治/,1,"義大利中部的一座城市。前509年趕走國王，變成共和國，再一路擴張；前27年變成帝國。","395年分成東、西兩半。西羅馬476年滅亡；東羅馬一直撐到1453年。"],
+["迦太基",/迦太基/,3,"腓尼基商人在北非（今突尼西亞）建立的殖民城市，後來成為地中海貿易強國。","和羅馬打了三次大戰，前146年被羅馬消滅。"],
+["安息、薩珊",/安息|薩珊/,3,"安息是伊朗東北的遊牧民族建立的，取代了塞琉古；224年被同樣是伊朗人的薩珊王朝取代。","薩珊在7世紀被阿拉伯帝國消滅。"],
+["貴霜帝國",/貴霜/,3,"原本住在中國西北的遊牧民族「月氏」被匈奴趕走，一路西遷到中亞和北印度建國。","控制絲路中段，幫助佛教傳到中國。"],
+["西羅馬、東羅馬",/西羅馬|東羅馬/,3,"395年羅馬皇帝死後，帝國分給兩個兒子，分成西羅馬和東羅馬。","西羅馬476年被日耳曼人滅亡；東羅馬就是後來的「拜占庭帝國」。"],
+["拜占庭帝國",/拜占庭/,4,"其實就是東羅馬帝國。「拜占庭」是首都君士坦丁堡的舊名，是後來的歷史學家為了跟古羅馬區分才這樣叫；他們自己一直自稱「羅馬人」。","1453年被鄂圖曼帝國消滅，君士坦丁堡改名伊斯坦堡。"],
+["日耳曼人的王國",/法蘭克|西哥德|東哥德|汪達爾|倫巴底/,4,"日耳曼人原本住在羅馬北邊的森林，羅馬衰弱時大批移入，在西羅馬的土地上建立許多王國。法蘭克人建立的法蘭克王國最強，「法國」的名字就來自法蘭克。","法蘭克王國後來變成查理曼帝國。"],
+["查理曼帝國",/查理曼/,4,"法蘭克國王查理曼打下西歐大部分地區，800年被教宗加冕為皇帝，被看成是西羅馬的復活。","他死後843年分成三塊：西法蘭克（法國前身）、東法蘭克（德國前身）、中法蘭克（義大利一帶）。"],
+["阿拉伯帝國",/阿拉伯帝國|伍麥亞|阿拔斯/,4,"穆罕默德統一阿拉伯半島後，他的繼承人（稱為「哈里發」）帶領阿拉伯人向外征服。先是伍麥亞王朝，750年後是阿拔斯王朝，首都巴格達。","逐漸分裂成許多伊斯蘭國家，1258年被蒙古消滅。"],
+["唐朝",/^唐朝/,4,"隋朝末年大亂，李淵、李世民父子建立唐朝。","907年滅亡，進入五代十國。海外華人聚居地叫「唐人街」，就是從唐朝來的。"],
+["吐蕃",/吐蕃/,4,"青藏高原上的藏族建立的王國，和唐朝時戰時和（文成公主入藏）。","9世紀分裂。"],
+["突厥",/突厥/,4,"蒙古草原上的遊牧民族，和唐朝爭奪北方。","後來大批西遷，他們的後代建立了塞爾柱帝國和鄂圖曼帝國，也就是今天的土耳其人。"],
+["神聖羅馬帝國",/神聖羅馬/,5,"東法蘭克（德國前身）的國王奧圖一世，962年被教宗加冕為皇帝，自認繼承了羅馬帝國，加上有教宗加持，所以叫「神聖羅馬帝國」。","其實是德意志地區幾百個小邦的鬆散聯盟，皇帝權力很小，所以伏爾泰嘲笑它「既不神聖、也不羅馬、更不是帝國」。1806年被拿破崙解散。"],
+["塞爾柱帝國",/塞爾柱/,5,"西遷的突厥人改信伊斯蘭教後建立，打敗拜占庭，控制西亞。","打敗拜占庭引發十字軍東征；後來分裂，被蒙古打垮。"],
+["宋、遼、金、西夏",/^宋朝|^遼$|西夏|^金$/,5,"宋朝結束五代十國；北方的契丹人建立遼、黨項人建立西夏、女真人建立金，和宋並立。","最後全部被蒙古消滅。"],
+["基輔羅斯",/基輔|諾夫哥羅德|羅斯諸/,5,"維京人沿著河流南下，在東歐斯拉夫人的土地上建國。「羅斯」就是「俄羅斯」名字的由來。","1240年被蒙古消滅，俄羅斯被蒙古統治兩百多年。"],
+["蒙古帝國與四大汗國",/蒙古帝國|金帳|察合台|伊兒|白帳|元朝（/,5,"成吉思汗1206年統一蒙古各部，他和子孫打下橫跨歐亞的大帝國。","1260年後分裂成元朝（中國）和幾個汗國：金帳汗國（統治俄羅斯）、伊兒汗國（統治伊朗）、察合台汗國（中亞）。"],
+["馬木路克王朝",/馬木路克/,5,"「馬木路克」是奴隸出身的軍人，他們在埃及奪權建立王朝。","1260年擋住蒙古西進；1517年被鄂圖曼消滅。"],
+["鄂圖曼帝國",/鄂圖曼/,6,"小亞細亞（今土耳其）的一支突厥部落，首領叫奧斯曼（鄂圖曼），1299年建國。","1453年滅拜占庭，統治西亞、北非、巴爾幹幾百年；一戰戰敗後瓦解，1923年變成土耳其共和國。"],
+["明朝",/^明朝/,6,"元朝末年各地起兵，朱元璋1368年建立明朝，把蒙古人趕回北方。","1644年滅亡，清朝入關。"],
+["帖木兒帝國",/帖木兒/,6,"中亞的突厥化蒙古人帖木兒，想重建蒙古帝國，四處征戰。","他死後很快衰落；他的後代南下印度，建立蒙兀兒帝國。"],
+["西班牙、葡萄牙",/西班牙|葡萄牙|卡斯提爾/,6,"伊比利半島的基督教王國花了幾百年從穆斯林手上收復土地；1479年卡斯提爾和亞拉岡兩國合併成西班牙。","靠大航海成為海上強國，殖民中南美洲。"],
+["阿茲特克、印加",/阿茲特克|印加/,6,"美洲原住民建立的帝國：阿茲特克在墨西哥，印加在南美洲安地斯山。","16世紀被西班牙人征服。"],
+["蒙兀兒帝國",/蒙兀兒/,6,"帖木兒的後代巴布爾從中亞攻入印度建國。「蒙兀兒」就是「蒙古」的意思。","18世紀衰落，1858年被英國取代。"],
+["薩法維波斯",/薩法維/,6,"伊朗人重新建立的王朝，定什葉派伊斯蘭教為國教。","今天伊朗以什葉派為主，就是從這時開始的。"],
+["莫斯科大公國、俄羅斯",/莫斯科|俄羅斯沙皇|俄羅斯帝國|^俄羅斯$/,6,"莫斯科原本是蒙古統治下的小公國，1480年擺脫蒙古，國王改稱「沙皇」。","一路往東擴張到太平洋，成為俄羅斯帝國。"],
+["清朝",/^清朝/,7,"東北的女真人（後改稱滿洲人）由努爾哈赤建國，1644年趁明朝滅亡入關。","1683年把臺灣納入版圖；1912年被中華民國取代。"],
+["荷蘭",/荷蘭|荷屬/,7,"原本被西班牙統治，16世紀末起獨立，靠海上貿易成為富強國家。","曾經統治臺灣（1624～1662），也殖民印尼。"],
+["英國（大不列顛）",/英國|英格蘭/,8,"英格蘭和蘇格蘭1707年合併成「大不列顛聯合王國」。","工業革命後殖民地遍布全球，號稱「日不落國」。"],
+["美國",/^美國/,8,"英國在北美的13個殖民地，不滿英國課稅，1776年宣布獨立。","一路向西擴張，20世紀成為世界強國。"],
+["德意志帝國",/德意志帝國|普魯士/,9,"普魯士是德意志北部的強國，打敗奧地利和法國後，1871年統一德國。","一戰戰敗後帝國結束；1919年變成威瑪共和。"],
+["奧匈帝國",/奧匈|奧地利帝國/,9,"奧地利哈布斯堡家族統治的帝國，1867年和匈牙利合組成「奧匈帝國」，境內民族非常多。","一戰戰敗後瓦解成奧地利、匈牙利、捷克斯洛伐克等國。"],
+["日本帝國",/日本帝國|^日本$/,9,"1868年明治維新，日本學習西方快速變強，開始向外擴張。","二戰戰敗後放棄殖民地，變成今天的日本。"],
+["蘇聯",/蘇聯/,10,"1917年俄國革命後，共產黨建立政權，1922年把俄羅斯和周圍的共和國合組成「蘇維埃社會主義共和國聯盟」。","1991年解體，分成俄羅斯和其他14個國家。"],
+["中華民國",/中華民國/,10,"1911年辛亥革命推翻清朝，1912年建立。","1945年接收臺灣；1949年中華民國政府遷到臺灣。"],
+["滿洲國",/滿洲國/,10,"日本1932年在中國東北扶植的政權，由清朝末代皇帝溥儀當名義上的領袖。","1945年隨著日本戰敗消失。"]
+];
+const glFind=n=>n?GL.find(g=>g[1].test(n)):null;
+
+// ===== 一課一課學 =====
+const CY=[-8000,-3500,-2560,-2000,-1750,-1046,-1000,-800,-550,-509,-500,-450,-334,-221,-150,-27,30,476,527,618,610,800,850,1071,1096,1206,1271,1347,1400,1405,1450,1453,1492,1517,1600,1662,1690,1760,1776,1840,1850,1912,1914,1917,1919,1929,1931,1939,1941,1945,1947,2000];
+const PY=[-2560,-1750,-1046,-499,-499,-430,-550,-334,-260,-221,-140,-50,0,313,527,610,626,800,1095,1206,1271,1405,1450,1480,1492,1519,1517,1687,1662,1769,1776,1804,1912,1917,1930,1933,1940,1985,1989];
+const myN=y=>y.startsWith('bc')?-(+y.slice(2)):+y;
+const LS=[
+["大河文明：文字的誕生","約前8000～前1000",-9000,-1000,0,["人類學會種田、定居，在大河旁建立最早的城市","兩河流域與尼羅河流域發明了文字，是世界文明的起源之一","西亞古文明、埃及古文明、愛琴文明、印度河與黃河流域各自發展","法律、國王、宗教，這些「國家」的基本元素開始出現"]],
+["希臘興起與波斯帝國","前1000～前500",-1000,-500,0,["腓尼基人發明字母","希臘人建立許多城邦","波斯成為第一個橫跨三洲的大帝國","羅馬趕走國王，建立共和"]],
+["希臘的光輝與思想家","前500～前200",-500,-200,1,["孔子、佛陀、希臘哲學家幾乎同時出現，人類開始深入思考人生與社會","雅典發展出民主","亞歷山大東征，希臘文化傳到東方（希臘化文化）","秦統一中國"]],
+["羅馬帝國與漢朝","前200～500",-200,500,1,["漢朝開通絲路，連接東西方","羅馬從共和變成帝國，統治整個地中海","基督教在羅馬帝國裡萌芽、傳開","476年西羅馬帝國滅亡，古典時期結束"]],
+["三大世界：拜占庭、伊斯蘭、西歐","500～1000",500,1000,2,["拜占庭帝國（東羅馬）延續羅馬傳統","伊斯蘭教興起，阿拉伯帝國擴張到三大洲","西歐由日耳曼人建國，查理曼加冕，進入封建社會","三個世界關係密切，並互相競爭；東方的唐朝成為東亞文化中心"]],
+["十字軍與蒙古","1000～1400",1000,1400,2,["突厥人建立塞爾柱帝國，打敗拜占庭","拜占庭求救，引發十字軍東征","蒙古帝國橫跨歐亞，東西交流達到高峰","黑死病重創歐洲，封建制度開始瓦解"]],
+["文藝復興與大航海時代","1400～1550",1400,1550,3,["文藝復興重新重視「人」","印刷術讓知識快速傳播","鄂圖曼帝國攻下君士坦丁堡，擋住陸路","歐洲人從海上找新航路，進入大航海時代；宗教改革讓基督教分裂"]],
+["科學革命與理性","1550～1700",1550,1700,3,["科學革命：用觀察、實驗和數學了解自然","啟蒙運動開始：用理性改造社會","鄭成功趕走荷蘭人，臺灣進入新階段","鄂圖曼、蒙兀兒等東方大帝國正強盛"]],
+["雙元革命","1700～1815",1700,1815,4,["工業革命：機器取代手工，是邁向現代世界的重大指標","美國獨立革命、法國大革命：人民主權取代君權","這些巨大變革，是塑造現代政治的主要動力","拿破崙把革命觀念傳遍歐洲"]],
+["帝國主義的世界","1815～1914",1815,1914,4,["工業國家展開新一波海外擴張","亞洲、非洲被列強殖民；中國在鴉片戰爭中戰敗","日本明治維新後加入列強","1912年中華民國建立"]],
+["兩次世界大戰","1914～1945",1914,1946,4,["帝國主義的競爭產生兩大對抗集團，引爆一戰","俄國革命建立共產國家","經濟大恐慌讓極端政權崛起","二戰是人類史上最慘烈的戰爭，1945年結束"]],
+["冷戰到今天","1945～今日",1946,2100,4,["美蘇兩強對立，進入冷戰時代","亞非殖民地紛紛獨立","1991年蘇聯解體，冷戰結束","世界進入多元的新局面，網路與全球化把世界連在一起"]]
+];
+const STEPS=["這一課的重點","這一課登場的國家","地圖：版圖怎麼變","事件：一件接一件","關鍵人物","同一時間，各地的政權","小測驗"];
+let ls=0,lstep=0,lmax=0;
+try{const v=JSON.parse(localStorage.getItem('histLearn')||'null');if(v){ls=v[0]||0;lstep=v[1]||0;lmax=Math.max(lstep,v[2]||0)}}catch(e){}
+const saveL=()=>{lmax=Math.max(lmax,lstep);try{localStorage.setItem('histLearn',JSON.stringify([ls,lstep,lmax]))}catch(e){}};
+const toLessonTop=()=>{const tb=document.querySelector('.tabs');const y=$('lbody').getBoundingClientRect().top+scrollY-(tb?tb.offsetHeight:0)-6;window.scrollTo(0,Math.max(0,y))};
+const nodeHTML=(list)=>list.map((c,i)=>`${i?`<div class="arrow">↓ 所以</div>`:''}
+ <div class="node" data-y="${c[11]}"><div class="nh" style="background:${pc[c[0]]}">${svg(c[7])}<div><b>${c[2]}</b><span>${c[1]}｜${P[c[0]].n}</span></div></div>
+ <div class="nb"><div class="nr what"><div class="k">是什麼</div><div>${T(c[10])}</div></div>
+ <div class="nr"><div class="k">為什麼</div><div>${T(c[3])}</div></div>
+ <div class="nr"><div class="k">造成</div><div>${T(c[4])}</div></div>
+ <div class="nr today"><div class="k">今天</div><div>${T(c[5])}</div></div>
+ ${c[12]?`<div class="fun"><b>冷知識</b>${T(c[12])}</div>`:''}
+ ${c[9]?`<div class="nr"><div class="k">關鍵人物</div><div><b>${c[9]}</b></div></div>`:''}
+ <div class="nr"><div class="k">根本原因</div><div class="fos">${[...c[6]].map(k=>`<button data-t="${k}">${FO.find(x=>x[0]===k)[1]}</button>`).join('')}</div></div>
+ <a class="photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(c[8])}" target="_blank" rel="noopener">看真實照片 ↗</a></div></div>`).join('');
+const glHTML=g=>`<div class="gl"><b>${g[0]}</b><div class="nr"><div class="k">從哪裡來</div><div>${T(g[3])}</div></div><div class="nr today"><div class="k">後來</div><div>${T(g[4])}</div></div></div>`;
+function lessonQuiz(){return shuffle(genQs(ls)).slice(0,4)}
+let lq=[];
+function renderLesson(){
+ $('mapcorehome').appendChild($('mapcore'));LREG=null;
+ const L=LS[ls],[A,B]=[L[2],L[3]];
+ $('lnav').innerHTML=LS.map((x,i)=>x[4]!==LS[ls][4]?'':`<button aria-pressed="${i===ls}" data-i="${i}" style="${i===ls?`background:${pc[x[4]]};border-color:${pc[x[4]]};color:#fff`:''}">${i+1}</button>`).join('');
+ [...$('lnav').children].forEach(b=>b.onclick=()=>{ls=+b.dataset.i;lstep=0;lmax=0;saveL();renderLesson();$('learn').scrollIntoView()});
+ const ev=C.filter((c,i)=>CY[i]>=A&&CY[i]<B);
+ const pp=PP.filter((x,i)=>PY[i]>=A&&PY[i]<B);
+ const gl=GL.filter(g=>g[2]===ls);
+ const rows=RG.map(r=>{const it=r[1].filter((x,i)=>{const e=i+1<r[1].length?r[1][i+1][0]:9999;return x[0]<B&&e>A});return it.length?`<div class="rgrow"><b>${r[0]}</b><span>${it.map(x=>TR(x[2],r[0])).join(' → ')}</span></div>`:''}).join('');
+ const mis=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=A-1&&m[0]<B).map(m=>m[1]);
+ const fcount={};ev.forEach(c=>[...c[6]].forEach(k=>fcount[k]=(fcount[k]||0)+1));
+ const topF=Object.entries(fcount).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>FO.find(f=>f[0]===k));
+ lq=lessonQuiz(L,ev,pp);
+ const sec=[
+  (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn">第${L[4]+1}道門<b>${g[2]}</b></div><div><div class="gy">你剛穿過 ${g[1]}　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map(x=>`<li>${T(x)}</li>`).join('')}</ul>${topF.length?`<div class="lf"><b>這一課背後最重要的根本力量：</b>${topF.map(f=>`<span class="fo1">${f[1]}</span>`).join('')}<div>${topF.map(f=>f[2]).join(' ')}</div></div>`:''}`,
+  gl.length?`<p class="lp">先認識這一課會出現的國家，知道它們從哪裡來，後面才看得懂。</p>${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>',
+  `<p class="lp">按「下一個」一張一張看，注意顏色區塊怎麼變大、變小、分裂。點地圖上的國家可以看它的由來。</p><div id="lmap"></div>`,
+  nodeHTML(ev),
+  pp.map(x=>`<div class="pp"><div class="pm" style="background:${pc[x[0]]}">${x[1][0]}</div><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div></div></div>`).join('')||'<p class="lp">這一段時間沒有特別列出的人物。</p>',
+  `<p class="lp">把同一段時間各地區的政權並排看，就能看出「誰在什麼時候、在哪裡」。</p>${rows}`,
+  `<div id="lquiz"></div>`
+ ];
+ $('lbody').innerHTML=`<div class="lhead" style="background:${pc[L[4]]}"><span>第 ${ls+1} 課｜${P[L[4]].n}・${ANC[L[4]].w}</span><h2>${L[0]}</h2><div>${L[1]}</div><div class="lcn">同時期的中國：${ANC[L[4]].cn}</div></div>
+ <div class="lsticky"><div class="lst"><b><i class="pbadge" style="background:${pc[L[4]]}">${P[L[4]].n}・${ANC[L[4]].w}</i>第 ${ls+1} 課・${L[0]}</b><span>${lstep+1} / ${STEPS.length}　${STEPS[lstep]}</span></div><div class="lprog">${STEPS.map((s,i)=>`<button class="${i===lstep?'cur':i<=lmax?'on':''}" data-s="${i}" ${i<=lmax?'':'disabled'} aria-label="第${i+1}部分：${s}" style="${i<=lmax?`background:${pc[L[4]]}`:''}"></button>`).join('')}</div></div>`+
+ sec.map((h,i)=>i===lstep?`<section class="lsec" id="ls${i}"><h3><span style="background:${pc[L[4]]}">${i+1}</span>${STEPS[i]}</h3>${h}</section>`:'').join('')+
+ `<div class="lrow">${lstep>0?`<button class="lprev" id="lprev">← 上一部分</button>`:''}`+(lstep<STEPS.length-1?`<button class="primary lnext" id="lmore">繼續：${STEPS[lstep+1]} →</button>`:(ls<LS.length-1?(LS[ls+1][4]!==L[4]?`<button class="primary lnext" id="lnextl">進入下一個時期「${P[LS[ls+1][4]].n}」：${LS[ls+1][0]} →</button>`:`<button class="primary lnext" id="lnextl">下一課：${LS[ls+1][0]} →</button>`):`<p class="lp"><b>恭喜！5500年的世界史全部學完了。</b></p>`))+`</div>`;
+ if($('lmore'))$('lmore').onclick=()=>{lstep++;saveL();renderLesson();toLessonTop()};
+ if($('lprev'))$('lprev').onclick=()=>{lstep--;saveL();renderLesson();toLessonTop()};
+ $('lbody').querySelectorAll('.lprog button').forEach(b=>b.onclick=()=>{lstep=+b.dataset.s;saveL();renderLesson();toLessonTop()});
+ if($('lnextl'))$('lnextl').onclick=()=>{ls++;lstep=0;lmax=0;saveL();renderLesson();toLessonTop()};
+ // 地圖
+ if(lstep===2&&mis.length){LR=[mis[0],mis[mis.length-1]];LREG=LBOX[ls];$('mapfig').style.aspectRatio=LREG?'1.5/1':'1.9/1';$('lmap').appendChild($('mapcore'));if(mi<LR[0]||mi>LR[1])mi=LR[0];syncSlider();drawMap()}
+ else{LR=null;LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'))}
+ if(lstep===6)renderLQ();
+ observeNodes();setYear(Math.max(L[2],-8000));
+ if(qLesson!==ls)buildPractice();
+ $('pracwrap').hidden=!(tab==='learn'&&lstep===STEPS.length-1);
+ applyPeriod();
+}
+function renderLQ(){
+ $('lquiz').innerHTML=lq.map((q,i)=>`<div class="lqq"><div class="q" style="min-height:0;font-size:17px">${i+1}. ${q.t}</div><div class="opts" style="grid-template-columns:minmax(0,1fr)">${q.o.map(o=>`<button data-q="${i}">${o}</button>`).join('')}</div><div class="fb" id="lqfb${i}"></div></div>`).join('')||'<p class="lp">這一課沒有測驗題。</p>';
+ $('lquiz').querySelectorAll('button').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,q=lq[i],right=b.textContent===q.a;
+  b.parentNode.querySelectorAll('button').forEach(x=>{x.disabled=true;if(x.textContent===q.a)x.classList.add('ok')});if(!right)b.classList.add('no');
+  $('lqfb'+i).textContent=right?'答對了！':'正確答案是「'+q.a+'」'});
+}
+
+// ===== 目前時期=====
+function pRange(){const cp=LS[ls][4],ll=LS.filter(l=>l[4]===cp);return[Math.max(ll[0][2],-8000),ll[ll.length-1][3]]}
+let appliedP=-1;
+function applyPeriod(){const cp=LS[ls][4];if(cp===appliedP)return;appliedP=cp;
+ const n=LS.filter(l=>l[4]===cp).length;
+ $('lintro').textContent=`${P[cp].n}（${P[cp].y}）分成 ${n} 課。每一課的內容會一部分一部分出現，看完一部分再按「繼續」。進度會自動記住。`;
+ $('backhome').textContent=`← 回到五個時期（現在：${P[cp].n}）`;
+ renderChain();renderRG();renderPP();
+ document.querySelectorAll('#periods .period').forEach((el,i)=>el.hidden=i!==cp);
+ S.forEach((x,i)=>{const el=$('s'+i);if(el)el.hidden=x.p!==cp});
+ document.querySelectorAll('#jump a').forEach((a,i)=>a.hidden=S[i].p!==cp);
+ const wg=$('mwar');if(wg){wg.hidden=cp!==4;wg.previousElementSibling.hidden=cp!==4}
+}
+// ===== 時代不混：錨點、朝代對照、時代之門、分類遊戲 =====
+const ANC=[
+ {w:"文字",ic:1,cn:"史前、商、西周、春秋",tw:"史前"},
+ {w:"希臘羅馬",ic:9,cn:"戰國、秦、漢、魏晉南北朝",tw:"史前"},
+ {w:"三大世界",ic:10,cn:"隋、唐、五代、宋、元",tw:"史前"},
+ {w:"科學與航海",ic:18,cn:"明、清初",tw:"大航海時代、清帝國時期開始"},
+ {w:"革命與大戰",ic:22,cn:"清中期以後、中華民國、中華人民共和國",tw:"清帝國時期、日治時期、中華民國在臺灣"}
+];
+const GATES=[
+ [-3500,"前3500","字","兩河流域與尼羅河流域發明文字","有文字，歷史才開始",0],
+ [-500,"前500","哲","希臘哲學家、孔子、佛陀幾乎同時出現","人類開始深入思考，希臘羅馬文化興盛",1],
+ [476,"476（約500）","亡","西羅馬帝國滅亡","古典世界結束，拜占庭、伊斯蘭、西歐三分天下",2],
+ [1400,"1400","興","文藝復興在義大利興起","歐洲重新重視「人」，接著是大航海和科學革命",3],
+ [1700,"1700","機","工業革命、美國獨立、法國大革命即將發生","機器和革命塑造了現代世界",4]
+];
+const gateOf=y=>{let k=0;GATES.forEach((g,i)=>{if(y>=g[0])k=i});return k};
+const gateWhy=(y,label)=>{const k=gateOf(y),g=GATES[k],n=GATES[k+1];return `${label}在第 ${k+1} 道門「${g[1]}・${g[3]}」之後${n?`、第 ${k+2} 道門「${n[1]}」之前`:''}，所以是${P[k].n}（${ANC[k].w}）。`};
+const gatesHTML=()=>`<div class="gates">${GATES.map((g,i)=>`<div class="gate" style="--gc:${pc[i]}"><div class="gn">第${i+1}道門<b>${g[2]}</b></div><div><div class="gy">${g[1]}　→ 進入<b>${P[i].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`).join('')}</div>`;
+// 分類遊戲題庫：事件、人物、中國朝代（只放不跨時期的朝代）
+const DYN=[["商朝",-1600],["秦朝",-221],["漢朝",-202],["隋朝",581],["唐朝",618],["宋朝",960],["元朝",1271],["中華民國",1912]];
+function gamePool(){
+ const it=[];
+ C.forEach((c,i)=>{if(CY[i]>=-3500)it.push({t:c[2],y:CY[i],yl:c[1],k:'事件',p:c[0]})});
+ PP.forEach((x,i)=>it.push({t:x[1],y:PY[i],yl:x[2],k:'人物',p:x[0]}));
+ DYN.forEach(d=>it.push({t:d[0],y:d[1],yl:d[1]<0?'前'+(-d[1]):String(d[1]),k:'中國朝代',p:gateOf(d[1])}));
+ return it;
+}
+window.__gamePool=gamePool;
+let gm='sort',gq=null,gOk=0,gDone=0,gWrong=[],gOrder=[];
+function openGame(){$('home').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;gWrong=[];renderGame(true)}
+function closeGame(){$('game').hidden=true;$('home').hidden=false;window.scrollTo(0,0)}
+function renderGame(newQ){
+ $('gmodes').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===gm));
+ if(gm==='sort'){
+  if(newQ){const pool=gamePool();gq=pool[Math.floor(Math.random()*pool.length)]}
+  $('gbody').innerHTML=`<div class="gcard"><small>${gq.k}</small><b>${T(gq.t)}</b><div class="gq">屬於哪個時期？</div></div>
+  <div class="gbtns">${P.map((p,i)=>`<button data-i="${i}" style="--gc:${pc[i]}"><b>${p.n}</b><small>${ANC[i].w}</small></button>`).join('')}</div><div class="gfb" id="gfb" aria-live="polite"></div>
+  <button class="primary gnext" id="gnext" hidden>下一題 →</button>`;
+  $('gbody').querySelectorAll('.gbtns button').forEach(b=>b.onclick=()=>{
+   const i=+b.dataset.i,right=i===gq.p;gDone++;if(right)gOk++;else gWrong.push(gq);
+   $('gbody').querySelectorAll('.gbtns button').forEach(x=>{x.disabled=true;if(+x.dataset.i===gq.p)x.classList.add('ok')});if(!right)b.classList.add('no');
+   $('gfb').innerHTML=`<b>${right?'答對了！':'記一下：'}</b>${gateWhy(gq.y,`${gq.t}（${gq.yl}）`)}<div class="gcn">同時期的中國：${ANC[gq.p].cn}</div>`;
+   $('gnext').hidden=false;$('gnext').onclick=()=>renderGame(true);renderGStat()});
+ }else{
+  if(newQ)gOrder=[];
+  const sh=newQ||!gq?shuffle(P.map((p,i)=>i)):gq;gq=sh;
+  $('gbody').innerHTML=`<div class="gcard"><b>依照時間先後，點五個時期</b><div class="gq">由最早點到最晚</div></div>
+  <div class="gseq">${[0,1,2,3,4].map(k=>`<span style="${gOrder[k]!=null?`background:${pc[gOrder[k]]};color:#fff`:''}">${gOrder[k]!=null?P[gOrder[k]].n:k+1}</span>`).join('')}</div>
+  <div class="gbtns">${sh.map(i=>`<button data-i="${i}" style="--gc:${pc[i]}" ${gOrder.includes(i)?'disabled':''}><b>${P[i].n}</b></button>`).join('')}</div><div class="gfb" id="gfb" aria-live="polite"></div>
+  <button class="primary gnext" id="gnext" hidden>再排一次 →</button>`;
+  $('gbody').querySelectorAll('.gbtns button').forEach(b=>b.onclick=()=>{
+   const i=+b.dataset.i,need=gOrder.length;
+   if(i!==need){b.classList.add('no');setTimeout(()=>b.classList.remove('no'),500);$('gfb').innerHTML=`<b>還不是${P[i].n}。</b>下一個要找的時期，從第 ${need+1} 道門「${GATES[need][1]}・${GATES[need][3]}」開始。`;return}
+   gOrder.push(i);if(gOrder.length===5){gDone++;gOk++;renderGame(false);$('gfb').innerHTML=`<b>全對！</b>口訣「字、哲、亡、興、機」：${GATES.map(g=>g[1]).join(' → ')}`;$('gnext').hidden=false;$('gnext').onclick=()=>renderGame(true);renderGStat()}else renderGame(false)});
+ }
+ renderGStat();
+}
+function renderGStat(){
+ $('gstat').textContent=`答對 ${gOk} / ${gDone}`;
+ $('gwrong').innerHTML=gWrong.length?`<h3>容易搞混的（${gWrong.length}）</h3>`+gWrong.slice(-12).reverse().map(w=>`<div class="gw" style="border-color:${pc[w.p]}"><b>${w.t}</b><span>${w.yl}・${P[w.p].n}</span></div>`).join(''):'';
+}
+// ===== 時間軸頁 =====
+// 課本年表的長條：[名稱, 開始, 結束, 類別]
+const BARS=[
+["西亞古文明",-3500,-539,"文明"],["埃及古文明",-3000,-525,"文明"],["愛琴文明",-2000,-1100,"文明"],["希臘文明",-1100,1,"文明"],["希臘化文化",-323,-30,"文明"],
+["羅馬王政時期",-753,-509,"政權"],["波斯帝國",-550,-330,"政權"],["羅馬共和時期",-509,-27,"政權"],["羅馬帝國時期",-27,395,"政權"],["西羅馬帝國",395,476,"政權"],["東羅馬帝國（拜占庭帝國）",395,1453,"政權"],["阿拉伯帝國",632,1258,"政權"],["鄂圖曼帝國",1299,1922,"政權"],["蒙兀兒帝國",1526,1857,"政權"],
+["文藝復興",1350,1600,"重要歷史大事"],["大航海時代",1450,1650,"重要歷史大事"],["16～18世紀帝國主義",1500,1800,"重要歷史大事"],["宗教改革",1517,1648,"重要歷史大事"],["科學革命",1543,1687,"重要歷史大事"],["啟蒙運動",1680,1800,"重要歷史大事"],["工業革命",1760,1900,"重要歷史大事"],["美國獨立戰爭",1775,1783,"重要歷史大事"],["法國大革命",1789,1799,"重要歷史大事"],["19世紀帝國主義",1815,1914,"重要歷史大事"],["第一次世界大戰",1914,1918,"重要歷史大事"],["第二次世界大戰",1939,1945,"重要歷史大事"],["冷戰",1947,1991,"重要歷史大事"],
+["佛教",-500,9999,"宗教"],["基督教",30,9999,"宗教"],["伊斯蘭教",610,9999,"宗教"]];
+const BCOL={"文明":"#c9961a","政權":"#4f9a52","重要歷史大事":"#4a7fd6","宗教":"#a07a5a"};
+const TL_STEP=[100,25,25,10,10];
+let tlY=null,tlRaf=0;
+function tlRange(){const[PA,PB]=pRange();return[Math.max(PA,-3500),Math.min(PB,2025)]}
+// ===== 直式甘特時間軸 =====
+const GK=[0.35,1.2,1.3,4,3.6];
+let GGROUPS_=null;const GGR=()=>GGROUPS_||(GGROUPS_=[...SG.slice(1).map(g=>[g[0],g[1]]),["課本年表",null]]);
+let gg=0,gY=null,gRaf=0;
+const TYC={"合":"#7fbf8a","分":"#e8a0a0","外":"#c8ad7f","新":"#8fb3e8","":"#c9c4ba"};
+function ganttCols(A,B){
+ if(GGR()[gg][1]){
+  return RG.filter(r=>GGR()[gg][1].includes(r[0])).map(r=>({n:r[0],rg:r[0],items:r[1].map((x,i)=>({s:x[0],e:i+1<r[1].length?r[1][i+1][0]:2025,name:x[2],yl:x[1],note:x[3],c:TYC[x[4]||'']}))}));
+ }
+ const cats=[["文明","文明"],["政權","政權"],["大事","重要歷史大事"],["宗教","宗教"]];
+ return cats.map(([lab,c])=>({n:lab,items:BARS.filter(b=>b[3]===c).map(b=>({s:b[1],e:Math.min(b[2],2025),name:b[0],yl:`${yLabel(b[1])}～${b[2]>=9999?'今':yLabel(b[2])}`,note:'',c:BCOL[c]+'99'}))})).map(col=>{
+  // 同一欄重疊的長條分成好幾道
+  const lanes=[];col.items.filter(it=>it.e>A&&it.s<B).sort((a,b)=>a.s-b.s).forEach(it=>{let L=lanes.find(l=>l[l.length-1].e<=it.s);if(!L){L=[];lanes.push(L)}L.push(it)});
+  return lanes.map((l,i)=>({n:i?'':col.n,items:l}));
+ }).flat();
+}
+function renderTL(){
+ const cp=LS[ls][4],[A,B]=tlRange(),k=GK[cp],st=TL_STEP[cp];
+ $('tlhead').innerHTML=`<i class="pbadge" style="background:${pc[cp]}">${P[cp].n}・${ANC[cp].w}</i>${P[cp].y}　上下滑動，紅線碰到的就是那一年的文明`;
+ $('ggroups').innerHTML=GGR().map((g,i)=>`<button aria-pressed="${i===gg}" data-i="${i}">${g[0]}</button>`).join('');
+ $('ggroups').querySelectorAll('button').forEach(b=>b.onclick=()=>{gg=+b.dataset.i;const y=gY;renderTL();if(y!=null)gScrollTo(y)});
+ const cols=ganttCols(A,B),H=(B-A)*k;
+ $('gcolh').innerHTML=`<div class="gax"></div>`+cols.map(c=>`<div>${c.n}</div>`).join('');
+ const ticks=[];for(let y=Math.ceil(A/st)*st;y<=B;y+=st)ticks.push(y);
+ const evs=C.filter(c=>c[11]>=A&&c[11]<B);
+ $('gtin').style.height=H+'px';
+ $('gtin').innerHTML=`<div class="gax">${(()=>{const et=evs.map(c=>(c[11]-A)*k);return ticks.map((y,i)=>{const t=(y-A)*k,clash=et.some(e=>Math.abs(e-t)<20);return `<div class="gt${i%2?'':' gtm'}" style="top:${t}px">${i%2||clash?'':yLabel(y)}</div>`}).join('')})()}${(()=>{let last=-99;return evs.map(c=>{const t=(c[11]-A)*k;const lab=t-last>=15;if(lab)last=t;const ci=C.indexOf(c);return `<button class="gev" data-ci="${ci}" style="top:${t}px" aria-label="${c[2]}（${c[1]}）">●${lab?' '+CS[ci]:''}</button>`}).join('')})()}</div>`+
+  cols.map((c,ci)=>`<div class="gcol">${c.items.filter(it=>it.e>A&&it.s<B).map(it=>{const s=Math.max(it.s,A),e=Math.min(it.e,B),h=(e-s)*k;return `<button class="gbar" data-c="${ci}" data-n="${it.name}" style="top:${(s-A)*k}px;height:${Math.max(h,3)}px;background:${it.c}" aria-label="${it.name} ${it.yl}">${h>36?`<span>${it.name}</span>`:''}</button>`}).join('')}</div>`).join('');
+ $('gtin').style.gridTemplateColumns=`52px repeat(${cols.length},minmax(0,1fr))`;
+ $('gcolh').style.gridTemplateColumns=`52px repeat(${cols.length},minmax(0,1fr))`;
+ window.__gcols=cols;
+ $('gtin').querySelectorAll('.gev').forEach(b=>b.onclick=()=>{const c=C[+b.dataset.ci];
+  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>${c[2]}</b>　${c[1]}<div class="gsr"><i>是什麼</i>${T(c[10])}</div><div class="gsr"><i>為什麼</i>${T(c[3])}</div><div class="gsr"><i>造成</i>${T(c[4])}</div>${c[12]?`<div class="gsr"><i>冷知識</i>${T(c[12])}</div>`:''}`;$('gsel').hidden=false;$('gsel').scrollTop=0});
+ $('gtin').querySelectorAll('.gbar').forEach(b=>b.onclick=()=>{const it=cols[+b.dataset.c].items.find(x=>x.name===b.dataset.n);const g=glFind(it.name);
+  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>${T(it.name)}</b>　${it.yl}${it.note?`<div>${T(it.note)}</div>`:''}${g?`<div class="gsg">從哪裡來：${T(g[3])}</div>`:''}`;$('gsel').hidden=false});
+ const nav=[cp>0?`<button data-p="${cp-1}">← ${P[cp-1].n}</button>`:'',cp<4?`<button data-p="${cp+1}">${P[cp+1].n} →</button>`:''].join('');
+ $('tlnav').innerHTML=nav;$('tlnav').querySelectorAll('button').forEach(b=>b.onclick=()=>{const p=+b.dataset.p;ls=LS.findIndex(l=>l[4]===p);lstep=0;lmax=0;saveL();applyPeriod();gY=null;renderTL()});
+ $('gsel').hidden=true;
+ const start=gY!=null&&gY>=A&&gY<=B?gY:(curY>=A&&curY<=B?curY:A);
+ requestAnimationFrame(()=>gScrollTo(start));
+}
+function gScrollTo(y){const cp=LS[ls][4],[A]=tlRange(),k=GK[cp],sc=$('gtbody');sc.scrollTop=(y-A)*k;gPick(true)}
+function gPick(force){
+ const cp=LS[ls][4],[A,B]=tlRange(),k=GK[cp],sc=$('gtbody');
+ let y=Math.round(A+sc.scrollTop/k);y=Math.max(A,Math.min(B,y));
+ if(y===gY&&!force)return;gY=y;
+ const cols=window.__gcols||[];
+ const act=cols.map(c=>{const it=c.items.find(x=>y>=x.s&&y<x.e);return it?[c.n,it.name,c.rg]:null}).filter(Boolean);
+ $('gyear').innerHTML=`<b style="color:${pc[pOf(y)]}">${yLabel(y)}${y<2025?'年':''}</b><span>${P[pOf(y)].n}</span>`;
+ $('gact').innerHTML=act.length?act.map(([n,v,rgn])=>`<span>${n?`<small>${n}</small>`:''}${rgn?TR(v,rgn):(TERM[v]?`<button class="term" data-t="${v}">${v}</button>`:v)}</span>`).join(''):'<span class="none">這一欄這時候還沒有國家</span>';
+ $('gtin').querySelectorAll('.gbar').forEach(b=>{const it=cols[+b.dataset.c].items.find(x=>x.name===b.dataset.n);b.classList.toggle('hit',!!it&&y>=it.s&&y<it.e)});
+ setYear(y);
+}
+// ===== 首頁 =====
+function goHome(){document.body.classList.remove('tlmode');$('app').hidden=true;$('game').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();window.scrollTo(0,0)}
+function enterApp(lesson){$('home').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
+ if(lesson!=null&&lesson!==ls){ls=lesson;lstep=0;lmax=0;saveL()}setTab('learn');renderRail();renderSync();window.scrollTo(0,0)}
+function renderHome(){
+ $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>${LS.filter(l=>l[4]===i).length} 課</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${ANC[i].w}</strong>中國：${ANC[i].cn}</span></span></button>`).join('');
+ $('hgates').innerHTML=`<h2>五道時代之門</h2><p class="lp">記住五個分界，就不會把時期搞混。口訣：<b>字、哲、亡、興、機</b>。</p>`+gatesHTML()+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`;
+ $('hgame').onclick=openGame;
+ [...$('ribbon').children].forEach(b=>b.onclick=()=>enterApp(LS.findIndex(l=>l[4]===+b.dataset.i)));
+ $('hyears').innerHTML='';
+ let saved=null;try{saved=JSON.parse(localStorage.getItem('histLearn')||'null')}catch(e){}
+ $('hcont').innerHTML=saved&&(saved[0]||saved[1])?`<button class="primary hgo" id="hgo">繼續上次：第 ${saved[0]+1} 課「${LS[saved[0]][0]}」 →</button>`:'';
+ if($('hgo'))$('hgo').onclick=()=>enterApp(null);
+ $('hless').innerHTML=P.map((p,i)=>`<div class="hp"><div class="hph" style="color:${p.c}"><b>${p.n}</b><span>${p.y}</span></div>${LS.map((l,j)=>l[4]===i?`<button data-j="${j}"><span style="background:${p.c}">${j+1}</span>${l[0]}<small>${l[1]}</small></button>`:'').join('')}</div>`).join('');
+ $('hless').querySelectorAll('button').forEach(b=>b.onclick=()=>enterApp(+b.dataset.j));
+}
+$('backhome').onclick=goHome;
+$('gsel').addEventListener('click',e=>{if(!e.target.closest('.term'))$('gsel').hidden=true});
+$('gtbody').addEventListener('scroll',()=>{cancelAnimationFrame(gRaf);gRaf=requestAnimationFrame(()=>gPick(false))},{passive:true});
+$('gback').onclick=closeGame;
+$('gmodes').querySelectorAll('button').forEach(b=>b.onclick=()=>{gm=b.dataset.m;renderGame(true)});
+// ===== 版圖演變 =====
+// ===== 左側時間軸 + 下方同期各地 =====
+C.forEach((c,i)=>c[11]=CY[i]);
+const SEG=LS.map(l=>[Math.max(l[2],-8000),Math.min(l[3],2026)]);
+const yToF=y=>{y=Math.max(-8000,Math.min(2026,y));for(let i=0;i<SEG.length;i++){const[a,b]=SEG[i];if(y<b||i===SEG.length-1)return(i+Math.min(1,(y-a)/(b-a)))/SEG.length}return 1};
+const fToY=f=>{f=Math.max(0,Math.min(.9999,f));const i=Math.floor(f*SEG.length),[a,b]=SEG[i];return Math.round(a+(f*SEG.length-i)*(b-a))};
+const yLabel=y=>y<=-8000?"前8000":y<0?'前'+(-y):y>=2025?'今日':String(y);
+let curY=-3500;
+const CS=["農業","文字","金字塔","愛琴","法典","周朝","字母","希臘城邦","波斯","羅馬共和","思想家","民主","亞歷山大","秦統一","絲路","羅馬帝國","基督教","西羅馬亡","拜占庭","唐朝","伊斯蘭","查理曼","封建","塞爾柱","十字軍","蒙古","馬可波羅","黑死病","文藝復興","鄭和","印刷術","拜占庭亡","大航海","宗教改革","科學革命","鄭成功","啟蒙","工業革命","美法革命","鴉片戰爭","帝國主義","民國建立","一戰","俄國革命","凡爾賽","大恐慌","日本侵華","二戰爆發","珍珠港","二戰結束","冷戰","網路"];
+let railL=-1,railMin=false;try{railMin=localStorage.getItem('histRailMin')==='1'}catch(e){}
+function setRailMin(v){railMin=v;try{localStorage.setItem('histRailMin',v?'1':'0')}catch(e){}document.body.classList.toggle('railmin',v);renderRail()}
+document.body.classList.toggle('railmin',railMin);
+const segOf=y=>{for(let i=0;i<SEG.length;i++)if(y<SEG[i][1])return i;return SEG.length-1};
+function renderRail(){
+ const r=$('rail');if(!r.clientHeight)return;
+ const li=segOf(curY),[a,b]=SEG[li],L=LS[li];railL=li;
+ if(railMin){r.innerHTML=`<button class="rexp" id="rexp" style="background:${pc[L[4]]}" aria-label="展開時間軸"><small>›</small><span>${P[L[4]].n}</span><b>${yLabel(curY)}</b><small>展開</small></button>`;$('rexp').onclick=()=>setRailMin(false);return}
+ r.innerHTML=`<button class="rcol" id="rcol" aria-label="收合時間軸">‹ 收合</button><button class="rnav" id="rup" ${li?'':'disabled'}>▲<small>${li?LS[li-1][1].replace('約',''):''}</small></button>
+ <div class="rhead" style="background:${pc[L[4]]}">第${li+1}課<br>${P[L[4]].n}<br><small>${ANC[L[4]].w}</small></div>
+ <div class="rbody" id="rbody"></div>
+ <button class="rnav" id="rdn" ${li<LS.length-1?'':'disabled'}>▼<small>${li<LS.length-1?LS[li+1][1].replace('約',''):''}</small></button>`;
+ const body=$('rbody'),H=body.clientHeight,span=b-a;
+ const step=[5,10,20,25,50,100,200,250,500,1000,2000].find(s=>span/s<=7)||2000;
+ const items=[];
+ C.forEach((c,i)=>{if(c[11]>=a&&c[11]<b)items.push({y:c[11],t:CS[i],ev:1})});
+ for(let t=Math.ceil(a/step)*step;t<b;t+=step)items.push({y:t,t:yLabel(t),ev:0});
+ items.push({y:a,t:yLabel(a),ev:0});
+ const px=y=>(y-a)/span*(H-16)+8;
+ const used=[];let h='';
+ items.sort((p,q)=>q.ev-p.ev).forEach(it=>{const top=px(it.y);
+  if(used.some(u=>Math.abs(u-top)<(it.ev?17:15)))return;used.push(top);
+  h+=it.ev?`<button class="rev" style="top:${top}px" data-y="${it.y}"><i></i>${it.t}</button>`:`<div class="rtk" style="top:${top}px">${it.t}</div>`});
+ body.innerHTML=h+`<div class="rmark" id="rmark"><b id="rmy"></b></div>`;
+ body.onclick=e=>{const ev=e.target.closest('.rev');const rb=body.getBoundingClientRect();
+  const y=ev?+ev.dataset.y:Math.round(a+Math.max(0,Math.min(1,(e.clientY-rb.top-8)/(H-16)))*span);railJump(y,!!ev)};
+ $('rcol').onclick=()=>setRailMin(true);$('rup').onclick=()=>railLesson(li-1);$('rdn').onclick=()=>railLesson(li+1);
+ posMark();
+}
+const posMark=()=>{if(railMin){renderRail();return}const body=$('rbody');if(!body)return;const li=segOf(curY);if(li!==railL){renderRail();return}
+ const[a,b]=SEG[li],H=body.clientHeight;$('rmark').style.top=((curY-a)/(b-a)*(H-16)+8)+'px';$('rmy').textContent=yLabel(curY)};
+function railLesson(i){if(i<0||i>=LS.length)return;
+ if(tab==='learn'){ls=i;lstep=0;lmax=0;saveL();renderLesson();$('learn').scrollIntoView()}else{setYear(SEG[i][0]);railJump(SEG[i][0],false)}}
+function railJump(y,isEv){
+ const node=[...document.querySelectorAll('.node[data-y]')].filter(n=>n.offsetParent).find(n=>+n.dataset.y>=y);
+ if(tab==='mapv'){let best=0;MY.forEach((m,i)=>{if(Math.abs(myN(m[0])-y)<Math.abs(myN(MY[best][0])-y))best=i});goMap(best);return}
+ if(tab==='learn'){const li=segOf(y);if(li!==ls){ls=li;lstep=0;lmax=0;saveL();renderLesson();$('learn').scrollIntoView();return}}
+ setYear(y);if(node&&(isEv||tab==='chain'))node.scrollIntoView({block:'center'});
+}
+const activeAt=(items,y)=>{let k=-1;items.forEach((x,i)=>{if(x[0]<=y)k=i});return k};
+const SG=[["全部",null],["東亞",["中國","臺灣","日本","朝鮮半島"]],["南亞・西亞",["印度","伊朗（波斯）","西亞（兩河流域到土耳其）"]],["歐洲",["希臘、巴爾幹","義大利","法國","德國","英國","西班牙、葡萄牙","俄羅斯"]],["非洲",["埃及","撒哈拉以南非洲"]],["美洲",["北美洲","中南美洲"]]];
+let sg=0;try{sg=+localStorage.getItem('histSG')||0}catch(e){}
+function renderSync(){
+ $('syncg').innerHTML=SG.map((g,i)=>`<button aria-pressed="${i===sg}" data-i="${i}">${g[0]}</button>`).join('');
+ $('syncg').querySelectorAll('button').forEach(b=>b.onclick=()=>{sg=+b.dataset.i;try{localStorage.setItem('histSG',sg)}catch(e){}renderSync()});
+ $('syncy').innerHTML=`<b>${yLabel(curY)}${curY<2025&&curY>-8000?'年':''}</b>　同一時間，各地區在做什麼`;
+ const wide=!!SG[sg][1];$('syncc').classList.toggle('wide',wide);
+ $('syncc').innerHTML=RG.map((r,ri)=>{if(SG[sg][1]&&!SG[sg][1].includes(r[0]))return '';const k=activeAt(r[1],curY);
+  if(k<0)return `<div class="sc" data-r="${ri}"><small>${r[0]}</small><b class="none">還沒有國家</b><span>部落或早期聚落</span></div>`;
+  const x=r[1][k],p=pOf(x[0]),t=TY[x[4]];
+  return `<div class="sc" data-r="${ri}" style="border-top-color:${pc[p]}"><small>${r[0]}</small><b>${TR(x[2],r[0])}</b><span>${x[1]}${t?'・'+t[0]:''}</span>${wide&&x[3]?`<em>${T(x[3])}</em>`:''}<button class="scgo" data-r="${ri}">看${r[0]}的演變 →</button></div>`}).join('');
+ $('syncc').querySelectorAll('.scgo').forEach(b=>b.onclick=()=>{rg=+b.dataset.r;renderRG();setTab('rgv');$('rgv').scrollIntoView()});
+}
+function setYear(y){if(y===curY)return;curY=y;posMark();renderSync()}
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setYear(+e.target.dataset.y)}),{rootMargin:'-35% 0px -55% 0px'});
+const observeNodes=()=>{nio.disconnect();document.querySelectorAll('.node[data-y]').forEach(n=>nio.observe(n))};
+$('synct').onclick=()=>{const m=$('sync').classList.toggle('min');$('synct').textContent=m?'展開 ▴':'收起 ▾';document.body.classList.toggle('syncmin',m);requestAnimationFrame(renderRail)};
+const tbo=new ResizeObserver(()=>{const tb=document.querySelector('.tabs');if(tb)document.documentElement.style.setProperty('--tabsH',tb.offsetHeight+'px')});tbo.observe(document.querySelector('.tabs'));
+const rro=new ResizeObserver(renderRail);rro.observe($('rail'));
+
+const MY=[
+["bc3000","前3000",0,"兩河流域的蘇美城邦和埃及出現最早的城市與國家；世界大部分地方還是部落和狩獵採集社會。"],
+["bc2000","前2000",0,"埃及、兩河流域、印度河流域三大文明並存；黃河流域正走向早期國家（約夏朝時期）。"],
+["bc1500","前1500",0,"埃及進入新王國，國力強盛；中國進入商朝，使用甲骨文和青銅器。"],
+["bc1000","前1000",0,"中國周朝建立不久；地中海東岸有以色列王國，腓尼基人發展出字母；亞述在兩河流域崛起。"],
+["bc700","前700",0,"亞述帝國統治兩河流域；希臘出現許多城邦；中國進入春秋時代。"],
+["bc500","前500",1,"波斯帝國是當時最大的帝國；孔子在世；羅馬剛成為共和國（前509）。"],
+["bc400","前400",1,"希臘城邦剛打完伯羅奔尼撒戰爭；中國進入戰國時代。"],
+["bc323","前323",1,"亞歷山大帝國剛打下來，他在這一年過世，希臘文化傳到東方。"],
+["bc300","前300",1,"亞歷山大死後，帝國分裂成幾個希臘化王國；印度孔雀帝國興起。"],
+["bc200","前200",1,"秦朝已滅，漢朝剛建立；羅馬正和迦太基爭奪地中海。"],
+["bc100","前100",1,"漢武帝時期，絲路開通；羅馬共和控制大半個地中海。"],
+["bc1","西元元年",1,"漢朝和羅馬帝國，同時是東、西方的兩大帝國。"],
+["100","100",1,"東漢與羅馬帝國都在全盛期；中亞的貴霜帝國控制絲路中段。"],
+["200","200",1,"東漢末年、三國前夕；羅馬帝國仍然強盛。"],
+["300","300",1,"羅馬由四位皇帝分區治理（四帝共治）；中國西晉即將陷入動亂。"],
+["400","400",1,"羅馬帝國已分成東西兩半；中國是東晉與北方十六國。"],
+["500","500",2,"西羅馬已在476年滅亡，西歐由日耳曼人建立王國；中國是南北朝。"],
+["600","600",2,"隋朝重新統一中國；伊斯蘭教即將在阿拉伯半島出現。"],
+["700","700",2,"阿拉伯帝國（伍麥亞王朝）快速擴張，即將打到西班牙；唐朝國力強盛。"],
+["800","800",2,"唐朝、阿拉伯帝國、查理曼帝國，東中西三強並立。"],
+["900","900",2,"唐朝即將滅亡（907），中國進入五代十國；查理曼帝國已經分裂。"],
+["1000","1000",2,"北宋與遼對峙；歐洲進入封建社會；美洲、非洲許多地方仍是部落社會。"],
+["1100","1100",2,"十字軍剛攻下耶路撒冷（1099）；塞爾柱帝國控制西亞。"],
+["1200","1200",2,"蒙古正在崛起；中國是南宋與金對峙。"],
+["1279","1279",2,"蒙古帝國最大的時候，同一年南宋滅亡。"],
+["1300","1300",2,"蒙古帝國已分裂成元朝和幾個汗國；鄂圖曼土耳其剛在小亞細亞建國。"],
+["1400","1400",3,"明朝初年；帖木兒帝國在中亞；義大利的文藝復興正在進行。"],
+["1492","1492",3,"哥倫布抵達美洲的這一年；鄂圖曼帝國已經攻下君士坦丁堡（1453）。"],
+["1500","1500",3,"葡萄牙人繞過非洲到達印度（1498）；美洲的阿茲特克、印加正強盛。"],
+["1530","1530",3,"西班牙征服阿茲特克，正要征服印加；印度建立蒙兀兒帝國。"],
+["1600","1600",3,"西班牙、葡萄牙控制中南美洲；明朝晚期；日本即將進入江戶時代。"],
+["1650","1650",3,"清朝剛入關（1644）；俄羅斯一路往東擴張到太平洋。"],
+["1700","1700",4,"清朝康熙年間，臺灣在1683年納入清朝版圖；英、法在北美爭奪殖民地。"],
+["1715","1715",4,"歐洲各國在美洲建立大片殖民地；俄羅斯的彼得大帝推動改革。"],
+["1783","1783",4,"美國獨立獲得承認；俄羅斯帝國橫跨歐亞兩洲。"],
+["1800","1800",4,"拿破崙在法國掌權，即將征服大半個歐洲；英國工業革命正在進行。"],
+["1815","1815",4,"拿破崙戰爭結束；拉丁美洲各地開始脫離西班牙獨立。"],
+["1880","1880",4,"帝國主義高峰，列強準備瓜分非洲；臺灣仍屬清朝。"],
+["1900","1900",4,"非洲幾乎被瓜分完畢；臺灣在1895年割讓給日本。"],
+["1914","1914",4,"第一次世界大戰爆發；中華民國剛成立兩年。"],
+["1920","1920",4,"一戰結束，俄、奧匈、德、鄂圖曼四大帝國瓦解，出現蘇聯和許多新國家。"],
+["1930","1930",4,"經濟大恐慌席捲全球；中國由國民政府名義上統一。"],
+["1938","1938",4,"二戰前夕；日本正在侵略中國。"],
+["1945","1945",4,"二戰結束；臺灣由中華民國接收；殖民地即將紛紛獨立。"],
+["1960","1960",4,"許多亞非國家獨立（1960年被稱為「非洲年」）；冷戰進行中。"],
+["1994","1994",4,"蘇聯在1991年解體，分裂出十多個新國家。"],
+["2000","2000",4,"歐洲走向整合，全球化加速。"],
+["2010","2010",4,"接近今天的世界版圖。"]
+];
+const D={"1400:Mongol Empire":"明朝／北元（資料未分開）","1279:Mongol Empire":"蒙古帝國（含元朝）","1300:Mongol Empire":"元朝（蒙古）","bc1500:Zhoa":"商朝","bc1000:Zhoa":"周朝","bc700:Zhoa":"周朝（春秋）","1930:White Russia":"蘇聯","1930:Far Eastern SSR":"蘇聯","Republic of Turkey":"土耳其","1914:Manchu Empire":"中華民國","1930:Chinese warlords":"中華民國","1938:Chinese warlords":"中華民國","Kushan Empire":"貴霜帝國","Saka Kingdom":"塞種王國","Satavahanihara":"百乘王朝","Meroe":"麥羅埃（庫施）","Himyarite Kingdom":"希木葉爾王國","Kalinga":"羯陵伽","Armenia":"亞美尼亞","Nabatean Kingdom":"納巴泰王國","Dacia":"達契亞","Moche":"莫切","Teotihuacan":"特奧蒂瓦坎","Nazca":"納斯卡","Paekche":"百濟","Silla":"新羅","Gojoseon":"古朝鮮","Yamato":"大和","Funan":"扶南","Champa":"占婆","Chen-La":"真臘","Rome (Diocletianus)":"羅馬（四帝共治）","Rome (Maximian)":"羅馬（四帝共治）","Rome (Constantinus)":"羅馬（四帝共治）","Rome (Galerius)":"羅馬（四帝共治）","Han Zhao":"漢趙","Northern Liang":"北涼","Nan-Yue":"南越","Min-Yue":"閩越","Yue":"越國","Zhangzhung Kingdom":"象雄","Xia":"夏（傳說）","Roman Republic":"羅馬共和","Macedon and Hellenic League":"馬其頓","Carthage":"迦太基","Numidia":"努米底亞","Bosporan Kingdom":"博斯普魯斯王國","Kingdom of Antigonus":"安提柯王國","Kingdom of Kassander":"卡山德王國","Kingdom of Lysimachus":"利西馬科斯王國","Assyria":"亞述","Babylonia":"巴比倫","Kingdom of David and Solomon":"以色列王國","Kush":"庫施","Urartu":"烏拉爾圖","Phrygians":"弗里吉亞","Canaan":"迦南","Olmec":"奧爾梅克","Zapotec":"薩波特克","Etrurians":"伊特拉斯坎","Chavin":"查文","Saba":"示巴","Gandhāra":"犍陀羅","Kosala":"憍薩羅","Avanti":"阿槃提","Kuru":"俱盧","Umayyad Caliphate":"阿拉伯帝國（伍麥亞）","Tufan Empire":"吐蕃","Western Gokturk Khaganate":"西突厥","Pallavas":"帕拉瓦","Palas":"波羅王朝","Chalukyas":"遮婁其","Gurjara Pratihara":"普臘蒂哈臘","Rashtrakuta":"羅濕陀羅拘陀","Rashtrakuta state":"羅濕陀羅拘陀","Aghlabid Emirate":"阿格拉布王朝","Idrisid Caliphate":"伊德里斯王朝","Emirate of Córdoba":"哥多華","West Francia":"西法蘭克","Samanid Empire":"薩曼王朝","Khitans":"契丹","Nan Chao":"南詔","Volga Bulgars":"伏爾加保加爾","Magyars":"馬札爾人","Kimek-Kipchak khaganate":"基馬克汗國","Ghaznavid Emirate":"伽色尼王朝","Tiahuanaco Empire":"蒂瓦納庫","Huari Empire":"瓦里帝國","Madagascar":"馬達加斯加","Seljuk Empire":"塞爾柱帝國","Seljuk Caliphate":"塞爾柱（羅姆）","Almoravid dynasty":"穆拉比特王朝","Karkhanids":"喀喇汗國","Kievan Rus":"基輔羅斯","Kingdom of Sukhotai":"素可泰","Sukhothai":"素可泰","Khwarazmian dynasty":"花剌子模","Principality of Novgorod":"諾夫哥羅德","Novgorod":"諾夫哥羅德","Other Rus Principalities":"羅斯諸公國","Norway":"挪威","Hafsid Caliphate":"哈夫斯王朝","Hungary":"匈牙利","Kanem-Bornu":"加涅姆－博爾努","Castile":"卡斯提爾","England":"英格蘭","English territory":"英格蘭","Shogun Japan (Kamakura)":"鎌倉幕府","Đại Việt":"大越","Great Zimbabwe":"大辛巴威","Ilkhanate":"伊兒汗國","Khanate of the Golden Horde":"金帳汗國","Bengal":"孟加拉","Vijayanagara":"毗奢耶那伽羅","Mwenemutapa":"穆塔帕王國","Khiva Khanate":"希瓦汗國","Watassid Morocco":"摩洛哥","Viceroyalty of the Río de la Plata":"拉布拉他（西班牙）","Sikhs":"錫克王國","Sweden–Norway":"瑞典－挪威","Sokoto Caliphate":"索科托","Cape Colony":"開普殖民地（英）","Angola":"安哥拉","Niger":"尼日","Mauritania":"茅利塔尼亞","Paraguay":"巴拉圭","Ecuador":"厄瓜多","Algiers":"阿爾及爾","Kamerun":"喀麥隆（德）","German South-West Africa":"德屬西南非","Namibia":"納米比亞","Tanzania, United Republic of":"坦尚尼亞","Nogai Horde":"諾蓋汗國","Darfur":"達佛","Han":"漢朝","Han Empire":"漢朝","Qin":"秦朝","Zhou states":"周朝各國","Jin":"東晉","Jin Empire":"南朝","Toba Wei":"北魏","Sixteen Kingdoms":"十六國","Sui Empire":"隋朝","Tang Empire":"唐朝","Song Empire":"宋朝","Liao":"遼","Xixia":"西夏","Ming Empire":"明朝","Ming Chinese Empire":"明朝","Post-Ming Warlords":"南明等勢力","Manchu Empire":"清朝","Qing Empire":"清朝","Chinese Warlords":"中華民國（軍閥割據）","Chinese warlords":"中華民國（軍閥割據）","China":"中國","1945:China":"中華民國","Taiwan":"臺灣","1880:Taiwan":"臺灣（清朝）","1945:Taiwan":"臺灣（中華民國接收）","1960:Taiwan":"臺灣（中華民國）","1994:Taiwan":"臺灣（中華民國）","2010:Taiwan":"臺灣（中華民國）","1960:China":"中華人民共和國","1994:China":"中華人民共和國","2010:China":"中華人民共和國","Manchuria":"滿洲國","Xinjiang":"新疆","Tibet":"西藏","Tibetan Empire":"吐蕃","Mongolia":"蒙古","Xiongnu":"匈奴","S. Xiongnu":"南匈奴","Göktürks":"突厥","Uyghurs":"回鶻","Ruanruan":"柔然","Kara Khitai Khaganate":"西遼","Oirat Confederation":"瓦剌",
+"Mongol Empire":"蒙古帝國","Chagatai Khanate":"察合台汗國","Golden Horde":"金帳汗國","White Horde":"白帳汗國","Timurid Empire":"帖木兒帝國","Timurid Emirates":"帖木兒帝國","Kyivan Rus":"基輔羅斯","Grand Duchy of Moscow":"莫斯科大公國","Tsardom of Muscovy":"俄羅斯沙皇國","Russian Empire":"俄羅斯帝國","Russia":"俄羅斯","USSR":"蘇聯","Khanate of Sibir":"西伯利亞汗國","Kazan Khanate":"喀山汗國",
+"Roman Empire":"羅馬帝國","Rome":"羅馬","bc200:Rome":"羅馬共和","Western Roman Empire":"西羅馬帝國","500:Western Roman Empire":"西羅馬舊地","Eastern Roman Empire":"東羅馬（拜占庭）","Byzantine Empire":"拜占庭帝國","Carthaginian Empire":"迦太基","Greek city-states":"希臘城邦","Empire of Alexander":"亞歷山大帝國","Seleucid Kingdom":"塞琉古王國","Ptolemaic Kingdom":"托勒密埃及","Minoan":"米諾斯文明","Hittites":"西臺",
+"Achaemenid Empire":"波斯帝國","Parthian Empire":"安息帝國","Parthia":"安息帝國","Sasanian Empire":"薩珊波斯","Safavid Empire":"薩法維波斯","Persia":"波斯","Persi":"波斯","Iran":"伊朗","Elam":"埃蘭",
+"Abbasid Caliphate":"阿拉伯帝國","Fatimid Caliphate":"法蒂瑪王朝","Buwayhid Emirates":"布韋希王朝","Caliphate of Córdoba":"哥多華哈里發國","Mamluke Sultanate":"馬木路克王朝","Almohad Caliphate":"穆瓦希德王朝","Arabia":"阿拉伯","Arabia (Nejd)":"阿拉伯","Nejd":"阿拉伯","Saudi Arabia":"沙烏地阿拉伯","Ottoman Empire":"鄂圖曼帝國","Turkey":"土耳其",
+"Indus valley civilization":"印度河流域文明","Magadha":"摩揭陀","Mauryan Empire":"孔雀帝國","Gupta Empire":"笈多帝國","Sultanate of Delhi":"德里蘇丹國","Mughal Empire":"蒙兀兒帝國","Maratha Confederacy":"馬拉塔聯盟","British East India Company":"英國東印度公司","India":"印度","Pakistan":"巴基斯坦","Hindu kingdoms":"印度各王國","Chola":"朱羅","Kushan Principalities":"貴霜",
+"Ur":"烏爾","city-states":"兩河流域城邦","Egypt":"埃及","Hurrian Kingdoms":"胡里安王國",
+"Frankish Kingdom":"法蘭克王國","Franks":"法蘭克人","Carolingian Empire":"查理曼帝國","Holy Roman Empire":"神聖羅馬帝國","France":"法國","Spain":"西班牙","Spanish Habsburg":"西班牙","Viceroyalty of New Spain":"新西班牙","Portugal":"葡萄牙","United Kingdom":"英國","UK":"英國","United Kingdom of Great Britain and Ireland":"英國","Netherlands":"荷蘭","Neterlands":"荷蘭","Dutch East Indies":"荷屬東印度","Netherlands Indies":"荷屬東印度","Indonesia":"印尼","Austrian Empire":"奧地利帝國","Austro-Hungarian Empire":"奧匈帝國","Austria Hungary":"奧匈帝國","German Empire":"德意志帝國","Germany":"德國","Prussia":"普魯士","Italy":"義大利","Belgium":"比利時","Denmark":"丹麥","Denmark-Norway":"丹麥－挪威","Sweden":"瑞典","Kalmar Union":"卡爾馬聯盟","Poland-Lithuania":"波蘭立陶宛","Polish–Lithuanian Commonwealth":"波蘭立陶宛","Poland":"波蘭","Visigoths":"西哥德王國","Visigothic Kingdom":"西哥德王國","Ostrogoths":"東哥德王國","Hunnic Empire":"匈人帝國","Vandals":"汪達爾王國","Khazars":"可薩汗國",
+"USA":"美國","United States":"美國","United States of America":"美國","Canada":"加拿大","Rupert's Land":"魯伯特地（英）","Mexico":"墨西哥","Brazil":"巴西","Kingdom of Brazil":"巴西","Argentina":"阿根廷","Inca Empire":"印加帝國","Maya states":"馬雅城邦","Maya city-states":"馬雅城邦","Peru":"秘魯","Chile":"智利","Colombia":"哥倫比亞","Venezuela":"委內瑞拉","Bolivia":"玻利維亞","Greenland":"格陵蘭","Australia":"澳洲","Western Australia (UK)":"澳洲（英國殖民地）","Queensland (UK)":"澳洲（英國殖民地）","Northern Territory (UK)":"澳洲（英國殖民地）","South Australia (UK)":"澳洲（英國殖民地）","New South Wales (UK)":"澳洲（英國殖民地）",
+"Mali":"馬利","Songhai":"桑海帝國","Empire of Ghana":"迦納帝國","Axum":"阿克蘇姆","Ethiopia":"衣索比亞","Abyssinia":"衣索比亞","Sudan":"蘇丹","Zaire":"剛果（薩伊）","Algeria":"阿爾及利亞","Union of South Africa":"南非","South Africa":"南非","Libya":"利比亞","Morocco":"摩洛哥","Chad":"查德","Kazakhstan":"哈薩克","Quazaq Khanate":"哈薩克汗國","central Asian khanates":"中亞各汗國","Afghanistan":"阿富汗",
+"Japan":"日本","Empire of Japan":"日本帝國","Imperial Japan":"日本","Imperial Japan (Fujiwara)":"日本","Tokugawa shogunate":"江戶幕府","Korea":"朝鮮","Korea, Republic of":"南韓","Korea, Democratic People's Republic of":"北韓","Koguryo":"高句麗","Khmer Empire":"吳哥王朝","Ayutthaya":"大城王國","Siam":"暹羅","Thailand":"泰國","Rattanakosin Kingdom":"暹羅","Burma":"緬甸","Pagan":"蒲甘","Srivijaya Empire":"室利佛逝","Antarctica":"南極洲"};
+const GRP=[[/漢|秦|周朝|晉|魏|十六國|隋|唐|宋|明朝|南明|清|中華|中國|南朝|北涼|夏（|元朝|商朝|周朝/,"#d1495b"],[/俄|蘇聯|莫斯科|基輔|諾夫哥羅德|羅斯諸/,"#5b7db1"],[/羅馬|拜占庭/,"#9b5de5"],[/波斯|安息|薩珊|薩法維|伊朗/,"#2a9d8f"],[/伍麥亞|阿拉伯|法蒂瑪|布韋希|哥多華|馬木路克|穆瓦希德|沙烏地/,"#6a994e"],[/鄂圖曼|土耳其/,"#e07a2f"],[/蒙古|察合台|金帳|白帳|帖木兒/,"#8d6e4f"],[/英國|英格蘭|開普|魯伯特|澳洲|東印度公司|加拿大/,"#c8553d"],[/法國|法蘭克|查理曼|西法蘭克/,"#3a86ff"],[/西班牙|新西班牙/,"#f2b134"],[/葡萄牙|巴西/,"#43aa8b"],[/荷蘭|荷屬/,"#f48c06"],[/美國/,"#4361ee"],[/日本|江戶|鎌倉|大和/,"#ef476f"],[/印度|孔雀|笈多|德里|蒙兀兒|馬拉塔|摩揭陀/,"#b5838d"]];
+const PAL=["#7fb069","#e6aa68","#8e7dbe","#5fa8d3","#d4a373","#90be6d","#c77dff","#f28482","#84a59d","#bc6c25","#577590","#e9c46a"];
+const TRIBE=/hunter|gatherer|farmers|nomad|pastoral|tribe|peoples|culture|Bantu|Khoisan|Aboriginal|Siberians|Inuit|Thule|Dorset|Athaba|Papu|Cree|Tupi|Semites|Dravidians|Austronesians|Tibeto|Austro-Asiatic|Mon-Khmer|Koreans|Malays|Berber|Touareg|Tuareg|Scythians|Cimerians|Andronovo|Yamnaya|Afanasevo|Saami|Sámi|Samis|chiefdoms|Hopewell|Anasazi|Mogollon|Inupiaq|Chukchi|Oromo|Tungus|Permians|Celts|Illyrians|Celtiberians|Quechua|Maori|Ainu|Jōmon|Jomon|Valdivia|Norte Chico|^Arabs|Slavonic|Vedic|Iranian|Yuezhi|Tibetans|^Thai$|Avars|Shoshoni|Dënéndeh|Očhéthi|Tekohá|T'atsaot|Nitassinan|Anishinabe|Osage|Michif|Wallmapu|Beaker|Pottery|Laurel|Point Peninsula|Swift Creek|Adena|Marksville|Chorrera|Chinchorro|Kerma|Vazimba|Malagasy|Obiwa|Peshemegs|Sinic|Hunters|Shellfish|Siberian|Turcik|Karasuk|Catacomb|Namazga|Sintashta|Urnfield|megalith|Bronze Age|Aymara|Andean states|Ethiopian highland|Patagonian|foraging|Malay$|Papuans|Proto-/i;
+const zh=(y,k)=>D[y+':'+k]||D[k]||'';
+const hash=s=>{let h=0;for(const ch of s)h=(h*31+ch.charCodeAt(0))|0;return Math.abs(h)};
+const col=(name,k)=>{if(name){for(const [re,c] of GRP)if(re.test(name))return c}return PAL[hash(name||k)%PAL.length]};
+const cache={};let mi=0,timer=null;
+const loadMap=async y=>{if(!cache[y]){const r=await fetch('maps/'+y+'.json');const t=await r.json();cache[y]=topojson.feature(t,Object.values(t.objects)[0])}return cache[y]};
+const bigPart=f=>{const g=f.geometry;if(!g||g.type!=='MultiPolygon')return f;let best=null,ba=-1;for(const c of g.coordinates){const p={type:'Polygon',coordinates:c};const a=d3.geoArea(p);if(a>ba){ba=a;best=p}}return best};
+async function drawMap(){
+ if(typeof d3==='undefined'||typeof topojson==='undefined'){$('mtext').textContent='地圖程式沒有載入成功，請重新整理頁面。';return}
+ const my=MY[mi],[y,label,pi,txt]=my;
+ $('myear').textContent=label;$('mtag').textContent=P[pi].n;$('mtag').style.background=pc[pi];$('mtext').textContent=txt;$('mslider').value=mi;
+ const s=$('msvg'),W=s.clientWidth,H=s.clientHeight;if(!W)return;
+ s.style.opacity=.35;
+ let fc,bc,prev=null;
+ try{[fc,bc]=await Promise.all([loadMap(y),loadMap('2010')]);if(mi>0)prev=await loadMap(MY[mi-1][0]).catch(()=>null)}catch(e){$('mtext').textContent='地圖資料載入失敗，請重新整理頁面。';s.style.opacity=1;return}
+ if(MY[mi][0]!==y)return;
+ const R=LREG?['',LREG]:REG[reg],pr=d3.geoNaturalEarth1();
+ if(R[1])pr.fitExtent([[6,6],[W-6,H-6]],{type:'MultiPoint',coordinates:R[1]});else pr.fitExtent([[4,4],[W-4,H-4]],{type:'Sphere'});
+ const pa=d3.geoPath(pr);
+ const items=fc.features.map((f,i)=>{const k=f.properties.K,n=zh(y,k),t=TRIBE.test(k)&&!n;return{f,i,k,t,n,a:f.properties.A}});
+ const war=WAR[warm],tr=TRK[trk];
+ const fill=o=>{
+  if(war){if(war.a.includes(o.k))return war.ca;if(war.b.includes(o.k))return war.cb;return o.t?'url(#hatch)':'var(--neu)'}
+  if(o.t)return 'url(#hatch)';return col(o.n,o.k)};
+ const on=o=>tr?tr[1].test(o.n):true;
+ let h=`<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#efe6d2"/><rect width="3" height="6" fill="#d9ccb0"/></pattern></defs><path d="${pa({type:'Sphere'})}" fill="var(--sea)"/>`;
+ h+=bc.features.map(f=>`<path d="${pa(f)||''}" fill="var(--land)"/>`).join('');
+ h+=items.map(o=>`<path class="c${tr&&on(o)?' hl':''}" data-i="${o.i}" d="${pa(o.f)||''}" fill="${tr&&on(o)?tr[2]:fill(o)}"${tr&&!on(o)?' opacity=".28"':''}/>`).join('');
+ const boxes=[];let lab='';
+ const cand=items.filter(o=>!o.t&&(o.n||war&&(war.a.includes(o.k)||war.b.includes(o.k)))).sort((a,b)=>(tr?(on(b)-on(a))*1e9:0)+b.a-a.a);
+ const maxL=R[1]?(W<500?18:30):(W<500?10:18);
+ for(const o of cand){if(boxes.length>=maxL)break;
+  const name=war&&WARN[o.k]?WARN[o.k]:o.n;if(!name)continue;
+  const c=pa.centroid(bigPart(o.f));if(!isFinite(c[0]))continue;
+  const w=name.length*11+6,bx=[c[0]-w/2,c[1]-9,c[0]+w/2,c[1]+9];
+  if(bx[0]<2||bx[2]>W-2||bx[1]<2||bx[3]>H-2||boxes.some(b=>!(bx[2]<b[0]||bx[0]>b[2]||bx[3]<b[1]||bx[1]>b[3])))continue;
+  boxes.push(bx);lab+=`<text x="${c[0]}" y="${c[1]+4}" text-anchor="middle">${name}</text>`}
+ s.innerHTML=h+lab;
+ s.querySelectorAll('path.c').forEach(p=>p.onclick=()=>{s.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));p.classList.add('sel');const o=items[+p.dataset.i];
+  const side=war?(war.a.includes(o.k)?'（'+war.na+'）':war.b.includes(o.k)?'（'+war.nb+'）':''):'';
+  const g=glFind(o.n);$('minfo').innerHTML=`<b>${(WARN[o.k]&&war?WARN[o.k]:o.n||o.k)+side+(o.t?'（部落、遊牧或狩獵採集社會）':'')}</b>${g?`<div class="mg"><b>從哪裡來：</b>${T(g[3])}<br><b>後來：</b>${T(g[4])}</div>`:''}`});
+ $('minfo').textContent='點地圖上的區域看名稱';
+ // 跟上一張比
+ if(prev&&!war){const big=(fcx,yy)=>new Set(fcx.features.filter(f=>f.properties.A>=250).map(f=>zh(yy,f.properties.K)).filter(Boolean));
+  const A=big(fc,y),B=big(prev,MY[mi-1][0]);const add=[...A].filter(x=>!B.has(x)).slice(0,6),gone=[...B].filter(x=>!A.has(x)).slice(0,6);
+  $('mdiff').innerHTML=(add.length||gone.length)?`<b>跟${MY[mi-1][1]}比：</b>${add.length?'新出現 '+add.join('、'):''}${add.length&&gone.length?'；':''}${gone.length?'消失 '+gone.join('、'):''}`:'';
+ }else $('mdiff').innerHTML=war?war.txt:'';
+ // 大國曲線
+ if(tr){$('spark').hidden=false;const v=TRA[trk],mx=Math.max(...v);
+  $('sbars').innerHTML=v.map((x,i)=>`<i style="height:${Math.max(x/mx*100,x?3:0)}%;background:${i===mi?'var(--ink)':tr[2]}" title="${MY[i][1]}"></i>`).join('');
+  const peak=v.indexOf(mx);$('scap').innerHTML=`${tr[0]}的領土大小（每一條是一個年份）。最大是 <b>${MY[peak][1]}</b>，現在這張：${v[mi]?'約 '+Math.round(v[mi]/10)/100+' 百萬平方公里':'不存在'}`}
+ else $('spark').hidden=true;
+ $('mlegend').innerHTML=war?`<span><i style="background:${war.ca}"></i>${war.na}</span><span><i style="background:${war.cb}"></i>${war.nb}</span><span><i style="background:var(--neu)"></i>中立或未參戰</span>`:tr?`<span><i style="background:${tr[2]}"></i>${tr[0]}</span><span><i style="background:var(--land);opacity:.6"></i>其他地區（淡化）</span>`:`<span><i style="background:#c8553d"></i>國家或帝國（顏色代表不同政權）</span><span><i class="tribe"></i>部落、遊牧或狩獵採集社會</span><span><i style="background:var(--land)"></i>沒有資料</span>`;
+ requestAnimationFrame(()=>s.style.opacity=1);
+ setYear(myN(y));
+}
+const REG=[["全世界",null],["東亞",[[72,8],[148,52]]],["歐洲・地中海",[[-12,30],[42,62]]],["西亞・印度",[[26,6],[92,44]]],["非洲",[[-18,-35],[52,36]]],["美洲",[[-165,-55],[-35,70]]]];
+const TRK=[null,["羅馬→拜占庭",/羅馬|拜占庭/,"#9b5de5"],["法蘭克→神聖羅馬",/法蘭克|查理曼|神聖羅馬/,"#3a86ff"],["阿拉伯帝國",/阿拉伯帝國/,"#6a994e"],["蒙古帝國",/蒙古帝國|察合台|金帳|白帳|伊兒|元朝（/,"#8d6e4f"],["鄂圖曼帝國",/鄂圖曼/,"#e07a2f"],["中國歷代",/漢|秦|周朝|晉|魏|十六國|隋|唐|宋|明朝|南明|清|中華|中國|南朝|北涼|夏（|元朝|商朝|周朝/,"#d1495b"],["俄羅斯",/俄|蘇聯|莫斯科|基輔|諾夫哥羅德|羅斯諸/,"#5b7db1"],["英國",/英國|英格蘭|開普|魯伯特|東印度公司|英國殖民地/,"#c8553d"],["西班牙",/西班牙|卡斯提爾|拉布拉他/,"#f2b134"]];
+const TRA=[[],[0,0,0,0,0,1,7,17,38,519,1227,4444,4645,4931,4309,4200,1993,2667,1393,790,748,1585,1578,1473,1297,1352,1050,853,853,693,676,628,610,237,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,322,733,733,1114,812,741,625,625,887,922,922,853,853,693,676,628,610,237,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2284,8415,5258,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5393,27255,24207,0,12243,12087,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,450,1416,1420,5463,5463,5507,5082,2479,3096,3752,2270,5209,3150,1802,0,0,0,0,0,0,0,0],[0,255,1172,1172,1172,1559,1559,2479,2479,2577,2641,4037,4080,4080,4081,4080,4018,3917,3887,3224,3224,3003,3003,3005,27255,19105,20959,4168,4168,5985,5985,6038,6038,7272,12184,12230,11037,11073,11037,6589,5465,5465,5465,5501,8253,9388,9355,9393],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,753,1204,1637,899,0,920,0,1976,2779,2141,6884,12914,13549,15414,16087,16387,20022,21475,21592,21900,21586,21477,21337,22050,21791,16606,16606,16606],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,113,113,0,288,288,288,226,226,0,0,92,92,1416,8873,8497,5282,12984,13220,14604,7680,7680,11499,10693,221,221,221,220],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,317,317,317,0,0,1896,1896,7714,7594,8724,13310,13310,13498,604,604,597,495,495,792,501,501,501,501,501]];
+const WAR=[null,{y:"1914",na:"協約國",nb:"同盟國",ca:"#3f73c9",cb:"#d1495b",txt:"<b>第一次世界大戰（1914～1918）</b>：塞拉耶佛事件引爆，<b>協約國</b>（英、法、俄，後來加入義、美、日、中華民國）對抗<b>同盟國</b>（德、奧匈、鄂圖曼、保加利亞）。結果同盟國戰敗，四大帝國瓦解。",
+ a:["Russia","France","United Kingdom of Great Britain and Ireland","United Kingdom","Canada","Australia","New Zealand","Belgium","Italy","Serbia","Empire of Japan","United States","Portugal","Romania","Greece","Brazil","Manchu Empire","Malaya","Uganda","Ceylon","Sierra Leone","Guyana","Papua New Guinea","Tunisia","French Guiana","Morocco","Philippines","Montenegro"],
+ b:["German Empire","Austro-Hungarian Empire","Ottoman Empire","Bulgaria","Kamerun","German South-West Africa","Togoland"]},
+ {y:"1938",na:"同盟國",nb:"軸心國",ca:"#3f73c9",cb:"#d1495b",txt:"<b>第二次世界大戰（1939～1945）</b>：<b>軸心國</b>（德、義、日）對抗<b>同盟國</b>（英、法、蘇、美、中華民國等）。地圖用的是開戰前1938年的國界，日本已占領中國東北。1945年軸心國戰敗。",
+ a:["USSR","France","United Kingdom","United Kingdom of Great Britain and Ireland","United States","Canada","Australia","New Zealand","Union of South Africa","Chinese warlords","Poland","Netherlands","Belgium","Norway","Greece","Yugoslavia","Czechoslovakia","Brazil","Mexico","Sudan","Dominion of Newfoundland","Malawi","Guyana","Ceylon","Togo","Tunisia","French Guiana","Suriname","Mongolia","Philippines","Ethiopia","Denmark","Luxembourg"],
+ b:["Germany","Italy","Empire of Japan","Hungary","Romania","Bulgaria","Libya","Manchuria","Manchukuo"]}];
+const WARN={"Manchu Empire":"中華民國","Chinese warlords":"中華民國","Serbia":"塞爾維亞","Bulgaria":"保加利亞","Romania":"羅馬尼亞","Greece":"希臘","Yugoslavia":"南斯拉夫","Czechoslovakia":"捷克斯洛伐克","Hungary":"匈牙利","New Zealand":"紐西蘭","Togoland":"多哥（德）"};
+let reg=0,trk=0,warm=0,speed=1;const SPD=[["慢",5000],["中",3200],["快",1600]];
+const chips=(id,arr,get,set)=>{const el=$(id);el.innerHTML=arr.map((x,i)=>`<button aria-pressed="${i===get()}" data-i="${i}">${x}</button>`).join('');[...el.children].forEach(b=>b.onclick=()=>{set(+b.dataset.i);[...el.children].forEach(c=>c.setAttribute('aria-pressed',c===b));})};
+const fitH=()=>{$('mapfig').style.aspectRatio=reg?'1.25/1':'1.9/1'};
+chips('mregion',REG.map(r=>r[0]),()=>reg,i=>{reg=i;fitH();drawMap()});
+chips('mtrack',['不追蹤',...TRK.slice(1).map(t=>t[0])],()=>trk,i=>{trk=i;if(i){warm=0;chips('mwar',WARL,()=>warm,warSet)}drawMap()});
+const WARL=['不顯示','一戰陣營','二戰陣營'];
+const warSet=i=>{if(i&&LS[ls][4]!==4)return;warm=i;if(i){trk=0;chips('mtrack',['不追蹤',...TRK.slice(1).map(t=>t[0])],()=>trk,j=>{trk=j;if(j){warm=0;chips('mwar',WARL,()=>warm,warSet)}drawMap()});mi=MY.findIndex(m=>m[0]===WAR[i].y)}drawMap()};
+chips('mwar',WARL,()=>warm,warSet);
+chips('mspeed',SPD.map(x=>x[0]),()=>speed,i=>{speed=i;if(timer){clearInterval(timer);timer=null;$('mplay').click()}});
+let LR=null,LREG=null;const LBOX=[[[22,8],[122,48]],[[-12,8],[122,50]],[[-12,8],[122,50]],[[-12,5],[125,56]],[[-12,5],[128,58]],[[-12,5],[135,62]],null,null,null,null,null,null];const syncSlider=()=>{$('mslider').min=LR?LR[0]:0;$('mslider').max=LR?LR[1]:MY.length-1;$('mslider').value=mi};
+const goMap=i=>{const lo=LR?LR[0]:0,hi=LR?LR[1]:MY.length-1;mi=Math.max(lo,Math.min(hi,i));if(warm&&MY[mi][0]!==WAR[warm].y){warm=0;chips('mwar',WARL,()=>warm,warSet)}drawMap()};
+$('mslider').oninput=e=>goMap(+e.target.value);
+$('mprev').onclick=()=>goMap(mi-1);$('mnext').onclick=()=>goMap(mi+1);
+$('mplay').onclick=()=>{if(timer){clearInterval(timer);timer=null;$('mplay').textContent='▶ 播放';return}
+ const hi=()=>LR?LR[1]:MY.length-1;if(mi>=hi())mi=(LR?LR[0]:0)-1;$('mplay').textContent='❚❚ 暫停';goMap(mi+1);timer=setInterval(()=>{if(mi>=hi()){clearInterval(timer);timer=null;$('mplay').textContent='▶ 播放';return}goMap(mi+1)},SPD[speed][1])};
+const mro=new ResizeObserver(()=>{if(tab==='mapv'||(tab==='learn'&&LR))drawMap()});mro.observe($('mapfig'));
+
+
+const names=P.map(p=>p.n);
+const all=[];
+P.forEach((p,pi)=>p.st.forEach(s=>s.e.forEach(e=>all.push({p:p.n,pi,y:e[0],t:e[1],d:e[2]}))));
+const Q=[];
+let qLesson=-1;
+// 出題：錯誤選項挑同類、年代最近、長度相近；題目遮掉答案的字
+const maskOut=(text,words)=>{let t=text;words.filter(w=>w&&w.length>=2).sort((x,y)=>y.length-x.length).forEach(w=>{t=t.split(w).join('＿＿')});return t};
+const maskSub=(text,ans)=>{let t=text;for(let n=ans.length;n>=2;n--)for(let i=0;i+n<=ans.length;i++){const w=ans.slice(i,i+n);if(!/＿/.test(w)&&t.includes(w))t=t.split(w).join('＿＿')}return t};
+const partsOf=name=>[name,...name.split(/[、與和：／（）\s]/)].filter(w=>w&&w.length>=2);
+function pick3(ans,ay,cands){
+ const alen=ans.length,seen=new Set([ans]);
+ return cands.filter(c=>c.v&&!seen.has(c.v)&&(seen.add(c.v),true))
+  .map(c=>({v:c.v,s:Math.abs(c.y-ay)/100+Math.abs(c.v.length-alen)/Math.max(alen,4)*3}))
+  .sort((x,y)=>x.s-y.s).slice(0,3).map(c=>c.v);
+}
+function genQs(li){
+ const L=LS[li],A=L[2],B=L[3],inL=y=>y>=A&&y<B;
+ const evAll=C.map(c=>({c,y:c[11]})),ev=evAll.filter(e=>inL(e.y));
+ const ppAll=PP.map((x,i)=>({x,y:PY[i]})),pp=ppAll.filter(e=>inL(e.y));
+ const glAll=GL.map(g=>({g,y:LS[g[2]][2]})),gl=glAll.filter(e=>e.g[2]===li);
+ const qs=[],add=(t,a,y,cands,why)=>{const d=pick3(a,y,cands);if(d.length===3)qs.push({t,a,o:shuffle([a,...d]),why})};
+ ev.forEach(({c,y})=>{
+  const hide=partsOf(c[2]).concat(c[9]?c[9].split('、'):[]);
+  add(`這是在說哪一件事？「${maskSub(maskOut(c[10].split('。')[0],hide),c[2])}。」`,c[2],y,evAll.map(e=>({v:e.c[2],y:e.y})),`${c[2]}（${c[1]}）`);
+  add(`「${maskSub(maskOut(c[3],hide),c[2])}」——因為這樣，後來發生了哪一件事？`,c[2],y,evAll.map(e=>({v:e.c[2],y:e.y})),`${c[2]}：${c[4]}`);
+  add(`「${c[2]}」造成了什麼結果？`,c[4],y,evAll.map(e=>({v:e.c[4],y:e.y})),`今天看得到：${c[5]}`);
+  add(`「${c[2]}」大約發生在什麼時候？`,c[1],y,evAll.map(e=>({v:e.c[1],y:e.y})),`${c[2]}：${c[1]}`);
+ });
+ pp.forEach(({x,y})=>{
+  add(`誰「${maskSub(x[3],x[1])}」？`,x[1],y,ppAll.map(e=>({v:e.x[1],y:e.y})),`${x[1]}（${x[2]}）`);
+  add(`${x[1]}做的事，造成了什麼影響？`,x[4],y,ppAll.map(e=>({v:e.x[4],y:e.y})),`${x[1]}：${x[3]}`);
+ });
+ gl.forEach(({g,y})=>{
+  const re=new RegExp(g[1].source.replace(/\^|\$/g,''),'g');
+  add(`「${maskSub(g[3].replace(re,'＿＿'),g[0])}」——這是在說哪個國家或勢力？`,g[0],y,glAll.map(e=>({v:e.g[0],y:e.y})),`${g[0]}：${g[4]}`);
+ });
+ return qs;
+}
+window.__genQs=genQs;
+function buildPractice(){
+ qLesson=ls;Q.length=0;genQs(ls).forEach(q=>Q.push(q));
+ $('practice').textContent=`再多練幾題：第 ${ls+1} 課「${LS[ls][0]}」`;
+ ok=0;done=0;streak=0;newOrder();showScore();ask();
+}
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let ok=0,done=0,streak=0,best=0,order=[],idx=0;
+try{best=+localStorage.getItem('histBest')||0}catch(e){}
+const newOrder=()=>{order=shuffle(Q.map((_,i)=>i));idx=0};
+const showScore=()=>{$('score').textContent=`答對 ${ok} / ${done}｜最佳連續 ${best}`};
+function ask(){
+ if(idx>=order.length)newOrder();
+ const q=Q[order[idx++]];
+ const opts=q.o||shuffle([q.a,...shuffle(q.pool.filter(v=>v!==q.a)).slice(0,3)]);
+ $('qn').textContent=`第 ${done+1} 題`;
+ $('q').textContent=q.t;$('fb').textContent='';
+ $('opts').style.gridTemplateColumns=opts.some(o=>o.length>8)?'minmax(0,1fr)':'';
+ $('opts').innerHTML=opts.map(o=>`<button>${o}</button>`).join('');
+ [...$('opts').children].forEach(b=>b.onclick=()=>{
+  const right=b.textContent===q.a;done++;
+  if(right){ok++;streak++;if(streak>best){best=streak;try{localStorage.setItem('histBest',best)}catch(e){}}}else streak=0;
+  [...$('opts').children].forEach(x=>{x.disabled=true;if(x.textContent===q.a)x.classList.add('ok')});
+  if(!right)b.classList.add('no');
+  $('fb').textContent=(right?'答對了！ ':'記一下： ')+q.why;
+  showScore();
+ });
+}
+$('next').onclick=ask;
+$('reset').onclick=()=>{ok=0;done=0;streak=0;newOrder();showScore();ask()};
+renderWorld();
+renderChain();
+renderLesson();
+renderSync();goHome();
+}
+</script>
+</body>
+</html>
