@@ -23,6 +23,28 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans TC"
 h1{font:900 clamp(30px,8vw,44px)/1.1 "Noto Serif TC",serif;margin:0 0 6px}
 h2{font:700 24px/1.2 "Noto Serif TC",serif;margin:40px 0 12px}
 .sub{color:var(--mute);margin:0 0 18px}
+.hov{margin-top:10px}
+@media(min-width:900px){.hov{width:min(1240px,calc(100vw - 48px));position:relative;left:50%;transform:translateX(-50%)}}
+.hovs{overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--line);border-radius:14px;background:var(--card);-webkit-overflow-scrolling:touch}
+.hovin{position:relative}
+.hrow{display:flex;border-bottom:1px solid var(--line)}.hrow:last-child{border-bottom:none}
+.hlab{position:sticky;left:0;z-index:3;flex:none;width:58px;background:var(--card);border-right:1px solid var(--line);font-size:12px;font-weight:700;color:var(--mute);display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.25;padding:2px 4px}
+.htrack{position:relative;flex:none}
+.hband{all:unset;position:absolute;top:0;bottom:0;box-sizing:border-box;cursor:pointer;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;border-right:2px solid var(--card);text-align:center}
+.hband b{font:900 20px/1.1 "Noto Serif TC",serif}.hband small{font-size:11px;font-weight:700;opacity:.95;margin-top:2px}
+.hband:focus-visible,.hbar:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+.hbar{all:unset;position:absolute;box-sizing:border-box;height:22px;border-radius:5px;cursor:pointer;font-size:12px;font-weight:700;color:#1d1b18;padding:0 5px;line-height:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid rgb(0 0 0/.12)}
+.hbar.sel,.hband.sel{box-shadow:inset 0 0 0 3px #1d1b18}
+.hbar.dyn{background:#e9e2d3}.hbar.tw{background:#d9e6dd}
+.hbar.civ{background:#f1d37f}.hbar.pol{background:#9fd08f}.hbar.evt{background:#a9c6f0}.hbar.rel{background:#ddc0a8}
+.htick{position:absolute;top:0;bottom:0;border-left:1px dashed var(--line);pointer-events:none}
+.htk{position:absolute;top:3px;font-size:10px;color:var(--mute);transform:translateX(-50%);white-space:nowrap}
+.hinfo{margin-top:10px;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pc,var(--line));border-radius:12px;padding:12px 14px;font-size:16px;line-height:1.65}
+.hinfo h3{margin:0 0 2px;font:900 22px "Noto Serif TC",serif;color:var(--pc)}.hinfo .hy{font-size:13px;color:var(--mute);font-weight:700}
+.hinfo .hq{margin:6px 0}.hinfo .hc{font-size:14px;color:var(--mute)}
+.hinfo .hbt{margin-top:6px;padding:8px 10px;border-radius:10px;background:var(--bg);font-size:15px}
+.hinfo .primary{margin-top:10px;width:100%}
+.hhint{font-size:12px;color:var(--mute);margin:4px 2px 0}
 .ribbon{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgb(0 0 0/.12)}
 .ribbon a{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:96px;color:#fff;text-decoration:none;font:900 clamp(17px,5vw,24px)/1.1 "Noto Serif TC",serif;padding:8px 2px;text-align:center}
 .ribbon a:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
@@ -405,8 +427,9 @@ button:disabled{cursor:default}
 <div class="wrap">
 <div id="home">
 <h1>世界史分期速記</h1>
-<p class="sub">導言・世界歷史的分期｜<b>點一個時期，開始學</b></p>
-<nav class="ribbon" id="ribbon"></nav>
+<p class="sub">導言・世界歷史的分期｜<b>點色帶或色條，看導言再進入課程</b></p>
+<section class="hov" id="hov"><div class="hovs" id="hovs"></div><div class="hinfo" id="hinfo"></div></section>
+<nav class="ribbon" id="ribbon" hidden></nav>
 <div class="hyears" id="hyears"></div>
 <div id="hcont"></div>
 <div id="hgates"></div>
@@ -1853,7 +1876,48 @@ function gPick(force){
 function goHome(){document.body.classList.remove('tlmode');$('app').hidden=true;$('game').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();window.scrollTo(0,0)}
 function enterApp(lesson){$('home').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
  if(lesson!=null&&lesson!==ls){ls=lesson;lstep=0;lmax=0;saveL()}setTab('learn');renderRail();renderSync();window.scrollTo(0,0)}
+
+// 首頁：課本式橫向總覽時間軸（色帶＋中國朝代＋臺灣史＋文明／政權／大事／宗教）
+const HB=[-3500,-500,500,1400,1700,2026],HW=[1,1.15,1.15,1.1,1.5];
+const HDYN=[["史前",-4000,-1600],["商",-1600,-1046],["西周",-1046,-771],["東周",-771,-221],["秦",-221,-206],["西漢",-206,8],["東漢",25,220],["魏晉南北朝",220,581],["隋",581,618],["唐",618,907],["五代",907,960],["北宋",960,1127],["南宋",1127,1279],["元",1279,1368],["明",1368,1644],["清",1644,1912],["中華民國",1912,1949],["中華民國・中華人民共和國",1949,2026]];
+const HTW=[["史前",-4000,1624],["大航海時代",1624,1683],["清帝國時期",1683,1895],["日治時期",1895,1945],["中華民國在臺灣",1945,2026]];
+let hSel=null;
+function hovLayout(){const box=$('hovs');const avail=(box.clientWidth||360)-58;const tot=HW.reduce((a,b)=>a+b,0);const unit=Math.max(innerWidth<700?230:150,avail/tot);const xs=[0];HW.forEach(w=>xs.push(xs[xs.length-1]+w*unit));
+ const X=y=>{y=Math.max(HB[0],Math.min(HB[5],y));for(let i=0;i<5;i++)if(y<=HB[i+1]||i===4)return xs[i]+(y-HB[i])/(HB[i+1]-HB[i])*(xs[i+1]-xs[i]);return xs[5]};return{X,W:xs[5],xs}}
+function lanes(items){const ls=[];items.slice().sort((a,b)=>a[1]-b[1]).forEach(it=>{let k=ls.findIndex(e=>e<=it[1]);if(k<0){k=ls.length;ls.push(0)}ls[k]=it[2];it.lane=k});return ls.length}
+function renderHov(){
+ const {X,W,xs}=hovLayout();
+ const ticks=[-3000,-2000,-500,0,500,1000,1400,1500,1600,1700,1800,1900,2000].filter(y=>y>=-3500);
+ const tk=(h)=>ticks.map(y=>`<div class="htick" style="left:${X(y)}px"></div>`).join('');
+ const bar=(it,cls,top,extra='')=>{const x0=X(it[1]),x1=X(it[2]);return `<button class="hbar ${cls}" data-n="${it[0]}" data-s="${it[1]}" data-e="${it[2]}" style="left:${x0+1}px;width:${Math.max(x1-x0-2,6)}px;top:${top}px" title="${it[0]}">${it[0]}</button>`};
+ const row=(lab,h,inner)=>`<div class="hrow"><div class="hlab">${lab}</div><div class="htrack" style="width:${W}px;height:${h}px">${tk()}${inner}</div></div>`;
+ let html=`<div class="hovin" style="width:${W+58}px">`;
+ html+=`<div class="hrow"><div class="hlab">世界史分期</div><div class="htrack" style="width:${W}px;height:58px">${P.map((p,i)=>`<button class="hband" data-p="${i}" style="left:${xs[i]}px;width:${xs[i+1]-xs[i]}px;background:${p.c}"><b>${p.n}</b><small>${p.y.replace('約','')}</small></button>`).join('')}</div></div>`;
+ html+=row('西元',18,ticks.map(y=>`<span class="htk" style="left:${X(y)}px">${y<0?'前'+(-y):y===0?'元年':y}</span>`).join(''));
+ html+=row('中國朝代',28,HDYN.map(d=>bar(d,'dyn',3)).join(''));
+ html+=row('臺灣史',28,HTW.map(d=>bar(d,'tw',3)).join(''));
+ [['文明','civ'],['政權','pol'],['重要歷史大事','evt'],['宗教','rel']].forEach(([c,cls])=>{const it=BARS.filter(b=>b[3]===c).map(b=>[b[0],b[1],Math.min(b[2],2026)]);const n=lanes(it);html+=row(c,n*26+6,it.map(b=>bar(b,cls,3+b.lane*26)).join(''))});
+ html+='</div>';
+ $('hovs').innerHTML=html;
+ $('hovs').querySelectorAll('.hband').forEach(b=>b.onclick=()=>hShow({p:+b.dataset.p},b));
+ $('hovs').querySelectorAll('.hbar').forEach(b=>b.onclick=()=>{const s=+b.dataset.s,e=+b.dataset.e,s0=Math.max(s,-3500),mid=s0+Math.min((Math.min(e,2026)-s0)/2,300);hShow({n:b.dataset.n,s,e,p:pOfY(mid),m:mid},b)});
+ if(hSel)hShow(hSel);else hShow(null);
+}
+const pOfY=y=>y<-500?0:y<500?1:y<1400?2:y<1700?3:4;
+const yTxt=y=>y<=-4000?'史前':y<0?'前'+(-y):y>=2026?'今日':String(y);
+function hShow(o,el){
+ $('hovs').querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));if(el)el.classList.add('sel');
+ hSel=o;
+ if(!o){$('hinfo').style.setProperty('--pc','var(--line)');$('hinfo').innerHTML='<div class="hc">點上面的<b>色帶</b>或任一<b>色條</b>：先看那個時期的導言，再進入課程。手機可以左右滑動。</div>';return}
+ const p=P[o.p],y0=o.n?Math.max(o.m,HB[o.p]):HB[o.p];let li=LS.findIndex(l=>l[4]===o.p&&y0>=l[2]&&y0<l[3]);if(li<0)li=LS.findIndex(l=>l[4]===o.p);
+ const L=LS[li];
+ $('hinfo').style.setProperty('--pc',p.c);
+ $('hinfo').innerHTML=`${o.n?`<div class="hbt"><b>${o.n}</b>　${yTxt(o.s)}～${yTxt(o.e)}${TERM[o.n]?`<div>${T(TERM[o.n])}</div>`:''}</div>`:''}<h3 style="margin-top:${o.n?8:0}px">${p.n}</h3><div class="hy">${p.y}</div><div class="hq">${p.one}</div><div class="hc">同時期的中國／臺灣：${p.cn.includes('臺灣')?p.cn:p.cn+'；臺灣：史前'}</div><button class="primary" id="hgoin">進入「${p.n}」：第 ${LS.indexOf(L)+1} 課・${L[0]} →</button>`;
+ $('hgoin').onclick=()=>enterApp(LS.indexOf(L));
+}
+addEventListener('resize',()=>{if(!$('home').hidden)renderHov()});
 function renderHome(){
+ renderHov();
  $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>${LS.filter(l=>l[4]===i).length} 課</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${ANC[i].w}</strong>中國：${ANC[i].cn}</span></span></button>`).join('');
  $('hgates').innerHTML=`<h2>五個分界年</h2><p class="lp">記住五個分界年，就不會把時期搞混。</p>`+gatesHTML()+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`+`<a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>`;
  $('hgame').onclick=openGame;
