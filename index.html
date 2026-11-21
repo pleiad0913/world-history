@@ -250,7 +250,9 @@ body.tlmode{padding-left:0;padding-bottom:0}
 .tlnav{display:flex;justify-content:space-between;gap:8px;margin-top:8px}.tlnav button{min-height:44px;font-size:15px;border-radius:999px;padding:4px 16px}
 .gtnow{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin:8px 0 6px;height:112px;overflow:hidden;contain:layout}
 .gyear{flex:none;text-align:center;width:96px}.gyear b{display:block;font:900 22px/1.1 "Noto Serif TC",serif;white-space:nowrap}.gyear span{font-size:12px;color:var(--mute);font-weight:700}
-.gact{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:14px;font-weight:700;align-content:flex-start;height:100%;overflow-y:auto;flex:1;min-width:0}
+.gstick{position:sticky;top:var(--tabsH,64px);z-index:4;background:var(--bg);transition:top .22s ease}body.tabhide .gstick{top:0}
+.gact{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px 10px;font-size:14px;font-weight:700;align-content:start;height:100%;overflow-y:auto;flex:1;min-width:0}
+.gact>span{min-width:0;line-height:1.3}.gact .term{text-align:left;overflow-wrap:anywhere}.gact .gsub{display:block;font-size:11px;font-weight:500;color:var(--mute);overflow-wrap:anywhere}
 .gact small{display:block;font-size:11px;color:var(--mute);font-weight:500}.gact .none{color:var(--mute);font-weight:400}
 .gsel{position:absolute;left:8px;right:8px;top:8px;z-index:7;background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.6;max-height:45%;overflow:auto;box-shadow:0 6px 18px rgb(0 0 0/.25)}
 .gsel .term{border-bottom-color:currentColor}.gsel .gsg{color:var(--mute);font-size:13px}
@@ -449,8 +451,8 @@ button:disabled{cursor:default}
 <div id="ppl" hidden><p>每個時代都有幾個人，他們做的事情改變了歷史的方向。</p><div id="pplist"></div></div>
 <div id="learn"><div class="lnav" id="lnav"></div><div id="lbody"></div></div>
 <div id="tlv" hidden><div class="tlhead" id="tlhead"></div><div class="chips2 wrap2" id="ggroups"></div>
-<div class="gtnow"><div class="gyear" id="gyear"></div><div class="gact" id="gact" aria-live="polite"></div></div>
-<div class="gcolh" id="gcolh"></div>
+<div class="gstick"><div class="gtnow"><div class="gyear" id="gyear"></div><div class="gact" id="gact" aria-live="polite"></div></div>
+<div class="gcolh" id="gcolh"></div></div>
 <div class="gwrap"><div class="gsel" id="gsel" hidden></div><div class="gbody" id="gtbody"><div class="gpad"></div><div class="gbodyin" id="gtin"></div><div class="gpad"></div></div><div class="gmid" aria-hidden="true"></div></div>
 <div class="tlnav" id="tlnav"></div></div>
 <div id="chain" hidden>
@@ -1695,7 +1697,7 @@ function gPick(force){
  const cols=window.__gcols||[];
  const act=cols.map(c=>{const it=c.items.find(x=>y>=x.s&&y<x.e);return it?[c.n,it.name,c.rg]:null}).filter(Boolean);
  $('gyear').innerHTML=`<b style="color:${pc[pOf(y)]}">${yLabel(y)}${y<2025?'年':''}</b><span>${P[pOf(y)].n}</span>`;
- $('gact').innerHTML=act.length?act.map(([n,v,rgn])=>`<span>${n?`<small>${n}</small>`:''}${rgn?TR(v,rgn):(TERM[v]?`<button class="term" data-t="${v}">${v}</button>`:v)}</span>`).join(''):'<span class="none">這一欄這時候還沒有國家</span>';
+ $('gact').innerHTML=act.length?act.map(([n,v,rgn])=>{const m=v.match(/^(.+?)（(.+)）$/),main=m?m[1]:v,sub=m?`<span class="gsub">${m[2]}</span>`:'';return `<span>${n?`<small>${n}</small>`:''}${rgn?`<button class="term" data-t="${v}" data-rg="${rgn}">${main}</button>`:(TERM[v]?`<button class="term" data-t="${v}">${main}</button>`:main)}${sub}</span>`}).join(''):'<span class="none">這一欄這時候還沒有國家</span>';
  $('gtin').querySelectorAll('.gbar').forEach(b=>{const it=cols[+b.dataset.c].items.find(x=>x.name===b.dataset.n);b.classList.toggle('hit',!!it&&y>=it.s&&y<it.e)});
  setYear(y);
 }
