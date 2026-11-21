@@ -157,14 +157,14 @@ body.home .rail,body.home .sync{display:none}
 .hp button small{font-size:12px;color:var(--mute);font-weight:500}
 .backhome{min-height:40px;font-size:14px;border-radius:999px;padding:4px 14px;margin-bottom:8px}
 .rcol{min-height:36px;border:0;border-radius:0;border-bottom:1px solid var(--line);background:var(--card);font-size:12px;padding:2px}
-body.railmin{padding-left:44px}
-body.railmin .rail{width:38px}
+body.railmin{padding-left:30px}
+body.railmin .rail{width:22px}
 .rexp{all:unset;cursor:pointer;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:10px 0;color:#fff}
-.rexp span{writing-mode:vertical-rl;font:900 18px "Noto Serif TC",serif;letter-spacing:.1em}
-.rexp b{writing-mode:vertical-rl;font-size:14px;background:#e63946;border-radius:6px;padding:6px 2px}
+.rexp span{writing-mode:vertical-rl;font:900 13px "Noto Serif TC",serif;letter-spacing:.05em}
+.rexp b{display:none}
 .rexp small{font-size:11px;writing-mode:vertical-rl}
 .rexp:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
-@media(min-width:900px){body.railmin{padding-left:44px}}
+@media(min-width:900px){body.railmin{padding-left:30px}}
 body.home.railmin{padding-left:0}
 .lsticky{position:sticky;top:var(--tabsH,64px);z-index:3;background:var(--bg);padding:8px 0 6px;margin-top:8px;border-bottom:1px solid var(--line)}
 .lst{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;margin-bottom:6px}
@@ -424,7 +424,6 @@ button:disabled{cursor:default}
 <button role="tab" id="t4" aria-selected="false"><b>列國分合</b><small>各地區的國家怎麼分裂、統一、換人當家</small></button>
 <button role="tab" id="t5" aria-selected="false"><b>關鍵人物</b><small>推動這個時期的人，做了什麼</small></button>
 <button role="tab" id="t3" aria-selected="false"><b>版圖演變</b><small>世界地圖怎麼一步步變成今天的樣子</small></button>
-<button role="tab" id="t2" aria-selected="false"><b>各地比較</b><small>同一時間，不同地方各在做什麼</small></button>
 </div>
 </div>
 <div id="mapv" hidden>
@@ -775,11 +774,11 @@ const renderChain=()=>{
  $('fogrid').querySelectorAll('button').forEach(b=>b.onclick=()=>{th=th===b.dataset.t?'':b.dataset.t;renderChain()});
 };
 let tab='learn';
-const MORE={chain:'因果鏈',rgv:'列國',ppl:'人物',mapv:'地圖',world:'比較'};
-const setTab=w=>{tab=w;document.body.classList.remove('tabhide');$('pracwrap').hidden=true;$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false');$('tmore').setAttribute('aria-pressed',!!MORE[w]);$('tmore').textContent=MORE[w]||'更多 ▾';[['t6','learn'],['t7','tlv'],['t0','chain'],['t4','rgv'],['t3','mapv'],['t5','ppl'],['t1','periods'],['t2','world']].forEach(([b,v])=>{$(b).setAttribute('aria-selected',v===w);$(v).hidden=v!==w});if(w==='mapv'){const[PA,PB]=pRange();const idx=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=PA-1&&m[0]<PB).map(m=>m[1]);LR=idx.length?[idx[0],idx[idx.length-1]]:null;if(LR&&(mi<LR[0]||mi>LR[1]))mi=LR[0];LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'));syncSlider();drawMap()}document.body.classList.toggle('tlmode',w==='tlv');if(w==='tlv'){renderTL()}if(w==='learn')renderLesson();const tb=document.querySelector('.tabs');if(tb&&!$('app').hidden){const y=tb.getBoundingClientRect().top+scrollY-4;if(scrollY>y)window.scrollTo(0,y)}};
+const MORE={chain:'因果鏈',rgv:'列國',ppl:'人物',mapv:'地圖'};
+const setTab=w=>{tab=w;document.body.classList.remove('tabhide');$('pracwrap').hidden=true;$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false');$('tmore').setAttribute('aria-pressed',!!MORE[w]);$('tmore').textContent=MORE[w]||'更多 ▾';[['t6','learn'],['t7','tlv'],['t0','chain'],['t4','rgv'],['t3','mapv'],['t5','ppl'],['t1','periods']].forEach(([b,v])=>{$(b).setAttribute('aria-selected',v===w);$(v).hidden=v!==w});if(w==='mapv'){const[PA,PB]=pRange();const idx=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=PA-1&&m[0]<PB).map(m=>m[1]);LR=idx.length?[idx[0],idx[idx.length-1]]:null;if(LR&&(mi<LR[0]||mi>LR[1]))mi=LR[0];LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'));syncSlider();drawMap()}document.body.classList.toggle('tlmode',w==='tlv');if(w==='tlv'){renderTL()}if(w==='learn')renderLesson();const tb=document.querySelector('.tabs');if(tb&&!$('app').hidden){const y=tb.getBoundingClientRect().top+scrollY-4;if(scrollY>y)window.scrollTo(0,y)}};
 $('tmore').onclick=e=>{e.stopPropagation();const m=$('moremenu');m.hidden=!m.hidden;$('tmore').setAttribute('aria-expanded',!m.hidden)};
 document.addEventListener('click',e=>{if(!e.target.closest('#moremenu,#tmore')){$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false')}});
-$('t0').onclick=()=>setTab('chain');$('t1').onclick=()=>setTab('periods');$('t2').onclick=()=>setTab('world');$('t3').onclick=()=>setTab('mapv');$('t6').onclick=()=>setTab('learn');$('t7').onclick=()=>setTab('tlv');$('t4').onclick=()=>setTab('rgv');$('t5').onclick=()=>setTab('ppl');
+$('t0').onclick=()=>setTab('chain');$('t1').onclick=()=>setTab('periods');$('t3').onclick=()=>setTab('mapv');$('t6').onclick=()=>setTab('learn');$('t7').onclick=()=>setTab('tlv');$('t4').onclick=()=>setTab('rgv');$('t5').onclick=()=>setTab('ppl');
 
 // 列國分合：[起始年, 年代, 政權, 說明, 類型(合/分/外/新/'')]
 const RG=[
@@ -1793,7 +1792,7 @@ const fToY=f=>{f=Math.max(0,Math.min(.9999,f));const i=Math.floor(f*SEG.length),
 const yLabel=y=>y<=-8000?"前8000":y<0?'前'+(-y):y>=2027?"今日":String(y);
 let curY=-3500;
 const CS=["農業","文字","金字塔","愛琴","法典","周朝","字母","希臘城邦","波斯","羅馬共和","思想家","民主","亞歷山大","秦統一","絲路","羅馬帝國","基督教","西羅馬亡","拜占庭","唐朝","伊斯蘭","查理曼","封建","塞爾柱","十字軍","蒙古","馬可波羅","黑死病","文藝復興","鄭和","印刷術","拜占庭亡","大航海","宗教改革","科學革命","鄭成功","啟蒙","工業革命","美法革命","鴉片戰爭","帝國主義","民國建立","一戰","俄國革命","凡爾賽","大恐慌","日本侵華","二戰爆發","珍珠港","二戰結束","冷戰","非洲年","登月","柏林圍牆","蘇聯解體","歐盟","總統直選","網路","九一一","金融海嘯","巴黎協定","新冠疫情","俄烏戰爭","AI"];
-let railL=-1,railMin=false;try{railMin=localStorage.getItem('histRailMin')==='1'}catch(e){}
+let railL=-1,railMin=innerWidth<900;try{const v=localStorage.getItem('histRailMin');if(v!==null)railMin=v==='1'}catch(e){}
 function setRailMin(v){railMin=v;try{localStorage.setItem('histRailMin',v?'1':'0')}catch(e){}document.body.classList.toggle('railmin',v);renderRail()}
 document.body.classList.toggle('railmin',railMin);
 const segOf=y=>{for(let i=0;i<SEG.length;i++)if(y<SEG[i][1])return i;return SEG.length-1};
@@ -1849,7 +1848,9 @@ function renderSync(){
 function setYear(y){if(y===curY)return;curY=y;posMark();renderSync()}
 const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setYear(+e.target.dataset.y)}),{rootMargin:'-35% 0px -55% 0px'});
 const observeNodes=()=>{nio.disconnect();document.querySelectorAll('.node[data-y]').forEach(n=>nio.observe(n))};
-$('synct').onclick=()=>{const m=$('sync').classList.toggle('min');$('synct').textContent=m?'展開 ▴':'收起 ▾';document.body.classList.toggle('syncmin',m);requestAnimationFrame(renderRail)};
+const setSyncMin=m=>{$('sync').classList.toggle('min',m);$('synct').textContent=m?'展開 ▴':'收起 ▾';document.body.classList.toggle('syncmin',m);try{localStorage.setItem('histSyncMin',m?'1':'0')}catch(e){}requestAnimationFrame(renderRail)};
+$('synct').onclick=()=>setSyncMin(!$('sync').classList.contains('min'));
+{let m=true;try{const v=localStorage.getItem('histSyncMin');if(v!==null)m=v==='1'}catch(e){}setSyncMin(m)}
 // 分頁：往下滑收起，往上滑出現
 {let lastY=scrollY;addEventListener('scroll',()=>{const y=scrollY,d=y-lastY;if(Math.abs(d)<6)return;
  if(d>0&&y>220&&$('moremenu').hidden&&!$('app').hidden)document.body.classList.add('tabhide');else if(d<0||y<=220)document.body.classList.remove('tabhide');lastY=y},{passive:true})}
