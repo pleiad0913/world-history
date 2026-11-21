@@ -142,6 +142,9 @@ body{padding-left:82px}
 @media(min-width:900px){body{padding-left:126px}.rail{width:120px}.rev{font-size:13px}.rtk{font-size:12px}}
 body.home{padding-left:0;padding-bottom:0}
 body.home .rail,body.home .sync{display:none}
+.sync{display:none!important}
+body,body.syncmin{padding-bottom:0}
+.rail,body.syncmin .rail{bottom:0}
 #home .ribbon{grid-template-columns:minmax(0,1fr);border-radius:18px;margin-top:8px}
 #home .ribbon button{all:unset;cursor:pointer;color:#fff;display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:12px;padding:20px 20px;min-height:44px;transition:filter .2s}
 #home .ribbon button:hover,#home .ribbon button:focus-visible{filter:brightness(1.1)}
