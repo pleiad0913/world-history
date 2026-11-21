@@ -252,6 +252,17 @@ body.home.railmin{padding-left:0}
 .gwa{margin-top:8px;line-height:1.6;font-size:14px}.gans{display:inline-block;font-size:17px;margin:2px 0}
 #gwrong h3 small{font-size:13px;color:var(--mute);font-weight:400;margin-left:6px}
 .ginfo{margin:8px 0 4px;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;font-size:15px;line-height:1.65}.ginfo>div+div{margin-top:4px}.ginfo i{font-style:normal;font-size:12px;font-weight:700;color:var(--mute);margin-right:6px}
+.xcw{margin:12px 0 4px;overflow-x:auto}
+.xchart,.xlab{display:flex;gap:3px;padding:0 4px;min-width:min-content}
+.xchart{align-items:flex-end;height:140px;border-bottom:2px solid var(--ink)}
+.xb{flex:1 0 30px;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.xb i{display:block;width:100%;background:#5b7db1;border-radius:3px 3px 0 0}
+.xlab span{flex:1 0 30px;font-size:10px;color:var(--mute);text-align:center;line-height:1.2;padding-top:3px;word-break:break-all}
+.xgantt{margin:12px 0 4px}.xr{display:grid;grid-template-columns:28px 1fr;align-items:center;gap:6px;margin:6px 0}.xr b{font-size:16px}
+.xt{position:relative;height:18px;background:var(--bg);border-radius:4px}.xt i{position:absolute;top:2px;bottom:2px;background:#e0a84a;border-radius:4px}
+.xax{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-left:34px}
+.xlist{margin:8px 0;padding:8px 12px;background:var(--bg);border-radius:10px}.xlist div{padding:2px 0}
+.xo{font-style:normal;font-weight:900;margin-right:8px;opacity:.7}
 .kqstem{font-size:17px;line-height:1.7;text-align:left;margin-top:6px}
 .kqopts{display:flex;flex-direction:column;gap:8px;margin-top:12px}.kqopts button{min-height:52px;font-size:16px;text-align:left;padding:10px 14px}
 .kqtag{font-style:normal;font-size:12px;font-weight:700;background:var(--ink);color:var(--bg);border-radius:6px;padding:1px 6px;margin-right:6px;vertical-align:2px}
@@ -449,8 +460,8 @@ button:disabled{cursor:default}
 </div>
 <div id="game" hidden>
 <button class="backhome" id="gback">← 回到五個時期</button>
-<h1 style="font-size:30px">時代分類挑戰</h1>
-<div class="chips2" id="gmodes"><button data-m="sort">放進對的時期</button><button data-m="order">五個時期排順序</button><button data-m="kq">會考題型</button></div>
+<h1 style="font-size:30px" id="gtitle">時代分類挑戰</h1>
+<div class="chips2" id="gmodes"><button data-m="sort">放進對的時期</button><button data-m="order">五個時期排順序</button><button data-m="exam">會考練習</button></div>
 <div class="gstat" id="gstat"></div>
 <div id="gbody"></div>
 <div id="gwrong"></div>
@@ -1742,7 +1753,7 @@ function gamePool(){
  return it;
 }
 window.__gamePool=gamePool;
-let kDeck=[],kPos=0,gm='sort',gq=null,gOk=0,gDone=0,gWrong=[],gOrder=[],gDeck=[],gPos=0,gRetry=[],gN=0,gRe=false;
+let sCnt=0,sOk=0,exS=null,kDeck=[],kPos=0,gm='sort',gq=null,gOk=0,gDone=0,gWrong=[],gOrder=[],gDeck=[],gPos=0,gRetry=[],gN=0,gRe=false;
 // 洗牌後依序出題；答錯的隔 3～5 題再考一次
 function gNext(){
  gN++;
@@ -1752,35 +1763,64 @@ function gNext(){
  if(gPos>=gDeck.length){const last=gDeck[gDeck.length-1];gDeck=shuffle(gamePool());if(last&&gDeck[0].t===last.t)gDeck.push(gDeck.shift());gPos=0}
  return gDeck[gPos++];
 }
-function openGame(){$('home').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
+function openGame(){$('home').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;sCnt=0;sOk=0;exS=null;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
 window.__game=()=>({p:gq&&gq.p,deck:gDeck.length});
 function closeGame(){$('game').hidden=true;$('home').hidden=false;window.scrollTo(0,0)}
 const gAns=w=>`<b class="gans" style="color:${pc[w.p]}">${P[w.p].n}（${P[w.p].y}）</b>`;
+
+// 會考練習：圖表判讀、史料、時序、因果，每次 3 題
+const pickN=(a,n)=>shuffle(a.slice()).slice(0,n);
+const GAN='甲乙丙丁';
+function exChartEmpire(){const ok=TRK.map((t,i)=>i).filter(i=>i&&TRA[i].some(v=>v>0));const t=pickN(ok,1)[0];const v=TRA[t];
+ const idx=v.map((x,i)=>i).filter(i=>v[i]>0);const lo=Math.max(0,idx[0]-1),hi=Math.min(v.length-1,idx[idx.length-1]+1);const mx=Math.max(...v);
+ const bars=[],labs=[];for(let i=lo;i<=hi;i++){bars.push(`<div class="xb"><i style="height:${Math.max(v[i]/mx*100,v[i]?3:0)}%"></i></div>`);labs.push(`<span>${MY[i][1].replace('西元','')}</span>`)}
+ const others=pickN(ok.filter(i=>i!==t),3);const opts=shuffle([t,...others].map(i=>TRK[i][0]));const pk=v.indexOf(mx);
+ return{type:'圖表判讀',stem:'下圖是某個政權在不同年代的領土面積（每一條代表一個年代，越高越大）。這個政權最可能是？',fig:`<div class="xcw"><div class="xchart">${bars.join('')}</div><div class="xlab">${labs.join('')}</div></div>`,o:opts,a:TRK[t][0],why:`${TRK[t][0]}在${MY[pk][1]}前後領土最大。`}}
+function exChartBars(){const cats=['文明','政權','重要歷史大事'];const c=pickN(cats,1)[0];let pool=BARS.filter(b=>b[3]===c&&b[2]<9999);
+ let pick=null;for(let k=0;k<30&&!pick;k++){const t=pickN(pool,3).sort((a,b)=>a[1]-b[1]);if(t[1][1]-t[0][1]>=60&&t[2][1]-t[1][1]>=60)pick=t}if(!pick)pick=pickN(pool,3).sort((a,b)=>a[1]-b[1]);
+ const lab=shuffle([0,1,2]);const A=Math.min(...pick.map(b=>b[1])),B=Math.max(...pick.map(b=>Math.min(b[2],2026))),W=B-A||1;const yl=y=>y<0?'前'+(-y):'西元'+y;
+ const rows=lab.map((k,j)=>{const b=pick[k];return `<div class="xr"><b>${GAN[j]}</b><div class="xt"><i style="left:${(b[1]-A)/W*100}%;width:${Math.max((Math.min(b[2],2026)-b[1])/W*100,2)}%"></i></div></div>`}).join('');
+ const ans=lab.map(k=>pick[k][0]).join('、');const perms=new Set([ans]);while(perms.size<4)perms.add(shuffle(pick.map(b=>b[0])).join('、'));
+ return{type:'圖表判讀',stem:`下圖是課本年表中三個「${c}」條目存在的時間（左邊早、右邊晚）。甲、乙、丙依序最可能是？`,fig:`<div class="xgantt">${rows}<div class="xax"><span>${yl(A)}</span><span>${yl(B)}</span></div></div>`,o:shuffle([...perms]),a:ans,why:pick.map(b=>`${b[0]}（${yl(b[1])}～${b[2]>=2026?'今':yl(b[2])}）`).join('；')}}
+function exSeq(){const ids=C.map((c,i)=>i).filter(i=>CY[i]>=-3500&&CY[i]<2000);let t=null;for(let k=0;k<50&&!t;k++){const a=pickN(ids,3).sort((x,y)=>CY[x]-CY[y]);if(CY[a[1]]-CY[a[0]]>=40&&CY[a[2]]-CY[a[1]]>=40&&CY[a[2]]-CY[a[0]]<1500)t=a}
+ const lab=shuffle([0,1,2]);const items=lab.map((k,j)=>`${GAN[j]}、${C[t[k]][2]}`);const order=[0,1,2].map(k=>GAN[lab.indexOf(k)]).join('→');
+ const perms=new Set([order]);while(perms.size<4)perms.add(shuffle(['甲','乙','丙']).join('→'));
+ return{type:'時序',stem:`下列三件事，發生的先後順序為何？<div class="xlist">${items.map(x=>`<div>${x}</div>`).join('')}</div>`,o:shuffle([...perms]),a:order,why:t.map(i=>`${C[i][2]}（${C[i][1]}）`).join(' → ')}}
+function exCause(){const ids=C.map((c,i)=>i).filter(i=>CY[i]>=-3500&&CY[i]<2000&&C[i][3]&&C[i][4]);const i=pickN(ids,1)[0];
+ const near=ids.filter(j=>j!==i&&Math.abs(CY[j]-CY[i])<800&&C[j][4]!==C[i][4]);const oth=pickN(near.length>=3?near:ids.filter(j=>j!==i),3);
+ const hide=new RegExp(C[i][2].replace(/[《》（）()]/g,'').split(/[、與和]/).filter(x=>x.length>1).join('|')||'^$','g');
+ return{type:'因果',stem:`一段資料寫道：「${C[i][3].replace(hide,'○○')}」<br>根據這段背景，接下來最可能發生的是？`,o:shuffle([i,...oth].map(j=>C[j][4])),a:C[i][4],why:`這是「${C[i][2]}」（${C[i][1]}）的背景與結果。`}}
+function exKQ(){const k=pickN(KQ,1)[0];return{type:'史料',stem:k[1],o:shuffle(k[2].slice()),a:k[2][0],why:k[3]}}
+function exSession(){const qs=[ (Math.random()<.5?exChartEmpire:exChartBars)(), exKQ(), (Math.random()<.5?exSeq:exCause)() ];
+ let wr=[];try{wr=JSON.parse(localStorage.getItem('histExWrong')||'[]')}catch(e){}
+ return{qs,i:0,ok:0,wr}}
 function renderGame(newQ){
- $('gmodes').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===gm));
- if(gm==='kq'){
-  if(newQ||!gq||!gq.kq){if(kPos>=kDeck.length){kDeck=shuffle(KQ.map((k,i)=>i));kPos=0}const k=KQ[kDeck[kPos++]];gq={kq:1,li:k[0],t:k[1],a:k[2][0],o:shuffle(k[2].slice()),why:k[3]}}
-  const L=LS[gq.li];
-  $('gbody').innerHTML=`<div class="gcard kqcard"><small>會考題型・第 ${kPos} / ${KQ.length} 題・出自第 ${gq.li+1} 課「${L[0]}」</small><div class="kqstem">${gq.t}</div></div>
-  <div class="kqopts">${gq.o.map((o,i)=>`<button data-i="${i}">${o}</button>`).join('')}</div><div class="gfb" id="gfb" aria-live="polite"></div>
-  <button class="primary gnext" id="gnext" hidden>下一題 →</button>`;
+ $('gmodes').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===gm));$('gtitle').textContent=gm==='exam'?'會考練習':'時代分類挑戰';
+ if(gm==='exam'){
+  if(newQ||!exS)exS=exSession();
+  if(exS.i>=exS.qs.length){$('gbody').innerHTML=`<div class="gcard"><small>會考練習</small><b>這 3 題答對 ${exS.ok} 題</b><div class="gq">${exS.ok===3?'全對！':'答錯的題目已記下來，下次會先複習。'}</div></div><button class="primary gnext" id="gnext">再練 3 題 →</button>`;$('gnext').onclick=()=>renderGame(true);renderGStat();return}
+  const q=exS.qs[exS.i];
+  $('gbody').innerHTML=`<div class="gcard kqcard"><small>會考練習・第 ${exS.i+1} / 3 題・${q.type}</small><div class="kqstem">${q.stem}</div>${q.fig||''}</div>
+  <div class="kqopts">${q.o.map((o,i)=>`<button data-i="${i}"><i class="xo">${'ABCD'[i]}</i>${o}</button>`).join('')}</div><div class="gfb" id="gfb" aria-live="polite"></div>
+  <button class="primary gnext" id="gnext" hidden>${exS.i<2?'下一題 →':'看結果 →'}</button>`;
   $('gbody').querySelectorAll('.kqopts button').forEach(b=>b.onclick=()=>{
-   const right=b.textContent===gq.a;gDone++;if(right)gOk++;
-   $('gbody').querySelectorAll('.kqopts button').forEach(x=>{x.disabled=true;if(x.textContent===gq.a)x.classList.add('ok')});if(!right)b.classList.add('no');
-   $('gfb').innerHTML=`${right?'<b>答對了！</b>':`<b>不是${b.textContent}。</b>正確答案：<b class="gans" style="color:${pc[LS[gq.li][4]]}">${gq.a}</b><br>`}${T(gq.why)}`;
-   $('gnext').hidden=false;$('gnext').onclick=()=>{renderGame(true);$('gbody').scrollIntoView({block:'start'})};renderGStat();
+   const txt=q.o[+b.dataset.i],right=txt===q.a;gDone++;if(right){gOk++;exS.ok++}else{try{const w=JSON.parse(localStorage.getItem('histExWrong')||'[]');w.push({t:q.type,stem:q.stem.replace(/<[^>]+>/g,' ').slice(0,80),a:q.a,d:Date.now()});localStorage.setItem('histExWrong',JSON.stringify(w.slice(-30)))}catch(e){}}
+   $('gbody').querySelectorAll('.kqopts button').forEach(x=>{x.disabled=true;if(q.o[+x.dataset.i]===q.a)x.classList.add('ok')});if(!right)b.classList.add('no');
+   $('gfb').innerHTML=`${right?'<b>答對了！</b>':`<b>正確答案：</b>${q.a}<br>`}${T(q.why)}`;
+   $('gnext').hidden=false;$('gnext').onclick=()=>{exS.i++;renderGame(false);$('gbody').scrollIntoView({block:'start'})};renderGStat();
    if(!right)$('gfb').scrollIntoView({behavior:'smooth',block:'center'})});
  }else if(gm==='sort'){
+  if(sCnt>0&&sCnt%5===0&&newQ==='sum'){$('gbody').innerHTML=`<div class="gcard"><small>放進對的時期</small><b>這 5 題答對 ${sOk} 題</b><div class="gq">${sOk===5?'全對！':'答錯的題目過幾題會再出現。'}</div></div><button class="primary gnext" id="gnext">再練 5 題 →</button>`;$('gnext').onclick=()=>{sOk=0;sCnt=0;renderGame(true)};renderGStat();return}
   if(newQ||!gq||gq.t==null||gq.kq)gq=gNext();
-  $('gbody').innerHTML=`<div class="gcard"><small>${gRe?'<i class="gre">再考一次</i>':''}${gq.k}・第 ${gPos} / ${gDeck.length} 題</small><b>${T(gq.t)}</b><div class="gq">屬於哪個時期？</div></div>
+  $('gbody').innerHTML=`<div class="gcard"><small>${gRe?'<i class="gre">再考一次</i>':''}${gq.k}・這一輪第 ${sCnt%5+1} / 5 題</small><b>${T(gq.t)}</b><div class="gq">屬於哪個時期？</div></div>
   <div class="gbtns">${P.map((p,i)=>`<button data-i="${i}" style="--gc:${pc[i]}"><b>${p.n}</b><small>${ANC[i].w}</small></button>`).join('')}</div><div class="gfb" id="gfb" aria-live="polite"></div>
   <button class="primary gnext" id="gnext" hidden>下一題 →</button>`;
   $('gbody').querySelectorAll('.gbtns button').forEach(b=>b.onclick=()=>{
-   const i=+b.dataset.i,right=i===gq.p;gDone++;
+   const i=+b.dataset.i,right=i===gq.p;gDone++;sCnt++;if(right)sOk++;
    if(right)gOk++;else{gWrong=gWrong.filter(w=>w.t!==gq.t);gWrong.push(gq);gRetry.push({q:gq,at:gN+3+Math.floor(Math.random()*3)})}
    $('gbody').querySelectorAll('.gbtns button').forEach(x=>{x.disabled=true;if(+x.dataset.i===gq.p)x.classList.add('ok')});if(!right)b.classList.add('no');
    $('gfb').innerHTML=`${right?'<b>答對了！</b>'+gAns(gq)+'<br>':`<b>不是${P[i].n}。</b>正確答案：`+gAns(gq)+'<br>'}${gateWhy(gq)}${gInfo(gq)}<div class="gcn">同時期的中國：${ANC[gq.p].cn}</div>${right?'':'<div class="gcn">這題過幾題會再考一次。</div>'}`;
-   $('gnext').hidden=false;$('gnext').onclick=()=>{renderGame(true);$('gbody').scrollIntoView({block:'start'})};renderGStat();
+   $('gnext').hidden=false;if(sCnt%5===0)$('gnext').textContent='看這 5 題結果 →';$('gnext').onclick=()=>{renderGame(sCnt%5===0?'sum':true);$('gbody').scrollIntoView({block:'start'})};renderGStat();
    if(!right)$('gfb').scrollIntoView({behavior:'smooth',block:'center'})});
  }else{
   if(newQ)gOrder=[];
@@ -1919,8 +1959,8 @@ addEventListener('resize',()=>{if(!$('home').hidden)renderHov()});
 function renderHome(){
  renderHov();
  $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>${LS.filter(l=>l[4]===i).length} 課</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${ANC[i].w}</strong>中國：${ANC[i].cn}</span></span></button>`).join('');
- $('hgates').innerHTML=`<h2>五個分界年</h2><p class="lp">記住五個分界年，就不會把時期搞混。</p>`+gatesHTML()+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`+`<a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>`;
- $('hgame').onclick=openGame;
+ $('hgates').innerHTML=`<h2>五個分界年</h2><p class="lp">記住五個分界年，就不會把時期搞混。</p>`+gatesHTML()+`<button class="primary hgame" id="hexam">會考練習：每次 3 題，圖表、史料、時序、因果 →</button>`+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`+`<a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>`;
+ $('hgame').onclick=()=>{gm='sort';openGame()};$('hexam').onclick=()=>{gm='exam';openGame()};
  [...$('ribbon').children].forEach(b=>b.onclick=()=>enterApp(LS.findIndex(l=>l[4]===+b.dataset.i)));
  $('hyears').innerHTML='';
  let saved=null;try{saved=JSON.parse(localStorage.getItem('histLearn')||'null')}catch(e){}
