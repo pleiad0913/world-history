@@ -441,7 +441,7 @@ button:disabled{cursor:default}
 <div class="rgl" id="rglist"></div>
 </div>
 <div id="ppl" hidden><p>每個時代都有幾個人，他們做的事情改變了歷史的方向。</p><div id="pplist"></div></div>
-<div id="learn"><p id="lintro"></p><div class="lnav" id="lnav"></div><div id="lbody"></div></div>
+<div id="learn"><div class="lnav" id="lnav"></div><div id="lbody"></div></div>
 <div id="tlv" hidden><div class="tlhead" id="tlhead"></div><div class="chips2 wrap2" id="ggroups"></div>
 <div class="gtnow"><div class="gyear" id="gyear"></div><div class="gact" id="gact" aria-live="polite"></div></div>
 <div class="gcolh" id="gcolh"></div>
@@ -1524,7 +1524,6 @@ function pRange(){const cp=LS[ls][4],ll=LS.filter(l=>l[4]===cp);return[Math.max(
 let appliedP=-1;
 function applyPeriod(){const cp=LS[ls][4];if(cp===appliedP)return;appliedP=cp;
  const n=LS.filter(l=>l[4]===cp).length;
- $('lintro').textContent=`${P[cp].n}（${P[cp].y}）分成 ${n} 課。每一課的內容會一部分一部分出現，看完一部分再按「繼續」。進度會自動記住。`;
  $('backhome').textContent=`← 回到五個時期（現在：${P[cp].n}）`;
  renderChain();renderRG();renderPP();
  document.querySelectorAll('#periods .period').forEach((el,i)=>el.hidden=i!==cp);
