@@ -497,25 +497,23 @@ button:disabled{cursor:default}
 <div class="wrap">
 <div id="home">
 <h1>世界史分期速記</h1>
-<p class="sub">導言・世界歷史的分期｜先看大框架，再讀課程，最後測自己</p>
+<p class="sub">導言・世界歷史的分期｜選時期讀課程，最後測自己</p>
 <section class="hz hz1" id="hz1">
 <h2 class="hzh"><span>1</span>五個大時期</h2>
-<p class="lp">點一個時期，先看它的大框架，再進入課程。</p>
+<p class="lp">點一個時期，直接進入它的第一課。</p>
 <nav class="ribbon" id="ribbon"></nav>
-<button class="primary htour" id="htour">第一次來？先看大框架：從上古走到現代 →</button>
 <div id="hcont"></div>
 <details class="hlfold"><summary id="hlsum">全部課程</summary><div class="hless" id="hless"></div></details>
 </section>
 <section class="hz hz2" id="hz2">
 <h2 class="hzh"><span>2</span>時間軸</h2>
-<p class="lp">課本式總覽：點色帶看那個時期的大框架，點色條看名詞介紹。手機可以左右滑動。</p>
+<p class="lp">課本式總覽：點色帶看那個時期的導言，點色條看名詞介紹。手機可以左右滑動。</p>
 <section class="hov" id="hov"><div class="hovs" id="hovs"></div><div class="hinfo" id="hinfo"></div></section>
 <a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>
 </section>
 <section class="hz hz3" id="hz3">
 <h2 class="hzh"><span>3</span>測驗</h2>
 <div class="htests">
-<button class="htest" id="hfchk"><b>框架檢查</b><small>5 題，確認五個時期的順序和特色</small></button>
 <button class="htest" id="hexam"><b>會考練習</b><small>每次 3 題：圖表、史料、時序、因果</small></button>
 <button class="htest" id="hgame"><b>時代分類挑戰</b><small>把事件、人物、朝代放進對的時期</small></button>
 </div>
@@ -524,7 +522,6 @@ button:disabled{cursor:default}
 <b>怎麼讀這個網站</b>
 <ol>
 <li>先記五大期的順序：<b>上古 → 古典 → 中世紀 → 近代 → 現代</b></li>
-<li>每個時期先看<b>大框架</b>：課本的一句話、關鍵詞、從哪件事開始、怎麼接到下一期</li>
 <li>再進<b>課程</b>：重點、地圖與事件、關鍵人物、小測驗</li>
 <li>最後到<b>測驗</b>區測自己</li>
 </ol>
@@ -2015,7 +2012,7 @@ function renderHov(){
  [['文明','civ'],['政權','pol'],['重要歷史大事','evt'],['宗教','rel']].forEach(([c,cls])=>{const it=BARS.filter(b=>b[3]===c).map(b=>[b[0],b[1],Math.min(b[2],2026)]);const n=lanes(it);html+=row(c,n*26+6,it.map(b=>bar(b,cls,3+b.lane*26)).join(''))});
  html+='</div>';
  $('hovs').innerHTML=html;
- $('hovs').querySelectorAll('.hband').forEach(b=>b.onclick=()=>openFrame(+b.dataset.p));
+ $('hovs').querySelectorAll('.hband').forEach(b=>b.onclick=()=>hShow({p:+b.dataset.p},b));
  $('hovs').querySelectorAll('.hbar').forEach(b=>b.onclick=()=>{const s=+b.dataset.s,e=+b.dataset.e,s0=Math.max(s,-3500),mid=s0+Math.min((Math.min(e,2026)-s0)/2,300);hShow({n:b.dataset.n,s,e,p:pOfY(mid),m:mid},b)});
  if(hSel)hShow(hSel);else hShow(null);
 }
@@ -2024,20 +2021,18 @@ const yTxt=y=>y<=-4000?'史前':y<0?'前'+(-y):y>=2026?'今日':String(y);
 function hShow(o,el){
  $('hovs').querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));if(el)el.classList.add('sel');
  hSel=o;
- if(!o){$('hinfo').style.setProperty('--pc','var(--line)');$('hinfo').innerHTML='<div class="hc">點上面的<b>色帶</b>看那個時期的大框架；點任一<b>色條</b>看名詞介紹。</div>';return}
+ if(!o){$('hinfo').style.setProperty('--pc','var(--line)');$('hinfo').innerHTML='<div class="hc">點上面的<b>色帶</b>看那個時期的導言；點任一<b>色條</b>看名詞介紹。</div>';return}
  const p=P[o.p],y0=o.n?Math.max(o.m,HB[o.p]):HB[o.p];let li=LS.findIndex(l=>l[4]===o.p&&y0>=l[2]&&y0<l[3]);if(li<0)li=LS.findIndex(l=>l[4]===o.p);
  const L=LS[li];
  $('hinfo').style.setProperty('--pc',p.c);
- $('hinfo').innerHTML=`${o.n?`<div class="hbt"><b>${o.n}</b>　${yTxt(o.s)}～${yTxt(o.e)}${TERM[o.n]?`<div>${T(TERM[o.n])}</div>`:''}</div>`:''}<h3 style="margin-top:${o.n?8:0}px">${p.n}</h3><div class="hy">${p.y}</div><div class="hq">${p.one}</div><div class="hc">同時期的中國／臺灣：${p.cn.includes('臺灣')?p.cn:p.cn+'；臺灣：史前'}</div><button class="primary" id="hgofr">看「${p.n}」的大框架 →</button><button id="hgoin">直接進入第 ${LS.indexOf(L)+1} 課・${L[0]} →</button>`;
- $('hgofr').onclick=()=>openFrame(o.p);$('hgoin').onclick=()=>enterApp(LS.indexOf(L));
+ $('hinfo').innerHTML=`${o.n?`<div class="hbt"><b>${o.n}</b>　${yTxt(o.s)}～${yTxt(o.e)}${TERM[o.n]?`<div>${T(TERM[o.n])}</div>`:''}</div>`:''}<h3 style="margin-top:${o.n?8:0}px">${p.n}</h3><div class="hy">${p.y}</div><div class="hq">${p.one}</div><div class="hc">同時期的中國／臺灣：${p.cn.includes('臺灣')?p.cn:p.cn+'；臺灣：史前'}</div><button class="primary" id="hgoin">進入第 ${LS.indexOf(L)+1} 課・${L[0]} →</button>`;
+ $('hgoin').onclick=()=>enterApp(LS.indexOf(L));
 }
 addEventListener('resize',()=>{if(!$('home').hidden)renderHov()});
 function renderHome(){
  renderHov();
- $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>大框架 →</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${FR[i].k.join('、')}</strong>${LS.filter(l=>l[4]===i).length} 課・中國：${ANC[i].cn}</span></span></button>`).join('');
- [...$('ribbon').children].forEach(b=>b.onclick=()=>openFrame(+b.dataset.i));
- $('htour').onclick=()=>openFrame(0);
- $('hfchk').onclick=()=>openFrame(5);
+ $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>${LS.filter(l=>l[4]===i).length} 課 →</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${FR[i].k.join('、')}</strong>中國：${ANC[i].cn}</span></span></button>`).join('');
+ [...$('ribbon').children].forEach(b=>b.onclick=()=>enterApp(LS.findIndex(l=>l[4]===+b.dataset.i)));
  $('hgame').onclick=()=>{gm='sort';openGame()};$('hexam').onclick=()=>{gm='exam';openGame()};
  let saved=null;try{saved=JSON.parse(localStorage.getItem('histLearn')||'null')}catch(e){}
  $('hcont').innerHTML=saved&&(saved[0]||saved[1])?`<button class="primary hgo" id="hgo">繼續上次：第 ${saved[0]+1} 課「${LS[saved[0]][0]}」 →</button>`:'';
@@ -2061,7 +2056,7 @@ const FQ=[["兩河流域發明楔形文字",0],["尼羅河流域的埃及古文�
  ["工業革命",4],["美國獨立與法國大革命",4],["兩次世界大戰",4],["美蘇冷戰",4]];
 let fI=0,fQ=null;
 function openFrame(i){['home','app','game'].forEach(id=>$(id).hidden=true);$('frame').hidden=false;document.body.classList.add('home');fI=i;if(i===5)fQ=null;renderFrame();window.scrollTo(0,0)}
-function fDots(){$('fdots').innerHTML=P.map((p,i)=>`<button data-i="${i}" class="${i===fI?'on':''}" style="--fc:${p.c}">${p.n}</button>`).join('')+`<button data-i="5" class="${fI===5?'on':''}" style="--fc:var(--ink)">檢查</button>`;$('fdots').querySelectorAll('button').forEach(b=>b.onclick=()=>{fI=+b.dataset.i;if(fI===5)fQ=null;renderFrame();window.scrollTo(0,0)})}
+function fDots(){if(fI===5){$('fdots').innerHTML='';return}$('fdots').innerHTML=P.map((p,i)=>`<button data-i="${i}" class="${i===fI?'on':''}" style="--fc:${p.c}">${p.n}</button>`).join('')+`<button data-i="5" class="${fI===5?'on':''}" style="--fc:var(--ink)">檢查</button>`;$('fdots').querySelectorAll('button').forEach(b=>b.onclick=()=>{fI=+b.dataset.i;if(fI===5)fQ=null;renderFrame();window.scrollTo(0,0)})}
 function renderFrame(){
  fDots();
  if(fI===5)return renderFCheck();
