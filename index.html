@@ -42,6 +42,7 @@ h2{font:700 24px/1.2 "Noto Serif TC",serif;margin:40px 0 12px}
 .hinfo{margin-top:10px;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pc,var(--line));border-radius:12px;padding:12px 14px;font-size:16px;line-height:1.65}
 .hinfo h3{margin:0 0 2px;font:900 22px "Noto Serif TC",serif;color:var(--pc)}.hinfo .hy{font-size:13px;color:var(--mute);font-weight:700}
 .hinfo .hq{margin:6px 0}.hinfo .hc{font-size:14px;color:var(--mute)}
+.ddr.hot span{color:#d1495b}
 .hinfo .hbt{margin-top:6px;padding:8px 10px;border-radius:10px;background:var(--bg);font-size:15px}
 .hinfo .primary{margin-top:10px;width:100%}
 .hhint{font-size:12px;color:var(--mute);margin:4px 2px 0}
@@ -508,6 +509,34 @@ button:disabled{cursor:default}
 .evd[open] summary::after{content:"▴"}
 .evd summary b{flex:none;font-size:13px;color:var(--mute);min-width:64px}
 .evd[open]{padding-bottom:12px}
+/* 因果鏈大頁面 */
+#chainp{max-width:1100px;margin:0 auto}
+@media(min-width:900px){#chainp{width:min(1100px,calc(100vw - 48px));max-width:none;margin-left:calc(50% - min(550px,50vw - 24px))}}
+.cph{margin:4px 0 12px}
+.hchain{width:100%;background:var(--card);cursor:pointer}
+.cpw{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.cpnav{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding:6px 0 8px;scrollbar-width:none}
+.cpnav button{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:132px;max-width:160px;text-align:left;padding:8px 10px;border-radius:12px;height:auto;font-weight:700;font-size:14px;line-height:1.35}
+.cpnav button b{font-size:12px;color:var(--mute)}
+.cpnav button .mlp{width:100%}
+.cpnav button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}.cpnav button.on b{color:var(--bg);opacity:.8}
+@media(min-width:900px){.cpw{grid-template-columns:240px minmax(0,1fr);gap:28px}.cpnav{flex-direction:column;top:12px;align-self:start;overflow:visible;padding:0}.cpnav button{max-width:none;width:100%;min-width:0;padding:12px 14px;font-size:15px}}
+#cpbody{max-width:800px}
+.cpt{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:16px}
+.cpt small{font-weight:700;color:var(--mute)}
+.cpt h2{font:900 28px/1.3 "Noto Serif TC",serif;margin:4px 0 6px}
+.cpt p{margin:0 0 10px;font-size:17px;line-height:1.7}
+.cpper i{height:24px!important;opacity:.15;color:#fff;font:700 12px/24px "Noto Sans TC",sans-serif;font-style:normal;text-align:center}.cpper i.y{opacity:1}
+.cpe{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pc);border-radius:14px;padding:14px 16px;font-size:16px;line-height:1.75}
+.cpeh{display:flex;gap:8px;align-items:center}
+.cpy{font-weight:900;color:var(--pc)}
+.cpp{font-size:12px;font-weight:700;color:#fff;background:var(--pc);border-radius:999px;padding:0 8px}
+.cpe h3{font:900 21px/1.35 "Noto Serif TC",serif;margin:4px 0 6px}
+.cpe p{margin:0 0 8px}
+.cpe .ddr{margin-top:6px}.cpe .ddr span{font-size:13px;font-weight:700;color:var(--mute);margin-right:8px}.cpe .ddr.hot span{color:#d1495b}
+.cplink{display:flex;gap:10px;align-items:flex-start;margin:4px 0 4px 18px;padding:10px 14px;border-left:3px dashed var(--line);font-size:15px;line-height:1.6;color:var(--ink)}
+.cplink span{font-size:20px;font-weight:900;color:var(--mute);line-height:1.2}
+.cpend{margin:20px 0 40px}.cpend button{width:100%;min-height:54px}
 </style>
 </head>
 <body>
@@ -516,19 +545,20 @@ button:disabled{cursor:default}
 <div class="wrap">
 <div id="home">
 <h1>世界史分期速記</h1>
-<p class="sub">導言・世界歷史的分期｜選時期讀課程，最後測自己</p>
+<p class="sub">導言・世界歷史的分期</p>
 <section class="hz hz1" id="hz1">
 <h2 class="hzh"><span>1</span>五個大時期</h2>
-<p class="lp">點一個時期，直接進入它的第一課。</p>
+
 <nav class="ribbon" id="ribbon"></nav>
 <div id="hcont"></div>
 <details class="hlfold"><summary id="hlsum">全部課程</summary><div class="hless" id="hless"></div></details>
 </section>
 <section class="hz hz2" id="hz2">
-<h2 class="hzh"><span>2</span>時間軸</h2>
-<p class="lp">課本式總覽：點色帶看那個時期的導言，點色條看名詞介紹。手機可以左右滑動。</p>
+<h2 class="hzh"><span>2</span>時間軸與因果鏈</h2>
+
 <section class="hov" id="hov"><div class="hovs" id="hovs"></div><div class="hinfo" id="hinfo"></div></section>
 <a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>
+<button class="hfull hchain" id="hchain">因果鏈：六條主線，一件事怎麼引出下一件 →</button>
 </section>
 <section class="hz hz3" id="hz3">
 <h2 class="hzh"><span>3</span>測驗</h2>
@@ -537,14 +567,12 @@ button:disabled{cursor:default}
 <button class="htest" id="hgame"><b>時代分類挑戰</b><small>把事件、人物、朝代放進對的時期</small></button>
 </div>
 </section>
-<div class="how">
-<b>怎麼讀這個網站</b>
-<ol>
-<li>先記五大期的順序：<b>上古 → 古典 → 中世紀 → 近代 → 現代</b></li>
-<li>再進<b>課程</b>：重點、地圖與事件、關鍵人物、小測驗</li>
-<li>最後到<b>測驗</b>區測自己</li>
-</ol>
+
 </div>
+<div id="chainp" hidden>
+<button class="backhome" id="cback">← 回首頁</button>
+<h1 class="cph">因果鏈：六條主線</h1>
+<div class="cpw"><nav class="cpnav" id="cpnav"></nav><div id="cpbody"></div></div>
 </div>
 <div id="frame" hidden>
 <button class="backhome" id="fback">← 回首頁</button>
@@ -574,7 +602,7 @@ button:disabled{cursor:default}
 </div>
 </div>
 <div id="mapv" hidden>
-<p>拖動時間軸或按「播放」，看世界版圖從西元前3000年一步步變成今天，一共48個年份。可以放大某個地區、追蹤一個大國的興衰，或看一戰、二戰的陣營。</p>
+
 <div id="mapcorehome"><div id="mapcore"><div class="mcap"><div class="myear" id="myear"></div><span class="tag" id="mtag"></span></div>
 <p class="mtext" id="mtext"></p>
 <p class="mdiff" id="mdiff"></p>
@@ -594,13 +622,13 @@ button:disabled{cursor:default}
 <p class="note">地圖資料：<a href="https://github.com/aourednik/historical-basemaps">historical-basemaps</a>（A. Ourednik，GPL-3.0），邊界為大約範圍，古代尤其粗略；殖民地大多以統治國的顏色表示。戰爭陣營以參戰國本土和主要殖民地表示，是整場戰爭的陣營，不是某一天的戰線。</p>
 </div>
 <div id="rgv" hidden>
-<p>每個地區的政權怎麼一個接一個出現，分了又合、被統治又獨立，最後變成今天的國家。</p>
+
 <div class="chips2 wrap2" id="rgchips"></div>
 <div class="legend"><span><i style="background:#2f9e5b"></i>統一</span><span><i style="background:#d64545"></i>分裂</span><span><i style="background:#8a6d3b"></i>外來統治</span><span><i style="background:#3f73c9"></i>新政權</span></div>
 <div class="tline" id="rgsum" style="margin-top:10px"></div>
 <div class="rgl" id="rglist"></div>
 </div>
-<div id="ppl" hidden><p>每個時代都有幾個人，他們做的事情改變了歷史的方向。</p><div id="pplist"></div></div>
+<div id="ppl" hidden><div id="pplist"></div></div>
 <div id="learn"><div class="lnav" id="lnav"></div><div id="lbody"></div></div>
 <div id="tlv" hidden><div class="tlhead" id="tlhead"></div><div class="chips2 wrap2" id="ggroups"></div>
 <div class="gstick"><div class="gtnow"><div class="gyear" id="gyear"></div><div class="gact" id="gact" aria-live="polite"></div></div>
@@ -608,13 +636,13 @@ button:disabled{cursor:default}
 <div class="gwrap"><div class="gsel" id="gsel" hidden></div><div class="gbody" id="gtbody"><div class="gpad"></div><div class="gbodyin" id="gtin"></div><div class="gpad"></div></div><div class="gmid" aria-hidden="true"></div></div>
 <div class="tlnav" id="tlnav"></div></div>
 <div id="chain" hidden>
-<p>用上面的分期表當骨架，一件一件往下看：<b>因為</b>前一件事，<b>所以</b>發生這件事，最後<b>變成今天</b>的樣子。每件事都標出「關鍵人物」。</p>
-<h3 class="foh">六條主線：一件事怎麼引出下一件</h3><p class="fop">先看主線，再看細節。點一條主線，下面就依序排出這條線上的事件，以及每一件怎麼引出下一件。主線會跨過好幾個時期。</p><div class="mlgrid" id="mlgrid"></div><div class="mlhead" id="mlhead"></div>
+
+<h3 class="foh">六條主線：一件事怎麼引出下一件</h3><div class="mlgrid" id="mlgrid"></div><div class="mlhead" id="mlhead"></div>
 <div id="nodes"></div>
 </div>
 <div id="periods" hidden></div>
 <div id="world" hidden>
-<p>把時間停在某一年，看看同一顆星球上各地在做什麼。差距有時大得驚人。</p>
+
 <div class="jump" id="jump"></div>
 <div id="slices"></div>
 </div>
@@ -954,7 +982,7 @@ const MORE={chain:'因果鏈',rgv:'列國',ppl:'人物',mapv:'地圖'};
 const setTab=w=>{tab=w;document.body.classList.remove('tabhide');$('pracwrap').hidden=true;$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false');$('tmore').setAttribute('aria-pressed',!!MORE[w]);$('tmore').textContent=MORE[w]||'更多 ▾';[['t6','learn'],['t7','tlv'],['t0','chain'],['t4','rgv'],['t3','mapv'],['t5','ppl'],['t1','periods']].forEach(([b,v])=>{$(b).setAttribute('aria-selected',v===w);$(v).hidden=v!==w});if(w==='mapv'){const[PA,PB]=pRange();const idx=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=PA-1&&m[0]<PB).map(m=>m[1]);LR=idx.length?[idx[0],idx[idx.length-1]]:null;if(LR&&(mi<LR[0]||mi>LR[1]))mi=LR[0];LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'));syncSlider();drawMap()}document.body.classList.toggle('tlmode',w==='tlv');if(w==='tlv'){renderTL()}if(w==='learn')renderLesson();const tb=document.querySelector('.tabs');if(tb&&!$('app').hidden){const y=tb.getBoundingClientRect().top+scrollY-4;if(scrollY>y)window.scrollTo(0,y)}};
 $('tmore').onclick=e=>{e.stopPropagation();const m=$('moremenu');m.hidden=!m.hidden;$('tmore').setAttribute('aria-expanded',!m.hidden)};
 document.addEventListener('click',e=>{if(!e.target.closest('#moremenu,#tmore')){$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false')}});
-$('t0').onclick=()=>setTab('chain');$('t1').onclick=()=>setTab('periods');$('t3').onclick=()=>setTab('mapv');$('t6').onclick=()=>setTab('learn');$('t7').onclick=()=>setTab('tlv');$('t4').onclick=()=>setTab('rgv');$('t5').onclick=()=>setTab('ppl');
+$('t0').onclick=()=>openChain(0,'app');$('t1').onclick=()=>setTab('periods');$('t3').onclick=()=>setTab('mapv');$('t6').onclick=()=>setTab('learn');$('t7').onclick=()=>setTab('tlv');$('t4').onclick=()=>setTab('rgv');$('t5').onclick=()=>setTab('ppl');
 
 // 列國分合：[起始年, 年代, 政權, 說明, 類型(合/分/外/新/'')]
 const RG=[
@@ -1369,6 +1397,10 @@ const LSTORY=[
 ];
 if(CT.length!==C.length)console.error('CT',CT.length,C.length);
 C.forEach((c,i)=>c[12]=CT[i]);
+// 脆文版「是什麼」與熱知識（只用於課程的深入了解／事件列）
+const CP=["人類從「打獵、採集野果」轉職成「自己種田、養牲畜」。最早發生在西亞的「肥沃月彎」（今天的伊拉克、敘利亞一帶），開始種小麥、大麥，養羊和牛。", "兩河流域南部的蘇美人蓋了很多城市，還發明楔形文字：拿削尖的蘆葦在濕泥板上壓符號，晒乾就能存檔。最早的用途？記帳，記誰繳了多少糧食。", "古埃及國王（法老）的超巨型石造陵墓。最大的古夫金字塔在開羅附近，原本約146公尺高，用了大約230萬塊巨石。", "愛琴海一帶的古文明：克里特島上的米諾斯文明（有巨大的克諾索斯宮殿），加上希臘本土的邁錫尼文明。", "一根兩公尺多高的黑色石柱，刻了將近300條法律，是古巴比倫（今天的伊拉克）國王漢摩拉比下令刻的，立在城裡讓人民看。最有名的一條：「以眼還眼、以牙還牙」。石柱現在在法國羅浮宮。", "周原本只是商朝西邊的小國（諸侯）。商朝最後的國王紂王很殘暴，周武王揪團各地諸侯，在「牧野之戰」打敗商朝，建立周朝。", "腓尼基人住在地中海東岸（今天的黎巴嫩），是超會做生意的航海民族。他們的文字只有22個字母，比楔形文字、象形文字簡單太多。", "希臘人在多山的半島和島嶼上，建了幾百個獨立的城市國家（城邦），像雅典、斯巴達。大家說同一種語言、拜同一群神，前776年開始一起辦奧運。", "前550年居魯士建立波斯帝國，後來一路擴張到亞、非、歐，變成第一個橫跨三洲的大帝國（埃及約在前525年被納入）。帝國修「御道」、設驛站，命令能快速傳遍各地。", "前509年，羅馬人把國王趕走，改由每年選出的兩位執政官和元老院一起治理國家。這種制度叫：共和。", "大約西元前500年前後，世界好幾個地方同時冒出超強思想家：中國的孔子、老子，印度的釋迦牟尼（佛陀），希臘的蘇格拉底等人。像是全人類同時開了思考模式。", "雅典的成年男性公民，可以到「公民大會」發言、投票，直接決定國家大事。不過女性、奴隸和外國人不能參加，所以不是人人都有份。", "羅馬共和初期，把法律條文刻在十二塊表上公布，這就是《十二表法》。", "亞歷山大是希臘北方馬其頓的國王，20歲即位。從前334年開始一路往東打，滅了波斯帝國，打到埃及和印度邊境，32歲就病死了。", "戰國時代，中國分成七個大國互打（戰國七雄）。西邊的秦國最強，秦王嬴政在前221年收掉其他六國，自稱「始皇帝」。", "絲路不是一條路，是連接中國和地中海的一大堆商路的總稱，要穿過沙漠和高山。因為中國絲綢太紅了，後人就叫它「絲路」。", "羅馬打下整個地中海後，將軍們開始內戰。凱撒的養子屋大維最後勝出，前27年成為第一位皇帝，共和變帝國。", "耶穌是羅馬統治下巴勒斯坦地區的猶太人，傳教說上帝愛所有人。他被釘十字架後，門徒繼續傳，信徒越來越多。經典是《聖經》。", "395年羅馬帝國拆成東、西兩半。西半部越來越弱，日耳曼人大量移入。476年，一位日耳曼將領直接廢掉最後一位西羅馬皇帝。", "東羅馬後來被叫做「拜占庭帝國」，首都君士坦丁堡。查士丁尼皇帝時最強：他請學者把羅馬幾百年的法律整理成一套法典，還蓋了超壯觀的聖索菲亞大教堂。", "唐朝首都長安（今天的西安）。唐太宗李世民時政治清明，叫「貞觀之治」；各國商人、留學生、僧侶都擠到長安來。", "穆罕默德是阿拉伯半島麥加城的商人，約610年開始傳教：只有一位真神「阿拉」。信徒叫「穆斯林」，經典是《古蘭經》。他死後，繼承人（哈里發）帶著阿拉伯人向外征服。", "查理曼是法蘭克王國的國王（法蘭克人是日耳曼人的一支），打下西歐大部分地區。800年聖誕節，教宗親自在羅馬的教堂替他戴上皇冠。", "封建制度：國王把土地分給貴族，貴族答應幫國王打仗；農奴在貴族的莊園種田。維京人：住在北歐（今天的挪威、瑞典、丹麥）的航海民族，開著長船到處搶劫也到處做生意。", "1054年，基督教正式分家：西邊是天主教，東邊是以拜占庭為中心的東正教。", "塞爾柱人是從中亞一路往西遷的突厥人，信伊斯蘭教。1071年在曼齊刻爾特戰役大敗拜占庭，占領小亞細亞。", "1095年教宗號召西歐的騎士和平民去「奪回聖地」耶路撒冷，大家衣服上縫十字架，所以叫「十字軍」。前前後後打了大約兩百年。", "蒙古人是蒙古草原上的遊牧民族，騎馬射箭超強。鐵木真在1206年統一各部落，被尊稱為「成吉思汗」（意思是偉大的統治者）。", "馬可波羅是義大利威尼斯的商人，跟著爸爸和叔叔沿絲路來到中國，在忽必烈的朝廷待了十幾年，回去後的見聞被寫成《馬可波羅遊記》。", "一種由老鼠身上的跳蚤傳染的鼠疫。1347年從黑海一帶傳進歐洲，幾年內大約三分之一的歐洲人死亡。", "文藝復興＝讓古希臘、羅馬文化「復活」。核心是人文主義：重新重視人的價值與現世生活。從14世紀義大利城市（像佛羅倫斯）開始，藝術家研究古代作品，畫出更真實的人體和風景，例如達文西的《蒙娜麗莎》。", "鄭和是明朝的宦官。明成祖派他帶兩百多艘船、兩萬多人的超大船隊，七次航行到東南亞、印度、阿拉伯和非洲東岸。", "以前歐洲的書都靠手抄，貴到不行。德國人古騰堡做出可以重複排的金屬字塊，再把壓葡萄的壓榨機改成印刷機，一次印很多頁。第一本大書：《聖經》。", "鄂圖曼帝國的蘇丹穆罕默德二世包圍君士坦丁堡，用巨型大砲轟破城牆。撐了一千多年的拜占庭帝國就此滅亡，這座城後來改名伊斯坦堡。", "義大利航海家哥倫布拿到西班牙女王的贊助，想往西橫越大西洋去印度和中國。結果他到的是加勒比海的島嶼（美洲），卻以為到了印度，所以美洲原住民被叫成「印第安人」。", "當時天主教會在賣贖罪券。德國修士馬丁路德在1517年寫了《九十五條論綱》嗆教會，主張信仰只看《聖經》。支持他的人另外成立教會，叫「新教」。", "歐洲人到達美洲後，阿茲特克、印加等文明被西班牙等國征服，原住民大量死於天花等傳染病，天主教也跟著傳入。", "16～17世紀，學者開始用觀察、實驗和數學研究自然：哥白尼說地球繞著太陽轉，伽利略用望遠鏡看星空，牛頓提出萬有引力。", "歐洲、非洲與美洲之間形成三角貿易：歐洲輸出製成品，從非洲運走奴隸，再從美洲運回農產和原料。", "鄭成功是明末將領，爸爸是海商鄭芝龍，媽媽是日本人。明朝滅亡後他繼續抗清，1661年渡海攻打臺灣，隔年趕走統治臺灣38年的荷蘭人。", "「啟蒙」＝用理性照亮無知。孟德斯鳩主張三權分立；盧梭主張國家的權力來自人民。17世紀末興起、主要在18世紀，剛好跨過近代與現代的交界（1700）。", "18世紀中期從英國開始：發明機器織布、改良蒸汽機當動力，工廠大量生產；後來又有火車和輪船。生產方式從「手工」升級成「機器」。", "1776年，北美13個英國殖民地發表《獨立宣言》，打敗英國，建立美國。1789年，法國人民攻占巴士底監獄，推翻國王，發表《人權宣言》。", "英國人想買中國的茶，卻沒有中國想要的商品，就把印度種的鴉片（一種毒品）賣到中國。清朝派林則徐禁菸、燒鴉片，英國就出兵打中國（1840～1842）。", "工業革命後，列強為了原料和市場瓜分亞洲、非洲（柏林會議後非洲幾乎被分光）。社會達爾文主義被拿來合理化殖民。英、法、德之外，日本後來也加入。", "19世紀民族主義興起：拉丁美洲各國脫離西班牙、葡萄牙獨立；義大利完成統一；普魯士首相俾斯麥完成德意志統一。", "1911年10月10日革命黨人在武昌起義（所以這天叫「雙十節」），各省紛紛響應，叫辛亥革命。1912年1月1日中華民國成立，孫中山當臨時大總統，清朝皇帝退位。", "1914年6月，奧匈帝國的皇儲在塞拉耶佛被一名塞爾維亞青年槍殺。各國早就互相結盟，一國宣戰就把盟友拖下水，變成大戰。打了4年，死了上千萬人。", "1917年，俄國人民因為戰爭和饑餓推翻沙皇。同年，列寧領導的共產黨奪取政權。", "一戰結束後，戰勝國1919年在法國凡爾賽宮和德國簽的和約：德國要承擔戰爭責任、割地、賠巨款、限制軍隊。", "1929年，美國紐約股市突然崩盤，大量銀行和公司倒閉，很多人失業。危機擴散到全世界，持續好幾年。", "1931年9月18日，日軍在中國東北製造事件後占領東北（九一八事變）。1937年7月7日，日軍在北京附近的盧溝橋和中國軍隊衝突（七七事變），中日全面開戰。", "1939年9月1日，納粹德國出兵攻打波蘭。兩天後，英國和法國對德國宣戰，第二次世界大戰在歐洲開始。", "珍珠港是美國海軍在夏威夷的基地。1941年12月7日，日本派飛機偷襲，炸毀許多美國軍艦，美國隔天就對日本宣戰。", "1945年5月德國投降。8月美國在日本的廣島、長崎投下兩顆原子彈，8月15日日本宣布投降，二戰結束。", "二戰後，美國帶頭的民主陣營和蘇聯帶頭的共產陣營互相對抗。兩邊沒有直接開打（所以叫「冷」戰），而是比軍備、比太空科技。1991年蘇聯解體，冷戰結束。", "1960年，奈及利亞、剛果、索馬利亞等17個非洲國家在同一年脫離殖民統治獨立，這一年被叫做「非洲年」。", "1969年7月，美國阿波羅11號載著阿姆斯壯等太空人登陸月球，阿姆斯壯成為第一個踏上月球的人。", "1989年11月9日，分隔東、西柏林28年的柏林圍牆開放，人們爬上牆頭慶祝，接著把圍牆一塊一塊敲下來。", "1991年12月，蘇聯最後一位領導人戈巴契夫辭職，蘇聯正式解散，分成俄羅斯、烏克蘭等15個國家。", "歐洲聯盟依《馬斯垂克條約》在1993年成立，前身是1950年代的歐洲煤鋼共同體和歐洲經濟共同體。", "1996年3月，臺灣舉行第一次總統直接選舉，公民一人一票選出總統和副總統。", "世界各國的貿易、資訊、文化越綁越緊。網際網路從冷戰時美國的軍事網路發展而來，1990年代開始普及到一般人。", "2001年9月11日，恐怖分子劫持民航機撞毀紐約世界貿易中心雙塔，約3000人死亡。", "2008年美國房地產泡沫破裂，大型投資銀行雷曼兄弟倒閉，危機很快擴散到全世界。", "2015年各國在法國巴黎簽署氣候協定，承諾一起減少溫室氣體排放。", "2019年底出現的新型冠狀病毒（COVID-19），2020年蔓延全球，世界衛生組織宣布為全球大流行。", "2022年2月24日，俄羅斯對烏克蘭發動全面入侵。", "2022年底，能用文字對話的 AI 聊天機器人推出，短短兩個月使用者就破億，全球掀起 AI 熱潮。"];
+const CH=["冰河期結束、氣候變暖 → 學會種田 → 可以定居、人口變多，村落慢慢長成城市。", "兩河流域發明楔形文字 → 事情能被記下來 → 「歷史」從這裡開始。", "尼羅河每年氾濫帶來肥沃泥土 → 糧食充足 → 法老能動員大量人力；法老被當成神，權力高度集中。", "島多、海路方便 → 靠航海貿易致富 → 發展出宮殿、城市和文字，是後來希臘文明的基礎。", "國家變大，需要大家都遵守的規則 → 法律寫成條文、公開讓人知道。今天的法律也是這樣。", "周朝用分封制度治理天下，提出「天命」觀念：君主失德就會被取代，影響中國兩千多年。", "做生意需要好學的文字 → 字母傳給希臘人、再傳給羅馬人 → 變成拉丁字母，英文 ABC 就是這樣來的。", "希臘多山、交通不便 → 很難統一 → 分成幾百個城邦，各自發展不同制度。", "第一個橫跨亞、非、歐三洲的大帝國；修道路、設驛站，寬容對待被征服的民族。", "羅馬政治發展：王政 → 共和 → 帝國。「共和國」這個詞和觀念，就是從羅馬來的。", "戰亂、社會變動大 → 人們開始思考「怎樣才是好的生活與好的國家」→ 儒家、佛教、希臘哲學出現。", "「人民自己做決定」的觀念出現；今天的投票選舉，源頭可以追到這裡。", "平民要求法律公開，不再讓貴族想怎麼解釋就怎麼解釋 → 條文公布 → 成為後來羅馬法的重要基礎。", "希臘文化傳到西亞、埃及、印度邊境，形成「希臘化文化」。", "統一文字、貨幣、度量衡，建立皇帝制度；漢字因此能在廣大地區通用。", "漢朝派張騫出使西域 → 絲綢、紙、佛教、葡萄在東西方之間流傳，東西交流開始變頻繁。", "羅馬法、道路、拉丁文傳遍歐洲；今天歐美的法律和法文、西班牙文都受羅馬影響。", "基督教在羅馬帝國萌芽；313年羅馬承認基督教，392年成為國教（也常舉380年的《帖撒羅尼迦詔書》）。", "西羅馬滅亡（476）＝古典時期結束；西歐分裂成許多小王國，教會成為生活中心。", "君士坦丁堡易守難攻、貿易富裕，東羅馬沒跟著滅亡；《查士丁尼法典》是歐洲各國民法的源頭。", "長安成為國際大都市，日本、新羅派人來學習；日本的建築、服裝、漢字都深受唐朝影響。", "伊斯蘭教讓阿拉伯各部族團結 → 帝國擴張到三大洲；保存並翻譯希臘學問，把阿拉伯數字傳到歐洲。", "843年帝國被孫子們分成三塊，後來發展成法國、德國、義大利。", "查理曼帝國分裂、維京人四處劫掠、國王保護不了人民 → 地方貴族蓋城堡保護農民 → 形成封建制度。", "羅馬教宗和君士坦丁堡的教會領袖互不服 → 分成天主教與東正教。今天俄羅斯、希臘多信東正教，西歐、拉丁美洲多信天主教。", "拜占庭失去小亞細亞 → 向教宗求救 → 直接引發十字軍東征。", "東西方貿易增加，義大利城市變有錢 → 後來成為文藝復興的起點。", "歐亞大陸被連成一片，火藥、指南針等傳到西方，東西交流達到高峰。", "蒙古打通歐亞、道路安全 → 遊記讓歐洲人嚮往東方的財富 → 後來吸引哥倫布找新航路。", "歐洲人口大減 → 勞力變貴 → 封建莊園開始瓦解。", "義大利城市靠貿易致富、贊助藝術 → 重新重視「人」和理性 → 藝術與科學發達，近代從這裡開始。", "目的是宣揚國威、建立朝貢關係；之後明朝停止遠航，歐洲後來居上。", "書變便宜 → 知識和新想法快速傳播 → 成為宗教改革和科學革命的推手。", "拜占庭滅亡；鄂圖曼控制東西貿易路線 → 逼得歐洲人往海上找新航路；學者帶著古書逃到義大利。", "陸路被擋＋指南針、造船進步 → 歐洲人從海上找新航路 → 開始殖民全世界；番茄、辣椒、地瓜、玉米都來自美洲。", "教會腐敗＋印刷術讓批評快速流傳 → 基督教分裂出新教，歐洲爆發多場宗教戰爭。", "阿茲特克（1521）、印加（1533）被西班牙征服；今天中南美洲大多說西班牙語、葡萄牙語，信天主教。", "文藝復興的理性精神＋印刷術 → 科學革命 → 留下「實驗、驗證」的科學方法。", "美洲的甘蔗、菸草園需要大量勞力 → 上千萬非洲人被當成奴隸賣到美洲，是人類史上的重大悲劇。", "以臺灣作為反清基地 → 趕走荷蘭人，漢人大量移入；1683年臺灣歸清朝。", "科學這麼成功 → 人們相信理性也能改善社會 → 提出人權、三權分立、人民主權，影響今天的憲法。", "英國有煤礦、市場和資金，又改良蒸汽機 → 工廠、鐵路、城市快速發展，生產力暴增。", "啟蒙思想傳開＋不滿重稅和國王 → 建立共和國、制定憲法、發表人權宣言；拿破崙把這些觀念帶到全歐洲。", "清朝戰敗 → 被迫開港、割讓香港；中國開始思考要不要學習西方。", "工業國家需要原料和市場、又有先進武器 → 歐美列強殖民亞非；許多國界就是那時劃的。", "法國大革命和拿破崙讓人覺得「同一個民族就該有自己的國家」→ 今天的義大利、德國和中南美洲各國大多這時形成。", "辛亥革命推翻清朝，結束兩千多年的帝制，建立共和國。", "列強爭殖民地、結成兩大集團 → 刺殺事件點燃戰爭 → 德、奧匈、俄、鄂圖曼四大帝國瓦解。", "一戰讓俄國死傷慘重、糧食不足 → 推翻沙皇 → 建立世界第一個共產國家蘇聯，埋下冷戰的種子。", "德國人非常不滿 → 這份不滿成為二十年後二戰的重要原因。", "大量失業 → 人民對民主政府失去信心 → 極端政黨崛起，1933年希特勒在德國掌權。", "日本想向外擴張 → 九一八事變（1931）占領東北 → 七七事變（1937）中國全面抗戰，持續到1945年。", "希特勒想推翻凡爾賽條約、向東擴張 → 二戰在歐洲爆發，是人類史上死傷最多的戰爭。", "美國對日本禁運石油 → 日本先發制人 → 美國參戰，二戰真正擴大成世界大戰。", "德、日投降；臺灣由中華民國接收；成立聯合國；殖民地紛紛獨立。", "美蘇制度與思想對立 → 核武競賽、太空競賽；美國為國防發展的網路技術，是今天網際網路的前身。", "二戰後歐洲列強變弱、民族主義高漲 → 殖民帝國快速瓦解。", "美蘇在冷戰中比太空技術 → 太空競賽讓衛星導航、氣象衛星等技術快速進步。", "東歐掀起改革浪潮 → 東歐共產政權接連垮台 → 1990年東西德統一。", "蘇聯解體＝冷戰結束，美國成為唯一的超級強權。", "二戰後西歐想用經濟合作取代打仗 → 人員、貨物自由往來，二十多國一起用歐元。", "1987年解除戒嚴後逐步開放言論、組黨與選舉 → 人民第一次直接選總統。", "交流越來越快：絲路 → 大航海 → 全世界；你現在用手機讀這頁，就是這條路的終點。", "美國發動「反恐戰爭」，出兵阿富汗和伊拉克；搭飛機的安全檢查變得非常嚴格。", "銀行借太多錢給還不起房貸的人 → 房價下跌、銀行接連出事 → 全球經濟衰退。", "近200個國家同意一起減排，把全球升溫控制在2°C以內；各國推動綠能和「淨零排放」。", "在全球化的世界裡快速擴散 → 各國封城、停課；口罩、線上上課變成日常。", "二戰後歐洲規模最大的戰爭，數百萬人成為難民；到2026年仍在打，各方持續談判。", "運算能力大增＋網路上大量資料 → AI 能寫文章、畫圖、寫程式，正在改變學習和工作的方式。"];
+if(CP.length!==C.length||CH.length!==C.length)console.error('CP/CH length');
 
 // 名詞小辭典
 const TERM={"法老":"古埃及國王的稱號。","楔形文字":"兩河流域的文字，用蘆葦筆在泥板上壓出楔子（三角形）形狀的筆畫。","象形文字":"用圖畫表示意思的文字，古埃及文字和最早的漢字都是。","城邦":"一座城市加上周圍的鄉村，就是一個獨立的國家。古希臘有幾百個城邦。","共和國":"國家不由國王統治，而是由選出來的人治理。","帝國":"由皇帝統治、包含很多不同民族和地區的大國家。","諸侯":"被國王分封土地、管理一個地方的貴族。","分封":"國王把土地分給親戚和功臣去管理。","哈里發":"穆罕默德的繼承人，伊斯蘭世界的領袖。","蘇丹":"伊斯蘭國家國王的稱號。","沙皇":"俄國皇帝的稱號，這個字來自羅馬的「凱撒」。","教宗":"天主教會的最高領袖，住在羅馬。中世紀時權力很大，可以替國王加冕。","封建制度":"國王把土地分給貴族，貴族效忠國王、替他打仗的制度。","莊園":"貴族擁有的大片土地，農奴在上面耕種。","農奴":"不能隨便離開土地、要替貴族種田的農民。","日耳曼人":"原本住在羅馬帝國北方森林的民族，後來在西歐建立許多王國，是英國人、德國人等的祖先。","突厥":"中亞草原的遊牧民族，土耳其人的祖先之一。","遊牧":"不定居，趕著牛羊到處找草地的生活方式。","殖民地":"被外國占領、統治的地方。","希臘化":"亞歷山大東征後，希臘文化和東方文化混合在一起。","贖罪券":"天主教會賣的一種證書，聲稱買了可以減少死後的懲罰。","新教":"宗教改革後從天主教分出來的基督教派，就是臺灣常說的「基督教」。","天主教":"以羅馬教宗為領袖的基督教派。","東正教":"以拜占庭為中心的基督教派，俄羅斯、希臘的人大多信仰它。","三權分立":"把國家權力分成立法（訂法律）、行政（執行）、司法（審判）三部分，互相監督。","共產":"主張財產歸大家共有、由國家統一分配的思想。","民主":"由人民決定國家大事。","兩河流域":"西亞的底格里斯河和幼發拉底河之間，就是今天的伊拉克。","小亞細亞":"今天土耳其的亞洲部分。","巴爾幹":"歐洲東南部的半島，有希臘、塞爾維亞、保加利亞等國。","宦官":"在皇宮裡服務的男性官員。","軸心國":"二戰時德國、義大利、日本這一方。","協約國":"一戰時英國、法國、俄國這一方。","聖地":"耶路撒冷。猶太教、基督教、伊斯蘭教都把它當成神聖的城市。","君士坦丁堡":"拜占庭帝國的首都，就是今天土耳其的伊斯坦堡。","科舉":"用考試選拔官員的制度。","朝貢":"外國派使節帶禮物向中國皇帝表示臣服，皇帝回贈更多禮物。","原子彈":"利用原子核分裂產生巨大爆炸的武器。","皇儲":"王位的繼承人。","公民大會":"雅典成年男性公民一起開會、投票決定國事的地方。","肥沃月彎":"西亞一塊彎月形的肥沃土地，從兩河流域延伸到地中海東岸，是農業最早出現的地方之一。","鼠疫":"由細菌引起的傳染病，經由老鼠身上的跳蚤傳給人。","穆斯林":"信仰伊斯蘭教的人。","維京人":"住在北歐的航海民族，8到11世紀四處劫掠和貿易。","騎士":"中世紀歐洲騎馬作戰的武士，替貴族打仗。"};
@@ -1721,19 +1753,19 @@ const CY=[-8000,-3500,-2560,-2000,-1750,-1046,-1000,-800,-550,-509,-500,-450,-45
 const PY=[-2560,-1750,-1046,-499,-499,-430,-550,-334,-260,-221,-140,-50,0,313,527,610,626,800,1095,1206,1271,1405,1450,1480,1492,1519,1517,1687,1662,1769,1776,1804,1912,1917,1930,1933,1940,1985,1989];
 const myN=y=>y.startsWith('bc')?-(+y.slice(2)):+y;
 const LS=[
-["大河文明：文字的誕生", "約前8000～前1000", -9000, -1000, 0, ["農業｜人類學會種田、定居，在大河旁建立城市", "文字｜兩河流域與尼羅河流域發明文字，是世界文明的起源之一", "古文明｜西亞、埃及、愛琴、印度河、黃河各自發展", "國家｜法律、國王、宗教開始出現"]],
-["希臘興起與波斯帝國", "前1000～前500", -1000, -500, 0, ["字母｜腓尼基人發明字母", "城邦｜希臘人建立許多城邦", "波斯｜成為第一個橫跨三洲的大帝國", "羅馬｜趕走國王，從王政變成共和", "一神信仰｜希伯來人的猶太教只信一神；波斯人信仰祆教"]],
-["希臘的光輝與思想家", "前500～前200", -500, -200, 1, ["思想家｜孔子、佛陀、希臘哲學家幾乎同時出現", "佛教｜印度有種姓制度（和婆羅門教關係密切），佛陀主張眾生平等", "雅典｜發展出民主", "十二表法｜羅馬把法律刻在十二塊表上公布，是羅馬法的基礎", "希臘化｜亞歷山大東征，希臘文化傳到東方", "中國｜秦統一中國"]],
-["羅馬帝國與漢朝", "前200～500", -200, 500, 1, ["絲路｜漢朝連接東西方", "羅馬｜依序是王政、共和、帝國；帝國統治整個地中海", "基督教｜在羅馬帝國萌芽，392年成為國教", "476年｜西羅馬帝國滅亡，古典時期結束"]],
-["三大世界：拜占庭、伊斯蘭、西歐", "500～1000", 500, 1000, 2, ["拜占庭｜東羅馬延續羅馬傳統", "伊斯蘭｜阿拉伯帝國擴張到三大洲；經典是可蘭經", "伊斯蘭文化｜翻譯希臘典籍，把阿拉伯數字傳到歐洲", "西歐｜日耳曼人建國，查理曼加冕，進入封建社會", "唐朝｜成為東亞文化中心"]],
-["十字軍與蒙古", "1000～1400", 1000, 1400, 2, ["1054年｜基督教分裂為天主教與東正教", "十字軍｜塞爾柱打敗拜占庭，引發十字軍東征", "蒙古｜帝國橫跨歐亞，東西交流達到高峰", "黑死病｜重創歐洲，封建制度開始瓦解"]],
-["文藝復興與大航海時代", "1400～1550", 1400, 1550, 3, ["人文主義｜文藝復興的核心：重視人的價值與現世生活", "印刷術｜知識快速傳播", "大航海｜鄂圖曼擋住陸路，歐洲人從海上找新航路", "宗教改革｜馬丁路德、喀爾文，新教從天主教分出", "美洲｜阿茲特克、印加被征服，原住民大量死於傳染病"]],
-["科學革命與理性", "1550～1700", 1550, 1700, 3, ["科學革命｜用觀察、實驗和數學了解自然", "啟蒙開始｜用理性改造社會（洛克主張人有天生的權利）", "南亞與東南亞｜印度由蒙兀兒帝國統治；歐洲人來爭奪香料和據點", "三角貿易｜歐洲製成品→非洲奴隸→美洲農產原料", "傳教｜耶穌會的利瑪竇把西方科學帶到明朝", "臺灣｜荷蘭1624年占領南部，後被鄭成功趕走"]],
-["雙元革命", "1700～1815", 1700, 1815, 4, ["工業革命｜機器取代手工，邁向現代的重大指標", "美國獨立｜13個殖民地發表獨立宣言", "法國大革命｜三級會議引爆革命，發表人權宣言", "拿破崙｜把革命觀念傳遍歐洲；戰敗後召開維也納會議", "澳洲｜英國1788年開始殖民"]],
-["帝國主義的世界", "1815～1914", 1815, 1914, 4, ["民族主義｜拉丁美洲獨立；義大利、德意志（俾斯麥）統一", "帝國主義｜列強瓜分亞洲、非洲（柏林會議）", "社會達爾文主義｜被用來合理化殖民", "社會主義｜工人生活困苦，馬克思提出", "東亞｜鴉片戰爭、明治維新、1912年中華民國建立"]],
-["兩次世界大戰", "1914～1945", 1914, 1946, 4, ["一戰｜帝國主義競爭形成兩大集團，引爆大戰", "俄國革命｜建立共產國家", "戰間期｜凡爾賽條約、國際聯盟、民族自決，卻沒能維持和平", "極端政權｜經濟大恐慌後，法西斯、納粹崛起", "二戰｜規模最大的戰爭之一，1945年結束"]],
-["冷戰：美蘇對立", "1945～1991", 1946, 1991, 4, ["冷戰｜美國帶領北約、蘇聯帶領華沙公約對立", "熱戰｜韓戰、越戰（古巴飛彈危機差點引發核戰）", "第三世界｜亞非殖民地紛紛獨立，許多新國家不選邊", "1989年｜柏林圍牆倒下，東歐共產政權垮台"]],
-["冷戰後到今天", "1991～2026", 1991, 2100, 4, ["1991年｜蘇聯解體，冷戰結束", "歐盟｜歐洲走向整合", "臺灣｜1996年首次總統直選", "今日補充｜全球化、疫情、AI、氣候變遷、俄烏戰爭"]]
+["大河文明：文字的誕生", "約前8000～前1000", -9000, -1000, 0, ["農業｜人類終於不用再追著獵物跑了：學會種田、定居，大河旁邊開始冒出城市", "文字｜兩河流域與尼羅河流域發明文字，從此事情可以存檔，是世界文明的起源之一", "古文明｜西亞、埃及、愛琴、印度河、黃河，五個古文明各自開局", "國家｜法律、國王、宗教陸續上線"]],
+["希臘興起與波斯帝國", "前1000～前500", -1000, -500, 0, ["字母｜腓尼基人發明字母：只要22個符號，比楔形文字好學太多", "城邦｜希臘人建立許多城邦，一座城就是一個國家", "波斯｜成為第一個橫跨三洲的大帝國，地圖直接開到亞非歐", "羅馬｜趕走國王，從王政變成共和", "一神信仰｜希伯來人的猶太教只信一神；波斯人信仰祆教"]],
+["希臘的光輝與思想家", "前500～前200", -500, -200, 1, ["思想家｜孔子、佛陀、希臘哲學家幾乎同時出現，人類集體開啟思考模式", "佛教｜印度有種姓制度（和婆羅門教關係密切），佛陀卻說：眾生平等", "雅典｜發展出民主，公民自己投票決定國家大事", "十二表法｜羅馬把法律刻在十二塊表上公布，是羅馬法的基礎", "希臘化｜亞歷山大東征，一路把希臘文化帶到東方", "中國｜秦統一中國，文字、貨幣、度量衡全部統一規格"]],
+["羅馬帝國與漢朝", "前200～500", -200, 500, 1, ["絲路｜漢朝連接東西方，絲綢、紙、佛教一路流傳", "羅馬｜依序是王政、共和、帝國；帝國統治整個地中海", "基督教｜在羅馬帝國萌芽，392年成為國教", "476年｜西羅馬帝國滅亡，古典時期結束"]],
+["三大世界：拜占庭、伊斯蘭、西歐", "500～1000", 500, 1000, 2, ["拜占庭｜東羅馬沒倒，繼續延續羅馬傳統", "伊斯蘭｜阿拉伯帝國擴張到三大洲；經典是可蘭經", "伊斯蘭文化｜翻譯希臘典籍，還把阿拉伯數字傳到歐洲（就是你每天寫的 0、1、2、3）", "西歐｜日耳曼人建國，查理曼加冕，進入封建社會", "唐朝｜成為東亞文化中心，日本、新羅都派人來學"]],
+["十字軍與蒙古", "1000～1400", 1000, 1400, 2, ["1054年｜基督教分家：西邊天主教、東邊東正教", "十字軍｜塞爾柱打敗拜占庭，拜占庭求救，引發十字軍東征", "蒙古｜帝國橫跨歐亞，東西交流衝到高峰", "黑死病｜重創歐洲，封建制度開始瓦解"]],
+["文藝復興與大航海時代", "1400～1550", 1400, 1550, 3, ["人文主義｜文藝復興的核心：人很重要，現世生活也很重要", "印刷術｜書變便宜，知識開始高速傳播", "大航海｜鄂圖曼擋住陸路？那歐洲人就從海上找新航路", "宗教改革｜馬丁路德、喀爾文出場，新教從天主教分出", "美洲｜阿茲特克、印加被征服，原住民大量死於傳染病"]],
+["科學革命與理性", "1550～1700", 1550, 1700, 3, ["科學革命｜不再只聽古人說：用觀察、實驗和數學了解自然", "啟蒙開始｜用理性改造社會（洛克：人有天生的權利）", "南亞與東南亞｜印度由蒙兀兒帝國統治；歐洲人跑來爭奪香料和據點", "三角貿易｜歐洲製成品→非洲奴隸→美洲農產原料", "傳教｜耶穌會的利瑪竇把西方科學帶到明朝", "臺灣｜荷蘭1624年占領南部，後來被鄭成功趕走"]],
+["雙元革命", "1700～1815", 1700, 1815, 4, ["工業革命｜機器取代手工，世界開始加速，是邁向現代的重大指標", "美國獨立｜13個殖民地發表獨立宣言：我們要自己來", "法國大革命｜三級會議引爆革命，發表人權宣言", "拿破崙｜把革命觀念傳遍歐洲；戰敗後各國召開維也納會議收拾局面", "澳洲｜英國1788年開始殖民"]],
+["帝國主義的世界", "1815～1914", 1815, 1914, 4, ["民族主義｜「同一個民族就該有自己的國家」：拉丁美洲獨立；義大利、德意志（俾斯麥）統一", "帝國主義｜列強瓜分亞洲、非洲（柏林會議）", "社會達爾文主義｜被拿來替殖民找藉口", "社會主義｜工人生活太苦，馬克思提出", "東亞｜鴉片戰爭、明治維新、1912年中華民國建立，東亞大洗牌"]],
+["兩次世界大戰", "1914～1945", 1914, 1946, 4, ["一戰｜帝國主義競爭形成兩大集團，一個火花就引爆大戰", "俄國革命｜推翻沙皇，建立共產國家", "戰間期｜凡爾賽條約、國際聯盟、民族自決，努力了，卻沒能維持和平", "極端政權｜經濟大恐慌後，法西斯、納粹崛起", "二戰｜規模最大的戰爭之一，1945年結束"]],
+["冷戰：美蘇對立", "1945～1991", 1946, 1991, 4, ["冷戰｜美國帶領北約、蘇聯帶領華沙公約，兩邊互瞪四十多年", "熱戰｜韓戰、越戰（古巴飛彈危機差點引發核戰）", "第三世界｜亞非殖民地紛紛獨立，許多新國家：我不選邊", "1989年｜柏林圍牆倒下，東歐共產政權接連垮台"]],
+["冷戰後到今天", "1991～2026", 1991, 2100, 4, ["1991年｜蘇聯解體，冷戰正式結束", "歐盟｜歐洲走向整合，很多國家之間不用再查護照", "臺灣｜1996年首次總統直選，一人一票選總統", "今日補充｜全球化、疫情、AI、氣候變遷、俄烏戰爭（不是會考必考，是你正在經歷的歷史）"]]
 ];
 const STEPS=["這一課的重點","地圖與事件","關鍵人物","小測驗（3題）"];
 let ls=0,lstep=0,lmax=0;
@@ -1761,7 +1793,7 @@ function bestEv(li,bi){
  let best=-1,bs=0;C.forEach((c,i)=>{if(!inL(i))return;let sc=0;if(k&&(c[2].includes(k)||k.includes(CS[i])||CS[i].includes(k)))sc+=5;if(v.includes(c[2])||v.includes(CS[i]))sc+=4;terms.forEach(t=>{if(c[2].includes(t))sc+=2;if(CW[i].includes(t))sc+=1});if(sc>bs){bs=sc;best=i}});
  return [best,bs];
 }
-const evBody=i=>{const c=C[i];return `<div>${T(CW[i])}</div><div class="ddr"><span>為什麼</span>${T(c[3])}</div><div class="ddr"><span>造成</span>${T(c[4])}</div>${CT[i]?`<div class="ddr"><span>冷知識</span>${T(CT[i])}</div>`:''}`};
+const evBody=i=>`<div>${T(CP[i])}</div><div class="ddr hot"><span>🔥 熱知識</span>${T(CH[i])}</div>${CT[i]?`<div class="ddr"><span>🧊 冷知識</span>${T(CT[i])}</div>`:''}`;
 function deepHTML(li,bi){
  const L=LS[li],[k,v]=L[5][bi].includes('｜')?L[5][bi].split('｜'):['',L[5][bi]],txt=k+' '+v;
  const terms=[...new Set((txt.match(TRE)||[]))].slice(0,4);
@@ -1772,7 +1804,7 @@ function deepHTML(li,bi){
  if(terms.length)h+=`<div class="dd"><i>名詞</i>${terms.map(t=>`<div><b>${t}</b>：${TERM[t]}</div>`).join('')}</div>`;
  if(best>=0&&bs>=3){const c=C[best];h+=`<div class="dd"><i>相關事件</i><div><b>${c[2]}</b>（${c[1]}）</div>${evBody(best)}</div>`}
  pp.forEach(o=>{h+=`<div class="dd"><i>相關人物</i><div><b>${o.x[1]}</b>（${o.x[2]}）：${T(o.x[3])}</div><div class="ddr"><span>影響</span>${T(o.x[4])}</div></div>`});
- return h||'<div class="dd">點上面有底線的詞，可以看更多解釋。</div>';
+ return h;
 }
 document.addEventListener('click',e=>{
  const b=e.target.closest('.ldeep');if(b){const li=b.closest('li'),d=li.querySelector('.ldd'),open=d.hidden;if(open)d.innerHTML=deepHTML(ls,+li.dataset.b);d.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'▴ 收起':'▾ 深入了解';return}
@@ -1801,10 +1833,10 @@ function renderLesson(){
  const topF=Object.entries(fcount).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>FO.find(f=>f[0]===k));
  lq=lessonQuiz(L,ev,pp);
  const sec=[
-  (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn"><b>${g[1].replace(/（.*）/,"")}</b>${g[1].includes("（")?"約500":""}</div><div><div class="gy">從這年起　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map((x,bi)=>{const[k,v]=x.includes('｜')?x.split('｜'):['',x];return `<li data-b="${bi}">${k?`<b class="lk" style="color:${pc[L[4]]}">${T(k)}</b>`:''}${T(v)}<button class="ldeep" aria-expanded="false">▾ 深入了解</button><div class="ldd" hidden></div></li>`}).join('')}</ul>`,
-  `<div id="lmap"></div>${(()=>{const cov=new Set(L[5].map((x,bi)=>{const[b,sc]=bestEv(ls,bi);return sc>=3?b:-1}));const rest=C.map((c,i)=>i).filter(i=>CY[i]>=A&&CY[i]<B&&!cov.has(i));return rest.length?`<h3 class="levh">這一課還要知道的事件</h3><p class="lp">其他事件在第一步的「深入了解」裡。點開會同時把地圖跳到那一年。</p><div class="lev">${rest.map(i=>`<details class="evd" data-y="${CY[i]}"><summary><b>${C[i][1]}</b>${C[i][2]}</summary>${evBody(i)}</details>`).join('')}</div>`:''})()}`+
-  `<details class="lfold"><summary>這一課登場的國家（${gl.length}）</summary>${gl.length?`<p class="lp">知道它們從哪裡來，事件就更容易看懂。</p>${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>'}</details>`+
-  `<details class="lfold"><summary>同一時間，各地的政權</summary><p class="lp">上面的色條是存在的時間，下面依序列出名稱；點名稱看介紹。</p>${rows}</details>`,
+  (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn"><b>${g[1].replace(/（.*）/,"")}</b>${g[1].includes("（")?"約500":""}</div><div><div class="gy">從這年起　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map((x,bi)=>{const[k,v]=x.includes('｜')?x.split('｜'):['',x];return `<li data-b="${bi}">${k?`<b class="lk" style="color:${pc[L[4]]}">${T(k)}</b>`:''}${T(v)}${deepHTML(ls,bi)?`<button class="ldeep" aria-expanded="false">▾ 深入了解</button><div class="ldd" hidden></div>`:''}</li>`}).join('')}</ul>`,
+  `<div id="lmap"></div>${(()=>{const cov=new Set(L[5].map((x,bi)=>{const[b,sc]=bestEv(ls,bi);return sc>=3?b:-1}));const rest=C.map((c,i)=>i).filter(i=>CY[i]>=A&&CY[i]<B&&!cov.has(i));return rest.length?`<h3 class="levh">這一課還要知道的事件</h3><div class="lev">${rest.map(i=>`<details class="evd" data-y="${CY[i]}"><summary><b>${C[i][1]}</b>${C[i][2]}</summary>${evBody(i)}</details>`).join('')}</div>`:''})()}`+
+  `<details class="lfold"><summary>這一課登場的國家（${gl.length}）</summary>${gl.length?`${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>'}</details>`+
+  `<details class="lfold"><summary>同一時間，各地的政權</summary>${rows}</details>`,
   pp.map(x=>`<div class="pp"><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div></div></div>`).join('')||'<p class="lp">這一課沒有特別介紹的人物，直接進小測驗吧。</p>',
   `<div id="lquiz"></div>`
  ];
@@ -1883,7 +1915,7 @@ function gNext(){
  if(gPos>=gDeck.length){const last=gDeck[gDeck.length-1];gDeck=shuffle(gamePool());if(last&&gDeck[0].t===last.t)gDeck.push(gDeck.shift());gPos=0}
  return gDeck[gPos++];
 }
-function openGame(){$('home').hidden=true;$('frame').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;sCnt=0;sOk=0;exS=null;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
+function openGame(){$('home').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;sCnt=0;sOk=0;exS=null;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
 window.__game=()=>({p:gq&&gq.p,deck:gDeck.length});
 function closeGame(){$('game').hidden=true;$('home').hidden=false;window.scrollTo(0,0)}
 const gAns=w=>`<b class="gans" style="color:${pc[w.p]}">${P[w.p].n}（${P[w.p].y}）</b>`;
@@ -2033,8 +2065,8 @@ function gPick(force){
  setYear(y);
 }
 // ===== 首頁 =====
-function goHome(){document.body.classList.remove('tlmode');$('app').hidden=true;$('game').hidden=true;$('frame').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();window.scrollTo(0,0)}
-function enterApp(lesson){$('home').hidden=true;$('frame').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
+function goHome(){document.body.classList.remove('tlmode');$('app').hidden=true;$('game').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();window.scrollTo(0,0)}
+function enterApp(lesson){$('home').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
  if(lesson!=null&&lesson!==ls){ls=lesson;lstep=0;lmax=0;saveL()}setTab('learn');renderRail();renderSync();window.scrollTo(0,0)}
 
 // 首頁：課本式橫向總覽時間軸（色帶＋中國朝代＋臺灣史＋文明／政權／大事／宗教）
@@ -2068,10 +2100,10 @@ const yTxt=y=>y<=-4000?'史前':y<0?'前'+(-y):y>=2026?'今日':String(y);
 function hShow(o,el){
  $('hovs').querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));if(el)el.classList.add('sel');
  hSel=o;
- if(!o){$('hinfo').style.setProperty('--pc','var(--line)');$('hinfo').innerHTML='<div class="hc">點上面的<b>色帶</b>看那個時期的導言；點任一<b>色條</b>看名詞介紹。</div>';return}
+ if(!o){$('hinfo').style.setProperty('--pc','var(--line)');$('hinfo').innerHTML='';$('hinfo').hidden=true;return}
  const p=P[o.p],y0=o.n?Math.max(o.m,HB[o.p]):HB[o.p];let li=LS.findIndex(l=>l[4]===o.p&&y0>=l[2]&&y0<l[3]);if(li<0)li=LS.findIndex(l=>l[4]===o.p);
  const L=LS[li];
- $('hinfo').style.setProperty('--pc',p.c);
+ $('hinfo').hidden=false;$('hinfo').style.setProperty('--pc',p.c);
  $('hinfo').innerHTML=`${o.n?`<div class="hbt"><b>${o.n}</b>　${yTxt(o.s)}～${yTxt(o.e)}${TERM[o.n]?`<div>${T(TERM[o.n])}</div>`:''}</div>`:''}<h3 style="margin-top:${o.n?8:0}px">${p.n}</h3><div class="hy">${p.y}</div><div class="hq">${p.one}</div><div class="hc">同時期的中國／臺灣：${p.cn.includes('臺灣')?p.cn:p.cn+'；臺灣：史前'}</div><button class="primary" id="hgoin">進入第 ${LS.indexOf(L)+1} 課・${L[0]} →</button>`;
  $('hgoin').onclick=()=>enterApp(LS.indexOf(L));
 }
@@ -2146,6 +2178,21 @@ function renderFCheck(){
  if($('fundo'))$('fundo').onclick=()=>{Q.seq=[];renderFCheck()};
  if($('fnq'))$('fnq').onclick=()=>{Q.i++;Q.a=null;Q.seq=[];Q.opt=null;renderFCheck();window.scrollTo(0,0)};
 }
+
+// ===== 因果鏈大頁面：六條主線 =====
+let cpK=0,cpFrom='home';
+function openChain(k,from){['home','app','game','frame'].forEach(id=>$(id).hidden=true);$('chainp').hidden=false;document.body.classList.add('home');cpK=k||0;cpFrom=from||'home';renderChainP();window.scrollTo(0,0)}
+function renderChainP(){
+ $('cpnav').innerHTML=ML.map((l,k)=>`<button class="${k===cpK?'on':''}" data-k="${k}"><b>${k+1}</b><span>${l[0]}</span><div class="mlp">${mlPer(l).map((y,j)=>`<i class="${y?'y':''}" style="background:${pc[j]}"></i>`).join('')}</div></button>`).join('');
+ $('cpnav').querySelectorAll('button').forEach(b=>b.onclick=()=>{cpK=+b.dataset.k;renderChainP();const t=$('cpbody').getBoundingClientRect().top+scrollY-(innerWidth<900?$('cpnav').offsetHeight+8:16);window.scrollTo({top:Math.max(0,t),behavior:'smooth'})});
+ const L=ML[cpK],ids=mlIdx(L),lk=L[3];
+ $('cpbody').innerHTML=`<header class="cpt"><small>主線 ${cpK+1} / ${ML.length}</small><h2>${L[0]}</h2><p>${L[1]}</p><div class="mlp cpper">${mlPer(L).map((y,j)=>`<i class="${y?'y':''}" style="background:${pc[j]}">${P[j].n}</i>`).join('')}</div></header>`+
+ ids.map((i,n)=>{const c=C[i];return `${n?`<div class="cplink"><span>↓</span><div>${T(lk[n-1])}</div></div>`:''}<article class="cpe" style="--pc:${pc[c[0]]}"><div class="cpeh"><span class="cpy">${c[1]}</span><span class="cpp">${P[c[0]].n}</span></div><h3>${c[2]}</h3><p>${T(CP[i])}</p><div class="ddr hot"><span>🔥 熱知識</span>${T(CH[i])}</div>${CT[i]?`<div class="ddr"><span>🧊 冷知識</span>${T(CT[i])}</div>`:''}${c[9]?`<div class="ddr"><span>關鍵人物</span>${c[9]}</div>`:''}</article>`}).join('')+
+ `<div class="cpend">${cpK<ML.length-1?`<button class="primary" id="cpnext">下一條主線：${ML[cpK+1][0]} →</button>`:`<button class="primary" id="cpnext">從第 1 條再看一次</button>`}</div>`;
+ $('cpnext').onclick=()=>{cpK=(cpK+1)%ML.length;renderChainP();window.scrollTo(0,0)};
+}
+$('cback').onclick=()=>{if(cpFrom==='app')enterApp(null);else goHome()};
+$('hchain').onclick=()=>openChain(0,'home');
 $('fback').onclick=goHome;
 $('backhome').onclick=goHome;
 $('gsel').addEventListener('click',e=>{if(!e.target.closest('.term,.gevi'))$('gsel').hidden=true});
