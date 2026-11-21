@@ -353,6 +353,17 @@ body.tlmode{padding-left:0;padding-bottom:0}
 .nr .k{font-weight:700;font-size:13px;color:var(--mute);padding-top:2px}
 .nr.today .k{color:#2f9e5b}
 .arrow{text-align:center;color:var(--mute);font-size:14px;padding:6px 0;font-weight:700}
+.arrow.lk{color:var(--ink);font-weight:500;font-size:14px;line-height:1.5;padding:8px 18px}.arrow.lk b{display:block;color:var(--mute);font-size:18px;line-height:1}
+.mlgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:12px}
+.mlgrid button{text-align:left;display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:12px;font-weight:400;height:auto}
+.mlgrid button b{font-size:16px}.mlgrid button span{font-size:14px;line-height:1.5}
+.mlgrid button.on{border-color:var(--ink);background:var(--card);box-shadow:inset 0 0 0 1px var(--ink)}
+.mlp{display:flex;gap:3px;margin-top:2px}.mlp i{height:6px;flex:1;border-radius:3px;opacity:.18}.mlp i.y{opacity:1}
+.mlhead{background:var(--soft);border-radius:12px;padding:12px 14px;margin-bottom:10px}.mlhead:empty{display:none}
+.mlhead h4{margin:0 0 4px;font:700 18px/1.35 "Noto Serif TC",serif}.mlhead p{margin:0 0 8px;font-size:15px}
+.mlhead .mlp i{height:22px;opacity:.15;color:#fff;font:700 12px/22px "Noto Sans TC",sans-serif;font-style:normal;text-align:center}.mlhead .mlp i.y{opacity:1}
+.mlov{font-size:14px;line-height:1.8;margin-top:10px;padding-top:8px;border-top:1px dashed var(--line)}.mlov b{white-space:nowrap}
+.mlclose{margin-top:8px;min-height:36px;font-size:14px;border-radius:999px;padding:2px 12px}
 :root{--land:light-dark(#e4dfd6,#3a3742);--sea:light-dark(#eaf2f7,#1c2430)}
 .mcap{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:8px}
 .myear{font:900 clamp(34px,9vw,48px)/1 "Noto Serif TC",serif}
@@ -589,9 +600,8 @@ button:disabled{cursor:default}
 <div class="gwrap"><div class="gsel" id="gsel" hidden></div><div class="gbody" id="gtbody"><div class="gpad"></div><div class="gbodyin" id="gtin"></div><div class="gpad"></div></div><div class="gmid" aria-hidden="true"></div></div>
 <div class="tlnav" id="tlnav"></div></div>
 <div id="chain" hidden>
-<p>用上面的分期表當骨架，一件一件往下看：<b>因為</b>前一件事，<b>所以</b>發生這件事，最後<b>變成今天</b>的樣子。每件事都標出「關鍵人物」和「根本原因」。</p>
-<h3 class="foh">推動歷史的六種根本力量</h3><p class="fop">每件大事背後，幾乎都是這六種力量在推動。點一種力量，下面就只留下和它有關的事件，可以看出它怎麼一路影響到今天。</p><div class="fogrid" id="fogrid"></div><div class="threads" id="threads"></div>
-<div class="tline" id="tline"></div>
+<p>用上面的分期表當骨架，一件一件往下看：<b>因為</b>前一件事，<b>所以</b>發生這件事，最後<b>變成今天</b>的樣子。每件事都標出「關鍵人物」。</p>
+<h3 class="foh">六條主線：一件事怎麼引出下一件</h3><p class="fop">先看主線，再看細節。點一條主線，下面就依序排出這條線上的事件，以及每一件怎麼引出下一件。主線會跨過好幾個時期。</p><div class="mlgrid" id="mlgrid"></div><div class="mlhead" id="mlhead"></div>
 <div id="nodes"></div>
 </div>
 <div id="periods" hidden></div>
@@ -898,17 +908,38 @@ const IC=[
 '<path d="M4 54L32 10l28 44z"/><path d="M32 10l8 44M17 34h22"/>'
 ];
 const svg=i=>`<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${IC[i]||''}</svg>`;
+const ML=[
+["大河孕育文明","大河帶來糧食，糧食養出城市，城市需要文字和法律。",
+ ["農業革命","城市與文字","金字塔與法老","漢摩拉比法典"],
+ ["能定居、人口變多，大河旁出現城市","尼羅河的糧食，讓埃及國王能動員大量人力","國家越來越大，需要一套寫下來、大家都要遵守的規則"]],
+["希臘的興起與擴散","希臘城邦擋下波斯，雅典走向全盛，最後亞歷山大把希臘文化帶到東方。",
+ ["希臘城邦興起","波斯帝國建立","雅典民主","亞歷山大東征"],
+ ["希臘城邦向外發展，和東方崛起的波斯帝國相遇","打敗波斯之後，雅典進入全盛，民主發展到高峰","城邦互相內鬥而衰弱，被北方的馬其頓統一，亞歷山大揮軍東征"]],
+["羅馬興衰，分成三個世界","羅馬從城邦變成大帝國；帝國分裂後，地中海一帶變成三個世界，就是中世紀。",
+ ["羅馬共和建立","羅馬帝國","基督教興起","西羅馬帝國滅亡","拜占庭的全盛","伊斯蘭教與阿拉伯帝國","查理曼加冕"],
+ ["共和時期不斷擴張，疆域太大、內部爭權，改成帝國","基督教在羅馬帝國境內萌芽，後來成為國教","帝國分成東西兩半，西半部被日耳曼人滅亡","東半部延續下來，成為拜占庭帝國","7世紀伊斯蘭教興起，阿拉伯帝國快速擴張","西歐由日耳曼人建國，基督教會成為重心"]],
+["古典知識的接力賽","希臘羅馬的知識在西歐失傳，靠拜占庭和阿拉伯保存，最後傳回義大利。",
+ ["西羅馬帝國滅亡","拜占庭的全盛","伊斯蘭教與阿拉伯帝國","十字軍東征","文藝復興","鄂圖曼攻下君士坦丁堡"],
+ ["西歐戰亂，很多古典典籍失傳；東邊的拜占庭保存了希臘羅馬的傳統","阿拉伯人把希臘典籍翻譯成阿拉伯文，保存下來","十字軍讓西歐重新接觸東方的知識和商品","義大利城市靠東西貿易致富，開始重新研究古典","拜占庭滅亡，學者帶著典籍逃到義大利，讓文藝復興更興盛"]],
+["從文藝復興到革命","人們開始敢質疑權威：先質疑教會，再質疑古代的說法，最後質疑國王。",
+ ["文藝復興","活字印刷術","宗教改革","科學革命","啟蒙運動","美國獨立、法國大革命"],
+ ["新思想需要傳播，活字印刷讓書變得便宜","聖經和批評教會的文章大量印刷，越來越多人質疑教會","用觀察和實驗，檢驗古代流傳下來的說法","把理性用在政治和社會上","天賦人權、三權分立的想法，變成真正的革命"]],
+["從航海到冷戰","為了財富出海，工業化讓搶奪更激烈，最後打成世界大戰，再變成美蘇對立。",
+ ["鄂圖曼攻下君士坦丁堡","大航海時代（地理大發現）","三角貿易","工業革命","帝國主義","第一次世界大戰","凡爾賽條約","經濟大恐慌","德國入侵波蘭","冷戰","蘇聯解體"],
+ ["鄂圖曼控制東西陸路，香料變貴，歐洲人改從海上找新航路","取得美洲殖民地，開始大規模貿易和奴隸買賣","海外市場和財富，讓英國率先發生工業革命","工廠需要更多原料和市場，列強搶殖民地","列強競爭形成兩大集團，引爆大戰","戰勝國對德國非常嚴苛","德國經濟困難，1929年又遇上全球經濟大恐慌","納粹趁機崛起、對外侵略，第二次世界大戰爆發","戰後美、蘇成為兩強，對立四十多年","蘇聯經濟撐不下去，1991年解體，冷戰結束"]]
+];
+const mlIdx=l=>l[2].map(n=>C.findIndex(c=>c[2]===n));
+const mlPer=l=>{const ps=mlIdx(l).map(i=>C[i][0]);return[0,1,2,3,4].map(k=>ps.includes(k))};
+let ml=-1;
 let th="";
 const renderChain=()=>{
- const [PA,PB]=pRange();const list=C.filter(c=>c[11]>=PA&&c[11]<PB&&(!th||c[6].includes(th)));
- $('threads').innerHTML=`<button aria-pressed="${!th}" data-t="">全部</button>`+FO.map(f=>`<button aria-pressed="${f[0]===th}" data-t="${f[0]}">${f[1]}</button>`).join('');
- [...$('threads').children].forEach(b=>b.onclick=()=>{th=b.dataset.t;renderChain()});
- const fo=FO.find(f=>f[0]===th);
- $('tline').innerHTML=fo?`<div class="fo-h">${fo[1]}</div><div>${fo[2]}</div><div class="fo-c">${list.map(c=>c[2]).join(' → ')}</div>`:'';
- $('nodes').innerHTML=nodeHTML(list);observeNodes();
- $('nodes').querySelectorAll('.fos button').forEach(b=>b.onclick=()=>{th=b.dataset.t;renderChain();$('chain').scrollIntoView()});
- $('fogrid').innerHTML=FO.map(f=>`<button class="fo${f[0]===th?' on':''}" data-t="${f[0]}"><b>${f[1]}</b><span>${f[2]}</span><small>例：${f[3]}</small></button>`).join('');
- $('fogrid').querySelectorAll('button').forEach(b=>b.onclick=()=>{th=th===b.dataset.t?'':b.dataset.t;renderChain()});
+ const [PA,PB]=pRange();const L=ml>=0?ML[ml]:null;const list=L?mlIdx(L).map(i=>C[i]):C.filter(c=>c[11]>=PA&&c[11]<PB);
+ $('mlgrid').innerHTML=ML.map((l,k)=>`<button class="${k===ml?'on':''}" data-k="${k}"><b>${k+1}. ${l[0]}</b><span>${l[1]}</span><div class="mlp">${mlPer(l).map((y,j)=>`<i class="${y?'y':''}" style="background:${pc[j]}"></i>`).join('')}</div></button>`).join('');
+ $('mlgrid').querySelectorAll('button').forEach(b=>b.onclick=()=>{const k=+b.dataset.k;ml=ml===k?-1:k;renderChain();if(ml>=0)$('mlhead').scrollIntoView({behavior:'smooth'})});
+ $('mlhead').innerHTML=L?`<h4>主線 ${ml+1}｜${L[0]}</h4><p>${L[1]}</p><div class="mlp">${mlPer(L).map((y,j)=>`<i class="${y?'y':''}" style="background:${pc[j]}">${P[j].n}</i>`).join('')}</div><div class="mlov">${mlIdx(L).map(i=>`<b style="color:${pc[C[i][0]]}">${C[i][2]}</b>`).join(' → ')}</div><button class="mlclose" id="mlclose">看全部事件</button>`:'';
+ $('chain').classList.toggle('mlon',!!L);
+ if(L)$('mlclose').onclick=()=>{ml=-1;renderChain()};
+ $('nodes').innerHTML=nodeHTML(list,L&&L[3]);observeNodes();
 };
 let tab='learn';
 const MORE={chain:'因果鏈',rgv:'列國',ppl:'人物',mapv:'地圖'};
@@ -1704,7 +1735,7 @@ let lDone=[];try{lDone=JSON.parse(localStorage.getItem('histDone')||'[]')}catch(
 const markDone=i=>{if(!lDone.includes(i)){lDone.push(i);try{localStorage.setItem('histDone',JSON.stringify(lDone))}catch(e){}}};
 const saveL=()=>{lmax=Math.max(lmax,lstep);try{localStorage.setItem('histLearn',JSON.stringify([ls,lstep,lmax]))}catch(e){}};
 const toLessonTop=()=>{const tb=document.querySelector('.tabs');const y=$('lbody').getBoundingClientRect().top+scrollY-(tb?tb.offsetHeight:0)-6;window.scrollTo(0,Math.max(0,y))};
-const nodeHTML=(list)=>list.map((c,i)=>`${i?`<div class="arrow">↓ 所以</div>`:''}
+const nodeHTML=(list,lk)=>list.map((c,i)=>`${i?(lk?`<div class="arrow lk"><b>↓</b>${lk[i-1]}</div>`:`<div class="arrow">↓ 所以</div>`):''}
  <div class="node" data-y="${c[11]}"><div class="nh" style="background:${pc[c[0]]}">${svg(c[7])}<div><b>${c[2]}</b><span>${c[1]}｜${P[c[0]].n}</span></div></div>
  <div class="nb"><div class="nr what"><div class="k">是什麼</div><div>${T(c[10])}</div></div>
  <div class="nr"><div class="k">為什麼</div><div>${T(c[3])}</div></div>
@@ -1712,7 +1743,6 @@ const nodeHTML=(list)=>list.map((c,i)=>`${i?`<div class="arrow">↓ 所以</div>
  <div class="nr today"><div class="k">今天</div><div>${T(c[5])}</div></div>
  ${c[12]?`<div class="fun"><b>冷知識</b>${T(c[12])}</div>`:''}
  ${c[9]?`<div class="nr"><div class="k">關鍵人物</div><div><b>${c[9]}</b></div></div>`:''}
- <div class="nr"><div class="k">根本原因</div><div class="fos">${[...c[6]].map(k=>`<button data-t="${k}">${FO.find(x=>x[0]===k)[1]}</button>`).join('')}</div></div>
  <a class="photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(c[8])}" target="_blank" rel="noopener">看真實照片 ↗</a></div></div>`).join('');
 
 // 重點「深入了解」：名詞解釋＋相關事件／人物
@@ -1755,7 +1785,7 @@ function renderLesson(){
  const topF=Object.entries(fcount).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>FO.find(f=>f[0]===k));
  lq=lessonQuiz(L,ev,pp);
  const sec=[
-  (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn"><b>${g[1].replace(/（.*）/,"")}</b>${g[1].includes("（")?"約500":""}</div><div><div class="gy">從這年起　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map((x,bi)=>{const[k,v]=x.includes('｜')?x.split('｜'):['',x];return `<li data-b="${bi}">${k?`<b class="lk" style="color:${pc[L[4]]}">${T(k)}</b>`:''}${T(v)}<button class="ldeep" aria-expanded="false">▾ 深入了解</button><div class="ldd" hidden></div></li>`}).join('')}</ul>${topF.length?`<div class="lf"><b>這一課背後最重要的根本力量：</b>${topF.map(f=>`<span class="fo1">${f[1]}</span>`).join('')}<div>${topF.map(f=>f[2]).join(' ')}</div></div>`:''}`,
+  (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn"><b>${g[1].replace(/（.*）/,"")}</b>${g[1].includes("（")?"約500":""}</div><div><div class="gy">從這年起　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map((x,bi)=>{const[k,v]=x.includes('｜')?x.split('｜'):['',x];return `<li data-b="${bi}">${k?`<b class="lk" style="color:${pc[L[4]]}">${T(k)}</b>`:''}${T(v)}<button class="ldeep" aria-expanded="false">▾ 深入了解</button><div class="ldd" hidden></div></li>`}).join('')}</ul>`,
   `<div id="lmap"></div>${nodeHTML(ev)}`+
   `<details class="lfold"><summary>這一課登場的國家（${gl.length}）</summary>${gl.length?`<p class="lp">知道它們從哪裡來，事件就更容易看懂。</p>${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>'}</details>`+
   `<details class="lfold"><summary>同一時間，各地的政權</summary><p class="lp">上面的色條是存在的時間，下面依序列出名稱；點名稱看介紹。</p>${rows}</details>`,
