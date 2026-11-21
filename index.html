@@ -119,6 +119,14 @@ h2{font:700 24px/1.2 "Noto Serif TC",serif;margin:40px 0 12px}
 .fo1{display:inline-block;border:1.5px solid var(--ink);border-radius:999px;padding:0 10px;margin:2px 4px 2px 0;font-size:13px;font-weight:700}
 .lp{color:var(--mute);font-size:15px}
 .gl{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}.gl>b{font-size:18px}
+.lfold{margin-top:14px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:0 12px}
+.lfold summary{cursor:pointer;font-weight:700;font-size:16px;padding:12px 0;list-style:none}.lfold summary::before{content:'▸ ';color:var(--mute)}.lfold[open] summary::before{content:'▾ '}
+.lfold summary::-webkit-details-marker{display:none}.lfold[open]{padding-bottom:12px}
+.lcn2{font-size:14px;color:var(--mute);margin:4px 0 10px}
+.hgt{height:16px!important}.hgb.term{top:2px!important;bottom:2px!important}
+.hgl{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px;margin:3px 0 6px;font-size:13px;line-height:1.35}
+.hgn.term{all:unset;cursor:pointer;font-weight:700;display:inline-flex;align-items:center;gap:4px;color:var(--ink);border-bottom:1px dotted var(--mute)}
+.hgn i{width:9px;height:9px;border-radius:2px;flex:none;border:1px solid rgb(0 0 0/.15)}.hga{color:var(--mute);font-size:11px}
 .hg{margin:8px 0}.hgr{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:6px;align-items:center;min-height:34px;border-bottom:1px dashed var(--line)}
 .hgr>b{font-size:12px;line-height:1.25;overflow-wrap:anywhere}.hgt{position:relative;height:30px}
 .hgt>i{position:absolute;top:0;bottom:0;border-left:1px dotted var(--line)}
@@ -324,7 +332,7 @@ body.tlmode{padding-left:0;padding-bottom:0}
 .gsr{margin-top:4px}.gsr i{font-style:normal;font-size:12px;opacity:.75;margin-right:6px}
 .gcol{position:relative}
 .gbar{all:unset;position:absolute;left:0;right:0;border-radius:6px;cursor:pointer;overflow:clip;border:1px solid rgb(0 0 0/.12);box-sizing:border-box;display:flex;justify-content:center}
-.gbar span{writing-mode:vertical-rl;font-size:12px;font-weight:700;color:#1d1b18;padding:4px 0;letter-spacing:.05em;max-height:100%;position:sticky;top:8px;align-self:flex-start}
+.gbar span{writing-mode:vertical-rl;font-size:12px;font-weight:700;color:#1d1b18;padding:4px 0;letter-spacing:.05em;max-height:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;box-sizing:border-box;position:sticky;top:8px;align-self:flex-start}
 .gbar.hit{box-shadow:inset 0 0 0 3px rgb(0 0 0/.55);z-index:2}
 .gbar:focus-visible{outline:3px solid var(--ink)}
 .gmid{position:absolute;left:0;right:0;top:50%;border-top:3px solid #e63946;pointer-events:none;z-index:5}
@@ -430,6 +438,57 @@ button:disabled{cursor:default}
 .primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .note{font-size:13px;color:var(--mute);margin-top:28px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* 首頁三區 */
+.hz{margin-top:22px;padding-top:4px}
+.hz+.hz{border-top:1px solid var(--line);padding-top:18px;margin-top:26px}
+.hzh{display:flex;align-items:center;gap:10px;margin:0 0 4px;font:900 24px "Noto Serif TC",serif}
+.hzh span{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:900 16px "Noto Sans TC",sans-serif}
+.hz .lp{margin:0 0 10px}
+.htour{width:100%;min-height:54px;margin-top:12px;font-size:16px}
+.hlfold{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.hlfold summary{cursor:pointer;padding:12px 14px;font-weight:700;min-height:24px}
+.hlfold .hless{margin:0;padding:0 12px 12px}
+.htests{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.htest{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px 16px;min-height:76px;border-radius:14px;background:var(--card)}
+.htest b{font-size:18px}.htest small{font-size:14px;color:var(--mute);font-weight:500}
+.htest:hover{border-color:var(--ink)}
+/* 大框架 */
+#frame{max-width:760px;margin:0 auto}
+.fdots{display:flex;gap:6px;overflow-x:auto;padding:2px 0 10px}
+.fdots button{flex:1 0 auto;min-height:40px;font-size:14px;padding:4px 10px;border-radius:999px;border-color:var(--fc);color:var(--ink)}
+.fdots button.on{background:var(--fc);color:#fff}
+.fr{background:var(--card);border:1px solid var(--line);border-top:8px solid var(--pc,var(--ink));border-radius:16px;padding:16px 16px 18px;font-size:16px;line-height:1.7}
+.frh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
+.frh small{width:100%;color:var(--mute);font-weight:700;font-size:13px}
+.frh b{font:900 40px/1.1 "Noto Serif TC",serif;color:var(--pc)}
+.frh span{font-weight:700;color:var(--mute)}
+.fr i{display:block;font-style:normal;font-size:13px;font-weight:700;color:var(--mute);margin-bottom:2px}
+.frq{font-size:18px;font-weight:700;padding:10px 12px;border-left:4px solid var(--pc);background:var(--bg);border-radius:0 10px 10px 0;margin-bottom:12px}
+.frk{margin-bottom:12px}
+.frk span{display:inline-block;margin:2px 6px 4px 0;padding:4px 12px;border-radius:999px;border:2px solid var(--pc);font-weight:700}
+.frs{margin-bottom:12px}
+.yl{display:inline-block;margin-right:8px;padding:0 8px;border-radius:6px;background:var(--pc);color:#fff;font-weight:900}
+.frn{padding-top:10px;border-top:1px dashed var(--line)}
+.frl button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;margin-top:6px;border-radius:12px}
+.frl button span{width:28px;height:28px;flex:none;border-radius:50%;background:var(--pc);color:#fff;display:grid;place-items:center;font-size:14px}
+.frnav{display:grid;grid-template-columns:auto 1fr;gap:8px;margin:12px 0 24px}
+.frnav button:disabled{opacity:.35}
+.fc h2{font:900 22px/1.4 "Noto Serif TC",serif;margin:4px 0 12px}
+.fcn{font-size:13px;font-weight:700;color:var(--mute)}
+.fopt{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.fopt button{border-color:var(--fc);border-width:3px;font-size:18px}
+.fopt button.right{background:var(--fc);color:#fff}
+.fopt button.wrong{text-decoration:line-through;opacity:.6}
+.fopt button:disabled:not(.right):not(.wrong){opacity:.4}
+.fseq{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:12px}
+.fseq span{min-height:44px;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:900}
+.fseq span.e{background:var(--bg);border:2px dashed var(--line);color:var(--mute)}
+.fres{margin:12px 0;padding:10px 12px;border-radius:10px;background:var(--bg);border-left:5px solid var(--mute)}
+.fres.ok{border-left-color:#2a9d8f}.fres.no{border-left-color:#d1495b}
+.fres b{display:block}
+.fc>.primary,.fc>button{width:100%;margin-top:8px}
+.fcs{font-size:22px}.fcs b{font-size:40px}
+#fundo{margin-top:10px}
 </style>
 </head>
 <body>
@@ -438,25 +497,43 @@ button:disabled{cursor:default}
 <div class="wrap">
 <div id="home">
 <h1>世界史分期速記</h1>
-<p class="sub">導言・世界歷史的分期｜<b>點色帶或色條，看導言再進入課程</b></p>
-<section class="hov" id="hov"><div class="hovs" id="hovs"></div><div class="hinfo" id="hinfo"></div></section>
-<nav class="ribbon" id="ribbon" hidden></nav>
-<div class="hyears" id="hyears"></div>
+<p class="sub">導言・世界歷史的分期｜先看大框架，再讀課程，最後測自己</p>
+<section class="hz hz1" id="hz1">
+<h2 class="hzh"><span>1</span>五個大時期</h2>
+<p class="lp">點一個時期，先看它的大框架，再進入課程。</p>
+<nav class="ribbon" id="ribbon"></nav>
+<button class="primary htour" id="htour">第一次來？先看大框架：從上古走到現代 →</button>
 <div id="hcont"></div>
-<div id="hgates"></div>
-<div class="hless" id="hless"></div>
-
+<details class="hlfold"><summary id="hlsum">全部課程</summary><div class="hless" id="hless"></div></details>
+</section>
+<section class="hz hz2" id="hz2">
+<h2 class="hzh"><span>2</span>時間軸</h2>
+<p class="lp">課本式總覽：點色帶看那個時期的大框架，點色條看名詞介紹。手機可以左右滑動。</p>
+<section class="hov" id="hov"><div class="hovs" id="hovs"></div><div class="hinfo" id="hinfo"></div></section>
+<a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>
+</section>
+<section class="hz hz3" id="hz3">
+<h2 class="hzh"><span>3</span>測驗</h2>
+<div class="htests">
+<button class="htest" id="hfchk"><b>框架檢查</b><small>5 題，確認五個時期的順序和特色</small></button>
+<button class="htest" id="hexam"><b>會考練習</b><small>每次 3 題：圖表、史料、時序、因果</small></button>
+<button class="htest" id="hgame"><b>時代分類挑戰</b><small>把事件、人物、朝代放進對的時期</small></button>
+</div>
+</section>
 <div class="how">
-<b>怎麼讀這頁</b>
+<b>怎麼讀這個網站</b>
 <ol>
 <li>先記五大期的順序：<b>上古 → 古典 → 中世紀 → 近代 → 現代</b></li>
-<li><b>因果鏈</b>：一件事接一件事，看「為什麼」會這樣變化，以及背後的六種根本力量</li>
-<li><b>列國分合</b>：每個地區的政權怎麼分分合合，變成今天的國家</li>
-<li><b>版圖演變</b>：48 張地圖，可以放大地區、追蹤大國興衰、看一戰二戰陣營</li>
-<li><b>關鍵人物</b>：每個時代改變歷史的人</li>
-<li>最後用練習題測自己</li>
+<li>每個時期先看<b>大框架</b>：課本的一句話、關鍵詞、從哪件事開始、怎麼接到下一期</li>
+<li>再進<b>課程</b>：重點、地圖與事件、關鍵人物、小測驗</li>
+<li>最後到<b>測驗</b>區測自己</li>
 </ol>
 </div>
+</div>
+<div id="frame" hidden>
+<button class="backhome" id="fback">← 回首頁</button>
+<div class="fdots" id="fdots"></div>
+<div id="fbody"></div>
 </div>
 <div id="game" hidden>
 <button class="backhome" id="gback">← 回到五個時期</button>
@@ -1622,9 +1699,10 @@ const LS=[
 ["冷戰：美蘇對立", "1945～1991", 1946, 1991, 4, ["冷戰｜美國帶領北約、蘇聯帶領華沙公約對立", "熱戰｜韓戰、越戰（古巴飛彈危機差點引發核戰）", "第三世界｜亞非殖民地紛紛獨立，許多新國家不選邊", "1989年｜柏林圍牆倒下，東歐共產政權垮台"]],
 ["冷戰後到今天", "1991～2026", 1991, 2100, 4, ["1991年｜蘇聯解體，冷戰結束", "歐盟｜歐洲走向整合", "臺灣｜1996年首次總統直選", "今日補充｜全球化、疫情、AI、氣候變遷、俄烏戰爭"]]
 ];
-const STEPS=["這一課的重點","這一課登場的國家","地圖：版圖怎麼變","事件：一件接一件","關鍵人物","同一時間，各地的政權","小測驗"];
+const STEPS=["這一課的重點","地圖與事件","關鍵人物","小測驗（3題）"];
 let ls=0,lstep=0,lmax=0;
-try{const v=JSON.parse(localStorage.getItem('histLearn')||'null');if(v){ls=v[0]||0;lstep=v[1]||0;lmax=Math.max(lstep,v[2]||0)}}catch(e){}
+try{const v=JSON.parse(localStorage.getItem('histLearn')||'null');if(v){ls=v[0]||0;lstep=v[1]||0;lmax=Math.max(lstep,v[2]||0);if(localStorage.getItem('histLearnV')!=='4'){const M=[0,1,1,1,2,1,3];lstep=M[Math.min(lstep,6)]||0;lmax=M[Math.min(lmax,6)]||0;localStorage.setItem('histLearnV','4')}}else localStorage.setItem('histLearnV','4')}catch(e){}
+if(ls>=LS.length)ls=0;if(lstep>3)lstep=3;if(lmax>3)lmax=3;
 let lDone=[];try{lDone=JSON.parse(localStorage.getItem('histDone')||'[]')}catch(e){}
 const markDone=i=>{if(!lDone.includes(i)){lDone.push(i);try{localStorage.setItem('histDone',JSON.stringify(lDone))}catch(e){}}};
 const saveL=()=>{lmax=Math.max(lmax,lstep);try{localStorage.setItem('histLearn',JSON.stringify([ls,lstep,lmax]))}catch(e){}};
@@ -1655,10 +1733,10 @@ function deepHTML(li,bi){
 }
 document.addEventListener('click',e=>{
  const b=e.target.closest('.ldeep');if(b){const li=b.closest('li'),d=li.querySelector('.ldd'),open=d.hidden;if(open)d.innerHTML=deepHTML(ls,+li.dataset.b);d.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'▴ 收起':'▾ 深入了解';return}
- const g=e.target.closest('.ddgo');if(g){const t=g.dataset.ev;lstep=3;saveL();renderLesson();requestAnimationFrame(()=>{const n=[...document.querySelectorAll('#lbody .node')].find(x=>x.querySelector('.nh b').textContent===t);if(n){n.scrollIntoView({block:'center'});n.classList.add('flash');setTimeout(()=>n.classList.remove('flash'),1600)}})}
+ const g=e.target.closest('.ddgo');if(g){const t=g.dataset.ev;lstep=1;saveL();renderLesson();requestAnimationFrame(()=>{const n=[...document.querySelectorAll('#lbody .node')].find(x=>x.querySelector('.nh b').textContent===t);if(n){n.scrollIntoView({block:'center'});n.classList.add('flash');setTimeout(()=>n.classList.remove('flash'),1600)}})}
 });
 const glHTML=g=>`<div class="gl"><b>${g[0]}</b><div class="nr"><div class="k">從哪裡來</div><div>${T(g[3])}</div></div><div class="nr today"><div class="k">後來</div><div>${T(g[4])}</div></div></div>`;
-function lessonQuiz(){const all=genQs(ls),k=shuffle(all.filter(q=>q.kq)).slice(0,2),o=shuffle(all.filter(q=>!q.kq)).slice(0,4-k.length);return shuffle(o.concat(k))}
+function lessonQuiz(){const all=genQs(ls),k=shuffle(all.filter(q=>q.kq)).slice(0,1),o=shuffle(all.filter(q=>!q.kq)).slice(0,3-k.length);return shuffle(o.concat(k))}
 let lq=[];
 function renderLesson(){
  $('mapcorehome').appendChild($('mapcore'));LREG=null;
@@ -1670,10 +1748,10 @@ function renderLesson(){
  const pp=PP.filter((x,i)=>PY[i]>=A&&PY[i]<B);
  const gl=GL.filter(g=>g[2]===ls);
  const rows=(()=>{const A2=Math.max(A,-4000),B2=Math.min(B,2026),W=B2-A2,pct=y=>((y-A2)/W*100).toFixed(2);
-  const st=[50,100,200,250,500,1000,2000].find(x=>W/x<=5)||1000,tk=[];for(let y=Math.ceil(A2/st)*st;y<=B2;y+=st)tk.push(y);
+  const st=[50,100,200,250,500,1000,2000].find(x=>W/x<=3.5)||1000,tk=[];for(let y=Math.ceil(A2/st)*st;y<=B2;y+=st)tk.push(y);
   const grid=tk.map(y=>`<i style="left:${pct(y)}%"></i>`).join('');
   const rs=RG.map(r=>{const it=r[1].map((x,i)=>({x,s:x[0],e:i+1<r[1].length?r[1][i+1][0]:2026})).filter(o=>o.s<B2&&o.e>A2);if(!it.length)return'';
-   return `<div class="hgr"><b>${r[0]}</b><div class="hgt">${grid}${it.map(o=>{const s0=Math.max(o.s,A2),e0=Math.min(o.e,B2);return `<button class="term hgb" data-t="${o.x[2]}" data-rg="${r[0]}" style="left:${pct(s0)}%;width:${(Math.max(e0-s0,0)/W*100).toFixed(2)}%;background:${TYC[o.x[4]||'']}" aria-label="${o.x[2]}（${o.x[1]}）"><span>${o.x[2]}</span></button>`}).join('')}</div></div>`}).join('');
+   return `<div class="hgr"><b>${r[0]}</b><div><div class="hgt">${grid}${it.map(o=>{const s0=Math.max(o.s,A2),e0=Math.min(o.e,B2);return `<button class="term hgb" data-t="${o.x[2]}" data-rg="${r[0]}" style="left:${pct(s0)}%;width:${(Math.max(e0-s0,0)/W*100).toFixed(2)}%;background:${TYC[o.x[4]||'']}" aria-label="${o.x[2]}（${o.x[1]}）"></button>`}).join('')}</div><div class="hgl">${it.map(o=>`<button class="term hgn" data-t="${o.x[2]}" data-rg="${r[0]}"><i style="background:${TYC[o.x[4]||'']}"></i>${o.x[2]}</button>`).join('<span class="hga">→</span>')}</div></div></div>`}).join('');
   return `<div class="hg"><div class="hgr hgax"><b></b><div class="hgt">${tk.map(y=>`<span style="left:${pct(y)}%">${yLabel(y)}</span>`).join('')}</div></div>${rs}</div><div class="legend"><span><i style="background:${TYC['合']}"></i>統一</span><span><i style="background:${TYC['分']}"></i>分裂</span><span><i style="background:${TYC['外']}"></i>外來統治</span><span><i style="background:${TYC['新']}"></i>新政權</span><span><i style="background:${TYC['']}"></i>其他</span></div>`})();
  const mis=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=A-1&&m[0]<B).map(m=>m[1]);
  const fcount={};ev.forEach(c=>[...c[6]].forEach(k=>fcount[k]=(fcount[k]||0)+1));
@@ -1681,25 +1759,23 @@ function renderLesson(){
  lq=lessonQuiz(L,ev,pp);
  const sec=[
   (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn"><b>${g[1].replace(/（.*）/,"")}</b>${g[1].includes("（")?"約500":""}</div><div><div class="gy">從這年起　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map((x,bi)=>{const[k,v]=x.includes('｜')?x.split('｜'):['',x];return `<li data-b="${bi}">${k?`<b class="lk" style="color:${pc[L[4]]}">${T(k)}</b>`:''}${T(v)}<button class="ldeep" aria-expanded="false">▾ 深入了解</button><div class="ldd" hidden></div></li>`}).join('')}</ul>${topF.length?`<div class="lf"><b>這一課背後最重要的根本力量：</b>${topF.map(f=>`<span class="fo1">${f[1]}</span>`).join('')}<div>${topF.map(f=>f[2]).join(' ')}</div></div>`:''}`,
-  gl.length?`<p class="lp">先認識這一課會出現的國家，知道它們從哪裡來，後面才看得懂。</p>${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>',
-  `<p class="lp">按「下一個」一張一張看，注意顏色區塊怎麼變大、變小、分裂。點地圖上的國家可以看它的由來。</p><div id="lmap"></div>`,
-  nodeHTML(ev),
-  pp.map(x=>`<div class="pp"><div class="pm" style="background:${pc[x[0]]}">${x[1][0]}</div><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div></div></div>`).join('')||'<p class="lp">這一段時間沒有特別列出的人物。</p>',
-  `<p class="lp">橫軸是年代，每一列是一個地區。點色塊看那個政權的介紹。</p>${rows}`,
+  `<div id="lmap"></div>${nodeHTML(ev)}`+
+  `<details class="lfold"><summary>這一課登場的國家（${gl.length}）</summary>${gl.length?`<p class="lp">知道它們從哪裡來，事件就更容易看懂。</p>${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>'}</details>`+
+  `<details class="lfold"><summary>同一時間，各地的政權</summary><p class="lp">上面的色條是存在的時間，下面依序列出名稱；點名稱看介紹。</p>${rows}</details>`,
+  pp.map(x=>`<div class="pp"><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div></div></div>`).join('')||'<p class="lp">這一課沒有特別介紹的人物，直接進小測驗吧。</p>',
   `<div id="lquiz"></div>`
  ];
- $('lbody').innerHTML=`<div class="lhead" style="background:${pc[L[4]]}"><span>第 ${ls+1} 課｜${P[L[4]].n}・${ANC[L[4]].w}</span><h2>${L[0]}</h2><div>${L[1]}</div><div class="lcn">同時期的中國：${ANC[L[4]].cn}</div></div>
- <div class="lsticky"><div class="lst"><b><i class="pbadge" style="background:${pc[L[4]]}">${P[L[4]].n}・${ANC[L[4]].w}</i>第 ${ls+1} 課・${L[0]}</b><span>${lstep+1} / ${STEPS.length}　${STEPS[lstep]}</span></div><div class="lprog">${STEPS.map((s,i)=>`<button class="${i===lstep?'cur':i<=lmax?'on':''}" data-s="${i}" ${i<=lmax?'':'disabled'} aria-label="第${i+1}部分：${s}" style="${i<=lmax?`background:${pc[L[4]]}`:''}"></button>`).join('')}</div></div>`+
- sec.map((h,i)=>i===lstep?`<section class="lsec" id="ls${i}"><h3><span style="background:${pc[L[4]]}">${i+1}</span>${STEPS[i]}</h3>${h}</section>`:'').join('')+
+ $('lbody').innerHTML=` <div class="lsticky"><div class="lst"><b><i class="pbadge" style="background:${pc[L[4]]}">${P[L[4]].n}・${ANC[L[4]].w}</i>第 ${ls+1} 課・${L[0]}</b><span>${lstep+1} / ${STEPS.length}　${STEPS[lstep]}</span></div><div class="lprog">${STEPS.map((s,i)=>`<button class="${i===lstep?'cur':i<=lmax?'on':''}" data-s="${i}" ${i<=lmax?'':'disabled'} aria-label="第${i+1}部分：${s}" style="${i<=lmax?`background:${pc[L[4]]}`:''}"></button>`).join('')}</div></div>`+
+ sec.map((h,i)=>i===lstep?`<section class="lsec" id="ls${i}">${i===0?`<p class="lcn2">${L[1]}｜同時期的中國：${ANC[L[4]].cn}</p>`:''}${h}</section>`:'').join('')+
  `<div class="lrow">${lstep>0?`<button class="lprev" id="lprev">← 上一部分</button>`:''}`+(lstep<STEPS.length-1?`<button class="primary lnext" id="lmore">繼續：${STEPS[lstep+1]} →</button>`:(ls<LS.length-1?(LS[ls+1][4]!==L[4]?`<button class="primary lnext" id="lnextl">進入下一個時期「${P[LS[ls+1][4]].n}」：${LS[ls+1][0]} →</button>`:`<button class="primary lnext" id="lnextl">下一課：${LS[ls+1][0]} →</button>`):`<p class="lp"><b>恭喜！5500年的世界史全部學完了。</b></p>`))+`</div>`;
  if($('lmore'))$('lmore').onclick=()=>{lstep++;saveL();renderLesson();toLessonTop()};
  if($('lprev'))$('lprev').onclick=()=>{lstep--;saveL();renderLesson();toLessonTop()};
  $('lbody').querySelectorAll('.lprog button').forEach(b=>b.onclick=()=>{lstep=+b.dataset.s;saveL();renderLesson();toLessonTop()});
  if($('lnextl'))$('lnextl').onclick=()=>{ls++;lstep=0;lmax=0;saveL();renderLesson();toLessonTop()};
  // 地圖
- if(lstep===2&&mis.length){LR=[mis[0],mis[mis.length-1]];LREG=LBOX[ls];$('mapfig').style.aspectRatio=LREG?'1.5/1':'1.9/1';$('lmap').appendChild($('mapcore'));if(mi<LR[0]||mi>LR[1])mi=LR[0];syncSlider();drawMap()}
+ if(lstep===1&&mis.length){LR=[mis[0],mis[mis.length-1]];LREG=LBOX[ls];$('mapfig').style.aspectRatio=LREG?'1.5/1':'1.9/1';$('lmap').appendChild($('mapcore'));if(mi<LR[0]||mi>LR[1])mi=LR[0];syncSlider();drawMap()}
  else{LR=null;LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'))}
- if(lstep===6)renderLQ();
+ if(lstep===3)renderLQ();
  observeNodes();setYear(Math.max(L[2],-8000));
  if(qLesson!==ls)buildPractice();
  $('pracwrap').hidden=!(tab==='learn'&&lstep===STEPS.length-1);
@@ -1763,7 +1839,7 @@ function gNext(){
  if(gPos>=gDeck.length){const last=gDeck[gDeck.length-1];gDeck=shuffle(gamePool());if(last&&gDeck[0].t===last.t)gDeck.push(gDeck.shift());gPos=0}
  return gDeck[gPos++];
 }
-function openGame(){$('home').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;sCnt=0;sOk=0;exS=null;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
+function openGame(){$('home').hidden=true;$('frame').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;sCnt=0;sOk=0;exS=null;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
 window.__game=()=>({p:gq&&gq.p,deck:gDeck.length});
 function closeGame(){$('game').hidden=true;$('home').hidden=false;window.scrollTo(0,0)}
 const gAns=w=>`<b class="gans" style="color:${pc[w.p]}">${P[w.p].n}（${P[w.p].y}）</b>`;
@@ -1913,8 +1989,8 @@ function gPick(force){
  setYear(y);
 }
 // ===== 首頁 =====
-function goHome(){document.body.classList.remove('tlmode');$('app').hidden=true;$('game').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();window.scrollTo(0,0)}
-function enterApp(lesson){$('home').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
+function goHome(){document.body.classList.remove('tlmode');$('app').hidden=true;$('game').hidden=true;$('frame').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();window.scrollTo(0,0)}
+function enterApp(lesson){$('home').hidden=true;$('frame').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
  if(lesson!=null&&lesson!==ls){ls=lesson;lstep=0;lmax=0;saveL()}setTab('learn');renderRail();renderSync();window.scrollTo(0,0)}
 
 // 首頁：課本式橫向總覽時間軸（色帶＋中國朝代＋臺灣史＋文明／政權／大事／宗教）
@@ -1939,7 +2015,7 @@ function renderHov(){
  [['文明','civ'],['政權','pol'],['重要歷史大事','evt'],['宗教','rel']].forEach(([c,cls])=>{const it=BARS.filter(b=>b[3]===c).map(b=>[b[0],b[1],Math.min(b[2],2026)]);const n=lanes(it);html+=row(c,n*26+6,it.map(b=>bar(b,cls,3+b.lane*26)).join(''))});
  html+='</div>';
  $('hovs').innerHTML=html;
- $('hovs').querySelectorAll('.hband').forEach(b=>b.onclick=()=>hShow({p:+b.dataset.p},b));
+ $('hovs').querySelectorAll('.hband').forEach(b=>b.onclick=()=>openFrame(+b.dataset.p));
  $('hovs').querySelectorAll('.hbar').forEach(b=>b.onclick=()=>{const s=+b.dataset.s,e=+b.dataset.e,s0=Math.max(s,-3500),mid=s0+Math.min((Math.min(e,2026)-s0)/2,300);hShow({n:b.dataset.n,s,e,p:pOfY(mid),m:mid},b)});
  if(hSel)hShow(hSel);else hShow(null);
 }
@@ -1948,27 +2024,87 @@ const yTxt=y=>y<=-4000?'史前':y<0?'前'+(-y):y>=2026?'今日':String(y);
 function hShow(o,el){
  $('hovs').querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));if(el)el.classList.add('sel');
  hSel=o;
- if(!o){$('hinfo').style.setProperty('--pc','var(--line)');$('hinfo').innerHTML='<div class="hc">點上面的<b>色帶</b>或任一<b>色條</b>：先看那個時期的導言，再進入課程。手機可以左右滑動。</div>';return}
+ if(!o){$('hinfo').style.setProperty('--pc','var(--line)');$('hinfo').innerHTML='<div class="hc">點上面的<b>色帶</b>看那個時期的大框架；點任一<b>色條</b>看名詞介紹。</div>';return}
  const p=P[o.p],y0=o.n?Math.max(o.m,HB[o.p]):HB[o.p];let li=LS.findIndex(l=>l[4]===o.p&&y0>=l[2]&&y0<l[3]);if(li<0)li=LS.findIndex(l=>l[4]===o.p);
  const L=LS[li];
  $('hinfo').style.setProperty('--pc',p.c);
- $('hinfo').innerHTML=`${o.n?`<div class="hbt"><b>${o.n}</b>　${yTxt(o.s)}～${yTxt(o.e)}${TERM[o.n]?`<div>${T(TERM[o.n])}</div>`:''}</div>`:''}<h3 style="margin-top:${o.n?8:0}px">${p.n}</h3><div class="hy">${p.y}</div><div class="hq">${p.one}</div><div class="hc">同時期的中國／臺灣：${p.cn.includes('臺灣')?p.cn:p.cn+'；臺灣：史前'}</div><button class="primary" id="hgoin">進入「${p.n}」：第 ${LS.indexOf(L)+1} 課・${L[0]} →</button>`;
- $('hgoin').onclick=()=>enterApp(LS.indexOf(L));
+ $('hinfo').innerHTML=`${o.n?`<div class="hbt"><b>${o.n}</b>　${yTxt(o.s)}～${yTxt(o.e)}${TERM[o.n]?`<div>${T(TERM[o.n])}</div>`:''}</div>`:''}<h3 style="margin-top:${o.n?8:0}px">${p.n}</h3><div class="hy">${p.y}</div><div class="hq">${p.one}</div><div class="hc">同時期的中國／臺灣：${p.cn.includes('臺灣')?p.cn:p.cn+'；臺灣：史前'}</div><button class="primary" id="hgofr">看「${p.n}」的大框架 →</button><button id="hgoin">直接進入第 ${LS.indexOf(L)+1} 課・${L[0]} →</button>`;
+ $('hgofr').onclick=()=>openFrame(o.p);$('hgoin').onclick=()=>enterApp(LS.indexOf(L));
 }
 addEventListener('resize',()=>{if(!$('home').hidden)renderHov()});
 function renderHome(){
  renderHov();
- $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>${LS.filter(l=>l[4]===i).length} 課</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${ANC[i].w}</strong>中國：${ANC[i].cn}</span></span></button>`).join('');
- $('hgates').innerHTML=`<h2>五個分界年</h2><p class="lp">記住五個分界年，就不會把時期搞混。</p>`+gatesHTML()+`<button class="primary hgame" id="hexam">會考練習：每次 3 題，圖表、史料、時序、因果 →</button>`+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`+`<a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>`;
+ $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>大框架 →</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${FR[i].k.join('、')}</strong>${LS.filter(l=>l[4]===i).length} 課・中國：${ANC[i].cn}</span></span></button>`).join('');
+ [...$('ribbon').children].forEach(b=>b.onclick=()=>openFrame(+b.dataset.i));
+ $('htour').onclick=()=>openFrame(0);
+ $('hfchk').onclick=()=>openFrame(5);
  $('hgame').onclick=()=>{gm='sort';openGame()};$('hexam').onclick=()=>{gm='exam';openGame()};
- [...$('ribbon').children].forEach(b=>b.onclick=()=>enterApp(LS.findIndex(l=>l[4]===+b.dataset.i)));
- $('hyears').innerHTML='';
  let saved=null;try{saved=JSON.parse(localStorage.getItem('histLearn')||'null')}catch(e){}
  $('hcont').innerHTML=saved&&(saved[0]||saved[1])?`<button class="primary hgo" id="hgo">繼續上次：第 ${saved[0]+1} 課「${LS[saved[0]][0]}」 →</button>`:'';
  if($('hgo'))$('hgo').onclick=()=>enterApp(null);
+ $('hlsum').textContent=`全部課程（${LS.length} 課）`;
  $('hless').innerHTML=P.map((p,i)=>`<div class="hp"><div class="hph" style="color:${p.c}"><b>${p.n}</b><span>${p.y}</span></div>${LS.map((l,j)=>l[4]===i?`<button data-j="${j}"><span style="background:${p.c}">${j+1}</span>${l[0]}<small>${l[1]}</small></button>`:'').join('')}</div>`).join('');
  $('hless').querySelectorAll('button').forEach(b=>b.onclick=()=>enterApp(+b.dataset.j));
 }
+// ===== 大框架：每個時期一屏（課本導言句、關鍵詞、從哪件事開始、同時期、怎麼接到下一期）＋框架檢查 =====
+const FR=[
+ {k:["文字","大河文明"],g:"西元前3500年",ge:"兩河流域與尼羅河流域發明文字",nx:"約西元前500年，希臘的哲學家、中國的孔子、印度的佛陀幾乎同時出現，世界進入古典時期。"},
+ {k:["希臘與羅馬文化","基督教萌芽"],g:"西元前500年",ge:"希臘哲學家、孔子、佛陀幾乎同時出現",nx:"西元476年西羅馬帝國滅亡，之後拜占庭帝國、伊斯蘭世界、西歐基督教世界三分，進入中世紀。"},
+ {k:["拜占庭帝國","伊斯蘭世界","西歐基督教世界"],g:"西元500年",ge:"要記的事件：西元476年西羅馬帝國滅亡",nx:"文藝復興在義大利興起，接著是大航海和科學革命，進入近代。"},
+ {k:["科學革命","啟蒙運動"],g:"西元1400年",ge:"文藝復興在義大利興起",nx:"科學和啟蒙的理性精神，接到工業革命與美國獨立、法國大革命，進入現代。"},
+ {k:["工業革命","美國獨立","法國大革命"],g:"西元1700年",ge:"之後發生工業革命、美國獨立與法國大革命",nx:"兩次世界大戰、美蘇冷戰之後，蘇聯解體，世界進入多元的新局面。"}
+];
+const FQ=[["兩河流域發明楔形文字",0],["尼羅河流域的埃及古文明",0],["大河文明誕生",0],
+ ["古希臘與古羅馬文化興盛",1],["基督教萌芽",1],["希臘哲學家、孔子、佛陀幾乎同時出現",1],
+ ["拜占庭帝國、伊斯蘭世界、西歐基督教世界三者互相競爭",2],["西羅馬帝國滅亡之後",2],["伊斯蘭世界興起",2],
+ ["文藝復興在義大利興起",3],["科學革命",3],["啟蒙運動",3],
+ ["工業革命",4],["美國獨立與法國大革命",4],["兩次世界大戰",4],["美蘇冷戰",4]];
+let fI=0,fQ=null;
+function openFrame(i){['home','app','game'].forEach(id=>$(id).hidden=true);$('frame').hidden=false;document.body.classList.add('home');fI=i;if(i===5)fQ=null;renderFrame();window.scrollTo(0,0)}
+function fDots(){$('fdots').innerHTML=P.map((p,i)=>`<button data-i="${i}" class="${i===fI?'on':''}" style="--fc:${p.c}">${p.n}</button>`).join('')+`<button data-i="5" class="${fI===5?'on':''}" style="--fc:var(--ink)">檢查</button>`;$('fdots').querySelectorAll('button').forEach(b=>b.onclick=()=>{fI=+b.dataset.i;if(fI===5)fQ=null;renderFrame();window.scrollTo(0,0)})}
+function renderFrame(){
+ fDots();
+ if(fI===5)return renderFCheck();
+ const p=P[fI],f=FR[fI],[cn,tw0]=p.cn.split('；臺灣：'),tw=tw0||ANC[fI].tw,ls=LS.map((l,j)=>[l,j]).filter(([l])=>l[4]===fI);
+ $('fbody').innerHTML=`<section class="fr" style="--pc:${p.c}">
+ <div class="frh"><small>第 ${fI+1} 個時期</small><b>${p.n}</b><span>${p.y}</span></div>
+ <div class="frq"><i>課本這樣說</i>${T(p.one)}</div>
+ <div class="frk"><i>關鍵詞</i>${f.k.map(k=>`<span>${T(k)}</span>`).join('')}</div>
+ <div class="frs"><i>從這件事開始</i><b class="yl">${f.g}</b>${T(f.ge)}</div>
+ <div class="frs"><i>同時期的中國／臺灣</i>中國：${cn}<br>臺灣：${tw}</div>
+ <div class="frs frn"><i>${fI<4?'怎麼接到下一期':'之後'}</i>${T(f.nx)}</div>
+ <div class="frl"><i>這個時期的課程</i>${ls.map(([l,j])=>`<button data-j="${j}"><span>${j+1}</span>${l[0]}</button>`).join('')}</div>
+ </section>
+ <div class="frnav"><button id="fprev" ${fI===0?'disabled':''}>← 上一個時期</button><button class="primary" id="fnext">${fI<4?`下一個時期：${P[fI+1].n} →`:'做 5 題框架檢查 →'}</button></div>`;
+ $('fbody').querySelectorAll('.frl button').forEach(b=>b.onclick=()=>enterApp(+b.dataset.j));
+ $('fprev').onclick=()=>fGo(-1);$('fnext').onclick=()=>fGo(1);
+}
+function fGo(d){const n=fI+d;if(n<0||n>5)return;fI=n;if(n===5)fQ=null;renderFrame();window.scrollTo(0,0)}
+(()=>{let x0=null,y0=0;const el=$('fbody');el.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});el.addEventListener('touchend',e=>{if(x0==null||fI===5)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)fGo(dx<0?1:-1)},{passive:true})})();
+function renderFCheck(){
+ if(!fQ){const ps=shuffle([0,1,2,3,4]).slice(0,4);fQ={q:ps.map(pi=>{const c=FQ.filter(x=>x[1]===pi);return c[Math.floor(Math.random()*c.length)]}).concat([['order',-1]]),i:0,ok:0,a:null,seq:[]}}
+ const Q=fQ;
+ if(Q.i>=Q.q.length){$('fbody').innerHTML=`<section class="fr fc"><h2>框架檢查完成</h2><p class="fcs">答對 <b>${Q.ok}</b> / ${Q.q.length}</p><p class="lp">${Q.ok===Q.q.length?'五個時期的大框架你已經掌握了，可以開始讀課程。':'沒關係，回去看看答錯的時期，再做一次。'}</p><button class="primary" id="fagain">再做一次</button><button class="primary" id="fles">開始第 1 課 →</button><button id="fhome">回首頁</button></section>`;$('fagain').onclick=()=>{fQ=null;renderFrame()};$('fles').onclick=()=>enterApp(0);$('fhome').onclick=goHome;return}
+ const [t,ans]=Q.q[Q.i],head=`<div class="fcn">第 ${Q.i+1} 題 / ${Q.q.length}</div>`;
+ let h='';
+ if(t==='order'){
+  const done=Q.a!=null;
+  if(!Q.opt)Q.opt=shuffle([0,1,2,3,4]);
+  h=`${head}<h2>從最早到最晚，依序點出五個時期</h2><div class="fseq">${[0,1,2,3,4].map(k=>Q.seq[k]!=null?`<span style="background:${P[Q.seq[k]].c}">${P[Q.seq[k]].n}</span>`:`<span class="e">${k+1}</span>`).join('')}</div>
+  <div class="fopt">${Q.opt.map(k=>`<button data-k="${k}" style="--fc:${P[k].c}" ${Q.seq.includes(k)||done?'disabled':''}>${P[k].n}</button>`).join('')}</div>
+  ${!done&&Q.seq.length?'<button id="fundo">重來</button>':''}
+  ${done?`<div class="fres ${Q.a?'ok':'no'}"><b>${Q.a?'答對了！':'順序不對。'}</b>正確順序：上古 → 古典 → 中世紀 → 近代 → 現代。<br>分界大約是：西元前500年、西元500年、西元1400年、西元1700年。</div><button class="primary" id="fnq">看結果 →</button>`:''}`;
+ }else{
+  const done=Q.a!=null;
+  h=`${head}<h2>「${t}」屬於哪個時期？</h2><div class="fopt">${P.map((p,k)=>`<button data-k="${k}" style="--fc:${p.c}" class="${done?(k===ans?'right':k===Q.a?'wrong':''):''}" ${done?'disabled':''}>${p.n}</button>`).join('')}</div>
+  ${done?`<div class="fres ${Q.a===ans?'ok':'no'}"><b>${Q.a===ans?'答對了！':`是「${P[ans].n}」。`}</b>${P[ans].n}（${P[ans].y}）：${T(P[ans].one)}</div><button class="primary" id="fnq">${Q.i<Q.q.length-1?'下一題 →':'看結果 →'}</button>`:''}`;
+ }
+ $('fbody').innerHTML=`<section class="fr fc">${h}</section>`;
+ $('fbody').querySelectorAll('.fopt button').forEach(b=>b.onclick=()=>{const k=+b.dataset.k;if(t==='order'){Q.seq.push(k);if(Q.seq.length===5){Q.a=Q.seq.every((v,i)=>v===i);if(Q.a)Q.ok++}}else{Q.a=k;if(k===ans)Q.ok++}renderFCheck()});
+ if($('fundo'))$('fundo').onclick=()=>{Q.seq=[];renderFCheck()};
+ if($('fnq'))$('fnq').onclick=()=>{Q.i++;Q.a=null;Q.seq=[];Q.opt=null;renderFCheck();window.scrollTo(0,0)};
+}
+$('fback').onclick=goHome;
 $('backhome').onclick=goHome;
 $('gsel').addEventListener('click',e=>{if(!e.target.closest('.term,.gevi'))$('gsel').hidden=true});
 // 所有小窗：點空白處或按 Esc 關閉
