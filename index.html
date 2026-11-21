@@ -461,7 +461,7 @@ button:disabled{cursor:default}
 <div id="slices"></div>
 </div>
 
-<div id="tip" class="tip" hidden><b id="tipt"></b><p id="tipd"></p><small>點其他地方關閉</small></div>
+<div id="tip" class="tip" hidden><b id="tipt"></b><p id="tipd"></p><small>點空白處關閉</small></div>
 <div id="pracwrap" hidden><h2 id="practice">練習一下</h2>
 <div class="quiz">
 <div class="qmeta"><span id="qn"></span><span id="score"></span></div>
@@ -1666,13 +1666,13 @@ function renderTL(){
  $('gcolh').style.gridTemplateColumns=`52px repeat(${cols.length},minmax(0,1fr))`;
  window.__gcols=cols;
  const evTip=ci=>{const c=C[ci];
-  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>${c[2]}</b>　${c[1]}<div class="gsr"><i>是什麼</i>${T(c[10])}</div><div class="gsr"><i>為什麼</i>${T(c[3])}</div><div class="gsr"><i>造成</i>${T(c[4])}</div>${c[12]?`<div class="gsr"><i>冷知識</i>${T(c[12])}</div>`:''}`;$('gsel').hidden=false;$('gsel').scrollTop=0};
+  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點空白處關閉</small><b>${c[2]}</b>　${c[1]}<div class="gsr"><i>是什麼</i>${T(c[10])}</div><div class="gsr"><i>為什麼</i>${T(c[3])}</div><div class="gsr"><i>造成</i>${T(c[4])}</div>${c[12]?`<div class="gsr"><i>冷知識</i>${T(c[12])}</div>`:''}`;$('gsel').hidden=false;$('gsel').scrollTop=0};
  $('gtin').querySelectorAll('.gev').forEach(b=>b.onclick=()=>{const ids=b.dataset.ci.split(',').map(Number);if(ids.length===1)return evTip(ids[0]);
-  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>這附近有 ${ids.length} 件事</b>，點一件看詳情${ids.map(i=>`<button class="gevi" data-ci="${i}"><b>${C[i][2]}</b><span>${C[i][1]}</span></button>`).join('')}`;
+  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點空白處關閉</small><b>這附近有 ${ids.length} 件事</b>，點一件看詳情${ids.map(i=>`<button class="gevi" data-ci="${i}"><b>${C[i][2]}</b><span>${C[i][1]}</span></button>`).join('')}`;
   $('gsel').hidden=false;$('gsel').scrollTop=0;
   $('gsel').querySelectorAll('.gevi').forEach(x=>x.onclick=e=>{e.stopPropagation();evTip(+x.dataset.ci)})});
  $('gtin').querySelectorAll('.gbar').forEach(b=>b.onclick=()=>{const it=cols[+b.dataset.c].items.find(x=>x.name===b.dataset.n);const g=glFind(it.name);
-  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>${T(it.name)}</b>　${it.yl}${it.note?`<div>${T(it.note)}</div>`:''}${g?`<div class="gsg">從哪裡來：${T(g[3])}</div>`:''}`;$('gsel').hidden=false});
+  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點空白處關閉</small><b>${T(it.name)}</b>　${it.yl}${it.note?`<div>${T(it.note)}</div>`:''}${g?`<div class="gsg">從哪裡來：${T(g[3])}</div>`:''}`;$('gsel').hidden=false});
  const nav=[cp>0?`<button data-p="${cp-1}">← ${P[cp-1].n}</button>`:'',cp<4?`<button data-p="${cp+1}">${P[cp+1].n} →</button>`:''].join('');
  $('tlnav').innerHTML=nav;$('tlnav').querySelectorAll('button').forEach(b=>b.onclick=()=>{const p=+b.dataset.p;ls=LS.findIndex(l=>l[4]===p);lstep=0;lmax=0;saveL();applyPeriod();gY=null;renderTL()});
  $('gsel').hidden=true;
@@ -1708,7 +1708,10 @@ function renderHome(){
  $('hless').querySelectorAll('button').forEach(b=>b.onclick=()=>enterApp(+b.dataset.j));
 }
 $('backhome').onclick=goHome;
-$('gsel').addEventListener('click',e=>{if(!e.target.closest('.term'))$('gsel').hidden=true});
+$('gsel').addEventListener('click',e=>{if(!e.target.closest('.term,.gevi'))$('gsel').hidden=true});
+// 所有小窗：點空白處或按 Esc 關閉
+document.addEventListener('click',e=>{if(!$('gsel').hidden&&!e.target.closest('#gsel,#tip,.gev,.gbar,.term'))$('gsel').hidden=true},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('tip').hidden=true;$('gsel').hidden=true;$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false')}});
 $('gtbody').addEventListener('scroll',()=>{cancelAnimationFrame(gRaf);gRaf=requestAnimationFrame(()=>gPick(false))},{passive:true});
 $('gback').onclick=closeGame;
 $('gmodes').querySelectorAll('button').forEach(b=>b.onclick=()=>{gm=b.dataset.m;renderGame(true)});
