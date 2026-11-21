@@ -207,6 +207,7 @@ body.home.railmin{padding-left:0}
 .gw summary span{color:var(--mute);font-size:13px;white-space:nowrap}.gw[open] summary span{visibility:hidden}
 .gwa{margin-top:8px;line-height:1.6;font-size:14px}.gans{display:inline-block;font-size:17px;margin:2px 0}
 #gwrong h3 small{font-size:13px;color:var(--mute);font-weight:400;margin-left:6px}
+.ginfo{margin:8px 0 4px;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;font-size:15px;line-height:1.65}.ginfo>div+div{margin-top:4px}.ginfo i{font-style:normal;font-size:12px;font-weight:700;color:var(--mute);margin-right:6px}
 .kqstem{font-size:17px;line-height:1.7;text-align:left;margin-top:6px}
 .kqopts{display:flex;flex-direction:column;gap:8px;margin-top:12px}.kqopts button{min-height:52px;font-size:16px;text-align:left;padding:10px 14px}
 .kqtag{font-style:normal;font-size:12px;font-weight:700;background:var(--ink);color:var(--bg);border-radius:6px;padding:1px 6px;margin-right:6px;vertical-align:2px}
@@ -1548,14 +1549,15 @@ const GATES=[
 ];
 const gateOf=y=>{let k=0;GATES.forEach((g,i)=>{if(y>=g[0])k=i});return k};
 const gateWhy=(w)=>`${w.t}的年代：${w.yl}`;
+const gInfo=w=>w.info&&w.info.length?`<div class="ginfo">${w.info.map(([k,v])=>`<div><i>${k}</i>${T(v)}</div>`).join('')}</div>`:'';
 const gatesHTML=()=>`<div class="gates">${GATES.map((g,i)=>`<div class="gate" style="--gc:${pc[i]}"><div class="gn"><b>${g[1].replace(/（.*）/,"")}</b>${g[1].includes("（")?"約500":""}</div><div><div class="gy">從這年起　→ 進入<b>${P[i].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`).join('')}</div>`;
 // 分類遊戲題庫：事件、人物、中國朝代（只放不跨時期的朝代）
 const DYN=[["商朝",-1600],["秦朝",-221],["漢朝",-202],["隋朝",581],["唐朝",618],["宋朝",960],["元朝",1271],["中華民國",1912]];
 function gamePool(){
  const it=[];
- C.forEach((c,i)=>{if(CY[i]>=-3500)it.push({t:c[2],y:CY[i],yl:c[1],k:'事件',p:c[0]})});
- PP.forEach((x,i)=>it.push({t:x[1],y:PY[i],yl:x[2],k:'人物',p:x[0]}));
- DYN.forEach(d=>it.push({t:d[0],y:d[1],yl:d[1]<0?'前'+(-d[1]):String(d[1]),k:'中國朝代',p:gateOf(d[1])}));
+ C.forEach((c,i)=>{if(CY[i]>=-3500)it.push({t:c[2],y:CY[i],yl:c[1],k:'事件',p:c[0],info:[['是什麼',CW[i]],['結果',c[4]]]})});
+ PP.forEach((x,i)=>it.push({t:x[1],y:PY[i],yl:x[2],k:'人物',p:x[0],info:[['做了什麼',x[3]],['影響',x[4]]]}));
+ DYN.forEach(d=>it.push({t:d[0],y:d[1],yl:d[1]<0?'前'+(-d[1]):String(d[1]),k:'中國朝代',p:gateOf(d[1]),info:TERM[d[0]]?[['介紹',TERM[d[0]]]]:[]}));
  return it;
 }
 window.__gamePool=gamePool;
@@ -1596,7 +1598,7 @@ function renderGame(newQ){
    const i=+b.dataset.i,right=i===gq.p;gDone++;
    if(right)gOk++;else{gWrong=gWrong.filter(w=>w.t!==gq.t);gWrong.push(gq);gRetry.push({q:gq,at:gN+3+Math.floor(Math.random()*3)})}
    $('gbody').querySelectorAll('.gbtns button').forEach(x=>{x.disabled=true;if(+x.dataset.i===gq.p)x.classList.add('ok')});if(!right)b.classList.add('no');
-   $('gfb').innerHTML=`${right?'<b>答對了！</b>'+gAns(gq)+'<br>':`<b>不是${P[i].n}。</b>正確答案：`+gAns(gq)+'<br>'}${gateWhy(gq)}<div class="gcn">同時期的中國：${ANC[gq.p].cn}</div>${right?'':'<div class="gcn">這題過幾題會再考一次。</div>'}`;
+   $('gfb').innerHTML=`${right?'<b>答對了！</b>'+gAns(gq)+'<br>':`<b>不是${P[i].n}。</b>正確答案：`+gAns(gq)+'<br>'}${gateWhy(gq)}${gInfo(gq)}<div class="gcn">同時期的中國：${ANC[gq.p].cn}</div>${right?'':'<div class="gcn">這題過幾題會再考一次。</div>'}`;
    $('gnext').hidden=false;$('gnext').onclick=()=>{renderGame(true);$('gbody').scrollIntoView({block:'start'})};renderGStat();
    if(!right)$('gfb').scrollIntoView({behavior:'smooth',block:'center'})});
  }else{
@@ -1619,7 +1621,7 @@ function renderGame(newQ){
 }
 function renderGStat(){
  $('gstat').textContent=`答對 ${gOk} / ${gDone}`;
- $('gwrong').innerHTML=gWrong.length?`<h3>容易搞混的（${gWrong.length}）<small>點一下看答案</small></h3>`+gWrong.slice(-12).reverse().map(w=>`<details class="gw" style="border-color:${pc[w.p]}"><summary><b>${w.t}</b><span>${w.yl}・看答案</span></summary><div class="gwa">正確答案：${gAns(w)}<br>${gateWhy(w)}</div></details>`).join(''):'';
+ $('gwrong').innerHTML=gWrong.length?`<h3>容易搞混的（${gWrong.length}）<small>點一下看答案</small></h3>`+gWrong.slice(-12).reverse().map(w=>`<details class="gw" style="border-color:${pc[w.p]}"><summary><b>${w.t}</b><span>${w.yl}・看答案</span></summary><div class="gwa">正確答案：${gAns(w)}<br>${gateWhy(w)}${gInfo(w)}</div></details>`).join(''):'';
 }
 // ===== 時間軸頁 =====
 // 課本年表的長條：[名稱, 開始, 結束, 類別]
