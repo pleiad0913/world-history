@@ -202,7 +202,14 @@ body.home.railmin{padding-left:0}
 .gseq{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:12px}
 .gseq span{border:2px dashed var(--line);border-radius:10px;min-height:44px;display:grid;place-items:center;font-weight:700;color:var(--mute)}
 #gwrong h3{font:700 18px "Noto Serif TC",serif;margin:22px 0 8px}
-.gw{display:flex;justify-content:space-between;gap:8px;border-left:5px solid;background:var(--card);border-radius:8px;padding:8px 12px;margin-bottom:6px;font-size:15px}.gw span{color:var(--mute);font-size:13px;white-space:nowrap}
+.gw{border-left:5px solid;background:var(--card);border-radius:8px;padding:8px 12px;margin-bottom:6px;font-size:15px}
+.gw summary{display:flex;justify-content:space-between;gap:8px;cursor:pointer;list-style:none;min-height:32px;align-items:center}.gw summary::-webkit-details-marker{display:none}
+.gw summary span{color:var(--mute);font-size:13px;white-space:nowrap}.gw[open] summary span{visibility:hidden}
+.gwa{margin-top:8px;line-height:1.6;font-size:14px}.gans{display:inline-block;font-size:17px;margin:2px 0}
+#gwrong h3 small{font-size:13px;color:var(--mute);font-weight:400;margin-left:6px}
+.gre{font-style:normal;background:#d64545;color:#fff;border-radius:6px;padding:1px 6px;margin-right:6px}
+.gbtns button.hint{box-shadow:0 0 0 4px var(--gc);animation:gpulse 1s ease-in-out 2}
+@keyframes gpulse{50%{transform:scale(1.06)}}
 #gmodes button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .fun{background:light-dark(#fff6d6,#3a3320);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:15px;line-height:1.6}
 .fun b{display:inline-block;background:#c9961a;color:#fff;border-radius:999px;font-size:12px;padding:0 8px;margin-right:6px}
@@ -251,6 +258,8 @@ body.tlmode{padding-left:0;padding-bottom:0}
 .gt.gtm{border-top-style:solid;font-weight:700}
 .gev{all:unset;position:absolute;left:0;min-width:28px;min-height:28px;display:flex;align-items:center;font-size:11px;font-weight:700;color:var(--ink);transform:translateY(-50%);white-space:nowrap;background:var(--card);padding:0 3px 0 2px;z-index:3;cursor:pointer;border-radius:6px;max-width:58px;overflow:hidden}
 .gev:focus-visible,.gev:hover{outline:2px solid #e63946}
+.gevm{color:#e63946}
+.gevi{all:unset;display:flex;justify-content:space-between;gap:8px;width:100%;box-sizing:border-box;padding:10px 4px;border-top:1px solid var(--line);cursor:pointer}.gevi span{color:var(--mute);font-size:13px;white-space:nowrap}
 .gsr{margin-top:4px}.gsr i{font-style:normal;font-size:12px;opacity:.75;margin-right:6px}
 .gcol{position:relative}
 .gbar{all:unset;position:absolute;left:0;right:0;border-radius:6px;cursor:pointer;overflow:clip;border:1px solid rgb(0 0 0/.12);box-sizing:border-box;display:flex;justify-content:center}
@@ -1438,7 +1447,7 @@ function renderLesson(){
  const topF=Object.entries(fcount).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>FO.find(f=>f[0]===k));
  lq=lessonQuiz(L,ev,pp);
  const sec=[
-  (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn">第${L[4]+1}道門<b>${g[2]}</b></div><div><div class="gy">你剛穿過 ${g[1]}　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map(x=>`<li>${T(x)}</li>`).join('')}</ul>${topF.length?`<div class="lf"><b>這一課背後最重要的根本力量：</b>${topF.map(f=>`<span class="fo1">${f[1]}</span>`).join('')}<div>${topF.map(f=>f[2]).join(' ')}</div></div>`:''}`,
+  (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn"><b>${g[2]}</b></div><div><div class="gy">從 ${g[1]} 起　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map(x=>`<li>${T(x)}</li>`).join('')}</ul>${topF.length?`<div class="lf"><b>這一課背後最重要的根本力量：</b>${topF.map(f=>`<span class="fo1">${f[1]}</span>`).join('')}<div>${topF.map(f=>f[2]).join(' ')}</div></div>`:''}`,
   gl.length?`<p class="lp">先認識這一課會出現的國家，知道它們從哪裡來，後面才看得懂。</p>${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>',
   `<p class="lp">按「下一個」一張一張看，注意顏色區塊怎麼變大、變小、分裂。點地圖上的國家可以看它的由來。</p><div id="lmap"></div>`,
   nodeHTML(ev),
@@ -1499,8 +1508,8 @@ const GATES=[
  [1700,"1700","機","工業革命、美國獨立、法國大革命即將發生","機器和革命塑造了現代世界",4]
 ];
 const gateOf=y=>{let k=0;GATES.forEach((g,i)=>{if(y>=g[0])k=i});return k};
-const gateWhy=(y,label)=>{const k=gateOf(y),g=GATES[k],n=GATES[k+1];return `${label}在第 ${k+1} 道門「${g[1]}・${g[3]}」之後${n?`、第 ${k+2} 道門「${n[1]}」之前`:''}，所以是${P[k].n}（${ANC[k].w}）。`};
-const gatesHTML=()=>`<div class="gates">${GATES.map((g,i)=>`<div class="gate" style="--gc:${pc[i]}"><div class="gn">第${i+1}道門<b>${g[2]}</b></div><div><div class="gy">${g[1]}　→ 進入<b>${P[i].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`).join('')}</div>`;
+const gateWhy=(w)=>`${w.t}的年代：${w.yl}`;
+const gatesHTML=()=>`<div class="gates">${GATES.map((g,i)=>`<div class="gate" style="--gc:${pc[i]}"><div class="gn"><b>${g[2]}</b></div><div><div class="gy">${g[1]}　→ 進入<b>${P[i].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`).join('')}</div>`;
 // 分類遊戲題庫：事件、人物、中國朝代（只放不跨時期的朝代）
 const DYN=[["商朝",-1600],["秦朝",-221],["漢朝",-202],["隋朝",581],["唐朝",618],["宋朝",960],["元朝",1271],["中華民國",1912]];
 function gamePool(){
@@ -1511,38 +1520,55 @@ function gamePool(){
  return it;
 }
 window.__gamePool=gamePool;
-let gm='sort',gq=null,gOk=0,gDone=0,gWrong=[],gOrder=[];
-function openGame(){$('home').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;gWrong=[];renderGame(true)}
+let gm='sort',gq=null,gOk=0,gDone=0,gWrong=[],gOrder=[],gDeck=[],gPos=0,gRetry=[],gN=0,gRe=false;
+// 洗牌後依序出題；答錯的隔 3～5 題再考一次
+function gNext(){
+ gN++;
+ const due=gRetry.findIndex(r=>r.at<=gN);
+ if(due>=0){gRe=true;return gRetry.splice(due,1)[0].q}
+ gRe=false;
+ if(gPos>=gDeck.length){const last=gDeck[gDeck.length-1];gDeck=shuffle(gamePool());if(last&&gDeck[0].t===last.t)gDeck.push(gDeck.shift());gPos=0}
+ return gDeck[gPos++];
+}
+function openGame(){$('home').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
+window.__game=()=>({p:gq&&gq.p,deck:gDeck.length});
 function closeGame(){$('game').hidden=true;$('home').hidden=false;window.scrollTo(0,0)}
+const gAns=w=>`<b class="gans" style="color:${pc[w.p]}">${P[w.p].n}（${P[w.p].y}）</b>`;
 function renderGame(newQ){
  $('gmodes').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===gm));
  if(gm==='sort'){
-  if(newQ){const pool=gamePool();gq=pool[Math.floor(Math.random()*pool.length)]}
-  $('gbody').innerHTML=`<div class="gcard"><small>${gq.k}</small><b>${T(gq.t)}</b><div class="gq">屬於哪個時期？</div></div>
+  if(newQ||!gq||gq.t==null)gq=gNext();
+  $('gbody').innerHTML=`<div class="gcard"><small>${gRe?'<i class="gre">再考一次</i>':''}${gq.k}・第 ${gPos} / ${gDeck.length} 題</small><b>${T(gq.t)}</b><div class="gq">屬於哪個時期？</div></div>
   <div class="gbtns">${P.map((p,i)=>`<button data-i="${i}" style="--gc:${pc[i]}"><b>${p.n}</b><small>${ANC[i].w}</small></button>`).join('')}</div><div class="gfb" id="gfb" aria-live="polite"></div>
   <button class="primary gnext" id="gnext" hidden>下一題 →</button>`;
   $('gbody').querySelectorAll('.gbtns button').forEach(b=>b.onclick=()=>{
-   const i=+b.dataset.i,right=i===gq.p;gDone++;if(right)gOk++;else gWrong.push(gq);
+   const i=+b.dataset.i,right=i===gq.p;gDone++;
+   if(right)gOk++;else{gWrong=gWrong.filter(w=>w.t!==gq.t);gWrong.push(gq);gRetry.push({q:gq,at:gN+3+Math.floor(Math.random()*3)})}
    $('gbody').querySelectorAll('.gbtns button').forEach(x=>{x.disabled=true;if(+x.dataset.i===gq.p)x.classList.add('ok')});if(!right)b.classList.add('no');
-   $('gfb').innerHTML=`<b>${right?'答對了！':'記一下：'}</b>${gateWhy(gq.y,`${gq.t}（${gq.yl}）`)}<div class="gcn">同時期的中國：${ANC[gq.p].cn}</div>`;
-   $('gnext').hidden=false;$('gnext').onclick=()=>renderGame(true);renderGStat()});
+   $('gfb').innerHTML=`${right?'<b>答對了！</b>'+gAns(gq)+'<br>':`<b>不是${P[i].n}。</b>正確答案：`+gAns(gq)+'<br>'}${gateWhy(gq)}<div class="gcn">同時期的中國：${ANC[gq.p].cn}</div>${right?'':'<div class="gcn">這題過幾題會再考一次。</div>'}`;
+   $('gnext').hidden=false;$('gnext').onclick=()=>{renderGame(true);$('gbody').scrollIntoView({block:'start'})};renderGStat();
+   if(!right)$('gfb').scrollIntoView({behavior:'smooth',block:'center'})});
  }else{
   if(newQ)gOrder=[];
-  const sh=newQ||!gq?shuffle(P.map((p,i)=>i)):gq;gq=sh;
+  const sh=newQ||!Array.isArray(gq)?shuffle(P.map((p,i)=>i)):gq;gq=sh;
   $('gbody').innerHTML=`<div class="gcard"><b>依照時間先後，點五個時期</b><div class="gq">由最早點到最晚</div></div>
   <div class="gseq">${[0,1,2,3,4].map(k=>`<span style="${gOrder[k]!=null?`background:${pc[gOrder[k]]};color:#fff`:''}">${gOrder[k]!=null?P[gOrder[k]].n:k+1}</span>`).join('')}</div>
   <div class="gbtns">${sh.map(i=>`<button data-i="${i}" style="--gc:${pc[i]}" ${gOrder.includes(i)?'disabled':''}><b>${P[i].n}</b></button>`).join('')}</div><div class="gfb" id="gfb" aria-live="polite"></div>
   <button class="primary gnext" id="gnext" hidden>再排一次 →</button>`;
   $('gbody').querySelectorAll('.gbtns button').forEach(b=>b.onclick=()=>{
    const i=+b.dataset.i,need=gOrder.length;
-   if(i!==need){b.classList.add('no');setTimeout(()=>b.classList.remove('no'),500);$('gfb').innerHTML=`<b>還不是${P[i].n}。</b>下一個要找的時期，從第 ${need+1} 道門「${GATES[need][1]}・${GATES[need][3]}」開始。`;return}
+   if(i!==need){
+    b.classList.add('no');setTimeout(()=>b.classList.remove('no'),600);
+    const nb=$('gbody').querySelector(`.gbtns button[data-i="${need}"]`);nb.classList.add('hint');
+    $('gfb').innerHTML=`<b>不是${P[i].n}。</b>下一個是：${gAns({p:need})}<br>${P[i].n}是${P[i].y}，比${P[need].n}晚。`;
+    $('gfb').scrollIntoView({behavior:'smooth',block:'center'});return}
    gOrder.push(i);if(gOrder.length===5){gDone++;gOk++;renderGame(false);$('gfb').innerHTML=`<b>全對！</b>口訣「字、哲、亡、興、機」：${GATES.map(g=>g[1]).join(' → ')}`;$('gnext').hidden=false;$('gnext').onclick=()=>renderGame(true);renderGStat()}else renderGame(false)});
  }
  renderGStat();
 }
 function renderGStat(){
  $('gstat').textContent=`答對 ${gOk} / ${gDone}`;
- $('gwrong').innerHTML=gWrong.length?`<h3>容易搞混的（${gWrong.length}）</h3>`+gWrong.slice(-12).reverse().map(w=>`<div class="gw" style="border-color:${pc[w.p]}"><b>${w.t}</b><span>${w.yl}・${P[w.p].n}</span></div>`).join(''):'';
+ $('gwrong').innerHTML=gWrong.length?`<h3>容易搞混的（${gWrong.length}）<small>點一下看答案</small></h3>`+gWrong.slice(-12).reverse().map(w=>`<details class="gw" style="border-color:${pc[w.p]}"><summary><b>${w.t}</b><span>${w.yl}・看答案</span></summary><div class="gwa">正確答案：${gAns(w)}<br>${gateWhy(w)}</div></details>`).join(''):'';
 }
 // ===== 時間軸頁 =====
 // 課本年表的長條：[名稱, 開始, 結束, 類別]
@@ -1581,13 +1607,17 @@ function renderTL(){
  const ticks=[];for(let y=Math.ceil(A/st)*st;y<=B;y+=st)ticks.push(y);
  const evs=C.filter(c=>c[11]>=A&&c[11]<B);
  $('gtin').style.height=H+'px';
- $('gtin').innerHTML=`<div class="gax">${(()=>{const et=evs.map(c=>(c[11]-A)*k);return ticks.map((y,i)=>{const t=(y-A)*k,clash=et.some(e=>Math.abs(e-t)<20);return `<div class="gt${i%2?'':' gtm'}" style="top:${t}px">${i%2||clash?'':yLabel(y)}</div>`}).join('')})()}${(()=>{let last=-99;return evs.map(c=>{const t=(c[11]-A)*k;const lab=t-last>=15;if(lab)last=t;const ci=C.indexOf(c);return `<button class="gev" data-ci="${ci}" style="top:${t}px" aria-label="${c[2]}（${c[1]}）">●${lab?' '+CS[ci]:''}</button>`}).join('')})()}</div>`+
+ $('gtin').innerHTML=`<div class="gax">${(()=>{const et=evs.map(c=>(c[11]-A)*k);return ticks.map((y,i)=>{const t=(y-A)*k,clash=et.some(e=>Math.abs(e-t)<24);return `<div class="gt${i%2?'':' gtm'}" style="top:${t}px">${i%2||clash?'':yLabel(y)}</div>`}).join('')})()}${(()=>{const gs=[];evs.slice().sort((a,b)=>a[11]-b[11]).forEach(c=>{const t=(c[11]-A)*k,g=gs[gs.length-1];if(g&&t-g.t<30)g.cs.push(c);else gs.push({t,cs:[c]})});return gs.map(g=>{const ids=g.cs.map(c=>C.indexOf(c));return `<button class="gev${ids.length>1?' gevm':''}" data-ci="${ids.join(',')}" style="top:${g.t}px" aria-label="${g.cs.map(c=>c[2]+'（'+c[1]+'）').join('、')}">●${ids.length>1?` ${ids.length}件`:' '+CS[ids[0]]}</button>`}).join('')})()}</div>`+
   cols.map((c,ci)=>`<div class="gcol">${c.items.filter(it=>it.e>A&&it.s<B).map(it=>{const s=Math.max(it.s,A),e=Math.min(it.e,B),h=(e-s)*k;return `<button class="gbar" data-c="${ci}" data-n="${it.name}" style="top:${(s-A)*k}px;height:${Math.max(h,3)}px;background:${it.c}" aria-label="${it.name} ${it.yl}">${h>36?`<span>${it.name}</span>`:''}</button>`}).join('')}</div>`).join('');
  $('gtin').style.gridTemplateColumns=`52px repeat(${cols.length},minmax(0,1fr))`;
  $('gcolh').style.gridTemplateColumns=`52px repeat(${cols.length},minmax(0,1fr))`;
  window.__gcols=cols;
- $('gtin').querySelectorAll('.gev').forEach(b=>b.onclick=()=>{const c=C[+b.dataset.ci];
-  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>${c[2]}</b>　${c[1]}<div class="gsr"><i>是什麼</i>${T(c[10])}</div><div class="gsr"><i>為什麼</i>${T(c[3])}</div><div class="gsr"><i>造成</i>${T(c[4])}</div>${c[12]?`<div class="gsr"><i>冷知識</i>${T(c[12])}</div>`:''}`;$('gsel').hidden=false;$('gsel').scrollTop=0});
+ const evTip=ci=>{const c=C[ci];
+  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>${c[2]}</b>　${c[1]}<div class="gsr"><i>是什麼</i>${T(c[10])}</div><div class="gsr"><i>為什麼</i>${T(c[3])}</div><div class="gsr"><i>造成</i>${T(c[4])}</div>${c[12]?`<div class="gsr"><i>冷知識</i>${T(c[12])}</div>`:''}`;$('gsel').hidden=false;$('gsel').scrollTop=0};
+ $('gtin').querySelectorAll('.gev').forEach(b=>b.onclick=()=>{const ids=b.dataset.ci.split(',').map(Number);if(ids.length===1)return evTip(ids[0]);
+  $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>這附近有 ${ids.length} 件事</b>，點一件看詳情${ids.map(i=>`<button class="gevi" data-ci="${i}"><b>${C[i][2]}</b><span>${C[i][1]}</span></button>`).join('')}`;
+  $('gsel').hidden=false;$('gsel').scrollTop=0;
+  $('gsel').querySelectorAll('.gevi').forEach(x=>x.onclick=e=>{e.stopPropagation();evTip(+x.dataset.ci)})});
  $('gtin').querySelectorAll('.gbar').forEach(b=>b.onclick=()=>{const it=cols[+b.dataset.c].items.find(x=>x.name===b.dataset.n);const g=glFind(it.name);
   $('gsel').innerHTML=`<small style="float:right;opacity:.7">點這裡關閉</small><b>${T(it.name)}</b>　${it.yl}${it.note?`<div>${T(it.note)}</div>`:''}${g?`<div class="gsg">從哪裡來：${T(g[3])}</div>`:''}`;$('gsel').hidden=false});
  const nav=[cp>0?`<button data-p="${cp-1}">← ${P[cp-1].n}</button>`:'',cp<4?`<button data-p="${cp+1}">${P[cp+1].n} →</button>`:''].join('');
@@ -1614,7 +1644,7 @@ function enterApp(lesson){$('home').hidden=true;$('app').hidden=false;document.b
  if(lesson!=null&&lesson!==ls){ls=lesson;lstep=0;lmax=0;saveL()}setTab('learn');renderRail();renderSync();window.scrollTo(0,0)}
 function renderHome(){
  $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>${LS.filter(l=>l[4]===i).length} 課</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${ANC[i].w}</strong>中國：${ANC[i].cn}</span></span></button>`).join('');
- $('hgates').innerHTML=`<h2>五道時代之門</h2><p class="lp">記住五個分界，就不會把時期搞混。口訣：<b>字、哲、亡、興、機</b>。</p>`+gatesHTML()+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`;
+ $('hgates').innerHTML=`<h2>五個分界年</h2><p class="lp">記住五個分界，就不會把時期搞混。口訣：<b>字、哲、亡、興、機</b>。</p>`+gatesHTML()+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`;
  $('hgame').onclick=openGame;
  [...$('ribbon').children].forEach(b=>b.onclick=()=>enterApp(LS.findIndex(l=>l[4]===+b.dataset.i)));
  $('hyears').innerHTML='';
