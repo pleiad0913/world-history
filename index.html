@@ -87,6 +87,12 @@ h2{font:700 24px/1.2 "Noto Serif TC",serif;margin:40px 0 12px}
 .fo1{display:inline-block;border:1.5px solid var(--ink);border-radius:999px;padding:0 10px;margin:2px 4px 2px 0;font-size:13px;font-weight:700}
 .lp{color:var(--mute);font-size:15px}
 .gl{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}.gl>b{font-size:18px}
+.hg{margin:8px 0}.hgr{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:6px;align-items:center;min-height:34px;border-bottom:1px dashed var(--line)}
+.hgr>b{font-size:12px;line-height:1.25;overflow-wrap:anywhere}.hgt{position:relative;height:30px}
+.hgt>i{position:absolute;top:0;bottom:0;border-left:1px dotted var(--line)}
+.hgax{min-height:22px;border-bottom:none}.hgax .hgt{height:20px}.hgax span{position:absolute;transform:translateX(-50%);font-size:11px;color:var(--mute);white-space:nowrap;top:2px}.hgax span:first-child{transform:none}.hgax span:last-child{transform:translateX(-100%)}
+.hgb.term{all:unset;position:absolute;top:3px;bottom:3px;box-sizing:border-box;border:1px solid rgb(0 0 0/.18);border-radius:5px;overflow:hidden;cursor:pointer;min-width:3px;display:flex;align-items:center}
+.hgb span{font-size:12px;font-weight:700;color:#222;padding:0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hgb:focus-visible{outline:2px solid var(--ink)}
 .rgrow{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:8px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px}.rgrow b{font-size:14px}
 .lnext{width:100%;margin-top:22px;min-height:54px;font-size:17px}
 .lqq{margin-bottom:16px}
@@ -1492,7 +1498,12 @@ function renderLesson(){
  const ev=C.filter((c,i)=>CY[i]>=A&&CY[i]<B);
  const pp=PP.filter((x,i)=>PY[i]>=A&&PY[i]<B);
  const gl=GL.filter(g=>g[2]===ls);
- const rows=RG.map(r=>{const it=r[1].filter((x,i)=>{const e=i+1<r[1].length?r[1][i+1][0]:9999;return x[0]<B&&e>A});return it.length?`<div class="rgrow"><b>${r[0]}</b><span>${it.map(x=>TR(x[2],r[0])).join(' → ')}</span></div>`:''}).join('');
+ const rows=(()=>{const A2=Math.max(A,-4000),B2=Math.min(B,2026),W=B2-A2,pct=y=>((y-A2)/W*100).toFixed(2);
+  const st=[50,100,200,250,500,1000,2000].find(x=>W/x<=5)||1000,tk=[];for(let y=Math.ceil(A2/st)*st;y<=B2;y+=st)tk.push(y);
+  const grid=tk.map(y=>`<i style="left:${pct(y)}%"></i>`).join('');
+  const rs=RG.map(r=>{const it=r[1].map((x,i)=>({x,s:x[0],e:i+1<r[1].length?r[1][i+1][0]:2026})).filter(o=>o.s<B2&&o.e>A2);if(!it.length)return'';
+   return `<div class="hgr"><b>${r[0]}</b><div class="hgt">${grid}${it.map(o=>{const s0=Math.max(o.s,A2),e0=Math.min(o.e,B2);return `<button class="term hgb" data-t="${o.x[2]}" data-rg="${r[0]}" style="left:${pct(s0)}%;width:${(Math.max(e0-s0,0)/W*100).toFixed(2)}%;background:${TYC[o.x[4]||'']}" aria-label="${o.x[2]}（${o.x[1]}）"><span>${o.x[2]}</span></button>`}).join('')}</div></div>`}).join('');
+  return `<div class="hg"><div class="hgr hgax"><b></b><div class="hgt">${tk.map(y=>`<span style="left:${pct(y)}%">${yLabel(y)}</span>`).join('')}</div></div>${rs}</div><div class="legend"><span><i style="background:${TYC['合']}"></i>統一</span><span><i style="background:${TYC['分']}"></i>分裂</span><span><i style="background:${TYC['外']}"></i>外來統治</span><span><i style="background:${TYC['新']}"></i>新政權</span><span><i style="background:${TYC['']}"></i>其他</span></div>`})();
  const mis=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=A-1&&m[0]<B).map(m=>m[1]);
  const fcount={};ev.forEach(c=>[...c[6]].forEach(k=>fcount[k]=(fcount[k]||0)+1));
  const topF=Object.entries(fcount).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>FO.find(f=>f[0]===k));
@@ -1503,7 +1514,7 @@ function renderLesson(){
   `<p class="lp">按「下一個」一張一張看，注意顏色區塊怎麼變大、變小、分裂。點地圖上的國家可以看它的由來。</p><div id="lmap"></div>`,
   nodeHTML(ev),
   pp.map(x=>`<div class="pp"><div class="pm" style="background:${pc[x[0]]}">${x[1][0]}</div><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div></div></div>`).join('')||'<p class="lp">這一段時間沒有特別列出的人物。</p>',
-  `<p class="lp">把同一段時間各地區的政權並排看，就能看出「誰在什麼時候、在哪裡」。</p>${rows}`,
+  `<p class="lp">橫軸是年代，每一列是一個地區。點色塊看那個政權的介紹。</p>${rows}`,
   `<div id="lquiz"></div>`
  ];
  $('lbody').innerHTML=`<div class="lhead" style="background:${pc[L[4]]}"><span>第 ${ls+1} 課｜${P[L[4]].n}・${ANC[L[4]].w}</span><h2>${L[0]}</h2><div>${L[1]}</div><div class="lcn">同時期的中國：${ANC[L[4]].cn}</div></div>
