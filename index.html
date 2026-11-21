@@ -317,7 +317,10 @@ body.tlmode{padding-left:0;padding-bottom:0}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mute);margin-top:10px}
 .legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:5px}
 .legend i.tribe{background:repeating-linear-gradient(45deg,#d9ccb0 0 3px,#efe6d2 3px 6px)}
-.tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;overflow:visible}
+.tabs{display:grid!important;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr);gap:6px;overflow:visible;transition:transform .22s ease}
+body.tabhide .tabs{transform:translateY(calc(-100% - 4px))}
+body.tabhide .lsticky{top:0}
+.lsticky{transition:top .22s ease}
 .tabs>button{padding:6px 2px!important;font-size:14px!important;letter-spacing:-.03em;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #tmore[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 #moremenu{position:absolute;right:0;top:100%;width:min(330px,92vw);background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px;z-index:20;display:flex;flex-direction:column;gap:4px}
@@ -337,7 +340,7 @@ body.tlmode{padding-left:0;padding-bottom:0}
 .ty{font-size:12px;border:1.5px solid;border-radius:999px;padding:0 8px;font-weight:700}
 .rgb b{display:block;font-size:17px;margin-top:2px}
 .rgb small{display:block;color:var(--mute);font-size:14px;line-height:1.5}
-.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:20px;position:sticky;top:0;z-index:6;background:var(--bg);padding:8px 0}
+.tabs{display:grid;gap:6px;margin-top:20px;position:sticky;top:0;z-index:6;background:var(--bg);padding:8px 0}
 .tabs button{font-size:15px;padding:6px 4px}
 .tabs button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 [hidden]{display:none!important}
@@ -406,13 +409,13 @@ button:disabled{cursor:default}
 <div class="tabs" role="tablist">
 <button role="tab" id="t6" aria-selected="true">課程</button>
 <button role="tab" id="t7" aria-selected="false">時間軸</button>
-<button role="tab" id="t3" aria-selected="false">地圖</button>
+<button role="tab" id="t1" aria-selected="false">分期細節</button>
 <button id="tmore" aria-expanded="false" aria-haspopup="true">更多 ▾</button>
 <div id="moremenu" hidden>
 <button role="tab" id="t0" aria-selected="false"><b>因果鏈</b><small>一件事怎麼引出下一件，一路連到今天</small></button>
 <button role="tab" id="t4" aria-selected="false"><b>列國分合</b><small>各地區的國家怎麼分裂、統一、換人當家</small></button>
 <button role="tab" id="t5" aria-selected="false"><b>關鍵人物</b><small>推動這個時期的人，做了什麼</small></button>
-<button role="tab" id="t1" aria-selected="false"><b>分期細節</b><small>課本這個時期的完整重點</small></button>
+<button role="tab" id="t3" aria-selected="false"><b>版圖演變</b><small>世界地圖怎麼一步步變成今天的樣子</small></button>
 <button role="tab" id="t2" aria-selected="false"><b>各地比較</b><small>同一時間，不同地方各在做什麼</small></button>
 </div>
 </div>
@@ -742,8 +745,8 @@ const renderChain=()=>{
  $('fogrid').querySelectorAll('button').forEach(b=>b.onclick=()=>{th=th===b.dataset.t?'':b.dataset.t;renderChain()});
 };
 let tab='learn';
-const MORE={chain:'因果鏈',rgv:'列國',ppl:'人物',periods:'細節',world:'比較'};
-const setTab=w=>{tab=w;$('pracwrap').hidden=true;$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false');$('tmore').setAttribute('aria-pressed',!!MORE[w]);$('tmore').textContent=MORE[w]||'更多 ▾';[['t6','learn'],['t7','tlv'],['t0','chain'],['t4','rgv'],['t3','mapv'],['t5','ppl'],['t1','periods'],['t2','world']].forEach(([b,v])=>{$(b).setAttribute('aria-selected',v===w);$(v).hidden=v!==w});if(w==='mapv'){const[PA,PB]=pRange();const idx=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=PA-1&&m[0]<PB).map(m=>m[1]);LR=idx.length?[idx[0],idx[idx.length-1]]:null;if(LR&&(mi<LR[0]||mi>LR[1]))mi=LR[0];LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'));syncSlider();drawMap()}document.body.classList.toggle('tlmode',w==='tlv');if(w==='tlv'){renderTL()}if(w==='learn')renderLesson();const tb=document.querySelector('.tabs');if(tb&&!$('app').hidden){const y=tb.getBoundingClientRect().top+scrollY-4;if(scrollY>y)window.scrollTo(0,y)}};
+const MORE={chain:'因果鏈',rgv:'列國',ppl:'人物',mapv:'地圖',world:'比較'};
+const setTab=w=>{tab=w;document.body.classList.remove('tabhide');$('pracwrap').hidden=true;$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false');$('tmore').setAttribute('aria-pressed',!!MORE[w]);$('tmore').textContent=MORE[w]||'更多 ▾';[['t6','learn'],['t7','tlv'],['t0','chain'],['t4','rgv'],['t3','mapv'],['t5','ppl'],['t1','periods'],['t2','world']].forEach(([b,v])=>{$(b).setAttribute('aria-selected',v===w);$(v).hidden=v!==w});if(w==='mapv'){const[PA,PB]=pRange();const idx=MY.map((m,i)=>[myN(m[0]),i]).filter(m=>m[0]>=PA-1&&m[0]<PB).map(m=>m[1]);LR=idx.length?[idx[0],idx[idx.length-1]]:null;if(LR&&(mi<LR[0]||mi>LR[1]))mi=LR[0];LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'));syncSlider();drawMap()}document.body.classList.toggle('tlmode',w==='tlv');if(w==='tlv'){renderTL()}if(w==='learn')renderLesson();const tb=document.querySelector('.tabs');if(tb&&!$('app').hidden){const y=tb.getBoundingClientRect().top+scrollY-4;if(scrollY>y)window.scrollTo(0,y)}};
 $('tmore').onclick=e=>{e.stopPropagation();const m=$('moremenu');m.hidden=!m.hidden;$('tmore').setAttribute('aria-expanded',!m.hidden)};
 document.addEventListener('click',e=>{if(!e.target.closest('#moremenu,#tmore')){$('moremenu').hidden=true;$('tmore').setAttribute('aria-expanded','false')}});
 $('t0').onclick=()=>setTab('chain');$('t1').onclick=()=>setTab('periods');$('t2').onclick=()=>setTab('world');$('t3').onclick=()=>setTab('mapv');$('t6').onclick=()=>setTab('learn');$('t7').onclick=()=>setTab('tlv');$('t4').onclick=()=>setTab('rgv');$('t5').onclick=()=>setTab('ppl');
@@ -1786,6 +1789,9 @@ function setYear(y){if(y===curY)return;curY=y;posMark();renderSync()}
 const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setYear(+e.target.dataset.y)}),{rootMargin:'-35% 0px -55% 0px'});
 const observeNodes=()=>{nio.disconnect();document.querySelectorAll('.node[data-y]').forEach(n=>nio.observe(n))};
 $('synct').onclick=()=>{const m=$('sync').classList.toggle('min');$('synct').textContent=m?'展開 ▴':'收起 ▾';document.body.classList.toggle('syncmin',m);requestAnimationFrame(renderRail)};
+// 分頁：往下滑收起，往上滑出現
+{let lastY=scrollY;addEventListener('scroll',()=>{const y=scrollY,d=y-lastY;if(Math.abs(d)<6)return;
+ if(d>0&&y>220&&$('moremenu').hidden&&!$('app').hidden)document.body.classList.add('tabhide');else if(d<0||y<=220)document.body.classList.remove('tabhide');lastY=y},{passive:true})}
 const tbo=new ResizeObserver(()=>{const tb=document.querySelector('.tabs');if(tb)document.documentElement.style.setProperty('--tabsH',tb.offsetHeight+'px')});tbo.observe(document.querySelector('.tabs'));
 const rro=new ResizeObserver(renderRail);rro.observe($('rail'));
 
