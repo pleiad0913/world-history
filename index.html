@@ -190,6 +190,7 @@ body.home.railmin{padding-left:0}
 .gate .gy{font-size:13px;font-weight:700;color:var(--mute)}.gate .gy b{color:var(--gc);font-size:16px}
 .gate small{color:var(--mute);font-size:13px}
 .gnow{margin-bottom:12px}
+.hfull{display:block;text-align:center;border:2px solid var(--ink);border-radius:14px;padding:14px 12px;font-weight:700;font-size:16px;color:var(--ink);text-decoration:none;margin:0 0 10px}
 .hgame{width:100%;min-height:54px;font-size:16px;margin:6px 0 10px}
 #hgates h2{margin-top:26px}
 .lcn{font-size:14px;margin-top:6px;opacity:.95}
@@ -1720,7 +1721,7 @@ function ganttCols(A,B){
 }
 function renderTL(){
  const cp=LS[ls][4],[A,B]=tlRange(),k=GK[cp],st=TL_STEP[cp];
- $('tlhead').innerHTML=`<i class="pbadge" style="background:${pc[cp]}">${P[cp].n}・${ANC[cp].w}</i>${P[cp].y}　上下滑動，紅線碰到的就是那一年的文明`;
+ $('tlhead').innerHTML=`<i class="pbadge" style="background:${pc[cp]}">${P[cp].n}・${ANC[cp].w}</i>${P[cp].y}　上下滑動，紅線碰到的就是那一年的文明　<a href="timeline.html">看完整時間軸 →</a>`;
  $('ggroups').innerHTML=GGR().map((g,i)=>`<button aria-pressed="${i===gg}" data-i="${i}">${g[0]}</button>`).join('');
  $('ggroups').querySelectorAll('button').forEach(b=>b.onclick=()=>{gg=+b.dataset.i;const y=gY;renderTL();if(y!=null)gScrollTo(y)});
  const cols=ganttCols(A,B),H=(B-A)*k;
@@ -1765,7 +1766,7 @@ function enterApp(lesson){$('home').hidden=true;$('app').hidden=false;document.b
  if(lesson!=null&&lesson!==ls){ls=lesson;lstep=0;lmax=0;saveL()}setTab('learn');renderRail();renderSync();window.scrollTo(0,0)}
 function renderHome(){
  $('ribbon').innerHTML=P.map((p,i)=>`<button style="background:${p.c}" data-i="${i}"><b>${p.n}</b><small>${p.y.replace('約','')}</small><em>${LS.filter(l=>l[4]===i).length} 課</em><span class="ranc">${svg(ANC[i].ic)}<span><strong>${ANC[i].w}</strong>中國：${ANC[i].cn}</span></span></button>`).join('');
- $('hgates').innerHTML=`<h2>五個分界年</h2><p class="lp">記住五個分界年，就不會把時期搞混。</p>`+gatesHTML()+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`;
+ $('hgates').innerHTML=`<h2>五個分界年</h2><p class="lp">記住五個分界年，就不會把時期搞混。</p>`+gatesHTML()+`<button class="primary hgame" id="hgame">時代分類挑戰：把事件、人物、朝代放進對的時期 →</button>`+`<a class="hfull" href="timeline.html">看完整時間軸：前3500年到2026年，所有地區一次看 →</a>`;
  $('hgame').onclick=openGame;
  [...$('ribbon').children].forEach(b=>b.onclick=()=>enterApp(LS.findIndex(l=>l[4]===+b.dataset.i)));
  $('hyears').innerHTML='';
