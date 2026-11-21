@@ -111,8 +111,7 @@ h2{font:700 24px/1.2 "Noto Serif TC",serif;margin:40px 0 12px}
 .ldd{margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:15px;line-height:1.65}
 .ldd .dd+.dd{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
 .ldd .dd>i{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--mute);margin-bottom:2px}
-.ldd .ddr{margin-top:4px}.ldd .ddr span{font-size:12px;font-weight:700;color:var(--mute);margin-right:6px}
-.ddgo{margin-top:8px;font-size:14px;padding:6px 12px;border-radius:999px}
+.ldd .ddr,.evd .ddr{margin-top:4px}.ldd .ddr span,.evd .ddr span{font-size:12px;font-weight:700;color:var(--mute);margin-right:6px}
 .node.flash{outline:3px solid #e63946;outline-offset:2px;transition:outline .3s}
 .lb .lk{display:block;font-size:15px;margin-bottom:2px}.lb .lk .term{color:inherit}
 .lf{margin-top:10px;background:var(--soft);border-radius:12px;padding:10px 12px;font-size:15px}
@@ -397,7 +396,7 @@ body.tlmode{padding-left:0;padding-bottom:0}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mute);margin-top:10px}
 .legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:5px}
 .legend i.tribe{background:repeating-linear-gradient(45deg,#d9ccb0 0 3px,#efe6d2 3px 6px)}
-.tabs{display:grid!important;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr);gap:6px;overflow:visible;transition:transform .22s ease}
+.tabs{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;overflow:visible;transition:transform .22s ease}
 body.tabhide .tabs{transform:translateY(calc(-100% - 4px))}
 body.tabhide .lsticky{top:0}
 .lsticky{transition:top .22s ease}
@@ -500,6 +499,15 @@ button:disabled{cursor:default}
 .fc>.primary,.fc>button{width:100%;margin-top:8px}
 .fcs{font-size:22px}.fcs b{font-size:40px}
 #fundo{margin-top:10px}
+.levh{margin:18px 0 2px;font:900 19px "Noto Serif TC",serif}
+.lev{display:flex;flex-direction:column;gap:8px;margin:8px 0 14px}
+.evd{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:15px;line-height:1.7}
+.evd summary{cursor:pointer;padding:12px 0;font-weight:700;font-size:16px;list-style:none;display:flex;gap:10px;align-items:baseline}
+.evd summary::-webkit-details-marker{display:none}
+.evd summary::after{content:"▾";margin-left:auto;color:var(--mute)}
+.evd[open] summary::after{content:"▴"}
+.evd summary b{flex:none;font-size:13px;color:var(--mute);min-width:64px}
+.evd[open]{padding-bottom:12px}
 </style>
 </head>
 <body>
@@ -555,14 +563,14 @@ button:disabled{cursor:default}
 <button class="backhome" id="backhome">← 回到五個時期</button>
 <div class="tabs" role="tablist">
 <button role="tab" id="t6" aria-selected="true">課程</button>
-<button role="tab" id="t7" aria-selected="false">時間軸</button>
-<button role="tab" id="t1" aria-selected="false">分期細節</button>
-<button id="tmore" aria-expanded="false" aria-haspopup="true">更多 ▾</button>
+<button role="tab" id="t7" aria-selected="false" hidden>時間軸</button>
+<button role="tab" id="t1" aria-selected="false">分期</button>
+<button role="tab" id="t0" aria-selected="false">因果鏈</button>
+<button role="tab" id="t4" aria-selected="false">列國</button>
+<button role="tab" id="t3" aria-selected="false">版圖</button>
+<button id="tmore" aria-expanded="false" aria-haspopup="true" hidden>更多 ▾</button>
 <div id="moremenu" hidden>
-<button role="tab" id="t0" aria-selected="false"><b>因果鏈</b><small>一件事怎麼引出下一件，一路連到今天</small></button>
-<button role="tab" id="t4" aria-selected="false"><b>列國分合</b><small>各地區的國家怎麼分裂、統一、換人當家</small></button>
-<button role="tab" id="t5" aria-selected="false"><b>關鍵人物</b><small>推動這個時期的人，做了什麼</small></button>
-<button role="tab" id="t3" aria-selected="false"><b>版圖演變</b><small>世界地圖怎麼一步步變成今天的樣子</small></button>
+<button role="tab" id="t5" aria-selected="false" hidden><b>關鍵人物</b><small>推動這個時期的人，做了什麼</small></button>
 </div>
 </div>
 <div id="mapv" hidden>
@@ -1746,21 +1754,29 @@ const nodeHTML=(list,lk)=>list.map((c,i)=>`${i?(lk?`<div class="arrow lk"><b>↓
  <a class="photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(c[8])}" target="_blank" rel="noopener">看真實照片 ↗</a></div></div>`).join('');
 
 // 重點「深入了解」：名詞解釋＋相關事件／人物
-function deepHTML(li,bi){
+function bestEv(li,bi){
  const L=LS[li],[k,v]=L[5][bi].includes('｜')?L[5][bi].split('｜'):['',L[5][bi]],txt=k+' '+v;
  const terms=[...new Set((txt.match(TRE)||[]))].slice(0,4);
  const inL=i=>CY[i]>=L[2]&&CY[i]<L[3];
  let best=-1,bs=0;C.forEach((c,i)=>{if(!inL(i))return;let sc=0;if(k&&(c[2].includes(k)||k.includes(CS[i])||CS[i].includes(k)))sc+=5;if(v.includes(c[2])||v.includes(CS[i]))sc+=4;terms.forEach(t=>{if(c[2].includes(t))sc+=2;if(CW[i].includes(t))sc+=1});if(sc>bs){bs=sc;best=i}});
+ return [best,bs];
+}
+const evBody=i=>{const c=C[i];return `<div>${T(CW[i])}</div><div class="ddr"><span>為什麼</span>${T(c[3])}</div><div class="ddr"><span>造成</span>${T(c[4])}</div>${CT[i]?`<div class="ddr"><span>冷知識</span>${T(CT[i])}</div>`:''}`};
+function deepHTML(li,bi){
+ const L=LS[li],[k,v]=L[5][bi].includes('｜')?L[5][bi].split('｜'):['',L[5][bi]],txt=k+' '+v;
+ const terms=[...new Set((txt.match(TRE)||[]))].slice(0,4);
+ const inL=i=>CY[i]>=L[2]&&CY[i]<L[3];
+ const [best,bs]=bestEv(li,bi);
  const pp=PP.map((x,i)=>({x,i})).filter(o=>o.x[1].split(/[、，]/).some(n=>n.length>1&&txt.includes(n))).slice(0,2);
  let h='';
  if(terms.length)h+=`<div class="dd"><i>名詞</i>${terms.map(t=>`<div><b>${t}</b>：${TERM[t]}</div>`).join('')}</div>`;
- if(best>=0&&bs>=3){const c=C[best];h+=`<div class="dd"><i>相關事件</i><div><b>${c[2]}</b>（${c[1]}）</div><div>${T(CW[best])}</div><div class="ddr"><span>為什麼</span>${T(c[3])}</div><div class="ddr"><span>造成</span>${T(c[4])}</div>${CT[best]?`<div class="ddr"><span>冷知識</span>${T(CT[best])}</div>`:''}<button class="ddgo" data-ev="${c[2]}">看這張事件卡 →</button></div>`}
+ if(best>=0&&bs>=3){const c=C[best];h+=`<div class="dd"><i>相關事件</i><div><b>${c[2]}</b>（${c[1]}）</div>${evBody(best)}</div>`}
  pp.forEach(o=>{h+=`<div class="dd"><i>相關人物</i><div><b>${o.x[1]}</b>（${o.x[2]}）：${T(o.x[3])}</div><div class="ddr"><span>影響</span>${T(o.x[4])}</div></div>`});
  return h||'<div class="dd">點上面有底線的詞，可以看更多解釋。</div>';
 }
 document.addEventListener('click',e=>{
  const b=e.target.closest('.ldeep');if(b){const li=b.closest('li'),d=li.querySelector('.ldd'),open=d.hidden;if(open)d.innerHTML=deepHTML(ls,+li.dataset.b);d.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'▴ 收起':'▾ 深入了解';return}
- const g=e.target.closest('.ddgo');if(g){const t=g.dataset.ev;lstep=1;saveL();renderLesson();requestAnimationFrame(()=>{const n=[...document.querySelectorAll('#lbody .node')].find(x=>x.querySelector('.nh b').textContent===t);if(n){n.scrollIntoView({block:'center'});n.classList.add('flash');setTimeout(()=>n.classList.remove('flash'),1600)}})}
+
 });
 const glHTML=g=>`<div class="gl"><b>${g[0]}</b><div class="nr"><div class="k">從哪裡來</div><div>${T(g[3])}</div></div><div class="nr today"><div class="k">後來</div><div>${T(g[4])}</div></div></div>`;
 function lessonQuiz(){const all=genQs(ls),k=shuffle(all.filter(q=>q.kq)).slice(0,1),o=shuffle(all.filter(q=>!q.kq)).slice(0,3-k.length);return shuffle(o.concat(k))}
@@ -1786,7 +1802,7 @@ function renderLesson(){
  lq=lessonQuiz(L,ev,pp);
  const sec=[
   (LS.findIndex(l=>l[4]===L[4])===ls?(()=>{const g=GATES[L[4]];return `<div class="gate gnow" style="--gc:${pc[L[4]]}"><div class="gn"><b>${g[1].replace(/（.*）/,"")}</b>${g[1].includes("（")?"約500":""}</div><div><div class="gy">從這年起　→ 進入<b>${P[L[4]].n}</b></div><div>${T(g[3])}</div><small>${g[4]}</small></div></div>`})():'')+(LSTORY[ls]?`<div class="story"><small>先聽一個小故事</small><b>${LSTORY[ls][0]}</b><p>${T(LSTORY[ls][1])}</p></div>`:'')+`<ul class="lb">${L[5].map((x,bi)=>{const[k,v]=x.includes('｜')?x.split('｜'):['',x];return `<li data-b="${bi}">${k?`<b class="lk" style="color:${pc[L[4]]}">${T(k)}</b>`:''}${T(v)}<button class="ldeep" aria-expanded="false">▾ 深入了解</button><div class="ldd" hidden></div></li>`}).join('')}</ul>`,
-  `<div id="lmap"></div>${nodeHTML(ev)}`+
+  `<div id="lmap"></div>${(()=>{const cov=new Set(L[5].map((x,bi)=>{const[b,sc]=bestEv(ls,bi);return sc>=3?b:-1}));const rest=C.map((c,i)=>i).filter(i=>CY[i]>=A&&CY[i]<B&&!cov.has(i));return rest.length?`<h3 class="levh">這一課還要知道的事件</h3><p class="lp">其他事件在第一步的「深入了解」裡。點開會同時把地圖跳到那一年。</p><div class="lev">${rest.map(i=>`<details class="evd" data-y="${CY[i]}"><summary><b>${C[i][1]}</b>${C[i][2]}</summary>${evBody(i)}</details>`).join('')}</div>`:''})()}`+
   `<details class="lfold"><summary>這一課登場的國家（${gl.length}）</summary>${gl.length?`<p class="lp">知道它們從哪裡來，事件就更容易看懂。</p>${gl.map(glHTML).join('')}`:'<p class="lp">這一課沒有新的大國登場。</p>'}</details>`+
   `<details class="lfold"><summary>同一時間，各地的政權</summary><p class="lp">上面的色條是存在的時間，下面依序列出名稱；點名稱看介紹。</p>${rows}</details>`,
   pp.map(x=>`<div class="pp"><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div></div></div>`).join('')||'<p class="lp">這一課沒有特別介紹的人物，直接進小測驗吧。</p>',
@@ -1802,6 +1818,7 @@ function renderLesson(){
  // 地圖
  if(lstep===1&&mis.length){LR=[mis[0],mis[mis.length-1]];LREG=LBOX[ls];$('mapfig').style.aspectRatio=LREG?'1.5/1':'1.9/1';$('lmap').appendChild($('mapcore'));if(mi<LR[0]||mi>LR[1])mi=LR[0];syncSlider();drawMap()}
  else{LR=null;LREG=null;fitH();$('mapcorehome').appendChild($('mapcore'))}
+ $('lbody').querySelectorAll('.evd').forEach(d=>d.ontoggle=()=>{if(!d.open||!LR)return;const y=+d.dataset.y;let k=LR[0];for(let i=LR[0];i<=LR[1];i++)if(myN(MY[i][0])<=y)k=i;mi=k;syncSlider();drawMap();setYear(y)});
  if(lstep===3)renderLQ();
  observeNodes();setYear(Math.max(L[2],-8000));
  if(qLesson!==ls)buildPractice();
