@@ -2103,6 +2103,7 @@ function rgTip(name,region){
  const g=glFind(name);
  return `<span class="tipm">${region}・${x[1]}${ty?'・'+ty[0]:''}</span>${T(x[3])}`+parts.map(w=>`<span class="tipg"><b>${w}：</b>${TERM[w]}</span>`).join('')+(g?`<span class="tipg"><b>從哪裡來：</b>${g[3]}<br><b>後來：</b>${g[4]}</span>`:'');
 }
+document.body.appendChild($('tip'));
 document.addEventListener('click',e=>{const t=e.target.closest('.term');if(t){e.preventDefault();if(t.dataset.rg){const h=rgTip(t.dataset.t,t.dataset.rg);if(h){$('tipt').textContent=t.dataset.t;$('tipd').innerHTML=h;$('tip').hidden=false;$('tip').scrollTop=0;return}}
 const k=t.dataset.t,g=glFind(k);if(!TERM[k]){return}$('tipt').textContent=k;$('tipd').innerHTML=T(TERM[k]).replace(new RegExp(`<button class="term" data-t="${k}">${k}</button>`,'g'),k)+(g&&!TERM[k].includes(g[3].slice(0,12))?`<span class="tipg"><b>從哪裡來：</b>${g[3]}<br><b>後來：</b>${g[4]}</span>`:'');$('tip').hidden=false;$('tip').scrollTop=0;return}if(!e.target.closest('#tip'))$('tip').hidden=true});
 
