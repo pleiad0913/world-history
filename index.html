@@ -604,6 +604,9 @@ button:active:not(:disabled),a.hfull:active{transform:scale(.97)}
 .ddterms summary{list-style:none;cursor:pointer;padding:4px 12px;font-weight:700;font-size:14px}
 .ddterms summary::-webkit-details-marker{display:none}
 .ddterms details p{margin:0;padding:0 12px 8px;font-size:14px;line-height:1.6}
+.ddterms details.seen:not([open]){background:#efeaf6;border-color:#d8cdea}.ddterms details.seen:not([open]) summary{color:#6b4f9a}
+.term.seen:not(.hgb){color:#6b4f9a}
+.ldclose{all:unset;display:block;margin:4px auto 0;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card,#fff);font-size:13px;font-weight:700;color:var(--mute);cursor:pointer}.ldclose:focus-visible{outline:2px solid var(--ink)}
 .cpe .hotbox,.cpe .coldbox,.evd .hotbox,.evd .coldbox{font-size:15px}
 /* 人物大頁面 */
 #pplp{max-width:760px;margin:0 auto;padding-bottom:30px}
@@ -2094,7 +2097,9 @@ Object.assign(TERM,{
 "古朝鮮":"朝鮮半島北部最早的國家，前108年被漢朝消滅。"
 });
 const TRE=new RegExp(Object.keys(TERM).sort((a,b)=>b.length-a.length).join('|'),'g');
-const T=s=>s?s.replace(TRE,m=>`<button class="term" data-t="${m}">${m}</button>`):s;
+let seenT=new Set();try{seenT=new Set(JSON.parse(localStorage.getItem('histSeenT')||'[]'))}catch(e){}
+const markSeen=k=>{if(!k)return;if(!seenT.has(k)){seenT.add(k);try{localStorage.setItem('histSeenT',JSON.stringify([...seenT]))}catch(e){}}document.querySelectorAll('.term[data-t],.ddterms details[data-t]').forEach(x=>{if(x.dataset.t===k)x.classList.add('seen')})};
+const T=s=>s?s.replace(TRE,m=>`<button class="term${seenT.has(m)?' seen':''}" data-t="${m}">${m}</button>`):s;
 const TR=(name,region)=>`<button class="term" data-t="${name}" data-rg="${region}">${name}</button>`;
 function rgTip(name,region){
  const r=RG.find(x=>x[0]===region);const k=r?r[1].findIndex(x=>x[2]===name):-1;if(k<0)return null;
@@ -2104,8 +2109,10 @@ function rgTip(name,region){
  return `<span class="tipm">${region}・${x[1]}${ty?'・'+ty[0]:''}</span>${T(x[3])}`+parts.map(w=>`<span class="tipg"><b>${w}：</b>${TERM[w]}</span>`).join('')+(g?`<span class="tipg"><b>從哪裡來：</b>${g[3]}<br><b>後來：</b>${g[4]}</span>`:'');
 }
 document.body.appendChild($('tip'));
-document.addEventListener('click',e=>{const t=e.target.closest('.term');if(t){e.preventDefault();if(t.dataset.rg){const h=rgTip(t.dataset.t,t.dataset.rg);if(h){$('tipt').textContent=t.dataset.t;$('tipd').innerHTML=h;$('tip').hidden=false;$('tip').scrollTop=0;return}}
-const k=t.dataset.t,g=glFind(k);if(!TERM[k]){return}$('tipt').textContent=k;$('tipd').innerHTML=T(TERM[k]).replace(new RegExp(`<button class="term" data-t="${k}">${k}</button>`,'g'),k)+(g&&!TERM[k].includes(g[3].slice(0,12))?`<span class="tipg"><b>從哪裡來：</b>${g[3]}<br><b>後來：</b>${g[4]}</span>`:'');$('tip').hidden=false;$('tip').scrollTop=0;return}if(!e.target.closest('#tip'))$('tip').hidden=true});
+document.addEventListener('toggle',e=>{const d=e.target;if(!d.matches||!d.matches('.ddterms details')||!d.open)return;d.parentElement.querySelectorAll('details[open]').forEach(x=>{if(x!==d)x.open=false});markSeen(d.dataset.t)},true);
+document.addEventListener('click',e=>{const c=e.target.closest('.ldclose');if(!c)return;const li=c.closest('li'),b=li&&li.querySelector('.ldeep');if(b){b.click();li.scrollIntoView({block:'nearest',behavior:'smooth'})}});
+document.addEventListener('click',e=>{const t=e.target.closest('.term');if(t){e.preventDefault();if(t.dataset.rg){const h=rgTip(t.dataset.t,t.dataset.rg);if(h){markSeen(t.dataset.t);$('tipt').textContent=t.dataset.t;$('tipd').innerHTML=h;$('tip').hidden=false;$('tip').scrollTop=0;return}}
+const k=t.dataset.t,g=glFind(k);if(!TERM[k]){return}markSeen(k);$('tipt').textContent=k;$('tipd').innerHTML=T(TERM[k]).replace(new RegExp(`<button class="term[^"]*" data-t="${k}">${k}</button>`,'g'),k)+(g&&!TERM[k].includes(g[3].slice(0,12))?`<span class="tipg"><b>從哪裡來：</b>${g[3]}<br><b>後來：</b>${g[4]}</span>`:'');$('tip').hidden=false;$('tip').scrollTop=0;return}if(!e.target.closest('#tip'))$('tip').hidden=true});
 
 // ===== 國家由來 =====
 // [名稱, 比對, 第幾課, 從哪裡來, 後來]
@@ -2217,11 +2224,11 @@ function deepHTML(li,bi){
  let h='';
  if(best>=0&&bs>=3){const c=C[best];h+=`<div class="dd"><div class="ddh"><b>${c[2]}</b><span>${c[1]}</span></div>${evBody(best)}</div>`}
  pp.forEach(o=>{h+=`<div class="dd"><div class="ddh"><b>${o.x[1]}</b><span>${o.x[2]}</span></div><p class="evp">${T(o.x[3])}</p><p class="evp mute">→ ${T(o.x[4])}</p></div>`});
- if(terms.length)h+=`<div class="dd"><i>名詞（點開看解釋）</i><div class="ddterms">${terms.map(t=>`<details><summary>${t}</summary><p>${TERM[t]}</p></details>`).join('')}</div></div>`;
+ if(terms.length)h+=`<div class="dd"><i>名詞（點開看解釋）</i><div class="ddterms">${terms.map(t=>`<details data-t="${t}"${seenT.has(t)?' class="seen"':''}><summary>${t}</summary><p>${TERM[t]}</p></details>`).join('')}</div></div>`;
  return h;
 }
 document.addEventListener('click',e=>{
- const b=e.target.closest('.ldeep');if(b){const li=b.closest('li'),d=li.querySelector('.ldd'),open=d.hidden;if(open)d.innerHTML=deepHTML(ls,+li.dataset.b);d.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'▴ 收起':'▾ 深入了解';return}
+ const b=e.target.closest('.ldeep');if(b){const li=b.closest('li'),d=li.querySelector('.ldd'),open=d.hidden;if(open)d.innerHTML=deepHTML(ls,+li.dataset.b)+'<button class="ldclose">▴ 收起</button>';d.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'▴ 收起':'▾ 深入了解';return}
 
 });
 const glHTML=g=>`<div class="gl"><b>${g[0]}</b><div class="nr"><div class="k">從哪裡來</div><div>${T(g[3])}</div></div><div class="nr today"><div class="k">後來</div><div>${T(g[4])}</div></div></div>`;
