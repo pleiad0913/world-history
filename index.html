@@ -584,6 +584,164 @@ button:active:not(:disabled),a.hfull:active{transform:scale(.97)}
 .fin{animation:fIn .22s ease both}
 .ldd:not([hidden]){animation:fIn .2s ease both}
 @media(prefers-reduced-motion:reduce){.vin,.vback,.fin,.ldd:not([hidden]){animation:none}button:active{transform:none}}
+/* 深入了解好讀版 */
+.ldd{padding:12px 14px}
+.ldd .dd+.dd{margin-top:14px;padding-top:12px}
+.ddh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}.ddh b{font-size:17px}.ddh span{font-size:13px;font-weight:700;color:var(--mute)}
+.evp{margin:0 0 10px;line-height:1.75}.evp.mute{color:var(--mute)}
+.hotbox,.coldbox{border-radius:10px;padding:8px 12px;margin:8px 0;font-size:15px;line-height:1.6}
+.hotbox{background:light-dark(#fdf0ef,#3a2427)}.coldbox{background:light-dark(#eef5fb,#1f2b36)}
+.hotbox>i,.coldbox>i{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--mute);margin-bottom:4px}
+.hotbox p,.coldbox p{margin:0}
+.chain{list-style:none;margin:0;padding:0}
+.chain li{position:relative;padding:2px 0 2px 18px}
+.chain li::before{content:"";position:absolute;left:4px;top:.7em;width:7px;height:7px;border-radius:50%;background:#d1495b}
+.chain li+li{margin-top:2px}
+.chain li+li::after{content:"";position:absolute;left:7px;top:-.55em;height:1em;border-left:2px solid #e8a3a3}
+.ddterms{display:flex;flex-wrap:wrap;gap:6px}
+.ddterms details{border:1px solid var(--line);border-radius:999px;background:var(--bg)}
+.ddterms details[open]{border-radius:10px;flex-basis:100%}
+.ddterms summary{list-style:none;cursor:pointer;padding:4px 12px;font-weight:700;font-size:14px}
+.ddterms summary::-webkit-details-marker{display:none}
+.ddterms details p{margin:0;padding:0 12px 8px;font-size:14px;line-height:1.6}
+.cpe .hotbox,.cpe .coldbox,.evd .hotbox,.evd .coldbox{font-size:15px}
+/* 人物大頁面 */
+#pplp{max-width:760px;margin:0 auto;padding-bottom:30px}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px;margin-bottom:10px}
+.seg button{min-height:40px;border:0;border-radius:9px;background:transparent;font-size:15px}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.pbig{grid-template-columns:repeat(5,minmax(0,1fr))!important}.pbig button{font-size:13px;padding:2px;line-height:1.2}
+.pchips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px;margin-bottom:6px}
+.pchips::-webkit-scrollbar{display:none}
+.pchips button{flex:none;min-height:38px;border-radius:999px;padding:4px 12px;font-size:14px;background:var(--card)}
+.pchips button small{margin-left:4px;font-size:11px;opacity:.7}
+.pchips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ptl{position:relative;padding-left:18px}
+.ptl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.ptp{position:relative;margin:14px 0 6px -18px;padding-left:18px;font:900 16px "Noto Serif TC",serif;color:var(--pc)}
+.ptp small{font:700 12px "Noto Sans TC",sans-serif;color:var(--mute);margin-left:8px}
+.pti{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;margin:0 0 8px;padding:0 12px}
+.pti::before{content:"";position:absolute;left:-18px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--pc);border:2px solid var(--bg)}
+.pti summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr;column-gap:8px;padding:10px 0}
+.pti summary::-webkit-details-marker{display:none}
+.pti .pty{grid-column:1/-1;font-size:12px;font-weight:700;color:var(--pc)}
+.pti b{font-size:17px;grid-column:1/-1}
+.pti .ptd{grid-column:1/-1;font-size:14px;line-height:1.6;color:var(--ink);margin-top:2px}
+.pti[open]{padding-bottom:10px}
+.pto{margin:0;font-size:14px;line-height:1.6;color:var(--mute)}
+.ptf{margin:6px 0 0;font-size:12px;font-weight:700;color:var(--mute)}
+.pty em{font-style:normal;color:var(--mute);margin-left:8px}
+.pcore{font-style:normal;margin-left:8px;font-size:11px;color:#fff;background:var(--pc);border-radius:999px;padding:0 6px}
+/* 人物：同時代左右並列 */
+.ptl{padding-left:0}.ptl::before{display:none}
+.pth{position:sticky;top:0;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);padding:6px 0;font-size:13px;font-weight:900;color:var(--mute);text-align:center;border-bottom:1px solid var(--line)}
+.ptp{margin:14px 0 4px;padding-left:0}
+.ptrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative;padding-top:18px;margin-bottom:6px;border-top:1px dashed var(--line)}
+.ptc{position:absolute;top:2px;left:0;right:0;text-align:center;font-size:11px;font-weight:700;color:var(--pc)}
+.ptl2{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ptrow .pti{margin:0;padding:0 10px}
+.ptrow .pti::before{display:none}
+.ptrow .pti{border-left:4px solid var(--pc)}
+.ptrow .pti summary{padding:8px 0}
+.ptrow .pti b{font-size:15px}
+.ptrow .ptd{font-size:13px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ptrow .pti[open] .ptd{-webkit-line-clamp:unset;display:block}
+.psuc{grid-column:1/-1;margin-top:4px;font-size:11px;line-height:1.5;color:var(--mute);border-top:1px dotted var(--line);padding-top:3px}
+.ptr{font-style:normal;font-size:11px;color:var(--mute);grid-column:1/-1}
+.ptrow .pto{font-size:13px}
+@media(min-width:700px){.ptrow .pti b{font-size:17px}.ptrow .ptd{font-size:14px}}
+/* 專題導讀 */
+#guidep,#srcp{max-width:760px;margin:0 auto;padding-bottom:30px}
+.gdsub{color:var(--mute);margin:0 0 10px}
+.gdline{list-style:none;margin:0;padding:0 0 0 14px;border-left:3px solid var(--line)}
+.gdline li{position:relative;margin:0 0 10px;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:12px;font-size:15px;line-height:1.6}
+.gdline li::before{content:"";position:absolute;left:-23px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--pc);border:2px solid var(--bg)}
+.gdline li span{display:block;font-size:13px;font-weight:900;color:var(--pc)}
+.gdyh{display:flex;align-items:baseline;gap:10px;margin:4px 0 10px}.gdyh b{font:900 34px "Noto Serif TC",serif}.gdyh span{font-weight:700;color:var(--mute)}
+.gdgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+.gdcell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:15px;line-height:1.6}
+.gdcell i{display:block;font-style:normal;font-size:12px;font-weight:900;color:var(--mute);margin-bottom:2px}
+.gdtwh{display:grid;grid-template-columns:1fr 24px 1fr;gap:6px;font-size:12px;font-weight:900;color:var(--mute);text-align:center;margin-bottom:4px}.gdtwh span:last-child{grid-column:3}
+.gdtw{display:grid;grid-template-columns:1fr 24px 1fr;gap:6px;align-items:center;margin-bottom:8px}
+.gdtw>div:first-child,.gdtw>div:last-child{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:14px;line-height:1.55;height:100%;box-sizing:border-box}
+.gdtw>div:last-child{border-left:4px solid var(--p5)}
+.gdtw b{display:block;font-size:15px}.gdtw small{color:var(--mute);font-size:12px}
+.gdar{text-align:center;font-weight:900;color:var(--mute)}
+.gdcmp{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;padding:0 12px}
+.gdcmp summary{cursor:pointer;padding:12px 0;font-weight:900;font-size:16px}
+.gdtbl{display:grid;grid-template-columns:5.2em repeat(var(--n),minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:14px;line-height:1.5}
+.gdtbl>*{background:var(--card);padding:6px 8px}
+.gdtbl b{background:var(--bg);font-size:13px}
+.gdtbl i{font-style:normal;font-weight:700;color:var(--mute);font-size:12px;background:var(--bg)}
+.gdtip{margin:8px 0 12px;font-size:14px;font-weight:700}
+.srq{margin:8px 0 12px;padding:12px 14px;background:var(--bg);border-left:4px solid var(--ink);border-radius:0 10px 10px 0;font:500 17px/1.8 "Noto Serif TC",serif}
+.sropt{display:grid;gap:8px}
+.sropt button{text-align:left;min-height:48px;font-size:15px;font-weight:500}
+.sropt button.right{background:#2a9d8f;color:#fff;border-color:#2a9d8f}
+.sropt button.wrong{text-decoration:line-through;opacity:.6}
+/* App 化：底部導覽與呼吸感 */
+#home{padding-bottom:96px}
+.brand{margin:4px 0 0;font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--mute)}
+.tabh{font:900 30px "Noto Serif TC",serif;margin:6px 0 16px}
+.tabs2{margin:-10px 0 16px;color:var(--mute);font-size:14px}
+.tabg{font:900 17px "Noto Sans TC",sans-serif;color:var(--mute);margin:22px 0 10px}
+.tab .htests{gap:12px}
+.tab .htest{padding:16px;min-height:84px}
+.hone{grid-template-columns:1fr!important}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(5,1fr);background:var(--card);border-top:1px solid var(--line);padding:6px max(4px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 16px rgb(0 0 0/.05)}
+.bnav button{all:unset;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:700;color:var(--mute);padding:4px 0;min-height:44px;justify-content:center}
+.bnav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bnav button[aria-current=page]{color:var(--ink)}.bnav button[aria-current=page] svg{stroke-width:2.6}
+.bnav i{position:absolute;top:0;left:calc(50% + 6px);background:#d1495b;color:#fff;font-style:normal;font-size:10px;border-radius:999px;padding:0 5px;line-height:16px}
+@media(min-width:900px){.bnav{left:50%;right:auto;transform:translateX(-50%);width:520px;bottom:16px;border:1px solid var(--line);border-radius:18px}}
+.srch input{width:100%;box-sizing:border-box;font:16px "Noto Sans TC",sans-serif;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);margin-bottom:16px}
+.sr{display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pc);border-radius:12px;padding:0 12px;margin-bottom:8px;font:inherit;color:inherit}
+.sr summary,.srl{list-style:none;cursor:pointer;padding:10px 0;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.srl{padding:10px 12px}
+.sr summary::-webkit-details-marker{display:none}
+.sr i{font-style:normal;font-size:11px;font-weight:900;color:var(--mute)}.sr b{font-size:16px}.sr small{font-size:12px;color:var(--mute)}
+.sr p{margin:0 0 10px;font-size:14px;line-height:1.7}.srh{color:var(--mute)}.srnone{color:var(--mute);text-align:center}
+.tdc{display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--pc,var(--ink));border-radius:16px;padding:16px;margin-bottom:16px;font:inherit;color:inherit}
+.tdc>i{display:block;font-style:normal;font-size:12px;font-weight:900;color:var(--mute);margin-bottom:6px}
+.tdc>b{display:block;font-size:18px}.tdc>small{display:block;color:var(--mute);font-size:13px;margin-top:4px}
+.tdc>p{margin:0;font-size:15px;line-height:1.75}
+.tdc .primary{width:100%;margin-top:14px}.tdred{background:#d1495b;border-color:#d1495b}
+.tdbar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:10px}.tdbar span{display:block;height:100%;background:var(--pc,var(--p5))}
+.tdfeed{cursor:pointer}
+.fdmini{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.65}.fdmini b{display:block;font-size:14px}
+.av,.fdmini em{flex:none;width:40px;height:40px;border-radius:50%;background:var(--pc);color:#fff;display:grid;place-items:center;font:900 16px "Noto Serif TC",serif;font-style:normal}
+.mestat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}.mestat div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 6px;text-align:center}.mestat b{display:block;font-size:26px}.mestat small{color:var(--mute);font-size:12px}
+.mep{display:grid;grid-template-columns:3.5em 1fr 2.5em;gap:10px;align-items:center;margin-top:10px;font-size:14px;font-weight:700}.mep .tdbar{margin:0}.mep small{color:var(--mute);text-align:right}
+#feedp{max-width:640px;margin:0 auto;padding-bottom:40px}
+.fdnote{margin:-6px 0 12px;color:var(--mute);font-size:13px}
+.fderas{margin-bottom:16px}
+.post{display:flex;gap:12px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.post .ph{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}.post .ph b{font-size:15px}.post .ph span{font-size:12px;color:var(--mute)}
+.post p{margin:4px 0 6px;font-size:15px;line-height:1.75}
+.post .tags{font-size:13px;color:var(--p5);font-weight:700}
+/* 學習分頁：課程按鈕放大 */
+.tab .eras button{padding:14px 2px;min-height:64px}
+.tab .eras button b{font-size:clamp(18px,5vw,24px)}
+.tab .eras button small{font-size:11px}
+.tab .erap{padding:16px;margin-top:12px}
+.tab .erak{font-size:16px;margin-bottom:10px}
+.tab .erap button{grid-template-columns:44px minmax(0,1fr);column-gap:14px;row-gap:2px;padding:16px;margin-top:12px;border-radius:16px;min-height:96px}
+.tab .erap button span{grid-row:span 3;width:44px;height:44px;font-size:18px;font-weight:900}
+.tab .erap button b{font-size:19px;line-height:1.35}
+.tab .erap button small{font-size:13px}
+.tab .erap button em{font-style:normal;font-size:13px;color:var(--mute);line-height:1.5}
+/* 底部導覽選中更明顯、頁首標題縮小 */
+.tabh{font:900 18px "Noto Sans TC",sans-serif;margin:4px 0 12px;color:var(--mute);letter-spacing:.04em}
+.tabs2{margin:-8px 0 12px;font-size:13px}
+.brand{display:none}
+.bnav button svg{padding:4px 18px;border-radius:999px;transition:background .2s,color .2s;width:22px;height:22px;box-sizing:content-box}
+.bnav button[aria-current=page]{color:var(--ink);font-weight:900}
+.bnav button[aria-current=page] svg{background:var(--ink);color:var(--bg);stroke:var(--bg)}
+.bnav i{left:calc(50% + 10px)}
+.avs{flex:none;width:48px;height:48px;border-radius:50%}
+.fdmini .avs{width:44px;height:44px}
+#home .htest{position:relative}#home .htest:has(.hic){padding-right:54px}.hic{box-sizing:content-box;position:absolute;right:12px;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;padding:7px;border-radius:12px;background:var(--bg);opacity:.85}
+.tab .htest{align-items:flex-start}
 </style>
 </head>
 <body>
@@ -591,38 +749,88 @@ button:active:not(:disabled),a.hfull:active{transform:scale(.97)}
 <aside class="sync" id="sync"><div class="synch"><div id="syncy"></div><button id="synct">收起 ▾</button></div><div class="syncg" id="syncg"></div><div class="syncc" id="syncc"></div></aside>
 <div class="wrap">
 <div id="home">
-<h1>世界史分期速記</h1>
-<p class="sub">導言・世界歷史的分期</p>
-<section class="hz hz1" id="hz1">
-<h2 class="hzh"><span>1</span>五個大時期</h2>
-
+<section class="tab" data-tab="today">
+<p class="brand">世界史分期速記</p>
+<h1 class="tabh">今天</h1>
+<div class="srch"><input id="sq" type="search" placeholder="搜尋事件、人物、名詞" autocomplete="off"><div id="sres"></div></div>
+<div id="tdcards"></div>
+</section>
+<section class="tab" data-tab="learn" hidden>
+<h1 class="tabh">學習</h1>
+<p class="tabs2">五個時期・13 課</p>
 <nav class="eras" id="eras"></nav>
 <div class="erap" id="erap"></div>
 <div id="hcont"></div>
 </section>
-<section class="hz hz2" id="hz2">
-<h2 class="hzh"><span>2</span>看全貌</h2>
+<section class="tab" data-tab="all" hidden>
+<h1 class="tabh">全貌</h1>
+<h2 class="tabg">看全貌</h2>
 <div class="htests hbig">
 <button class="htest" id="htl"><b>時間軸</b><small>一張圖看全部</small></button>
 <button class="htest" id="hchain"><b>因果鏈</b><small>六條主線</small></button>
 <button class="htest" id="hmap"><b>版圖演變</b><small>48 張地圖</small></button>
 <button class="htest" id="hrg"><b>列國分合</b><small>各地區怎麼分合</small></button>
+<button class="htest" id="hppl"><b>人物</b><small>選類別看</small></button>
+<button class="htest" id="hfeed"><b>古人在發文</b><small>當時的人在想什麼</small></button>
+</div>
+<h2 class="tabg" id="hz25h">專題導讀</h2>
+<div class="htests hbig" id="hz25">
+<button class="htest" data-g="theme"><b>主題線</b><small>一個主題看到底</small></button>
+<button class="htest" data-g="year"><b>同一年的世界</b><small>那一年各地</small></button>
+<button class="htest" data-g="tw"><b>臺灣在世界裡</b><small>世界變，臺灣變</small></button>
+<button class="htest" data-g="cmp"><b>易混淆對照</b><small>別搞混</small></button>
 </div>
 </section>
-<section class="hz hz3" id="hz3">
-<h2 class="hzh"><span>3</span>測驗</h2>
-<div class="htests hbig">
-<button class="htest" id="hexam"><b>會考練習</b><small>每次 3 題</small></button>
-<button class="htest" id="hgame"><b>時代分類</b><small>放進對的時期</small></button>
+<section class="tab" data-tab="quiz" hidden>
+<h1 class="tabh">練習</h1>
+<div class="htests hbig hone">
+<button class="htest" id="hexam"><b>會考練習</b><small>每次 3 題：圖表、史料、時序、因果</small></button>
+<button class="htest" id="hsrc"><b>史料判讀</b><small>讀一段原文，判斷時代</small></button>
+<button class="htest" id="hgame"><b>時代分類</b><small>把事件、人物放進對的時期</small></button>
 </div>
 </section>
-
+<section class="tab" data-tab="me" hidden>
+<h1 class="tabh">我的</h1>
+<div id="mecards"></div>
+</section>
+<nav class="bnav" id="bnav">
+<button data-t="today"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9H3z"/></svg>今天</button>
+<button data-t="learn"><svg viewBox="0 0 24 24"><path d="M4 5h7v14H4zM13 5h7v14h-7z"/></svg>學習</button>
+<button data-t="all"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/></svg>全貌</button>
+<button data-t="quiz"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM9 9h6M9 13h6"/></svg>練習<i id="bqn" hidden></i></button>
+<button data-t="me"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg>我的</button>
+</nav>
+</div>
+<div id="feedp" hidden>
+<button class="backhome" id="fdback">← 回上一頁</button>
+<h1 class="cph">古人在發文</h1>
+<p class="fdnote">依史實想像的貼文，不是古人真的寫的。</p>
+<nav class="eras fderas" id="fderas"></nav>
+<div id="fdlist"></div>
 </div>
 <div id="tlpage" hidden>
 <button class="backhome" id="tlback">← 回首頁</button>
 <h1 class="cph">時間軸</h1>
 <section class="hov" id="hov"><div class="hovs" id="hovs"></div><div class="hinfo" id="hinfo"></div></section>
 <a class="hfull tlmore" href="timeline.html">各地區直式時間軸：前3500年到2026年，一年一年往下看 →</a>
+</div>
+<div id="pplp" hidden>
+<button class="backhome" id="pback">← 回首頁</button>
+<h1 class="cph">人物</h1>
+<div class="seg pbig" id="pbig"></div>
+<div class="pchips" id="pchips"></div>
+<div class="ptl" id="ptl"></div>
+</div>
+<div id="guidep" hidden>
+<button class="backhome" id="gdback">← 回首頁</button>
+<h1 class="cph" id="gdh"></h1>
+<div class="pchips" id="gdchips"></div>
+<div id="gdbody"></div>
+</div>
+<div id="srcp" hidden>
+<button class="backhome" id="srback">← 回首頁</button>
+<h1 class="cph">史料判讀</h1>
+<div id="srbody"></div>
 </div>
 <div id="chainp" hidden>
 <button class="backhome" id="cback">← 回首頁</button>
@@ -889,63 +1097,107 @@ function renderWorld(){document.getElementById('slices').innerHTML=S.map((s,i)=>
 const $=id=>document.getElementById(id);
 // [時期, 年份, 事件, 為什麼, 造成, 今天, 根本力量, 圖示, 照片關鍵字, 關鍵人物]
 const C=[
-[0,"約前8000","農業革命","冰河期結束，氣候變暖，人類學會種植和養動物","不用到處找食物，可以定居，人口變多，村落慢慢變成城市","我們吃的稻米、小麥、玉米，都是當時開始種的","地糧技",0,"新石器時代 農業",""],
+[0,"約前8000","農業革命","冰河期結束，氣候變暖，人類學會種植和養動物","不用到處找食物，可以定居，人口變多，村落慢慢變成城市","今天的主食作物是各地在不同時間馴化的：小麥、大麥最早來自肥沃月彎","地糧技",0,"新石器時代 農業",""],
 [0,"約前3500","城市與文字","大河旁土地肥沃、糧食多，城市變大，需要記帳、管理","兩河流域發明楔形文字，事情可以被記錄下來，「歷史」開始","沒有文字，就沒有課本、法律和歷史","糧技制",1,"楔形文字 泥板",""],
 [0,"約前2560","金字塔與法老","尼羅河每年氾濫帶來肥沃泥土，糧食充足，國王能動員大量人力","建造大金字塔；法老被當成神，權力高度集中","金字塔是古埃及留給世界最有名的建築","地糧制",29,"吉薩 金字塔","古夫法老"],
+[0,"約前2500","印度河流域文明","印度河每年氾濫，帶來肥沃的泥土，糧食充足","出現哈拉帕、摩亨約達羅等規劃整齊的城市；約前1500年雅利安人移入，後來形成種姓制度","印度教和種姓觀念，到今天仍影響印度社會","地糧制",1,"摩亨約達羅",""],
 [0,"約前2000","愛琴文明","愛琴海島嶼多、海路方便，克里特島和希臘本土的人靠航海貿易致富","發展出宮殿、城市和文字，為後來的希臘文明打下基礎","希臘神話裡的特洛伊戰爭、米諾陶洛斯迷宮，都和這個時期有關","地貿",18,"愛琴文明 克諾索斯宮殿",""],
 [0,"約前1750","漢摩拉比法典","國家越來越大，需要一套大家都要遵守的規則","法律被寫下來、公開讓人知道","今天的法律都是寫成條文、公開的","制",2,"漢摩拉比法典 石碑","漢摩拉比"],
 [0,"約前1046","周朝建立","商朝末年統治失去人心，周武王起兵","周朝用分封制度治理天下，提出「天命」觀念","「君主失德就會被取代」的天命觀，影響中國兩千多年","制思",23,"周武王 牧野之戰","周武王"],
 [0,"約前1000","腓尼基字母","腓尼基人在地中海到處做生意，需要簡單好學的文字","傳給希臘人，再傳給羅馬人，變成拉丁字母","英文的 ABC 就是從這裡來的","貿技",3,"腓尼基字母",""],
+[0,"約前1000","希伯來人與猶太教","希伯來人在巴勒斯坦一帶定居，經歷埃及、巴比倫等強國的壓迫","建立以色列王國；信奉只有一位神的猶太教，經典是《希伯來聖經》","基督教和伊斯蘭教都從猶太教的一神信仰發展出來","思制",10,"耶路撒冷 古代",""],
 [0,"約前800","希臘城邦興起","希臘多山，各地交通不便，很難統一成一個國家","形成雅典、斯巴達等幾百個城邦，各自發展出不同的制度","奧林匹克運動會的起源（前776年）","地制",9,"古希臘 城邦",""],
 [0,"前550","波斯帝國建立","伊朗的波斯人由居魯士大帝帶領，推翻原本的統治者後向外擴張","後來擴張成第一個橫跨亞、非、歐三洲的大帝國；修築道路、設置驛站，寬容對待被征服的民族","伊朗人至今以波斯文化為傲；希臘和波斯的對抗影響了後來的歷史","制地",23,"波斯帝國 波斯波利斯","居魯士大帝"],
 [0,"前509","羅馬共和建立","羅馬人不滿國王專制，把國王趕走","改由每年選出的兩位執政官和元老院治理，羅馬逐步統一義大利","「共和國」這個詞和觀念，就是從羅馬來的","制",9,"羅馬共和 元老院",""],
 [1,"約前500","思想大爆發","各地戰亂、社會變動大，人們開始思考「怎樣才是好的生活與好的國家」","孔子創儒家、釋迦牟尼創佛教、希臘出現哲學","東亞重視讀書與孝順、佛教寺廟、西方的科學思考","思",4,"孔子 佛陀 蘇格拉底","孔子、釋迦牟尼、蘇格拉底"],
+[1,"前490／前480","波希戰爭","波斯帝國向西擴張，小亞細亞的希臘城邦反抗，雅典出兵支援","希臘城邦聯手在馬拉松、薩拉米斯擊退波斯；雅典成為海上霸主，進入全盛","馬拉松賽跑的名稱來自這場戰爭的傳說","制地",25,"波希戰爭 三列槳戰船",""],
 [1,"前5世紀","雅典民主","希臘多山，分成許多小城邦；公民一起上戰場，也要求一起決定國事","「人民自己做決定」的觀念出現","今天的投票選舉，源頭可追到這裡","地制思",5,"雅典 衛城","伯里克利"],
 [1,"約前450","《十二表法》","羅馬平民要求法律公開，不再由貴族任意解釋","法律條文公布，平民也能知道規則；成為後來羅馬法的重要基礎","今天的法律都寫成條文、公開讓大家知道","制",2,"羅馬 十二表法",""],
+[1,"前431～前404","伯羅奔尼撒戰爭","雅典勢力越來越大，以斯巴達為首的城邦感到威脅","斯巴達打贏，但希臘城邦互相消耗而衰弱，前338年被北方的馬其頓控制","「強權崛起引發衝突」，今天常被拿來比喻國際關係","制",25,"伯羅奔尼撒戰爭",""],
 [1,"前334","亞歷山大東征","馬其頓國王想打敗宿敵波斯帝國","希臘文化傳到西亞、埃及、印度邊境，形成希臘化文化","有些佛像的臉和衣服，帶有希臘雕像的風格","制貿",6,"亞歷山大大帝 東征","亞歷山大大帝"],
+[1,"前264～前146","布匿克戰爭","羅馬和北非的迦太基爭奪西地中海的貿易和西西里島","羅馬打了三次終於消滅迦太基，成為地中海霸主；大量財富和奴隸湧入，貧富差距擴大，種下共和危機","漢尼拔帶戰象翻越阿爾卑斯山，至今仍是軍事史的經典故事","制貿地",25,"布匿克戰爭 漢尼拔","漢尼拔"],
+[1,"前3世紀起","佛教的傳播","印度孔雀王朝的阿育王統一印度大部分地區後皈依佛教，派人到各地傳教","佛教往兩個方向傳：南傳到斯里蘭卡、東南亞（上座部佛教）；北傳經中亞、絲路到中國、朝鮮、日本（大乘佛教）","臺灣、日本的佛教多屬北傳大乘佛教；泰國、緬甸屬南傳佛教","思貿",4,"阿育王石柱","阿育王"],
 [1,"前221","秦統一中國","戰國七雄互相兼併，秦國改革最徹底、最強","統一文字、貨幣、度量衡，建立皇帝制度","漢字能在廣大地區通用；統一的觀念延續到今天","制",7,"秦始皇 統一","秦始皇"],
-[1,"前2世紀","絲路","漢朝想聯合西域對抗匈奴，派張騫出使","絲綢、紙、佛教、葡萄等在東西方之間流傳","「東西方交流」從這時開始變得頻繁","貿",8,"絲路","漢武帝、張騫"],
+[1,"前2世紀","絲路","漢朝想聯合西域對抗匈奴，派張騫出使","絲綢西傳；葡萄、苜蓿傳入中國，佛教也沿著絲路傳進中國","「東西方交流」從這時開始變得頻繁","貿",8,"絲路","漢武帝、張騫"],
 [1,"前27","羅馬帝國","羅馬共和打下整個地中海，將軍權力太大、內戰不斷，最後由皇帝統治","羅馬法、道路、拉丁文傳遍歐洲","歐美的法律，法文、西班牙文都受羅馬影響","制地",9,"羅馬帝國 競技場","凱撒、屋大維"],
-[1,"1世紀","基督教興起","耶穌在羅馬統治下的巴勒斯坦傳教，主張愛與平等，吸引窮人","313年羅馬承認基督教；西元392年，基督教成為羅馬帝國的國教（史學上也很常舉380年狄奧多西一世的《帖撒羅尼迦詔書》）","「西元」紀年、聖誕節、星期日休息","思",10,"早期基督教","耶穌、君士坦丁大帝"],
+[1,"1世紀","基督教興起","耶穌在羅馬統治下的巴勒斯坦傳教，主張愛與平等，吸引窮人","313年君士坦丁頒布《米蘭詔書》承認基督教；西元392年，基督教成為羅馬帝國的國教（史學上也很常舉380年狄奧多西一世的《帖撒羅尼迦詔書》）","「西元」紀年、聖誕節、星期日休息","思",10,"早期基督教","耶穌、君士坦丁大帝"],
 [1,"476","西羅馬帝國滅亡","帝國太大難管、經濟衰退、內亂不斷；草原上的匈人西遷，把日耳曼人擠進羅馬","西歐分裂成許多小王國，教會成為生活中心","歐洲到今天仍分成許多國家","制地",11,"西羅馬帝國滅亡",""],
 [2,"527～565","拜占庭的全盛","東羅馬的首都君士坦丁堡位在歐亞交界，易守難攻、貿易富裕，沒有跟著西羅馬滅亡","查士丁尼皇帝整理羅馬法，蓋聖索菲亞大教堂，一度收復義大利","《查士丁尼法典》是歐洲各國民法的源頭","制地貿",2,"聖索菲亞大教堂","查士丁尼"],
 [2,"618～907","唐朝盛世","隋朝統一南北、開鑿大運河打好基礎，唐朝制度完善","長安成為國際大都市，日本、新羅派人來學習；科舉制度發展","日本的建築、服裝、漢字都深受唐朝影響","制貿",9,"唐朝 長安","唐太宗"],
-[2,"7世紀","伊斯蘭教與阿拉伯帝國","阿拉伯半島各部族分裂；穆罕默德創立伊斯蘭教，讓他們團結起來","阿拉伯帝國快速擴張到三大洲，保存並翻譯希臘學問，把印度數字傳到歐洲","我們用的 0、1、2、3 叫「阿拉伯數字」；伊斯蘭教是世界第二大宗教","思貿",12,"伊斯蘭 黃金時代","穆罕默德"],
+[2,"7世紀","伊斯蘭教與阿拉伯帝國","阿拉伯半島各部族分裂；穆罕默德創立伊斯蘭教，讓他們團結起來","阿拉伯帝國快速擴張到三大洲，保存並翻譯希臘學問，把源自印度的數字（今天叫阿拉伯數字）傳到歐洲","我們用的 0、1、2、3 叫「阿拉伯數字」；伊斯蘭教是世界第二大宗教","思貿",12,"伊斯蘭 黃金時代","穆罕默德"],
+[2,"7世紀","遜尼派與什葉派","穆罕默德死後，誰有資格當領袖（哈里發）意見不合","支持由穆罕默德的堂弟兼女婿阿里和他的後代領導的人成為什葉派；多數人接受推選出來的哈里發，成為遜尼派","今天穆斯林大多數是遜尼派，伊朗以什葉派為主，兩派對立仍影響中東局勢","思制",12,"伊斯蘭 清真寺",""],
 [2,"800","查理曼加冕","西羅馬滅亡後，法蘭克王國逐漸強大","查理曼統一西歐大部分地區，教宗為他加冕為皇帝；843年孫子們把帝國分成三塊","這三塊後來發展成法國、德國、義大利","制思",23,"查理曼 加冕","查理曼"],
-[2,"9～11世紀","封建制度與維京人","查理曼帝國分裂，維京人從北歐駕船四處劫掠，國王無力保護人民","地方貴族蓋城堡保護農民，形成封建制度；維京人在各地建國","英國、俄羅斯（基輔羅斯）的早期王國都和維京人有關","制地",18,"維京人 長船",""],
+[2,"9～11世紀","封建制度與維京人","查理曼帝國分裂，維京人從北歐駕船四處劫掠，國王無力保護人民","地方貴族蓋城堡保護農民，形成封建制度；維京人在各地建國","法國的諾曼第、俄羅斯的基輔羅斯都和維京人有關；1066年維京後裔諾曼人征服英格蘭","制地",18,"維京人 長船",""],
+[2,"中世紀","中世紀的教會","西羅馬滅亡後政治分裂，教會是西歐最有組織、最能保存知識的力量","教會掌管洗禮、婚禮、喪禮，收什一稅；修道院抄寫古書、辦學校；教宗權威一度高過國王","歐洲許多大學和教會學校有深厚關係","思制",10,"中世紀 修道院",""],
 [2,"1054","東西教會分裂","羅馬教宗和君士坦丁堡的教會領袖互不服從，教義和儀式也有差異","基督教分裂為西邊的天主教和東邊的東正教（以拜占庭為中心）","今天俄羅斯、希臘多信東正教，西歐、拉丁美洲多信天主教","思",10,"東西教會分裂 1054",""],
-[2,"1071","塞爾柱打敗拜占庭","塞爾柱突厥人從中亞西遷，信仰伊斯蘭教","拜占庭失去小亞細亞，向教宗求救","這場敗仗直接引發了十字軍東征","制地",14,"塞爾柱帝國",""],
+[2,"1071","塞爾柱打敗拜占庭","塞爾柱突厥人從中亞西遷，信仰伊斯蘭教","拜占庭失去小亞細亞，向教宗求救","這場敗仗讓拜占庭後來向教宗求援，成為十字軍東征的起因之一","制地",14,"塞爾柱帝國",""],
 [2,"1096","十字軍東征","拜占庭求救，教宗號召西歐人奪回聖地耶路撒冷","東西方貿易增加，義大利城市變得富有","富有的義大利城市，後來成為文藝復興的起點","思貿",13,"十字軍東征","教宗烏爾班二世"],
 [2,"1206","蒙古帝國","草原遊牧民族擅長騎射，成吉思汗統一蒙古各部後向外征服","歐亞大陸被連成一片，火藥、指南針等傳到西方","東西交流更方便（但也讓疾病傳得更快）","地技",14,"蒙古帝國 成吉思汗","成吉思汗、忽必烈"],
 [2,"1271～1295","馬可波羅與東西交流","蒙古帝國打通歐亞，道路安全，商人可以一路走到中國","馬可波羅的遊記讓歐洲人嚮往東方的財富","吸引後來的哥倫布想找到去亞洲的新航路","貿",8,"馬可波羅","馬可波羅"],
-[2,"1347","黑死病","鼠疫沿著蒙古時代的貿易路線傳到歐洲","歐洲人口大減，勞力變貴，封建莊園開始瓦解","人類第一次見識到疾病可以改變整個社會","糧貿",15,"黑死病 歐洲",""],
+[2,"14世紀","馬利帝國與撒哈拉貿易","西非盛產黃金，北非商人用駱駝商隊載鹽和貨物穿越撒哈拉沙漠來交換","西非的馬利帝國靠黃金和鹽的貿易致富；伊斯蘭教跟著商隊傳入西非，廷巴克圖成為學術中心","非洲很早就連上伊斯蘭世界的貿易網，不是「沒有歷史的大陸」","貿思",8,"Timbuktu Djinguereber mosque","曼薩・穆薩"],
+[2,"1347","黑死病","鼠疫沿著蒙古時代的貿易路線傳到歐洲","歐洲人口大減，勞力變貴，封建莊園開始瓦解","歐洲人深刻體會到，疾病可以改變整個社會","糧貿",15,"黑死病 歐洲",""],
 [3,"14世紀","文藝復興","義大利城市靠貿易致富，有錢人贊助藝術；學者帶來古希臘書籍","人們重新重視「人」和理性，藝術與科學發達","達文西、米開朗基羅的作品，現代科學精神的開端","貿思",16,"文藝復興 藝術","達文西、米開朗基羅"],
-[3,"1405～1433","鄭和下西洋","明成祖想宣揚國威、建立朝貢關係","船隊七次遠航到東南亞、印度、非洲東岸；之後明朝停止遠航","中國錯過了海洋擴張的時代，歐洲後來居上","貿制",18,"鄭和 寶船","鄭和"],
+[3,"1405～1433","鄭和下西洋","明成祖想宣揚國威、建立朝貢關係","船隊七次遠航到東南亞、印度、非洲東岸；之後明朝停止遠航","明朝後來實施海禁、停止遠航；歐洲則開始向海外擴張","貿制",18,"鄭和 寶船","鄭和"],
 [3,"約1450","活字印刷術","德國人古騰堡發明金屬活字印刷","書變得便宜，知識和新想法快速傳播","人人都能讀書，是宗教改革和科學革命的推手","技思",17,"古騰堡 印刷機","古騰堡"],
 [3,"1453","鄂圖曼攻下君士坦丁堡","鄂圖曼帝國崛起，用巨型大砲攻破城牆","拜占庭滅亡；鄂圖曼控制東西貿易路線；學者帶著古書逃到義大利","東西貿易被擋住，逼得歐洲人往海上找新航路","制貿技",11,"君士坦丁堡 陷落 1453","穆罕默德二世"],
 [3,"1492","大航海時代（地理大發現）","陸路貿易被擋住，加上指南針、造船技術進步，歐洲人想從海上直通亞洲","哥倫布抵達美洲，歐洲開始殖民全世界；美洲作物傳到各地","臺灣吃得到的番茄、辣椒、地瓜、玉米，都來自美洲","貿技地",18,"哥倫布 帆船","哥倫布、麥哲倫"],
-[3,"1517","宗教改革","教會腐敗；印刷術讓批評教會的文章快速流傳","基督教分裂出新教，歐洲爆發多場宗教戰爭","台灣說的「基督教」（新教）和「天主教」，就是這時分開的","思技",19,"馬丁路德 九十五條論綱","馬丁路德"],
+[3,"1488／1498","新航路：狄亞士與達伽馬","鄂圖曼控制東西陸路，葡萄牙想繞過陸路、從海上直接到亞洲買香料","1488年狄亞士抵達非洲南端的好望角；1498年達伽馬繞過好望角抵達印度，開通歐洲直達亞洲的新航路","歐洲人從此能直接航行到亞洲做生意，葡萄牙在亞洲建立貿易據點","貿技",18,"Vasco da Gama route map","狄亞士、達伽馬"],
+[3,"1517","宗教改革","教會腐敗；印刷術讓批評教會的文章快速流傳","基督教分裂出新教；政治上各國國王擺脫教宗控制，歐洲爆發多場宗教戰爭；經濟上新教肯定努力工作賺錢；文化上聖經被翻成各地語言，識字的人變多","臺灣說的「基督教」（新教）和「天主教」，就是這時分開的","思技",19,"馬丁路德 九十五條論綱","馬丁路德"],
 [3,"16世紀","美洲文明被征服","西班牙人帶著槍砲、馬匹來到美洲，也帶來美洲人沒有抵抗力的傳染病","阿茲特克（1521）、印加（1533）等文明被西班牙征服，原住民大量死於傳染病，天主教也隨之傳入","中南美洲今天大多說西班牙語、葡萄牙語，信天主教","地制",18,"阿茲特克 印加 征服",""],
+[3,"1534／1545","英國國教與天主教改革","英王亨利八世想離婚，教宗不准；宗教改革讓天主教會失去大量信徒","1534年英國脫離教宗，成立英國國教；天主教召開特倫特大公會議整頓教會，成立耶穌會到海外傳教","今天英國國王仍是英國國教的最高領袖；耶穌會士利瑪竇曾到明朝傳教","思制",19,"特倫特大公會議","亨利八世"],
+[3,"1526～1857","蒙兀兒帝國","來自中亞的巴卑爾帶著火砲進入北印度","建立信仰伊斯蘭教的帝國；阿克巴皇帝對印度教徒採取宗教寬容；後來皇帝改採嚴格的宗教政策，各地反抗，帝國衰弱","泰姬瑪哈陵就是蒙兀兒皇帝為皇后蓋的陵墓","制思",11,"泰姬瑪哈陵","阿克巴"],
+[3,"1565～1815","馬尼拉大帆船貿易","西班牙占領菲律賓，又控制美洲的銀礦，想用美洲白銀換中國的絲綢和瓷器","大帆船每年往返馬尼拉和墨西哥的阿卡普爾科；大量美洲白銀流入中國，中國瓷器和絲綢運到美洲、歐洲","第一條把亞洲、美洲、歐洲連起來的定期航線，被視為全球貿易的開端","貿",18,"Manila galleon","黎牙實比"],
 [3,"16～17世紀","科學革命","文藝復興的理性精神，加上印刷術傳播知識","哥白尼、伽利略、牛頓用觀察和實驗解釋自然","「實驗、驗證」的科學方法","思技",20,"伽利略 望遠鏡","哥白尼、伽利略、牛頓"],
 [3,"16～19世紀","三角貿易","美洲的甘蔗、菸草園需要大量勞力，歐洲商人把非洲人當奴隸賣到美洲","歐洲輸出製成品，從非洲運走奴隸，再從美洲運回農產和原料；上千萬非洲人被迫離鄉","美洲有許多非洲裔居民；奴隸貿易是人類史上的重大悲劇","貿",18,"三角貿易 大西洋",""],
+[3,"1602","荷蘭東印度公司","歐洲人想直接取得東南亞香料群島（摩鹿加群島）的丁香、肉豆蔻等香料","荷蘭成立東印度公司，以巴達維亞（今雅加達）為總部控制香料貿易；1624年占領臺灣南部作為貿易據點；1652年在非洲南端建立開普殖民地","印尼後來成為荷蘭殖民地，直到二戰後才獨立","貿制",18,"Dutch East India Company ship",""],
 [3,"1662","鄭成功來臺","明朝滅亡後，鄭成功想以臺灣作為反清基地","打敗統治臺灣的荷蘭人，漢人大量移入；1683年臺灣歸清朝","臺灣的漢人社會從這時大規模形成","制地",18,"鄭成功","鄭成功"],
-[3,"17世紀末～18世紀","啟蒙運動","科學的成功讓人相信，理性也能用來改善社會","提出人權、三權分立、人民主權","今天的憲法、人權觀念","思制",21,"啟蒙運動","孟德斯鳩、盧梭"],
+[3,"17世紀末～18世紀","啟蒙運動","科學的成功讓人相信，理性也能用來改善社會","提出人權、三權分立、人民主權；有些國王接受部分主張，推動改革，叫開明專制","今天的憲法、人權觀念","思制",21,"啟蒙運動","孟德斯鳩、盧梭、伏爾泰、亞當斯密"],
+[4,"1757","英國東印度公司控制印度","蒙兀兒帝國衰弱、各地分裂，英、法東印度公司在印度爭奪貿易","1757年普拉西戰役後，英國東印度公司控制孟加拉，再一步步控制大半個印度；1857年兵變後改由英國政府直接統治","印度通行英語、鐵路網和板球，都和英國統治有關","貿制",24,"普拉西戰役",""],
 [4,"約1760","工業革命","英國有煤礦、有海外市場和資金，又改良了蒸汽機","工廠、鐵路、城市快速發展，生產力暴增","我們用的大量生產的商品、交通工具","技地貿",22,"工業革命 蒸汽機","瓦特"],
-[4,"1776／1789","美國獨立、法國大革命","啟蒙思想傳開，人民不滿重稅、國王和殖民統治","建立共和國、制定憲法、發表人權宣言；拿破崙把這些觀念帶到全歐洲","總統選舉、「自由、平等、博愛」","思制",23,"法國大革命","華盛頓、拿破崙"],
-[4,"1840","鴉片戰爭","英國用鴉片換中國的茶葉，清朝禁煙；英國有工業化的軍艦大砲","清朝戰敗，被迫開港、割讓香港","中國開始思考要不要學習西方","貿技",24,"鴉片戰爭","林則徐"],
+[4,"1775～1783","美國獨立","英國在七年戰爭後財政困難，向北美殖民地加稅；殖民地喊出「無代表，不納稅」","1776年發表《獨立宣言》，1783年英國承認美國獨立；1787年制定美國憲法，採聯邦制和三權分立","美國憲法是世界上仍在使用的最古老成文憲法","思制",23,"美國獨立宣言","華盛頓"],
+[4,"1788","英國殖民澳洲","庫克船長1770年探勘澳洲東岸；美國獨立後，英國需要新的地方安置罪犯","1788年第一批移民（多數是罪犯）抵達雪梨一帶；殖民者奪取土地，原住民因衝突和外來疾病人口大減","澳洲國慶日是1月26日，但也有原住民稱這天為「入侵日」；2008年澳洲總理正式向原住民道歉","地制",18,"第一艦隊 雪梨灣","庫克船長"],
+[4,"1789～1799","法國大革命","法國財政破產，第三等級（平民）負擔重稅卻沒有權力；啟蒙思想和美國獨立帶來鼓舞","1789年三級會議引爆革命，攻占巴士底監獄、發表《人權宣言》；1792年廢除王政，1793年處死路易十六，進入恐怖統治；1799年拿破崙奪權","法國國慶7月14日、三色國旗、「自由、平等、博愛」","思制",23,"法國大革命 巴士底","羅伯斯比、拿破崙"],
+[4,"1814～1815","維也納會議","拿破崙征服大半個歐洲，把革命觀念帶到各地，最後兵敗俄國，1815年在滑鐵盧戰敗","歐洲各國在維也納開會，由奧地利首相梅特涅主導，恢復舊王室、壓制自由主義和民族主義；但革命思想已經傳開，1848年各地又爆發革命","之後歐洲大國間沒再打過全歐規模的大戰，直到1914年","制思",19,"維也納會議","拿破崙"],
+[4,"1823","門羅宣言","拉丁美洲各國剛脫離西班牙、葡萄牙獨立，美國不希望歐洲列強再回來干涉美洲","美國總統門羅宣布反對歐洲干涉美洲事務；美國後來藉此擴大對拉丁美洲政治與經濟的影響","「美洲是美洲人的美洲」常被用來說明美國的美洲政策","制貿",23,"Monroe Doctrine 1823","門羅"],
+[4,"1839～1876","鄂圖曼的改革","鄂圖曼帝國軍事落後、領土被列強蠶食，巴爾幹各民族也想獨立","推動「坦志麥特」改革，學習西方的法律、軍隊和教育；但成效有限，帝國仍被稱為「歐洲病夫」","土耳其後來在一戰後由凱末爾建立共和國，徹底西化","制思",11,"Ottoman Tanzimat",""],
+[4,"1840","鴉片戰爭","英國用鴉片換中國的茶葉，清朝禁煙；英國有工業化的軍艦大砲","清朝戰敗，簽訂《南京條約》，被迫開放通商口岸、割讓香港","中國開始思考要不要學習西方","貿技",24,"鴉片戰爭","林則徐"],
+[4,"19世紀","工業社會的問題與新思潮","工業革命後，工人工時長、薪水低、住得擁擠，還有童工，貧富差距變大","馬克思等人提出社會主義；文學出現寫實主義，描寫社會的真實問題；浪漫主義則重視情感、自然和民族傳統","今天的勞動法規、工會，都和當時工人爭取權益有關","思糧",22,"Industrial Revolution child labour","馬克思、狄更斯"],
 [4,"19世紀","帝國主義","工業國家需要原料和市場，又有先進武器","歐美列強殖民亞洲、非洲；日本明治維新後也加入","許多國家今天說英語或法語，國界也是那時劃的","貿技",24,"帝國主義 殖民地圖",""],
+[4,"1857","印度反英兵變","英國東印度公司統治印度，印度傭兵待遇差，又傳出子彈包裝塗了牛油、豬油，冒犯印度教徒和穆斯林","兵變被英國鎮壓；英國結束東印度公司的統治，改由政府直接統治印度，1877年維多利亞女王成為印度女皇","印度後來在甘地帶領下，於1947年脫離英國獨立","制思",24,"Indian Rebellion 1857","維多利亞女王"],
 [4,"19世紀","民族主義與國家統一","法國大革命和拿破崙讓各地人民開始覺得「同一個民族應該有自己的國家」","拉丁美洲各國脫離西班牙、葡萄牙獨立；義大利完成統一；普魯士首相俾斯麥完成德意志統一","今天的義大利、德國，以及中南美洲各國，大多是這時形成的","思制",23,"義大利統一 德意志統一 俾斯麥","俾斯麥"],
+[4,"1861～1865","美國南北戰爭","北方工業州反對奴隸制度，南方種棉花靠黑奴勞動；林肯當選總統後，南方各州宣布脫離聯邦","北方獲勝，國家維持統一；1863年林肯發表《解放奴隸宣言》，1865年美國憲法修正案廢除奴隸制度","黑人民權運動、種族平等的討論，都和這段歷史有關","制思",25,"南北戰爭","林肯"],
+[4,"1868","明治維新","1853年美國培里艦隊叩關，日本被迫開港，許多武士不滿幕府","推翻幕府、天皇親政，學習西方：廢藩置縣、發展工業、徵兵、立憲；日本成為亞洲第一個工業化強國，1894年甲午戰爭打敗清朝，1895年《馬關條約》取得臺灣","日本的鐵路、郵政、學校制度從明治時期開始","制技思",23,"明治維新","明治天皇"],
+[4,"1869","蘇伊士運河開通","歐洲到亞洲要繞過非洲南端，航程又長又危險","法國人主導開鑿的蘇伊士運河通航，連接地中海和紅海，歐洲到亞洲的航程大幅縮短","今天全世界約一成以上的海運貿易，仍要經過蘇伊士運河","貿技",22,"Suez Canal opening 1869",""],
+[4,"19世紀後期","第二次工業革命","科學研究和工業結合，人們開始利用電力和石油","發電機、電燈、電話、內燃機、汽車相繼出現；大企業興起，德國、美國的工業超越英國","電燈、電話、汽車都是這時候出現的","技貿",22,"第二次工業革命 電燈","愛迪生"],
+[4,"19世紀後期","東南亞被殖民，暹羅保持獨立","西方列強爭奪東南亞的香料、稻米、橡膠和錫","英國取得緬甸、馬來亞；法國取得越南、柬埔寨、寮國；荷蘭控制印尼；1898年美國從西班牙手中取得菲律賓；只有暹羅（泰國）靠外交和改革保持獨立","泰國是東南亞唯一沒有被西方殖民的國家","貿制地",24,"曼谷 大皇宮",""],
+[4,"1896","衣索比亞打敗義大利","列強瓜分非洲，義大利想把衣索比亞變成殖民地","衣索比亞皇帝孟尼利克二世用從歐洲買來的新式武器，在阿杜瓦打敗義大利；衣索比亞成為非洲少數保持獨立的國家","衣索比亞成為非洲反殖民的象徵","制",13,"阿杜瓦戰役","孟尼利克二世"],
+[4,"1882／1907","三國同盟與三國協約","德國統一後快速變強，威廉二世向外爭殖民地、擴充海軍；英國感到威脅，放棄「光榮孤立」","德國、奧匈、義大利組成三國同盟（1882）；英國、法國、俄國形成三國協約（1907）；歐洲分成兩大集團","一戰時義大利改投三國協約這一邊；三國協約這一方後來被稱為「協約國」","制貿",25,"Triple Entente Triple Alliance map","俾斯麥、威廉二世"],
 [4,"1912","中華民國建立","清朝屢次戰敗、改革太慢，革命思想傳開","辛亥革命推翻清朝，結束兩千多年的帝制","結束兩千多年的帝制，建立共和國","思制",23,"辛亥革命","孫中山"],
 [4,"1914～1918","第一次世界大戰","列強爭奪殖民地、互相結盟對立；1914年奧匈皇儲在塞拉耶佛被刺殺，點燃戰爭","德、奧匈、俄、鄂圖曼四大帝國瓦解；戰車、飛機、毒氣首次大量使用","今天中東和東歐的國家，很多是一戰後才出現的","制貿思",25,"第一次世界大戰 戰壕",""],
-[4,"1917","俄國革命","一戰讓俄國死傷慘重、糧食不足，人民不滿沙皇","列寧領導共產黨奪權，之後建立世界第一個共產國家蘇聯","共產主義和資本主義的對立，埋下冷戰的種子","思糧",23,"俄國革命 1917","列寧"],
+[4,"1917","俄國革命","一戰讓俄國死傷慘重、糧食不足，人民不滿沙皇","1917年二月革命推翻沙皇；同年十月革命由列寧領導共產黨奪權；1918年俄國退出一戰，之後建立世界第一個共產國家蘇聯","共產主義和資本主義的對立，埋下冷戰的種子","思糧",23,"俄國革命 1917","列寧"],
 [4,"1919","凡爾賽條約","一戰的勝利國要懲罰德國","德國割地、賠鉅款、限制軍隊，德國人非常不滿","這份不滿成為二十年後二戰的重要原因","制",19,"凡爾賽條約",""],
+[4,"1920～1930年代","極權政治興起","一戰後經濟困難，戰敗國不滿和約；大恐慌又讓人對民主失去信心","義大利墨索里尼建立法西斯政權；蘇聯史達林推動五年計畫並實行恐怖統治；德國希特勒的納粹黨掌權；日本軍人控制政府。這些國家只准一個政黨，壓制言論","「極權」用來形容政府控制人民生活一切的國家","制思",25,"墨索里尼 羅馬進軍","墨索里尼、史達林、希特勒"],
 [4,"1929","經濟大恐慌","美國股市崩盤、銀行倒閉，影響全世界","大量失業，人民對民主政府失去信心，極端政黨崛起；1933年希特勒在德國掌權","各國政府會出手救經濟，就是從這次學到的教訓","貿糧",22,"經濟大恐慌","希特勒"],
 [4,"1931／1937","日本侵略中國","日本資源不足，想向外擴張領土","1931年九一八事變占領東北；1937年七七事變（盧溝橋事變）後，中國全面抗戰","中國對日抗戰持續到1945年","地貿制",25,"盧溝橋事變","蔣中正"],
+[4,"1933","羅斯福新政","經濟大恐慌造成大量失業，美國人民要求政府出手","小羅斯福總統擴大政府角色：興建公共工程增加就業、管理銀行和股市、建立社會安全制度；美國在民主制度下逐步恢復經濟，和德、義走向獨裁形成對比","美國的社會安全制度（退休金、失業保險）從新政開始","貿制",22,"羅斯福 新政","羅斯福"],
+[4,"1938","慕尼黑協定與姑息政策","英國、法國害怕再打一次大戰，希望用讓步換和平","英法同意德國取得捷克斯洛伐克的蘇臺德區；希特勒野心更大，1939年占領捷克斯洛伐克其餘地區，接著入侵波蘭","「姑息」常被用來形容對侵略者一再退讓","制思",25,"Munich Agreement 1938","希特勒、張伯倫"],
 [4,"1939","德國入侵波蘭","希特勒想推翻凡爾賽條約、向東擴張","英法對德宣戰，第二次世界大戰在歐洲爆發","二戰是人類史上死傷最多的戰爭","制思",25,"德國入侵波蘭 1939","希特勒、邱吉爾"],
 [4,"1941","珍珠港事件","美國對日本禁運石油，日本決定先發制人","日本偷襲夏威夷珍珠港，美國參戰，二戰真正擴大成世界大戰","美國從此成為世界強國","貿技",18,"珍珠港事件","羅斯福"],
+[4,"1941～1945","猶太人大屠殺","納粹宣揚種族主義，把猶太人當成國家問題的代罪羔羊","納粹先剝奪猶太人的權利，再把他們送進集中營，約600萬猶太人被殺害；羅姆人、身心障礙者等也遭迫害","戰後推動《世界人權宣言》；每年1月27日是國際大屠殺紀念日","思制",26,"奧斯威辛 集中營","希特勒"],
+[4,"1943／1945","開羅會議、雅爾達會議","同盟國需要協調作戰，也要事先安排戰後的世界","1943年開羅會議，中、美、英領袖會面，會後發表《開羅宣言》，寫明日本應把東北、臺灣、澎湖歸還中華民國（它對臺灣主權的效力，至今有不同看法）；1945年雅爾達會議，美、英、蘇決定戰後分區占領德國、籌組聯合國，蘇聯答應對日參戰","聯合國就是在戰時會議中籌備的；這些安排也影響了戰後的東亞與臺灣","制",19,"雅爾達會議 1945","邱吉爾、羅斯福"],
+[4,"1942～1944","史達林格勒與諾曼第登陸","德國進攻蘇聯陷入苦戰；美國參戰後，同盟國有力量反攻","1943年初德軍在史達林格勒大敗，從此在東線節節後退；1944年6月6日盟軍在法國諾曼第登陸，開闢西線，德國兩面受敵，1945年投降","6月6日被稱為D-Day，每年在諾曼第都有紀念活動","制技",18,"諾曼第登陸",""],
 [4,"1945","二戰結束","盟軍在歐洲打敗德國；美國在廣島、長崎投下原子彈","德、日投降；臺灣由中華民國接收；成立聯合國；殖民地紛紛獨立","聯合國、世界上大多數國家的獨立","制技",26,"第二次世界大戰 結束 1945",""],
 [4,"1947～1991","冷戰","美國和蘇聯兩大強國的制度與思想對立","核武競賽、太空競賽；美國為了國防發展網路技術；1991年蘇聯解體","人造衛星、GPS、網際網路的前身","思技",27,"冷戰 太空競賽","戈巴契夫"],
+[4,"1947～1949","圍堵政策與北約","二戰後蘇聯在東歐扶植共產政權，美國擔心共產勢力繼續擴大","美國提出杜魯門主義圍堵共產勢力，用馬歇爾計畫援助西歐重建；1949年成立北大西洋公約組織（北約）；蘇聯則在1955年組成華沙公約組織","北約到今天仍是歐美最重要的軍事同盟","制思",27,"Marshall Plan poster","杜魯門"],
+[4,"1947","印度獨立與印巴分治","二戰後英國國力衰退，甘地長期領導非暴力抗爭；印度教徒和穆斯林互不信任","英國撤出，分成以印度教徒為主的印度和以穆斯林為主的巴基斯坦；上千萬人被迫遷移，發生大規模衝突，喀什米爾至今仍有爭議","印度和巴基斯坦兩國都擁有核武，關係仍然緊張","制思",23,"印巴分治 1947","甘地"],
+[4,"1948","世界人權宣言","二戰中發生大屠殺等嚴重侵害人權的暴行，各國希望不再重演","聯合國大會通過《世界人權宣言》，宣示人人生而自由，在尊嚴和權利上一律平等","今天各國保障人權，很多都以這份宣言為基礎","思制",26,"Universal Declaration of Human Rights",""],
+[4,"1948～1949","柏林封鎖與德國分裂","戰後德國被美、英、法、蘇分區占領；西方三區合併並發行新貨幣，蘇聯不滿","蘇聯封鎖西柏林的陸路，美、英用飛機空運物資將近一年；1949年德國分裂成西德和東德","1961年東德蓋起柏林圍牆，1989年倒下，德國1990年統一","制思",27,"柏林空運","杜魯門"],
+[4,"1948","以色列建國","猶太人經歷大屠殺後更想建立自己的國家；聯合國1947年提出把巴勒斯坦分成猶太國和阿拉伯國的方案","1948年以色列建國，周邊阿拉伯國家隨即出兵，爆發第一次以阿戰爭；大批巴勒斯坦人失去家園成為難民，之後以阿多次開戰","以色列和巴勒斯坦的衝突，至今仍是中東最難解的問題","思制地",25,"以色列 1948",""],
+[4,"1950～1953","韓戰","二戰後朝鮮半島以北緯38度線為界，分成蘇聯支持的北韓和美國支持的南韓","北韓南侵，以美軍為主的聯合國軍支援南韓，中共派兵支援北韓；1953年停戰，半島維持分裂；美國派第七艦隊巡防臺灣海峽，並恢復對臺援助","南北韓至今只簽停戰協定、沒有和平條約，兩邊之間是非軍事區","制思",25,"韓戰",""],
+[4,"1955","萬隆會議與不結盟運動","許多亞非國家剛獨立，不想被捲入美蘇對抗","亞非國家在印尼萬隆開會，主張反殖民、和平共處；1961年成立「不結盟運動」，不加入美蘇任何一方","這些國家常被稱為「第三世界」，在聯合國形成一股重要力量","制思",23,"Bandung Conference 1955","尼赫魯"],
 [4,"1960","非洲年","二戰後歐洲列強實力衰退，殖民地人民的民族主義高漲","這一年非洲有17個國家獨立，殖民帝國快速瓦解","今天非洲有50多個國家，很多國界還是當年殖民者畫的直線","制思",23,"非洲 獨立 1960",""],
+[4,"1962","古巴飛彈危機","蘇聯在古巴偷偷部署能攻擊美國的飛彈","美國封鎖古巴海域，雙方對峙13天，是冷戰最接近核戰的一次；最後蘇聯撤走飛彈，美國承諾不入侵古巴；之後美蘇設立熱線","常被當作「危機談判」的經典例子","制技",27,"古巴飛彈危機","甘迺迪"],
+[4,"20世紀","爭取平等：女性參政與民權運動","人權觀念擴大，但女性、黑人等長期被排除在政治和社會權利之外","女性在20世紀陸續取得投票權（英國1918年起、美國1920年）；美國黑人民權運動中，金恩博士1963年發表「我有一個夢」演說，1964年通過民權法案；南非1994年結束種族隔離","平等投票權、反對種族歧視，是今天民主社會的基本價值","思制",26,"金恩 我有一個夢","潘克斯特、曼德拉"],
 [4,"1969","人類登陸月球","美蘇在冷戰中比賽誰的太空技術比較強","美國阿波羅11號的太空人第一次踏上月球","衛星導航、氣象衛星等太空技術，都在太空競賽中快速進步","技",27,"阿波羅11號 登月",""],
 [4,"1989","柏林圍牆倒下","東德人民不滿生活和自由受到限制，東歐各國掀起改革浪潮","東歐共產政權接連垮台，1990年東西德統一","柏林還保留了一段圍牆，成為讓人記住這段歷史的露天紀念館","制思",27,"柏林圍牆 1989",""],
 [4,"1991","蘇聯解體","共產經濟長期停滯，東歐各國在1989年後紛紛推翻共產政權","蘇聯分成15個國家，冷戰結束，美國成為唯一的超級強權","烏克蘭、哈薩克、波羅的海三國等國家都是這時獨立","制貿",27,"蘇聯解體 1991","戈巴契夫"],
@@ -999,24 +1251,12 @@ const IC=[
 ];
 const svg=i=>`<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${IC[i]||''}</svg>`;
 const ML=[
-["大河孕育文明","大河帶來糧食，糧食養出城市，城市需要文字和法律。",
- ["農業革命","城市與文字","金字塔與法老","漢摩拉比法典"],
- ["能定居、人口變多，大河旁出現城市","尼羅河的糧食，讓埃及國王能動員大量人力","國家越來越大，需要一套寫下來、大家都要遵守的規則"]],
-["希臘的興起與擴散","希臘城邦擋下波斯，雅典走向全盛，最後亞歷山大把希臘文化帶到東方。",
- ["希臘城邦興起","波斯帝國建立","雅典民主","亞歷山大東征"],
- ["希臘城邦向外發展，和東方崛起的波斯帝國相遇","打敗波斯之後，雅典進入全盛，民主發展到高峰","城邦互相內鬥而衰弱，被北方的馬其頓統一，亞歷山大揮軍東征"]],
-["羅馬興衰，分成三個世界","羅馬從城邦變成大帝國；帝國分裂後，地中海一帶變成三個世界，就是中世紀。",
- ["羅馬共和建立","羅馬帝國","基督教興起","西羅馬帝國滅亡","拜占庭的全盛","伊斯蘭教與阿拉伯帝國","查理曼加冕"],
- ["共和時期不斷擴張，疆域太大、內部爭權，改成帝國","基督教在羅馬帝國境內萌芽，後來成為國教","帝國分成東西兩半，西半部被日耳曼人滅亡","東半部延續下來，成為拜占庭帝國","7世紀伊斯蘭教興起，阿拉伯帝國快速擴張","西歐由日耳曼人建國，基督教會成為重心"]],
-["古典知識的接力賽","希臘羅馬的知識在西歐失傳，靠拜占庭和阿拉伯保存，最後傳回義大利。",
- ["西羅馬帝國滅亡","拜占庭的全盛","伊斯蘭教與阿拉伯帝國","十字軍東征","文藝復興","鄂圖曼攻下君士坦丁堡"],
- ["西歐戰亂，很多古典典籍失傳；東邊的拜占庭保存了希臘羅馬的傳統","阿拉伯人把希臘典籍翻譯成阿拉伯文，保存下來","十字軍讓西歐重新接觸東方的知識和商品","義大利城市靠東西貿易致富，開始重新研究古典","拜占庭滅亡，學者帶著典籍逃到義大利，讓文藝復興更興盛"]],
-["從文藝復興到革命","人們開始敢質疑權威：先質疑教會，再質疑古代的說法，最後質疑國王。",
- ["文藝復興","活字印刷術","宗教改革","科學革命","啟蒙運動","美國獨立、法國大革命"],
- ["新思想需要傳播，活字印刷讓書變得便宜","聖經和批評教會的文章大量印刷，越來越多人質疑教會","用觀察和實驗，檢驗古代流傳下來的說法","把理性用在政治和社會上","天賦人權、三權分立的想法，變成真正的革命"]],
-["從航海到冷戰","為了財富出海，工業化讓搶奪更激烈，最後打成世界大戰，再變成美蘇對立。",
- ["鄂圖曼攻下君士坦丁堡","大航海時代（地理大發現）","三角貿易","工業革命","帝國主義","第一次世界大戰","凡爾賽條約","經濟大恐慌","德國入侵波蘭","冷戰","蘇聯解體"],
- ["鄂圖曼控制東西陸路，香料變貴，歐洲人改從海上找新航路","取得美洲殖民地，開始大規模貿易和奴隸買賣","海外市場和財富，讓英國率先發生工業革命","工廠需要更多原料和市場，列強搶殖民地","列強競爭形成兩大集團，引爆大戰","戰勝國對德國非常嚴苛","德國經濟困難，1929年又遇上全球經濟大恐慌","納粹趁機崛起、對外侵略，第二次世界大戰爆發","戰後美、蘇成為兩強，對立四十多年","蘇聯經濟撐不下去，1991年解體，冷戰結束"]]
+["大河孕育文明","大河帶來糧食，糧食養出城市，城市需要文字和法律。",["農業革命","城市與文字","金字塔與法老","漢摩拉比法典"],["能定居、人口變多，大河旁出現城市","尼羅河的糧食，讓埃及國王能動員大量人力","國家越來越大，需要一套寫下來、大家都要遵守的規則"]],
+["希臘的興起與擴散","希臘城邦擋下波斯，雅典走向全盛，最後亞歷山大把希臘文化帶到東方。",["希臘城邦興起","波斯帝國建立","雅典民主","亞歷山大東征"],["希臘城邦向外發展，和東方崛起的波斯帝國相遇","打敗波斯之後，雅典進入全盛，民主發展到高峰","城邦互相內鬥而衰弱，被北方的馬其頓統一，亞歷山大揮軍東征"]],
+["羅馬興衰，分成三個世界","羅馬從城邦變成大帝國；帝國分裂後，地中海一帶變成三個世界，就是中世紀。",["羅馬共和建立","羅馬帝國","基督教興起","西羅馬帝國滅亡","拜占庭的全盛","伊斯蘭教與阿拉伯帝國","查理曼加冕"],["共和時期不斷擴張，疆域太大、內部爭權，改成帝國","基督教在羅馬帝國境內萌芽，後來成為國教","帝國分成東西兩半，西半部被日耳曼人滅亡","東半部延續下來，成為拜占庭帝國","7世紀伊斯蘭教興起，阿拉伯帝國快速擴張","西歐由日耳曼人建國，基督教會成為重心"]],
+["古典知識的接力賽","希臘羅馬的知識在西歐失傳，靠拜占庭和阿拉伯保存，最後傳回義大利。",["西羅馬帝國滅亡","拜占庭的全盛","伊斯蘭教與阿拉伯帝國","十字軍東征","文藝復興","鄂圖曼攻下君士坦丁堡"],["西歐戰亂，很多古典典籍失傳；東邊的拜占庭保存了希臘羅馬的傳統","阿拉伯人把希臘典籍翻譯成阿拉伯文，保存下來","十字軍讓西歐重新接觸東方的知識和商品","義大利城市靠東西貿易致富，開始重新研究古典","拜占庭滅亡，學者帶著典籍逃到義大利，讓文藝復興更興盛"]],
+["從文藝復興到革命","人們開始敢質疑權威：先質疑教會，再質疑古代的說法，最後質疑國王。",["文藝復興","活字印刷術","宗教改革","科學革命","啟蒙運動","美國獨立","法國大革命"],["新思想需要傳播，活字印刷讓書變得便宜","聖經和批評教會的文章大量印刷，越來越多人質疑教會","用觀察和實驗，檢驗古代流傳下來的說法","把理性用在政治和社會上","天賦人權、三權分立的想法，變成真正的革命","美國成功獨立，鼓舞法國人推翻國王的專制"]],
+["從航海到冷戰","為了財富出海，工業化讓搶奪更激烈，最後打成世界大戰，再變成美蘇對立。",["鄂圖曼攻下君士坦丁堡","新航路：狄亞士與達伽馬","大航海時代（地理大發現）","三角貿易","工業革命","帝國主義","三國同盟與三國協約","第一次世界大戰","凡爾賽條約","經濟大恐慌","極權政治興起","慕尼黑協定與姑息政策","德國入侵波蘭","冷戰","圍堵政策與北約","蘇聯解體"],["鄂圖曼控制東西陸路，香料變貴，葡萄牙先繞非洲找新航路","西班牙也加入，支持哥倫布往西橫越大西洋","取得美洲殖民地，開始大規模貿易和奴隸買賣","海外市場和財富，讓英國率先發生工業革命","工廠需要更多原料和市場，列強搶殖民地","爭殖民地越來越激烈，德國崛起，英國放棄光榮孤立，歐洲分成兩大集團","塞拉耶佛的一聲槍響，盟友一個拖一個，大戰爆發","戰勝國對德國非常嚴苛","德國經濟困難，1929年又遇上全球經濟大恐慌","人們對民主失望，納粹、法西斯趁機掌權","希特勒擴張，英法怕再打仗，一再讓步","希特勒越要越多，1939年入侵波蘭，二戰爆發","戰後美、蘇成為兩強，對立四十多年","美國用圍堵政策和北約對抗蘇聯，蘇聯組華沙公約","軍備競賽拖垮蘇聯經濟，1991年解體，冷戰結束"]]
 ];
 const mlIdx=l=>l[2].map(n=>C.findIndex(c=>c[2]===n));
 const mlPer=l=>{const ps=mlIdx(l).map(i=>C[i][0]);return[0,1,2,3,4].map(k=>ps.includes(k))};
@@ -1046,7 +1286,7 @@ const RG=[
 [-1046,"前1046～前771","西周","分封諸侯，提出天命觀",""],
 [-770,"前770～前221","春秋戰國","周天子衰弱，諸侯互相兼併；百家爭鳴","分"],
 [-221,"前221～前206","秦","秦滅六國，第一次大一統，建立皇帝制度","合"],
-[-202,"前202～220","漢","統一四百年；開通絲路，儒家成為正統","合"],
+[-202,"前202～220","漢","西漢、東漢（中間有王莽新朝）合計約四百年；開通絲路，儒家成為正統","合"],
 [220,"220～280","三國","東漢瓦解，魏、蜀、吳三分天下","分"],
 [266,"266～316","西晉","司馬氏取代曹魏、滅吳統一全國，但不久就因內亂和北方民族入侵而崩潰","合"],
 [317,"317～589","東晉、十六國、南北朝","北方遊牧民族入主中原，南北分裂近三百年","分"],
@@ -1068,7 +1308,7 @@ const RG=[
 [1945,"1945～","中華民國在臺灣","二戰結束後接收；1949年中華民國政府遷臺","新"]]],
 ["日本",[
 [-300,"約前300～300","彌生時代","從大陸傳入稻作和金屬器",""],
-[300,"約300～710","大和政權、飛鳥時代","統一各地豪族，引進佛教","合"],
+[300,"約300～710","大和政權、飛鳥時代","統一各地豪族，引進佛教；645年大化革新，仿效唐朝制度","合"],
 [710,"710～794","奈良時代","模仿唐朝的制度與都城",""],
 [794,"794～1185","平安時代","貴族文化，發展出假名文字",""],
 [1185,"1185～1333","鎌倉幕府","武士掌權，兩次擊退元軍",""],
@@ -1080,7 +1320,7 @@ const RG=[
 ["朝鮮半島",[
 [-300,"？～前108","古朝鮮","朝鮮半島北部最早出現的國家，前108年被漢武帝消滅",""],
 [-57,"約前1世紀～668","三國（高句麗、百濟、新羅）","半島上的三個王國：北方的高句麗、西南的百濟、東南的新羅，互相競爭了幾百年","分"],
-[668,"668～935","統一新羅","新羅聯合唐朝統一半島","合"],
+[668,"668～935","統一新羅","新羅聯合唐朝滅百濟、高句麗，統一半島中南部","合"],
 [918,"918～1392","高麗","英文 Korea 的由來",""],
 [1392,"1392～1910","朝鮮王朝","創造韓文（訓民正音）",""],
 [1910,"1910～1945","日本統治","1910年日本併吞朝鮮，統治到1945年二戰結束","外"],
@@ -1094,15 +1334,17 @@ const RG=[
 [320,"約320～550","笈多帝國","印度教文化的黃金時代","合"],
 [550,"6～12世紀","各王國並立","北方分裂，南方王國興起","分"],
 [1206,"1206～1526","德里蘇丹國","伊斯蘭政權統治北印度","外"],
-[1526,"1526～1857","蒙兀兒帝國","帖木兒的後代從中亞攻入印度建立的伊斯蘭帝國，蓋了泰姬瑪哈陵","外"],
-[1858,"1858～1947","英屬印度","東印度公司之後由英國直接統治","外"],
+[1526,"1526～1857","蒙兀兒帝國","帖木兒的後代從中亞攻入印度建立的伊斯蘭帝國，蓋了泰姬瑪哈陵；18世紀後半實權逐漸落入英國東印度公司","外"],
+[1757,"1757～1857","英國東印度公司","1757年普拉西戰役後逐步控制印度；1857年反英兵變失敗後，改由英國政府直接統治","外"],
+[1858,"1858～1947","英屬印度","英國政府直接統治；1877年維多利亞女王成為印度女皇","外"],
 [1947,"1947～","印度、巴基斯坦獨立","依宗教分治；1971年孟加拉從巴基斯坦獨立","分"]]],
 ["東南亞",[
 [1,"1～7世紀","扶南","湄公河下游的早期王國，受印度文化影響，是海上貿易的中繼站",""],
-[650,"7～13世紀","室利佛逝、吳哥","蘇門答臘的室利佛逝控制海上貿易；柬埔寨的吳哥王朝建造吳哥窟",""],
+[650,"7～15世紀","室利佛逝、吳哥","蘇門答臘的室利佛逝（7～13世紀）控制海上貿易；柬埔寨的吳哥王朝（約802～1431）在12世紀建造吳哥窟",""],
 [1400,"15世紀","麻六甲蘇丹國","控制香料貿易的要道，伊斯蘭教隨著商人傳入東南亞",""],
 [1511,"1511～19世紀","葡、西、荷殖民","1511年葡萄牙占領麻六甲；西班牙統治菲律賓；荷蘭東印度公司控制印尼的香料","外"],
 [1850,"19世紀～1945","列強殖民","英、法、荷、美瓜分東南亞，只有泰國保持獨立","外"],
+[1941,"1941～1945","日本占領","二戰時日本趕走歐美殖民者、占領東南亞大部分地區；戰後各國獨立運動興起","外"],
 [1945,"1945～","東南亞各國獨立","二戰後菲律賓、印尼、越南、馬來西亞等陸續獨立","新"]]],
 ["伊朗（波斯）",[
 [-550,"前550～前330","波斯帝國（阿契美尼德）","前550年居魯士大帝建立，後來擴張到亞、非、歐三洲（埃及約前525年岡比西斯二世時納入），是當時世界最大的帝國","合"],
@@ -1111,8 +1353,8 @@ const RG=[
 [224,"224～651","薩珊波斯","伊朗人重新建立的波斯王朝，波斯文化復興，最後被阿拉伯帝國消滅","新"],
 [651,"651～1501","阿拉伯、塞爾柱、蒙古等統治","伊斯蘭化；蒙古人建立伊兒汗國","外"],
 [1501,"1501～1736","薩法維王朝","以什葉派為國教，影響到今天","新"],
-[1736,"1736～1789","阿夫沙爾、贊德王朝","薩法維王朝滅亡後的短暫王朝，國力時強時弱","分"],
-[1789,"1789～1925","卡扎爾王朝","被英、俄兩國勢力夾擊",""],
+[1736,"1736～1796","阿夫沙爾、贊德王朝","薩法維王朝滅亡後的短暫王朝，國力時強時弱","分"],
+[1796,"1796～1925","卡扎爾王朝","被英、俄兩國勢力夾擊",""],
 [1925,"1925～1979","巴勒維王朝","軍官禮薩汗建立的王朝，推動西化和現代化，1979年被伊斯蘭革命推翻",""],
 [1979,"1979～","伊朗伊斯蘭共和國","伊斯蘭革命後由宗教領袖掌權","新"]]],
 ["西亞（兩河流域到土耳其）",[
@@ -1122,13 +1364,15 @@ const RG=[
 [-900,"前9～前7世紀","亞述帝國","兩河北部的亞述人用強大軍隊和鐵製武器統一西亞，以嚴酷統治聞名","合"],
 [-626,"前626～前539","新巴比倫","亞述滅亡後巴比倫再度興起，國王尼布甲尼撒二世重建巴比倫城，有「空中花園」的傳說",""],
 [-539,"前539～7世紀","波斯、希臘化、羅馬、安息與薩珊","阿契美尼德波斯之後，西亞先後由亞歷山大的後繼者、羅馬，以及伊朗人建立的安息、薩珊等政權統治。",""],
-[661,"661～1258","阿拉伯帝國（伍麥亞、阿拔斯）","首都巴格達是世界學術中心","合"],
+[632,"632～661","正統哈里發","穆罕默德死後，伊斯蘭勢力快速擴張，滅薩珊波斯、占領埃及","合"],
+[661,"661～1258","阿拉伯帝國（伍麥亞、阿拔斯）","伍麥亞王朝定都大馬士革；阿拔斯王朝建都巴格達，成為世界學術中心","合"],
 [1037,"11～13世紀","塞爾柱突厥","打敗拜占庭，引發十字軍","外"],
 [1258,"1258","蒙古攻破巴格達","成吉思汗的孫子旭烈兀攻下巴格達，阿拉伯帝國的阿拔斯王朝滅亡","外"],
-[1299,"1299～1922","鄂圖曼帝國","1453年攻下君士坦丁堡，統治西亞六百年","合"],
+[1299,"1299～1922","鄂圖曼帝國","1453年攻下君士坦丁堡；16世紀併入敘利亞、兩河流域，統治西亞約四百年，帝國延續六百多年","合"],
 [1923,"1923～","土耳其及中東各國","一戰後帝國瓦解；伊拉克、敘利亞等先由英法託管，後來獨立；1948年以色列建國","分"]]],
 ["埃及",[
-[-3100,"約前3100～前332","古埃及","法老、金字塔、象形文字","合"],
+[-3100,"約前3100～前525","古埃及","法老、金字塔、象形文字","合"],
+[-525,"前525～前332","波斯統治","埃及併入波斯帝國，後來被亞歷山大奪走","外"],
 [-332,"前332～前30","亞歷山大、托勒密王朝","希臘人統治，埃及豔后是最後一位法老","外"],
 [-30,"前30～641","羅馬、拜占庭","埃及被羅馬併吞，成為供應羅馬糧食的重要行省，之後歸東羅馬（拜占庭）統治","外"],
 [641,"641～969","阿拉伯帝國","641年阿拉伯軍隊佔領埃及，埃及人逐漸改信伊斯蘭教、改說阿拉伯語","外"],
@@ -1137,13 +1381,13 @@ const RG=[
 [1250,"1250～1517","馬木路克王朝","奴隸出身的軍人在埃及建立的王朝，1260年擋住蒙古西進",""],
 [1517,"1517～1882","鄂圖曼帝國","1517年鄂圖曼帝國消滅馬木路克王朝，埃及成為鄂圖曼的一個行省；1805年起由穆罕默德・阿里家族半獨立統治","外"],
 [1882,"1882～1922","英國控制","為了保護通往印度的蘇伊士運河，英國出兵控制埃及","外"],
-[1922,"1922～","埃及獨立","1952年改為共和國","新"]]],
+[1922,"1922～","埃及獨立","1952年軍人推翻王室，1953年改為共和國","新"]]],
 ["希臘、巴爾幹",[
 [-2000,"約前2000～前1100","米諾斯、邁錫尼文明","克里特島的米諾斯文明和希臘本土的邁錫尼文明，是愛琴海最早的文明",""],
 [-800,"前8～前4世紀","希臘城邦","雅典民主、斯巴達軍國","分"],
 [-338,"前338～前146","馬其頓、希臘化時代","北方的馬其頓王國統一希臘，亞歷山大東征後進入希臘化時代","合"],
 [-146,"前146～1453","羅馬、拜占庭","希臘文化在拜占庭延續一千年","外"],
-[1453,"1453～19世紀","鄂圖曼帝國","巴爾幹被統治近四百年","外"],
+[1361,"14世紀後期～19世紀","鄂圖曼帝國","14世紀就攻入巴爾幹，1453年滅拜占庭；統治巴爾幹四、五百年","外"],
 [1830,"1830～1913","巴爾幹各國獨立","希臘、塞爾維亞、保加利亞等陸續獨立，成為「歐洲火藥庫」","分"],
 [1918,"1918～1991","南斯拉夫","一戰後成立，1990年代解體成多國","合"],
 [1991,"1991～","巴爾幹各國","南斯拉夫解體成斯洛維尼亞、克羅埃西亞、塞爾維亞等國","分"]]],
@@ -1161,8 +1405,7 @@ const RG=[
 [481,"481～843","法蘭克王國","800年查理曼加冕為皇帝","合"],
 [843,"843","凡爾登條約","查理曼帝國一分為三，西法蘭克就是法國的前身","分"],
 [987,"987～1328","卡佩王朝","法國國王逐漸集中權力",""],
-[1337,"1337～1453","英法百年戰爭","聖女貞德；戰後法國民族意識形成",""],
-[1453,"1453～1589","瓦盧瓦王朝","百年戰爭後法國國王權力擴大",""],
+[1328,"1328～1589","瓦盧瓦王朝","卡佩王朝絕嗣後繼位；英格蘭國王爭奪法國王位，引發英法百年戰爭（1337～1453），聖女貞德登場；戰後法國民族意識形成、王權擴大",""],
 [1589,"1589～1792","波旁王朝","路易十四：「朕即國家」",""],
 [1789,"1789～1815","法國大革命、拿破崙帝國","推翻王權，拿破崙征服大半歐洲","新"],
 [1815,"1815～1870","王朝復辟、第二帝國","拿破崙失敗後波旁王朝復辟；1848年革命後成立第二共和，接著拿破崙的姪子拿破崙三世稱帝",""],
@@ -1185,14 +1428,14 @@ const RG=[
 [1154,"1154～1485","金雀花等王朝","1215年《大憲章》第一次限制國王的權力；1337年起和法國打百年戰爭",""],
 
 [1485,"1485～1603","都鐸王朝","英國國教會；伊莉莎白一世打敗西班牙無敵艦隊",""],
-[1603,"1603～1688","斯圖亞特王朝、英國內戰","國王和國會衝突引發內戰，1649年國王查理一世被處死，英國短暫成為共和國",""],
+[1603,"1603～1688","斯圖亞特王朝、英國內戰","斯圖亞特王朝（1603～1714）期間，國王和國會衝突引發內戰，1649年國王查理一世被處死，英國短暫成為共和國；1660年王室復辟",""],
 [1688,"1688","光榮革命","國會趕走國王詹姆士二世，迎立新國王並通過《權利法案》，確立國王要受國會限制",""],
-[1707,"1707～","大不列顛聯合王國","英格蘭和蘇格蘭在1707年合併成一個國家，就是後來的英國","合"],
+[1707,"1707～","大不列顛王國","英格蘭和蘇格蘭在1707年合併成大不列顛王國；1801年再和愛爾蘭合併成「聯合王國」","合"],
 [1800,"19世紀","大英帝國","工業革命；殖民地遍布全球，號稱「日不落國」",""],
-[1945,"1945～","大英國協","殖民地紛紛獨立，大英帝國改組為大英國協",""]]],
+[1945,"1945～","大英國協","1931年已成立大英國協；二戰後殖民地紛紛獨立，1949年改組為今天的國協",""]]],
 ["西班牙、葡萄牙",[
 [-200,"前2世紀～5世紀","羅馬行省","伊比利半島被羅馬征服，成為羅馬的行省，語言後來演變成西班牙語、葡萄牙語","外"],
-[418,"418～711","西哥德王國","日耳曼人的一支西哥德人，在西羅馬衰落時佔領伊比利半島建立的王國","新"],
+[418,"418～711","西哥德王國","日耳曼人的一支西哥德人，418年在高盧南部建國，6世紀起以伊比利半島為中心，711年被伊斯蘭勢力消滅","新"],
 [711,"711～1492","伊斯蘭統治","阿拉伯人與北非柏柏人占領大半個半島","外"],
 [722,"722～1492","收復失地運動","北方基督教王國一路往南反攻；葡萄牙在12世紀建國",""],
 [1479,"1479～1492","西班牙統一","卡斯提爾與亞拉岡合併；1492年收復格拉納達，同年哥倫布出航","合"],
@@ -1201,7 +1444,7 @@ const RG=[
 [1932,"1930年代～1975","內戰與獨裁","西班牙內戰後由佛朗哥獨裁統治；葡萄牙也由薩拉查獨裁",""],
 [1975,"1974～1975起","民主化的西班牙、葡萄牙","獨裁政權結束，後來加入歐洲共同體","新"]]],
 ["俄羅斯",[
-[862,"約862～1240","基輔羅斯","維京人建立；988年改信東正教","新"],
+[862,"約9世紀後期～1240","基輔羅斯","維京人建立；988年改信東正教","新"],
 [1240,"1240～1480","蒙古統治（金帳汗國）","1240年蒙古攻下基輔，之後俄羅斯各公國要向蒙古金帳汗國納貢兩百多年","外"],
 [1480,"1480","莫斯科大公國獨立","莫斯科的大公伊凡三世不再向蒙古金帳汗國納貢，正式擺脫蒙古統治","新"],
 [1547,"1547","伊凡四世稱沙皇","莫斯科大公伊凡四世正式自稱「沙皇」（皇帝），俄羅斯開始向東擴張",""],
@@ -1228,7 +1471,7 @@ const RG=[
 [-1000,"前1000年起","班圖人遷徙","農業與鐵器傳遍非洲中南部",""],
 [700,"8～16世紀","迦納、馬利、桑海王國","靠黃金和鹽的貿易致富；大辛巴威在南部興起",""],
 [1450,"15～19世紀","奴隸貿易","歐洲人把上千萬非洲人賣到美洲","外"],
-[1884,"1884～1914","瓜分非洲","柏林會議後，列強把非洲幾乎瓜分完畢","外"],
+[1884,"1884～1914","瓜分非洲","柏林會議後，列強把非洲幾乎瓜分完畢，只有衣索比亞和賴比瑞亞保持獨立","外"],
 [1957,"1957～","非洲國家獨立","1960年有17國獨立，被稱為「非洲年」","新"]]]
 ];
 const TY={"合":["統一","#2f9e5b"],"分":["分裂","#d64545"],"外":["外來統治","#8a6d3b"],"新":["新政權","#3f73c9"]};
@@ -1261,7 +1504,7 @@ const renderRG=()=>{
 // 關鍵人物：[時期, 名字, 年代, 做了什麼, 因此改變了什麼]
 const PP=[
 [0,"古夫法老","約前26世紀","下令建造埃及最大的金字塔","展現古埃及王權和工程能力的巔峰"],
-[0,"漢摩拉比","約前18世紀","巴比倫國王，把法律刻在石柱上公布","「法律要寫下來、大家都要遵守」的觀念從此出現"],
+[0,"漢摩拉比","約前18世紀","巴比倫國王，把法律刻在石柱上公布","現存最完整、最有名的古代法典之一，讓「法律寫下來公布」的做法廣為人知"],
 [0,"周武王","約前11世紀","起兵推翻商朝，建立周朝","周朝提出「天命」，君主失德就會被取代，影響中國兩千多年"],
 [1,"孔子","前551～前479","周遊列國講學，主張仁愛與禮，開辦私人教育","儒家思想成為東亞社會的核心價值"],
 [1,"釋迦牟尼","約前6～前5世紀","在印度創立佛教，主張眾生平等、解脫痛苦","佛教傳到中國、日本、東南亞，成為世界三大宗教之一"],
@@ -1285,19 +1528,28 @@ const PP=[
 [3,"古騰堡","約1400～1468","發明金屬活字印刷","知識快速傳播，推動宗教改革和科學革命"],
 [3,"達文西","1452～1519","畫家也是發明家，研究人體、設計機器","文藝復興「全才」的代表"],
 [3,"哥倫布","1451～1506","1492年橫越大西洋抵達美洲","開啟歐洲殖民美洲，世界從此連成一體"],
+[3,"狄亞士、達伽馬","15世紀末","葡萄牙航海家：狄亞士到達非洲南端好望角，達伽馬繞過好望角抵達印度","開通歐洲直達亞洲的新航路，葡萄牙在亞洲建立貿易據點"],
 [3,"麥哲倫","約1480～1521","率領船隊完成第一次環球航行（他本人死於途中），證實海洋可以互相連通。","世界的海洋被連成一體，歐洲人的航路遍及全球"],
 [3,"馬丁路德","1483～1546","1517年批評教會販賣贖罪券","基督教分裂出新教，歐洲宗教版圖改變"],
+[3,"培根","1561～1626","英格蘭哲學家，主張知識要從觀察和實驗中歸納出來，名言「知識就是力量」","和笛卡兒一起奠定近代科學的研究方法"],
+[3,"笛卡兒","1596～1650","法國哲學家、數學家，主張先懷疑一切、再用理性推論，名言「我思故我在」；發明座標系統","強調理性思考，影響科學革命和後來的啟蒙運動"],
 [3,"牛頓","1643～1727","提出萬有引力和運動定律","用數學解釋自然，奠定現代物理"],
 [3,"鄭成功","1624～1662","打敗荷蘭人，以臺灣作為反清基地","漢人大量移入臺灣"],
+[4,"伏爾泰","1694～1778","法國啟蒙思想家，批評專制和宗教迫害，主張言論自由和宗教寬容","啟蒙思想傳遍歐洲，影響開明專制和法國大革命"],
+[4,"亞當斯密","1723～1790","蘇格蘭人，1776年寫《國富論》，主張分工和自由市場","被稱為「經濟學之父」，影響今天的市場經濟"],
 [4,"瓦特","1736～1819","改良蒸汽機，讓它更有效率","推動工業革命"],
 [4,"華盛頓","1732～1799","領導美國獨立戰爭，當首任總統，兩任後主動卸任","立下民主國家和平交接權力的榜樣"],
 [4,"拿破崙","1769～1821","征服大半個歐洲，頒布《拿破崙法典》","把法國大革命的平等觀念傳遍歐洲，也激起各地的民族主義"],
+[4,"馬志尼、加富爾、加里波底","19世紀","義大利建國三傑：馬志尼宣傳民族統一思想，加富爾用外交和政治手段推動統一，加里波底帶志願軍打下南義大利","1861年義大利王國成立，1870年收回羅馬完成統一"],
+[4,"俾斯麥","1815～1898","普魯士首相，主張用「鐵血政策」（靠武力和戰爭）透過戰爭統一德意志","1871年德意志帝國成立；他用結盟孤立法國，維持歐洲和平二十年"],
 [4,"孫中山","1866～1925","領導革命，推翻清朝","推翻帝制，建立中華民國"],
+[4,"威爾遜","1856～1924","美國總統，一戰後提出「十四點原則」，主張民族自決、成立國際聯盟","戰後東歐出現許多新國家，亞洲也掀起民族運動；但美國國會反對，美國最後沒有加入國際聯盟"],
 [4,"列寧","1870～1924","領導俄國共產革命","建立蘇聯，共產主義成為影響二十世紀的力量"],
+[4,"凱末爾","1881～1938","一戰後帶領土耳其人抵抗列強，1923年建立土耳其共和國","推動政教分離、改用拉丁字母等現代化改革，被尊為「土耳其國父」"],
 [4,"甘地","1869～1948","用「非暴力不合作」對抗英國統治","印度1947年獨立，啟發各地的獨立與民權運動"],
 [4,"希特勒","1889～1945","納粹德國領導人，發動二戰並屠殺數百萬猶太人","二戰造成數千萬人死亡；戰後各國建立聯合國和人權規範"],
 [4,"邱吉爾、羅斯福","二戰期間","英國首相與美國總統，領導同盟國作戰","同盟國打贏二戰，並規劃戰後的聯合國"],
-[4,"戈巴契夫","1931～2022","推動蘇聯改革開放，也不出兵阻止東歐各國擺脫共產統治","冷戰結束，蘇聯解體"],
+[4,"戈巴契夫","1931～2022","推動「重建」（經濟改革）與「開放」（政治、言論開放）政策，也不出兵阻止東歐各國擺脫共產統治","冷戰結束，蘇聯解體"],
 [4,"提姆・柏納李","1955～","1989年發明全球資訊網（WWW）","網路走進每個人的生活，開啟資訊時代"]
 ];
 function renderPP(){const cp=LS[ls][4];$('pplist').innerHTML=P.map((p,pi)=>pi!==cp?'':`<h3 class="pph" style="color:${pc[pi]}">${p.n}<span>${p.y}</span></h3>`+PP.filter(x=>x[0]===pi).map(x=>`<div class="pp"><div class="pm" style="background:${pc[pi]}">${x[1][0]}</div><div><div class="pn"><b>${x[1]}</b><span>${x[2]}</span></div><div class="nr"><div class="k">做了什麼</div><div>${T(x[3])}</div></div><div class="nr today"><div class="k">因此</div><div>${T(x[4])}</div></div><a class="photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(x[1].split('、')[0])}" target="_blank" rel="noopener">看畫像或照片 ↗</a></div></div>`).join('')).join('')}
@@ -1307,17 +1559,23 @@ const CW=[
 "人類從「打獵、採集野果」變成「自己種田、養牲畜」的大轉變。最早發生在西亞的「肥沃月彎」（今天的伊拉克、敘利亞一帶），人們開始種小麥、大麥，養羊和牛。",
 "兩河流域南部的蘇美人蓋了很多城市，並發明楔形文字：用削尖的蘆葦在濕泥板上壓出符號，晒乾就能保存。最早是用來記錄繳了多少糧食。",
 "古埃及國王（法老）的巨大石造陵墓。最大的古夫金字塔在開羅附近，原本高約146公尺，用了大約230萬塊巨石。",
+"印度河流域（今天的巴基斯坦一帶）約西元前2500年出現哈拉帕、摩亨約達羅等城市，街道像棋盤一樣整齊，還有排水系統。約前1500年，雅利安人從中亞移入，後來形成種姓制度。",
 "地中海東部愛琴海一帶的古文明，包括克里特島上的米諾斯文明（有巨大的克諾索斯宮殿）和希臘本土的邁錫尼文明。",
 "一根兩公尺多高的黑色石柱，上面刻了將近300條法律。是古巴比倫（在今天的伊拉克）國王漢摩拉比下令刻的，立在城裡讓人民看。最有名的一條是「以眼還眼、以牙還牙」。這根石柱現在收藏在法國的羅浮宮。",
 "周原本是商朝西邊的一個小國（諸侯）。商朝最後一位國王紂王很殘暴，周武王聯合各地諸侯在「牧野之戰」打敗商朝，建立周朝。",
 "腓尼基人住在地中海東岸（今天的黎巴嫩），是很會做生意的航海民族。他們的文字只有22個字母，比楔形文字、象形文字簡單很多。",
+"希伯來人（猶太人的祖先）約西元前1000年在巴勒斯坦建立以色列王國，首都在耶路撒冷。他們信奉猶太教，只崇拜唯一的神，經典是《希伯來聖經》（基督教稱為《舊約》）。",
 "希臘人在多山的半島和島嶼上建立了幾百個獨立的城市國家（城邦），例如雅典和斯巴達。各城邦說同樣的語言、拜同樣的神，前776年開始一起舉辦奧林匹克運動會。",
 "前550年居魯士建立波斯帝國；後來擴張到亞洲、非洲、歐洲，成為第一個橫跨三洲的大帝國。埃及約在前525年（岡比西斯二世時）被納入。帝國修築「御道」、設置驛站，讓命令可以快速傳遍各地。",
 "義大利中部的城市羅馬，前509年趕走國王，改由每年選出的兩位執政官和元老院一起治理國家，這種制度叫共和。",
 "大約西元前500年前後，世界上幾個地方同時出現偉大的思想家：中國的孔子、老子，印度的釋迦牟尼（佛陀），希臘的蘇格拉底等人。",
+"西元前5世紀，波斯帝國兩度出兵攻打希臘。前490年雅典在馬拉松打敗波斯；前480年雅典海軍在薩拉米斯海戰擊潰波斯艦隊。希臘城邦保住了獨立。",
 "雅典是希臘的一個城邦。成年男性公民可以到「公民大會」發言、投票，直接決定國家大事。不過女性、奴隸和外國人不能參加。",
 "羅馬共和初期把法律條文刻在十二塊表上公布，稱為《十二表法》，是後來羅馬法的重要基礎。羅馬的政治發展依序是王政、共和、帝國。",
-"亞歷山大是希臘北方馬其頓王國的國王，20歲即位。他從前334年開始帶兵向東打，滅了波斯帝國，一路打到埃及和印度邊境，32歲就病死了。",
+"雅典和斯巴達各自帶領一群城邦，打了將近30年的內戰。最後斯巴達獲勝，但整個希臘元氣大傷，給了北方的馬其頓機會。",
+"亞歷山大是希臘北方馬其頓王國的國王，20歲即位。他從前334年開始帶兵向東打，滅了波斯帝國，一路打到埃及和印度邊境，32歲時在巴比倫突然去世。",
+"羅馬和北非的迦太基（今天的突尼西亞）打了三次戰爭。迦太基名將漢尼拔一度攻進義大利，但羅馬最後獲勝，前146年摧毀迦太基城。",
+"佛教在印度創立後，經阿育王推廣傳出印度。往南傳到斯里蘭卡、東南亞的稱為上座部佛教（南傳佛教）；往北經中亞、絲路傳到中國、朝鮮、日本的稱為大乘佛教（北傳佛教）。",
 "戰國時代，中國分成七個大國互相打仗（戰國七雄）。西邊的秦國最強，秦王嬴政在前221年消滅其他六國，自稱「始皇帝」，就是秦始皇。",
 "不是一條路，而是連接中國和地中海的許多條商路的總稱，要穿過沙漠和高山。因為中國的絲綢是最有名的商品，後人把它叫做「絲路」。",
 "羅馬原本是義大利的一座城市，前509年起是共和國。打下整個地中海後，將軍們互相內戰；凱撒的養子屋大維獲勝，前27年成為第一位皇帝。",
@@ -1325,42 +1583,80 @@ const CW=[
 "395年羅馬帝國分成東、西兩半。西半部越來越弱，日耳曼人大批移入。476年一位日耳曼將領廢掉最後一位西羅馬皇帝，西羅馬帝國就此結束。",
 "東羅馬帝國後來被叫做「拜占庭帝國」，首都君士坦丁堡。查士丁尼皇帝在位時最強盛，他請學者把羅馬幾百年的法律整理成一套法典，又蓋了宏偉的聖索菲亞大教堂。",
 "中國繼隋朝之後的王朝，首都長安（今天的西安）。唐太宗李世民在位時政治清明，稱為「貞觀之治」；各國商人、留學生、僧侶都來到長安。",
-"穆罕默德是阿拉伯半島麥加城的商人，約610年開始傳教，說只有一位真神「阿拉」。信徒叫「穆斯林」，經典是《古蘭經》。他死後，繼承人（哈里發）帶領阿拉伯人向外征服。",
-"查理曼是法蘭克王國的國王（法蘭克人是日耳曼人的一支）。他打下西歐大部分地區，800年聖誕節，教宗在羅馬的教堂替他戴上皇冠。",
+"穆罕默德是阿拉伯半島麥加城的商人，約610年開始傳教，說只有一位真神「阿拉」。622年他帶信徒遷到麥地那，叫「聖遷」，這年是伊斯蘭曆的元年。信徒叫「穆斯林」，要遵守唸清真言、禮拜、齋戒、天課（濟貧）、朝聖五功，經典是《古蘭經》。他死後，繼承人（哈里發）帶領阿拉伯人向外征服。",
+"穆罕默德死後，伊斯蘭世界為了繼承人吵翻：大多數人接受推選出來的哈里發，叫遜尼派；認為應該由阿里和他的後代領導的人，叫什葉派。",
+"查理曼是法蘭克王國的國王（法蘭克人是日耳曼人的一支）。他打下西歐大部分地區，800年聖誕節，教宗在羅馬的教堂替他戴上皇冠。他還辦學校、請學者用拉丁文抄寫聖經和古代典籍，叫做「加洛林文藝復興」。",
 "封建制度是國王把土地分給貴族，貴族答應替國王打仗；農奴在貴族的莊園種田。維京人是住在北歐（今天的挪威、瑞典、丹麥）的航海民族，駕著長船到處搶劫和貿易。",
+"中世紀的西歐人從出生到死亡都離不開教會。修道院的修士抄寫古書、照顧病人、辦學校。教宗可以開除國王的教籍，權威一度比國王還大。",
 "西元1054年，基督教分裂為西邊的天主教和東邊的東正教（以拜占庭為中心）。",
 "塞爾柱人是從中亞往西遷移的突厥人，信仰伊斯蘭教。1071年他們在曼齊刻爾特戰役大敗拜占庭軍隊，占領小亞細亞。",
 "1095年教宗號召西歐的騎士和平民去「奪回聖地」耶路撒冷，參加的人衣服上縫著十字架，所以叫「十字軍」。前後打了大約兩百年。",
 "蒙古人是住在蒙古草原上的遊牧民族，騎馬射箭非常厲害。鐵木真在1206年統一各部落，被尊稱為「成吉思汗」（意思是偉大的統治者）。",
 "馬可波羅是義大利威尼斯的商人。他跟著父親和叔叔沿著絲路來到中國，在忽必烈的朝廷待了十幾年，回國後的見聞被寫成《馬可波羅遊記》。",
+"撒哈拉沙漠南邊的西非盛產黃金，北非商人用駱駝商隊載著鹽穿越沙漠來交換。靠著這條貿易路線，14世紀的馬利帝國非常富有。",
 "一種由老鼠身上的跳蚤傳染的鼠疫。1347年從黑海一帶傳進歐洲，幾年內死了大約三分之一的歐洲人。",
-"「文藝復興」的意思是讓古希臘、羅馬的文化重新復活，核心是人文主義：重新重視人的價值與現世生活。從14世紀義大利的城市（例如佛羅倫斯）開始，藝術家研究古代作品，畫出更真實的人體和風景，例如達文西的《蒙娜麗莎》。",
+"「文藝復興」的意思是讓古希臘、羅馬的文化重新復活，核心是人文主義：重新重視人的價值與現世生活。從14世紀義大利的城市（例如佛羅倫斯）開始，這些城市靠地中海貿易致富，梅迪奇家族等富商贊助藝術家。文學有但丁、佩脫拉克，藝術有達文西的《蒙娜麗莎》、米開朗基羅的《大衛像》。",
 "鄭和是明朝的宦官。明成祖派他率領兩百多艘船、兩萬多人的大船隊，七次航行到東南亞、印度、阿拉伯和非洲東岸。",
 "以前歐洲的書都要用手抄，非常貴。德國人古騰堡做出可以重複排列的金屬字塊，再把壓葡萄的壓榨機改成印刷機，一次就能印很多頁。他印的第一本大書是《聖經》。",
 "鄂圖曼帝國的蘇丹穆罕默德二世，帶兵包圍君士坦丁堡，用巨大的大砲轟破城牆。延續一千多年的拜占庭帝國從此滅亡，這座城後來改名伊斯坦堡。",
 "義大利航海家哥倫布得到西班牙女王資助，想往西橫越大西洋到印度和中國。他其實抵達的是加勒比海的島嶼（美洲），卻以為到了印度，所以美洲原住民被叫做「印第安人」。",
+"葡萄牙航海家狄亞士在1488年航行到非洲南端的好望角；1498年達伽馬繞過好望角、橫越印度洋抵達印度，這是歐洲人第一次從海上直接到達亞洲。",
 "當時天主教會賣贖罪券。德國修士馬丁路德在1517年寫了《九十五條論綱》批評教會，主張信仰只看《聖經》。支持他的人另外成立教會，叫「新教」。",
 "歐洲人到達美洲後，阿茲特克、印加等文明被西班牙等國征服，原住民大量死於天花等傳染病，天主教也隨之傳入。",
+"宗教改革後出現兩個變化：英國國王亨利八世與教宗決裂，自己當英國教會的領袖，叫英國國教；天主教會也開始改革自己，召開特倫特大公會議，並成立耶穌會到亞洲、美洲傳教。",
+"16世紀起統治印度大部分地區的伊斯蘭帝國。皇帝信伊斯蘭教，但大部分人民信印度教。18世紀帝國衰弱、各地分裂，給了英國東印度公司機會。",
+"西班牙人在菲律賓的馬尼拉建立據點，用大帆船橫越太平洋，往返馬尼拉和墨西哥。美洲的白銀運到亞洲，換回中國的絲綢、瓷器。",
 "16～17世紀，學者開始用觀察、實驗和數學研究自然：哥白尼提出地球繞著太陽轉，伽利略用望遠鏡觀察星空，牛頓提出萬有引力。",
 "歐洲、非洲與美洲之間形成三角貿易：歐洲輸出製成品，從非洲運走奴隸，再從美洲運回農產和原料。",
+"1602年荷蘭成立東印度公司，可以自己組軍隊、和外國簽約。它在爪哇的巴達維亞（今印尼雅加達）設總部，控制東南亞的香料貿易。",
 "鄭成功是明朝末年的將領，父親是海商鄭芝龍，母親是日本人。明朝滅亡後他繼續抵抗清朝，1661年渡海攻打臺灣，隔年趕走了統治臺灣38年的荷蘭人。",
-"啟蒙運動在17世紀末興起，主要展開於18世紀，會跨過課本近代（至1700）與現代（自1700）的交界；「啟蒙」是用理性照亮無知的意思。孟德斯鳩主張三權分立；盧梭主張國家的權力來自人民。",
-"18世紀中期從英國開始，人們發明機器來織布，又改良蒸汽機當動力，工廠大量生產商品；後來又有火車和輪船。生產方式從「手工」變成「機器」。",
-"1776年，北美13個英國殖民地發表《獨立宣言》，打敗英國，建立美國。1789年，法國人民攻占巴士底監獄，推翻國王，發表《人權宣言》。",
+"啟蒙運動在17世紀末興起，主要展開於18世紀，會跨過課本近代（至1700）與現代（自1700）的交界；「啟蒙」是用理性照亮無知的意思。孟德斯鳩主張三權分立；盧梭主張國家的權力來自人民；伏爾泰批評專制和宗教迫害；亞當斯密主張自由市場。",
+"英國東印度公司原本只是做生意，後來擁有自己的軍隊。1757年在普拉西打敗孟加拉的統治者，從此逐步控制印度。",
+"18世紀中期從英國開始：先是珍妮紡紗機等機器讓織布變快，瓦特改良蒸汽機當動力，工廠大量生產商品；19世紀初又有火車和輪船。生產方式從「手工」變成「機器」。",
+"北美13個英國殖民地反對英國加稅，1773年發生波士頓茶葉事件，1775年開戰，1776年發表《獨立宣言》，1783年英國承認美國獨立。1787年制定美國憲法，採用聯邦制和三權分立。",
+"英國在1788年把一船船罪犯送到澳洲，建立殖民地。原本住在這裡的澳洲原住民失去土地，人口大幅減少，孩子還曾被強制帶離家庭。",
+"1789年，法國人民攻占巴士底監獄，國民議會發表《人權宣言》；1792年廢除王政，1793年處死國王路易十六，接著進入大量處決反對者的恐怖統治。1799年拿破崙奪權。",
+"拿破崙戰敗後，歐洲各國代表在奧地利維也納開會，重畫歐洲地圖，讓被推翻的王室復位，並約定互相合作，鎮壓革命。",
+"1823年美國總統門羅發表宣言：歐洲國家不可以再到美洲建立殖民地或干涉美洲國家，美國也不干涉歐洲的事。",
+"19世紀鄂圖曼帝國越來越弱，為了自救，推動「坦志麥特」改革：仿照西方改革法律、軍隊和學校。",
 "英國人想買中國的茶，卻沒有中國想要的商品，就把印度種的鴉片（一種毒品）賣到中國。清朝派林則徐禁菸、燒毀鴉片，英國就出兵攻打中國（1840～1842）。",
+"工業革命讓城市快速長大，但工人生活困苦。有人主張由社會共同掌握工廠和土地，叫社會主義（代表人物馬克思）；作家狄更斯等人用寫實主義小說描寫窮人的生活；另一派浪漫主義的作家、音樂家則重視個人情感、大自然和民族傳統。",
 "工業革命後，列強為了原料和市場瓜分亞洲、非洲（柏林會議後非洲幾乎被瓜分完畢）。社會達爾文主義被用來合理化殖民。英、法、德等國之外，日本後來也加入。",
-"19世紀民族主義興起：拉丁美洲各國脫離西班牙、葡萄牙獨立；義大利完成統一；普魯士首相俾斯麥完成德意志統一。",
-"1911年10月10日革命黨人在武昌起義（所以這天叫「雙十節」），各省紛紛響應，叫做辛亥革命。1912年1月1日中華民國成立，孫中山擔任臨時大總統，清朝皇帝退位。",
-"1914年6月，奧匈帝國的皇儲（王位繼承人）在塞拉耶佛被一名塞爾維亞青年槍殺。各國早就互相結盟，一國宣戰就把盟友拖下水，變成大戰。戰爭打了4年，死了上千萬人。",
-"1917年，俄國人民因為戰爭和饑餓推翻了沙皇。同年，列寧領導的共產黨奪取政權。",
-"一戰結束後，戰勝國1919年在法國的凡爾賽宮和德國簽的和約，規定德國要承擔戰爭責任、割讓土地、賠償巨款、限制軍隊。",
+"1857年，英國東印度公司僱用的印度傭兵起兵反抗英國，許多地方跟著響應，叫做「反英兵變」。",
+"19世紀民族主義興起：拉丁美洲各國脫離西班牙、葡萄牙獨立；義大利靠「建國三傑」完成統一；普魯士首相俾斯麥用鐵血政策完成德意志統一。",
+"美國北方和南方為了奴隸制度和州的權力打了四年內戰。林肯總統帶領北方獲勝，美國廢除奴隸制度，也沒有分裂。",
+"日本被西方逼著開港之後，下定決心全面學習西方。廢除幕府和各藩，建立以天皇為中心的新政府，發展工業、建立新式軍隊，幾十年內就成為強國。",
+"1869年，連接地中海和紅海的蘇伊士運河在埃及通航。從歐洲到亞洲的船，不必再繞過非洲南端的好望角。",
+"19世紀後期，工業的動力從煤和蒸汽，進一步發展到電力和石油。電燈、電話、汽車陸續出現，鋼鐵和化學工業也快速發展。",
+"到了19世紀末，東南亞幾乎全被西方國家瓜分。暹羅（今天的泰國）夾在英國和法國的勢力之間，國王推動改革、靈活外交，成為緩衝地帶，保住了獨立。",
+"1896年義大利入侵衣索比亞，衣索比亞軍隊在阿杜瓦大敗義軍。這是19世紀非洲國家打敗歐洲列強最有名的一次。",
+"19世紀末到20世紀初，歐洲列強分成兩邊：德國、奧匈帝國、義大利的「三國同盟」，和英國、法國、俄國的「三國協約」。",
+"1911年10月10日革命黨人在武昌起義（所以這天叫「雙十節」），各省紛紛響應，叫做辛亥革命。1912年1月1日中華民國成立，孫中山擔任臨時大總統；同年2月清朝皇帝退位。",
+"1914年6月，奧匈帝國的皇儲（王位繼承人）在塞拉耶佛被一名塞爾維亞民族主義青年槍殺。各國早就互相結盟，一國宣戰就把盟友拖下水，變成大戰。西線打成壕溝戰，東線德奧對上俄國；德國的潛艇攻擊美國船隻，1917年美國參戰。戰爭打了4年，死了上千萬人。",
+"1917年，俄國人民因為戰爭和饑餓推翻了沙皇（二月革命）。同年，列寧領導的共產黨奪取政權（十月革命）。",
+"一戰結束後，戰勝國在巴黎和會上決定戰後安排，1919年在法國的凡爾賽宮和德國簽下和約：德國要承擔戰爭責任、割讓土地、賠償巨款、限制軍隊。",
+"極權政治是由一個政黨或一個領袖掌握全部權力，控制政治、經濟、教育和言論，不允許反對的聲音。一戰後，義大利、蘇聯、德國相繼走上這條路。",
 "1929年美國紐約的股票市場突然崩盤，大量銀行和公司倒閉，很多人失業。經濟危機擴散到全世界，持續了好幾年。",
-"1931年9月18日，日軍在中國東北製造事件後占領東北（九一八事變）。1937年7月7日，日軍在北京附近的盧溝橋和中國軍隊衝突（七七事變），中日全面開戰。",
-"1939年9月1日，納粹德國出兵攻打波蘭。兩天後，英國和法國對德國宣戰，第二次世界大戰在歐洲開始。",
+"1931年9月18日，日軍在中國東北製造事件後占領東北（九一八事變）。1937年7月7日，日軍在北平（今北京）附近的盧溝橋和中國軍隊衝突（七七事變），中日全面開戰。",
+"1933年美國總統富蘭克林・羅斯福（小羅斯福）上任，推出一連串政策：政府出錢蓋水壩、道路創造工作，管理銀行，建立退休金和失業保險，幫美國度過大恐慌。",
+"1938年，英國、法國、義大利和德國在德國的慕尼黑開會，同意把捷克斯洛伐克的蘇臺德區割給德國。英法對希特勒一再讓步的做法，叫「姑息政策」。",
+"1939年8月，德國和蘇聯簽訂《德蘇互不侵犯條約》，私下約定瓜分波蘭。9月1日，納粹德國出兵攻打波蘭。兩天後，英國和法國對德國宣戰，第二次世界大戰在歐洲開始。",
 "珍珠港是美國海軍在夏威夷的基地。1941年12月7日，日本派飛機偷襲，炸毀許多美國軍艦，美國隔天就對日本宣戰。",
+"二戰期間，納粹德國有計畫地殺害歐洲的猶太人，約600萬人遇害。這是人類歷史上最嚴重的種族滅絕之一。",
+"二戰期間同盟國領袖多次開會。1943年蔣中正、羅斯福、邱吉爾在埃及開羅會面；1945年羅斯福、邱吉爾、史達林在雅爾達會面，安排戰後世界。",
+"二戰的兩個轉捩點：東邊，蘇聯在史達林格勒擊敗德軍；西邊，美、英等盟軍渡過英吉利海峽，在法國諾曼第登陸，從此德國東西兩面挨打。",
 "1945年5月德國投降。8月美國在日本的廣島、長崎投下兩顆原子彈，8月15日日本宣布投降，二戰結束。",
 "二戰後，以美國為首的民主陣營和以蘇聯為首的共產陣營互相對抗。兩邊沒有直接開戰（所以叫「冷」戰），而是比軍備、比太空科技。1991年蘇聯解體，冷戰結束。",
+"二戰後，美國總統杜魯門提出要「圍堵」共產勢力擴張（杜魯門主義），又用馬歇爾計畫出錢幫西歐重建；1949年美國和西歐國家組成北約。",
+"1947年英國結束對印度的統治，依宗教分成印度和巴基斯坦兩個國家（當時的東巴基斯坦，1971年獨立成為孟加拉）。分治時大批人逃離家園，死傷慘重。",
+"1948年聯合國大會通過《世界人權宣言》，列出每個人都該享有的基本權利，例如生命、自由、受教育，不被奴役、不受酷刑。",
+"1948年蘇聯切斷通往西柏林的道路和鐵路，想逼美、英、法退出。美英改用飛機每天運送食物和煤，撐到蘇聯放棄。1949年德國正式分裂成西德、東德。",
+"1948年猶太人在巴勒斯坦建立以色列。周圍的阿拉伯國家不承認，雙方多次爆發戰爭，許多巴勒斯坦阿拉伯人成為難民。",
+"1950年北韓出兵攻打南韓，美國帶領聯合國軍參戰，中共也派兵支援北韓。打了三年，最後在接近原本的界線停戰，韓國到今天仍分成南北兩邊。",
+"1955年，29個亞洲、非洲國家在印尼的萬隆開會，反對殖民主義、主張和平共處。1961年部分國家組成「不結盟運動」，不加入美蘇任何一方。",
 "1960年，奈及利亞、剛果、索馬利亞等17個非洲國家在同一年脫離殖民統治獨立，這一年被稱為「非洲年」。",
+"1962年美國發現蘇聯在古巴蓋飛彈基地。甘迺迪總統下令封鎖古巴海域，美蘇對峙13天，全世界擔心核戰爆發，最後雙方各退一步。",
+"20世紀許多人爭取平等權利：女性爭取投票權；美國黑人透過非暴力抗爭爭取民權；南非人民反對種族隔離，曼德拉在1994年成為南非第一位黑人總統。",
 "1969年7月，美國阿波羅11號太空船載著太空人阿姆斯壯等人登陸月球，他是第一個踏上月球的人。",
 "1989年11月9日，分隔東、西柏林28年的柏林圍牆開放，人們爬上牆頭慶祝，接著把圍牆一塊塊敲下來。",
 "1991年12月，蘇聯最後一位領導人戈巴契夫辭職，蘇聯正式解散，分成俄羅斯、烏克蘭等15個國家。",
@@ -1369,7 +1665,7 @@ const CW=[
 "世界各國的貿易、資訊、文化越來越緊密地連在一起。網際網路從冷戰時美國的軍事網路發展而來，1990年代開始普及到一般人。",
 "2001年9月11日，恐怖分子劫持民航機撞毀紐約世界貿易中心雙塔，約3000人死亡。",
 "2008年美國房地產泡沫破裂，大型投資銀行雷曼兄弟倒閉，危機很快擴散到全世界。",
-"2015年各國在法國巴黎簽署氣候協定，承諾共同減少溫室氣體排放。",
+"2015年各國在法國巴黎通過氣候協定（2016年起開放簽署），承諾共同減少溫室氣體排放。",
 "2019年底出現的新型冠狀病毒（COVID-19）在2020年蔓延全球，世界衛生組織宣布為全球大流行。",
 "2022年2月24日，俄羅斯對烏克蘭發動全面入侵。",
 "2022年底，能用文字對話的 AI 聊天機器人推出，短短兩個月使用者就破億，引發全球 AI 熱潮。"
@@ -1381,17 +1677,23 @@ const CT=[
 "最早被人類馴養的動物是狗，比種田還早了好幾千年。",
 "最早的楔形文字大多是在記帳：幾隻羊、幾袋大麥，不是詩或故事。",
 "古夫金字塔是古代世界七大奇蹟中，唯一保存到今天的一個。",
+"印度河文明的文字到今天還沒有人能讀懂。",
 "米諾斯人留下的文字「線形文字A」，到今天還沒有人讀得懂。",
 "漢摩拉比法典的處罰會看身分：傷害貴族和傷害奴隸，賠償完全不一樣。",
 "「中國」這兩個字，最早出現在西周一件叫「何尊」的青銅器銘文上。",
 "英文字母 A 原本是腓尼基文的「牛頭」符號，倒過來看還有點像牛角。",
-"古代奧運的冠軍沒有獎金，獎品只是一頂橄欖枝編的花冠。",
+"「十誡」據說是摩西從神那裡得到的十條戒律，是猶太教最重要的規範之一。",
+"古代奧運現場只頒一頂橄欖枝編的花冠，不過冠軍回到家鄉常會得到重賞。",
 "希臘史家形容波斯郵差風雨無阻；這段話後來被刻在紐約郵政大樓上，成了美國郵差的非官方格言。",
 "羅馬人用「SPQR」（羅馬元老院與人民）當國家標誌，今天羅馬市的人孔蓋上還看得到。",
-"孔子、佛陀、蘇格拉底都沒有親手寫書，我們讀到的都是學生記下來的。",
-"雅典人可以投票把危險人物趕出城十年，名字寫在陶片上，叫「陶片放逐法」。",
+"孔子、佛陀、蘇格拉底的言行，主要都是靠學生記錄下來，才流傳到今天。",
+"今天馬拉松的42.195公里來自1908年倫敦奧運的路線，不是古代傳說的距離。",
+"雅典人可以投票把危險人物趕出城十年，名字寫在陶片上，叫「陶片流放」（陶片放逐法）。",
 "據說《十二表法》公布後，羅馬的孩子在學校要把條文背下來，就像今天背課文一樣。",
+"記錄這場戰爭的修昔底德，被稱為最早講求證據的歷史學家之一。",
 "亞歷山大的老師是哲學家亞里斯多德；他一路建了好幾座「亞歷山大城」，最有名的在埃及。",
+"漢尼拔帶著戰象翻越阿爾卑斯山攻進義大利，大部分大象沒撐過嚴寒。",
+"佛教在印度本土後來反而衰落，今天印度信佛教的人不到1%。",
 "秦始皇陵的兵馬俑估計有八千多個，而且每個人的臉都不一樣。",
 "「絲路」這個名字不是古人取的，是19世紀德國地理學家李希霍芬取的。",
 "英文的七月 July、八月 August，就是來自凱撒（Julius）和屋大維（Augustus）。",
@@ -1400,41 +1702,79 @@ const CT=[
 "聖索菲亞大教堂當了快一千年的世界最大教堂；後來變成清真寺、博物館，2020年又改回清真寺。",
 "唐朝長安城被切成一百多個方塊狀的「坊」，晚上會關上坊門、實施宵禁。",
 "伊斯蘭曆從622年穆罕默德遷往麥地那開始算，而且一年只有354或355天。",
+"「什葉」原意是「派系、追隨者」，指「阿里的追隨者」。",
 "查理曼很努力學寫字，據說把寫字板放在枕頭下練習，但到老都沒學好。",
 "維京人的頭盔其實沒有角；有角的頭盔是19世紀歌劇的服裝設計。",
+"1077年神聖羅馬皇帝亨利四世為了請教宗撤銷開除教籍，在雪地裡站了三天，史稱「卡諾莎之行」。",
 "東正教和天主教的復活節日期常常不一樣，因為兩邊用的曆法不同。",
 "這場戰役中，拜占庭皇帝羅曼努斯四世被塞爾柱人活捉，震驚了整個基督教世界。",
 "第四次十字軍根本沒打到聖地，反而在1204年攻陷了同樣信基督教的君士坦丁堡。",
 "蒙古帝國的驛站讓信差可以一路換馬接力，消息能用很快的速度傳遍歐亞。",
 "《馬可波羅遊記》是他在監獄裡，口述給同一間牢房的作家寫下來的。",
+"1324年馬利國王曼薩・穆薩到麥加朝聖，一路送出大量黃金，據說讓開羅的金價好幾年都跌下來。",
 "「隔離」的英文 quarantine 來自義大利文的「四十天」，當時船隻要在港外等四十天才能上岸。",
 "達文西是左撇子，筆記常用「鏡像字」由右往左寫，要用鏡子照才好讀。",
 "鄭和的船隊曾把非洲的長頸鹿帶回中國，被當成傳說中的神獸「麒麟」。",
 "古騰堡印的《聖經》今天全世界只剩大約50本，是世界上最貴的書之一。",
 "鄂圖曼軍隊把船拖上陸地、翻過山丘運進港灣，繞過了守城方攔在海上的大鐵鍊。",
 "哥倫布到死都以為自己到的是亞洲；「美洲（America）」這個名字來自另一位航海家亞美利哥。",
+"好望角原本被叫做「風暴角」，因為那裡風浪很大；後來葡萄牙國王把它改名「好望角」，希望去印度的路從此有望。",
 "馬丁路德把《九十五條論綱》「釘在教堂大門上」這個畫面，歷史學家到今天還在爭論是不是真的。",
 "征服阿茲特克的西班牙軍隊只有幾百人，關鍵是當地反抗阿茲特克的部族幫忙，以及天花造成的大量死亡。",
+"耶穌會創辦人羅耀拉原本是軍人，在戰場受傷養病時讀宗教書而改變一生。",
+"「蒙兀兒」就是「蒙古」的意思，因為開國君主是帖木兒和成吉思汗的後代。",
+"明朝後期大量美洲白銀流入中國，白銀成為主要貨幣；明朝推行一條鞭法，各種稅也改成用白銀繳納。",
 "牛頓除了研究物理，還當過英國皇家造幣廠的主管，親自追查偽造錢幣的人。",
 "當時歐洲人愛喝的加糖咖啡和紅茶裡的糖，很多來自美洲奴隸種的甘蔗。",
+"荷蘭東印度公司常被認為是世界上第一家公開發行股份、讓一般人也能買股份的公司。",
 "鄭成功的母親是日本人，他在日本平戶出生，七歲才回到中國。",
 "很多啟蒙思想是在「沙龍」裡討論出來的，那是由貴族女主人在家裡舉辦的聚會。",
+"英國東印度公司全盛時擁有約26萬人的軍隊，比當時英國本土的陸軍還多。",
 "「馬力」這個單位是瓦特想出來的，用來告訴客戶一台蒸汽機抵得上幾匹馬；功率單位「瓦特」就是以他命名。",
+"波士頓茶葉事件裡，抗議者把342箱茶葉倒進港口。",
+"澳洲原住民在這片土地上已經生活了至少5萬年。",
 "法國大革命時曾推行「十進位時間」：一天10小時、一小時100分鐘，但很快就放棄了。",
+"會議期間舞會一場接一場，有人笑說「會議不前進，只會跳舞」。",
+"門羅宣言發表時，美國的海軍其實還不夠強；當時英國也不希望其他歐洲國家重回拉丁美洲，英國艦隊才是真正讓宣言有效的力量。",
+"「歐洲病夫」這個說法，據說出自俄國沙皇尼古拉一世，用來形容衰弱的鄂圖曼帝國。",
 "當時英國人瘋狂愛喝茶，茶葉是英國從中國進口的最大宗商品之一。",
+"狄更斯12歲時因為爸爸欠債坐牢，被送到鞋油工廠當童工，後來把這段經歷寫進小說裡。",
 "1884年瓜分非洲的柏林會議，十幾個與會國家裡沒有一個是非洲國家。",
+"傳言新子彈的紙包裝塗了牛油和豬油，士兵要用牙齒咬開；牛對印度教徒是神聖的，豬對穆斯林是不潔的，兩邊都被激怒。",
 "德意志帝國是在法國的凡爾賽宮宣布成立的；48年後，一戰的和約也在同一座宮殿簽訂。",
+"林肯是美國最高的總統之一，身高約193公分。",
+"明治政府曾派岩倉使節團到歐美考察將近兩年，團員多是政府高官。",
+"英國在1875年買下運河公司的大量股份，因為這條運河是英國通往印度的生命線。",
+"第一部實用的汽車是德國人賓士在1885～1886年做出來的三輪車。",
+"暹羅國王朱拉隆功（拉瑪五世）派王子們到歐洲留學，也廢除了奴隸制度。",
+"很多非洲國家的國旗用綠、黃、紅三色，就是向衣索比亞致敬。",
+"義大利雖然是三國同盟的成員，一戰開打時卻先保持中立，1915年反而加入協約國那一邊。",
 "中華民國成立後改用陽曆，但大家還是照農曆過年，於是農曆新年後來被改稱「春節」。",
 "1914年聖誕節，西線有些英國和德國士兵自動停火，走出戰壕交換禮物，叫「聖誕休戰」。",
 "「十月革命」其實發生在現在曆法的11月，因為俄國當時還用舊的儒略曆。",
 "德國的一戰賠款拖了將近一百年，最後一筆在2010年才付清。",
+"「納粹」是德文「國家社會主義德意志工人黨」的簡稱。",
 "大恐慌最嚴重時，美國大約每四個想工作的人就有一個找不到工作。",
 "七七事變時，日軍說有一名士兵失蹤要求進城搜查；那名士兵其實不久就自己歸隊了。",
+"羅斯福用廣播「爐邊談話」直接跟全國人民說明政策，像在客廳聊天一樣。",
+"英國首相張伯倫從慕尼黑回國時，揮著協議說帶回了「我們這個時代的和平」；不到一年，二戰就爆發了。",
 "二戰開打時波蘭還有騎兵部隊；不過「波蘭騎兵拿長矛衝戰車」是被誇大的傳說。",
 "被炸沉的亞利桑那號至今仍沉在港內，船上還會冒出少量的油，被稱為「黑色眼淚」。",
+"《安妮日記》作者安妮・法蘭克躲在阿姆斯特丹的密室兩年多，日記後來被翻成70多種語言。",
+"雅爾達會議在克里米亞半島舉行，羅斯福兩個月後就過世了。",
+"諾曼第登陸當天，盟軍出動約7000艘船艦，是史上規模最大的海上登陸作戰。",
 "日本士兵小野田寬郎不知道戰爭結束，在菲律賓叢林裡一直躲到1974年才出來投降。",
 "美蘇之間架設了「熱線」避免誤會引發核戰；它一開始其實是電傳打字機，不是電話。",
+"邱吉爾在1946年演講時說，一道「鐵幕」已經落下、把歐洲分成兩半，「鐵幕」從此成為冷戰的代名詞。",
+"甘地在印度獨立後不到半年就遇刺身亡（1948年1月）。",
+"《世界人權宣言》被翻譯成數百種語言，是全世界翻譯版本最多的文件之一。",
+"柏林空運最高峰時，大約每一分鐘就有一架飛機降落西柏林。",
+"以色列把古老的希伯來語復活成日常生活用語，在世界上非常少見。",
+"南北韓之間的非軍事區寬約4公里，因為少有人進入，成了野生動物的天堂。",
+"萬隆會議是第一次由亞洲、非洲國家自己召開、沒有歐美列強參加的大型國際會議。",
 "非洲地圖上許多國界是筆直的，因為那是19、20世紀歐洲列強談判時，直接在地圖上畫出來的直線，沒有考慮當地的民族和部落。",
+"古巴離美國佛羅里達州只有約150公里。",
+"紐西蘭在1893年成為第一個讓女性在全國選舉投票的國家。",
 "阿姆斯壯在月球上留下的腳印，因為月球沒有風和雨，可能幾百萬年都不會消失。",
 "柏林圍牆存在的28年間，至少有140人在試圖越過圍牆時喪命。",
 "蘇聯解散的消息是在1991年聖誕節當天由戈巴契夫在電視上宣布的；當晚克里姆林宮降下蘇聯國旗，換上俄羅斯國旗。",
@@ -1467,13 +1807,16 @@ const LSTORY=[
 if(CT.length!==C.length)console.error('CT',CT.length,C.length);
 C.forEach((c,i)=>c[12]=CT[i]);
 // 脆文版「是什麼」與熱知識（只用於課程的深入了解／事件列）
-const CP=["人類從「打獵、採集野果」轉職成「自己種田、養牲畜」。最早發生在西亞的「肥沃月彎」（今天的伊拉克、敘利亞一帶），開始種小麥、大麥，養羊和牛。", "兩河流域南部的蘇美人蓋了很多城市，還發明楔形文字：拿削尖的蘆葦在濕泥板上壓符號，晒乾就能存檔。最早的用途？記帳，記誰繳了多少糧食。", "古埃及國王（法老）的超巨型石造陵墓。最大的古夫金字塔在開羅附近，原本約146公尺高，用了大約230萬塊巨石。", "愛琴海一帶的古文明：克里特島上的米諾斯文明（有巨大的克諾索斯宮殿），加上希臘本土的邁錫尼文明。", "一根兩公尺多高的黑色石柱，刻了將近300條法律，是古巴比倫（今天的伊拉克）國王漢摩拉比下令刻的，立在城裡讓人民看。最有名的一條：「以眼還眼、以牙還牙」。石柱現在在法國羅浮宮。", "周原本只是商朝西邊的小國（諸侯）。商朝最後的國王紂王很殘暴，周武王揪團各地諸侯，在「牧野之戰」打敗商朝，建立周朝。", "腓尼基人住在地中海東岸（今天的黎巴嫩），是超會做生意的航海民族。他們的文字只有22個字母，比楔形文字、象形文字簡單太多。", "希臘人在多山的半島和島嶼上，建了幾百個獨立的城市國家（城邦），像雅典、斯巴達。大家說同一種語言、拜同一群神，前776年開始一起辦奧運。", "前550年居魯士建立波斯帝國，後來一路擴張到亞、非、歐，變成第一個橫跨三洲的大帝國（埃及約在前525年被納入）。帝國修「御道」、設驛站，命令能快速傳遍各地。", "前509年，羅馬人把國王趕走，改由每年選出的兩位執政官和元老院一起治理國家。這種制度叫：共和。", "大約西元前500年前後，世界好幾個地方同時冒出超強思想家：中國的孔子、老子，印度的釋迦牟尼（佛陀），希臘的蘇格拉底等人。像是全人類同時開了思考模式。", "雅典的成年男性公民，可以到「公民大會」發言、投票，直接決定國家大事。不過女性、奴隸和外國人不能參加，所以不是人人都有份。", "羅馬共和初期，把法律條文刻在十二塊表上公布，這就是《十二表法》。", "亞歷山大是希臘北方馬其頓的國王，20歲即位。從前334年開始一路往東打，滅了波斯帝國，打到埃及和印度邊境，32歲就病死了。", "戰國時代，中國分成七個大國互打（戰國七雄）。西邊的秦國最強，秦王嬴政在前221年收掉其他六國，自稱「始皇帝」。", "絲路不是一條路，是連接中國和地中海的一大堆商路的總稱，要穿過沙漠和高山。因為中國絲綢太紅了，後人就叫它「絲路」。", "羅馬打下整個地中海後，將軍們開始內戰。凱撒的養子屋大維最後勝出，前27年成為第一位皇帝，共和變帝國。", "耶穌是羅馬統治下巴勒斯坦地區的猶太人，傳教說上帝愛所有人。他被釘十字架後，門徒繼續傳，信徒越來越多。經典是《聖經》。", "395年羅馬帝國拆成東、西兩半。西半部越來越弱，日耳曼人大量移入。476年，一位日耳曼將領直接廢掉最後一位西羅馬皇帝。", "東羅馬後來被叫做「拜占庭帝國」，首都君士坦丁堡。查士丁尼皇帝時最強：他請學者把羅馬幾百年的法律整理成一套法典，還蓋了超壯觀的聖索菲亞大教堂。", "唐朝首都長安（今天的西安）。唐太宗李世民時政治清明，叫「貞觀之治」；各國商人、留學生、僧侶都擠到長安來。", "穆罕默德是阿拉伯半島麥加城的商人，約610年開始傳教：只有一位真神「阿拉」。信徒叫「穆斯林」，經典是《古蘭經》。他死後，繼承人（哈里發）帶著阿拉伯人向外征服。", "查理曼是法蘭克王國的國王（法蘭克人是日耳曼人的一支），打下西歐大部分地區。800年聖誕節，教宗親自在羅馬的教堂替他戴上皇冠。", "封建制度：國王把土地分給貴族，貴族答應幫國王打仗；農奴在貴族的莊園種田。維京人：住在北歐（今天的挪威、瑞典、丹麥）的航海民族，開著長船到處搶劫也到處做生意。", "1054年，基督教正式分家：西邊是天主教，東邊是以拜占庭為中心的東正教。", "塞爾柱人是從中亞一路往西遷的突厥人，信伊斯蘭教。1071年在曼齊刻爾特戰役大敗拜占庭，占領小亞細亞。", "1095年教宗號召西歐的騎士和平民去「奪回聖地」耶路撒冷，大家衣服上縫十字架，所以叫「十字軍」。前前後後打了大約兩百年。", "蒙古人是蒙古草原上的遊牧民族，騎馬射箭超強。鐵木真在1206年統一各部落，被尊稱為「成吉思汗」（意思是偉大的統治者）。", "馬可波羅是義大利威尼斯的商人，跟著爸爸和叔叔沿絲路來到中國，在忽必烈的朝廷待了十幾年，回去後的見聞被寫成《馬可波羅遊記》。", "一種由老鼠身上的跳蚤傳染的鼠疫。1347年從黑海一帶傳進歐洲，幾年內大約三分之一的歐洲人死亡。", "文藝復興＝讓古希臘、羅馬文化「復活」。核心是人文主義：重新重視人的價值與現世生活。從14世紀義大利城市（像佛羅倫斯）開始，藝術家研究古代作品，畫出更真實的人體和風景，例如達文西的《蒙娜麗莎》。", "鄭和是明朝的宦官。明成祖派他帶兩百多艘船、兩萬多人的超大船隊，七次航行到東南亞、印度、阿拉伯和非洲東岸。", "以前歐洲的書都靠手抄，貴到不行。德國人古騰堡做出可以重複排的金屬字塊，再把壓葡萄的壓榨機改成印刷機，一次印很多頁。第一本大書：《聖經》。", "鄂圖曼帝國的蘇丹穆罕默德二世包圍君士坦丁堡，用巨型大砲轟破城牆。撐了一千多年的拜占庭帝國就此滅亡，這座城後來改名伊斯坦堡。", "義大利航海家哥倫布拿到西班牙女王的贊助，想往西橫越大西洋去印度和中國。結果他到的是加勒比海的島嶼（美洲），卻以為到了印度，所以美洲原住民被叫成「印第安人」。", "當時天主教會在賣贖罪券。德國修士馬丁路德在1517年寫了《九十五條論綱》嗆教會，主張信仰只看《聖經》。支持他的人另外成立教會，叫「新教」。", "歐洲人到達美洲後，阿茲特克、印加等文明被西班牙等國征服，原住民大量死於天花等傳染病，天主教也跟著傳入。", "16～17世紀，學者開始用觀察、實驗和數學研究自然：哥白尼說地球繞著太陽轉，伽利略用望遠鏡看星空，牛頓提出萬有引力。", "歐洲、非洲與美洲之間形成三角貿易：歐洲輸出製成品，從非洲運走奴隸，再從美洲運回農產和原料。", "鄭成功是明末將領，爸爸是海商鄭芝龍，媽媽是日本人。明朝滅亡後他繼續抗清，1661年渡海攻打臺灣，隔年趕走統治臺灣38年的荷蘭人。", "「啟蒙」＝用理性照亮無知。孟德斯鳩主張三權分立；盧梭主張國家的權力來自人民。17世紀末興起、主要在18世紀，剛好跨過近代與現代的交界（1700）。", "18世紀中期從英國開始：發明機器織布、改良蒸汽機當動力，工廠大量生產；後來又有火車和輪船。生產方式從「手工」升級成「機器」。", "1776年，北美13個英國殖民地發表《獨立宣言》，打敗英國，建立美國。1789年，法國人民攻占巴士底監獄，推翻國王，發表《人權宣言》。", "英國人想買中國的茶，卻沒有中國想要的商品，就把印度種的鴉片（一種毒品）賣到中國。清朝派林則徐禁菸、燒鴉片，英國就出兵打中國（1840～1842）。", "工業革命後，列強為了原料和市場瓜分亞洲、非洲（柏林會議後非洲幾乎被分光）。社會達爾文主義被拿來合理化殖民。英、法、德之外，日本後來也加入。", "19世紀民族主義興起：拉丁美洲各國脫離西班牙、葡萄牙獨立；義大利完成統一；普魯士首相俾斯麥完成德意志統一。", "1911年10月10日革命黨人在武昌起義（所以這天叫「雙十節」），各省紛紛響應，叫辛亥革命。1912年1月1日中華民國成立，孫中山當臨時大總統，清朝皇帝退位。", "1914年6月，奧匈帝國的皇儲在塞拉耶佛被一名塞爾維亞青年槍殺。各國早就互相結盟，一國宣戰就把盟友拖下水，變成大戰。打了4年，死了上千萬人。", "1917年，俄國人民因為戰爭和饑餓推翻沙皇。同年，列寧領導的共產黨奪取政權。", "一戰結束後，戰勝國1919年在法國凡爾賽宮和德國簽的和約：德國要承擔戰爭責任、割地、賠巨款、限制軍隊。", "1929年，美國紐約股市突然崩盤，大量銀行和公司倒閉，很多人失業。危機擴散到全世界，持續好幾年。", "1931年9月18日，日軍在中國東北製造事件後占領東北（九一八事變）。1937年7月7日，日軍在北京附近的盧溝橋和中國軍隊衝突（七七事變），中日全面開戰。", "1939年9月1日，納粹德國出兵攻打波蘭。兩天後，英國和法國對德國宣戰，第二次世界大戰在歐洲開始。", "珍珠港是美國海軍在夏威夷的基地。1941年12月7日，日本派飛機偷襲，炸毀許多美國軍艦，美國隔天就對日本宣戰。", "1945年5月德國投降。8月美國在日本的廣島、長崎投下兩顆原子彈，8月15日日本宣布投降，二戰結束。", "二戰後，美國帶頭的民主陣營和蘇聯帶頭的共產陣營互相對抗。兩邊沒有直接開打（所以叫「冷」戰），而是比軍備、比太空科技。1991年蘇聯解體，冷戰結束。", "1960年，奈及利亞、剛果、索馬利亞等17個非洲國家在同一年脫離殖民統治獨立，這一年被叫做「非洲年」。", "1969年7月，美國阿波羅11號載著阿姆斯壯等太空人登陸月球，阿姆斯壯成為第一個踏上月球的人。", "1989年11月9日，分隔東、西柏林28年的柏林圍牆開放，人們爬上牆頭慶祝，接著把圍牆一塊一塊敲下來。", "1991年12月，蘇聯最後一位領導人戈巴契夫辭職，蘇聯正式解散，分成俄羅斯、烏克蘭等15個國家。", "歐洲聯盟依《馬斯垂克條約》在1993年成立，前身是1950年代的歐洲煤鋼共同體和歐洲經濟共同體。", "1996年3月，臺灣舉行第一次總統直接選舉，公民一人一票選出總統和副總統。", "世界各國的貿易、資訊、文化越綁越緊。網際網路從冷戰時美國的軍事網路發展而來，1990年代開始普及到一般人。", "2001年9月11日，恐怖分子劫持民航機撞毀紐約世界貿易中心雙塔，約3000人死亡。", "2008年美國房地產泡沫破裂，大型投資銀行雷曼兄弟倒閉，危機很快擴散到全世界。", "2015年各國在法國巴黎簽署氣候協定，承諾一起減少溫室氣體排放。", "2019年底出現的新型冠狀病毒（COVID-19），2020年蔓延全球，世界衛生組織宣布為全球大流行。", "2022年2月24日，俄羅斯對烏克蘭發動全面入侵。", "2022年底，能用文字對話的 AI 聊天機器人推出，短短兩個月使用者就破億，全球掀起 AI 熱潮。"];
-const CH=["冰河期結束、氣候變暖 → 學會種田 → 可以定居、人口變多，村落慢慢長成城市。", "兩河流域發明楔形文字 → 事情能被記下來 → 「歷史」從這裡開始。", "尼羅河每年氾濫帶來肥沃泥土 → 糧食充足 → 法老能動員大量人力；法老被當成神，權力高度集中。", "島多、海路方便 → 靠航海貿易致富 → 發展出宮殿、城市和文字，是後來希臘文明的基礎。", "國家變大，需要大家都遵守的規則 → 法律寫成條文、公開讓人知道。今天的法律也是這樣。", "周朝用分封制度治理天下，提出「天命」觀念：君主失德就會被取代，影響中國兩千多年。", "做生意需要好學的文字 → 字母傳給希臘人、再傳給羅馬人 → 變成拉丁字母，英文 ABC 就是這樣來的。", "希臘多山、交通不便 → 很難統一 → 分成幾百個城邦，各自發展不同制度。", "第一個橫跨亞、非、歐三洲的大帝國；修道路、設驛站，寬容對待被征服的民族。", "羅馬政治發展：王政 → 共和 → 帝國。「共和國」這個詞和觀念，就是從羅馬來的。", "戰亂、社會變動大 → 人們開始思考「怎樣才是好的生活與好的國家」→ 儒家、佛教、希臘哲學出現。", "「人民自己做決定」的觀念出現；今天的投票選舉，源頭可以追到這裡。", "平民要求法律公開，不再讓貴族想怎麼解釋就怎麼解釋 → 條文公布 → 成為後來羅馬法的重要基礎。", "希臘文化傳到西亞、埃及、印度邊境，形成「希臘化文化」。", "統一文字、貨幣、度量衡，建立皇帝制度；漢字因此能在廣大地區通用。", "漢朝派張騫出使西域 → 絲綢、紙、佛教、葡萄在東西方之間流傳，東西交流開始變頻繁。", "羅馬法、道路、拉丁文傳遍歐洲；今天歐美的法律和法文、西班牙文都受羅馬影響。", "基督教在羅馬帝國萌芽；313年羅馬承認基督教，392年成為國教（也常舉380年的《帖撒羅尼迦詔書》）。", "西羅馬滅亡（476）＝古典時期結束；西歐分裂成許多小王國，教會成為生活中心。", "君士坦丁堡易守難攻、貿易富裕，東羅馬沒跟著滅亡；《查士丁尼法典》是歐洲各國民法的源頭。", "長安成為國際大都市，日本、新羅派人來學習；日本的建築、服裝、漢字都深受唐朝影響。", "伊斯蘭教讓阿拉伯各部族團結 → 帝國擴張到三大洲；保存並翻譯希臘學問，把阿拉伯數字傳到歐洲。", "843年帝國被孫子們分成三塊，後來發展成法國、德國、義大利。", "查理曼帝國分裂、維京人四處劫掠、國王保護不了人民 → 地方貴族蓋城堡保護農民 → 形成封建制度。", "羅馬教宗和君士坦丁堡的教會領袖互不服 → 分成天主教與東正教。今天俄羅斯、希臘多信東正教，西歐、拉丁美洲多信天主教。", "拜占庭失去小亞細亞 → 向教宗求救 → 直接引發十字軍東征。", "東西方貿易增加，義大利城市變有錢 → 後來成為文藝復興的起點。", "歐亞大陸被連成一片，火藥、指南針等傳到西方，東西交流達到高峰。", "蒙古打通歐亞、道路安全 → 遊記讓歐洲人嚮往東方的財富 → 後來吸引哥倫布找新航路。", "歐洲人口大減 → 勞力變貴 → 封建莊園開始瓦解。", "義大利城市靠貿易致富、贊助藝術 → 重新重視「人」和理性 → 藝術與科學發達，近代從這裡開始。", "目的是宣揚國威、建立朝貢關係；之後明朝停止遠航，歐洲後來居上。", "書變便宜 → 知識和新想法快速傳播 → 成為宗教改革和科學革命的推手。", "拜占庭滅亡；鄂圖曼控制東西貿易路線 → 逼得歐洲人往海上找新航路；學者帶著古書逃到義大利。", "陸路被擋＋指南針、造船進步 → 歐洲人從海上找新航路 → 開始殖民全世界；番茄、辣椒、地瓜、玉米都來自美洲。", "教會腐敗＋印刷術讓批評快速流傳 → 基督教分裂出新教，歐洲爆發多場宗教戰爭。", "阿茲特克（1521）、印加（1533）被西班牙征服；今天中南美洲大多說西班牙語、葡萄牙語，信天主教。", "文藝復興的理性精神＋印刷術 → 科學革命 → 留下「實驗、驗證」的科學方法。", "美洲的甘蔗、菸草園需要大量勞力 → 上千萬非洲人被當成奴隸賣到美洲，是人類史上的重大悲劇。", "以臺灣作為反清基地 → 趕走荷蘭人，漢人大量移入；1683年臺灣歸清朝。", "科學這麼成功 → 人們相信理性也能改善社會 → 提出人權、三權分立、人民主權，影響今天的憲法。", "英國有煤礦、市場和資金，又改良蒸汽機 → 工廠、鐵路、城市快速發展，生產力暴增。", "啟蒙思想傳開＋不滿重稅和國王 → 建立共和國、制定憲法、發表人權宣言；拿破崙把這些觀念帶到全歐洲。", "清朝戰敗 → 被迫開港、割讓香港；中國開始思考要不要學習西方。", "工業國家需要原料和市場、又有先進武器 → 歐美列強殖民亞非；許多國界就是那時劃的。", "法國大革命和拿破崙讓人覺得「同一個民族就該有自己的國家」→ 今天的義大利、德國和中南美洲各國大多這時形成。", "辛亥革命推翻清朝，結束兩千多年的帝制，建立共和國。", "列強爭殖民地、結成兩大集團 → 刺殺事件點燃戰爭 → 德、奧匈、俄、鄂圖曼四大帝國瓦解。", "一戰讓俄國死傷慘重、糧食不足 → 推翻沙皇 → 建立世界第一個共產國家蘇聯，埋下冷戰的種子。", "德國人非常不滿 → 這份不滿成為二十年後二戰的重要原因。", "大量失業 → 人民對民主政府失去信心 → 極端政黨崛起，1933年希特勒在德國掌權。", "日本想向外擴張 → 九一八事變（1931）占領東北 → 七七事變（1937）中國全面抗戰，持續到1945年。", "希特勒想推翻凡爾賽條約、向東擴張 → 二戰在歐洲爆發，是人類史上死傷最多的戰爭。", "美國對日本禁運石油 → 日本先發制人 → 美國參戰，二戰真正擴大成世界大戰。", "德、日投降；臺灣由中華民國接收；成立聯合國；殖民地紛紛獨立。", "美蘇制度與思想對立 → 核武競賽、太空競賽；美國為國防發展的網路技術，是今天網際網路的前身。", "二戰後歐洲列強變弱、民族主義高漲 → 殖民帝國快速瓦解。", "美蘇在冷戰中比太空技術 → 太空競賽讓衛星導航、氣象衛星等技術快速進步。", "東歐掀起改革浪潮 → 東歐共產政權接連垮台 → 1990年東西德統一。", "蘇聯解體＝冷戰結束，美國成為唯一的超級強權。", "二戰後西歐想用經濟合作取代打仗 → 人員、貨物自由往來，二十多國一起用歐元。", "1987年解除戒嚴後逐步開放言論、組黨與選舉 → 人民第一次直接選總統。", "交流越來越快：絲路 → 大航海 → 全世界；你現在用手機讀這頁，就是這條路的終點。", "美國發動「反恐戰爭」，出兵阿富汗和伊拉克；搭飛機的安全檢查變得非常嚴格。", "銀行借太多錢給還不起房貸的人 → 房價下跌、銀行接連出事 → 全球經濟衰退。", "近200個國家同意一起減排，把全球升溫控制在2°C以內；各國推動綠能和「淨零排放」。", "在全球化的世界裡快速擴散 → 各國封城、停課；口罩、線上上課變成日常。", "二戰後歐洲規模最大的戰爭，數百萬人成為難民；到2026年仍在打，各方持續談判。", "運算能力大增＋網路上大量資料 → AI 能寫文章、畫圖、寫程式，正在改變學習和工作的方式。"];
+const CP=["人類從「打獵、採集野果」轉職成「自己種田、養牲畜」。最早發生在西亞的「肥沃月彎」（今天的伊拉克、敘利亞一帶），開始種小麥、大麥，養羊和牛。","兩河流域南部的蘇美人蓋了很多城市，還發明楔形文字：拿削尖的蘆葦在濕泥板上壓符號，晒乾就能存檔。最早的用途？記帳，記誰繳了多少糧食。","古埃及國王（法老）的超巨型石造陵墓。最大的古夫金字塔在開羅附近，原本約146公尺高，用了大約230萬塊巨石。","印度河流域（今天的巴基斯坦一帶）約前2500年出現哈拉帕、摩亨約達羅等城市：街道像棋盤一樣整齊，還有下水道。約前1500年雅利安人從中亞移入，後來形成種姓制度。","愛琴海一帶的古文明：克里特島上的米諾斯文明（有巨大的克諾索斯宮殿），加上希臘本土的邁錫尼文明。","一根兩公尺多高的黑色石柱，刻了將近300條法律，是古巴比倫（今天的伊拉克）國王漢摩拉比下令刻的，立在城裡讓人民看。最有名的一條：「以眼還眼、以牙還牙」。石柱現在在法國羅浮宮。","周原本只是商朝西邊的小國（諸侯）。商朝最後的國王紂王很殘暴，周武王揪團各地諸侯，在「牧野之戰」打敗商朝，建立周朝。","腓尼基人住在地中海東岸（今天的黎巴嫩），是超會做生意的航海民族。他們的文字只有22個字母，比楔形文字、象形文字簡單太多。","希伯來人（猶太人的祖先）約前1000年在巴勒斯坦建立以色列王國，首都耶路撒冷。他們只拜唯一的神，就是猶太教，經典是《希伯來聖經》（基督教叫它《舊約》）。","希臘人在多山的半島和島嶼上，建了幾百個獨立的城市國家（城邦），像雅典、斯巴達。大家說同一種語言、拜同一群神，前776年開始一起辦奧運。","前550年居魯士建立波斯帝國，後來一路擴張到亞、非、歐，變成第一個橫跨三洲的大帝國（埃及約在前525年被納入）。帝國修「御道」、設驛站，命令能快速傳遍各地。","前509年，羅馬人把國王趕走，改由每年選出的兩位執政官和元老院一起治理國家。這種制度叫：共和。","大約西元前500年前後，世界好幾個地方同時冒出超強思想家：中國的孔子、老子，印度的釋迦牟尼（佛陀），希臘的蘇格拉底等人。像是全人類同時開了思考模式。","前5世紀，波斯帝國兩次打過來。前490年雅典在馬拉松贏了，前480年雅典海軍在薩拉米斯把波斯艦隊打爆。希臘城邦：保住了。","雅典的成年男性公民，可以到「公民大會」發言、投票，直接決定國家大事。不過女性、奴隸和外國人不能參加，所以不是人人都有份。","羅馬共和初期，把法律條文刻在十二塊表上公布，這就是《十二表法》。","雅典帶一隊、斯巴達帶一隊，希臘人自己打了快30年。斯巴達贏了，但整個希臘都被打殘，北方的馬其頓在旁邊看著。","亞歷山大是希臘北方馬其頓的國王，20歲即位。從前334年開始一路往東打，滅了波斯帝國，打到埃及和印度邊境，32歲時在巴比倫突然去世。","羅馬vs.迦太基（今天的突尼西亞），三戰定勝負。迦太基名將漢尼拔帶大象翻過阿爾卑斯山打進義大利，但最後還是羅馬贏，前146年把迦太基城夷平。","佛教從印度出發，靠阿育王推一把，分兩條路走：往南到斯里蘭卡、東南亞（上座部，南傳）；往北走絲路到中國、朝鮮、日本（大乘，北傳）。","戰國時代，中國分成七個大國互打（戰國七雄）。西邊的秦國最強，秦王嬴政在前221年收掉其他六國，自稱「始皇帝」。","絲路不是一條路，是連接中國和地中海的一大堆商路的總稱，要穿過沙漠和高山。因為中國絲綢太紅了，後人就叫它「絲路」。","羅馬打下整個地中海後，將軍們開始內戰。凱撒的養子屋大維最後勝出，前27年成為第一位皇帝，共和變帝國。","耶穌是羅馬統治下巴勒斯坦地區的猶太人，傳教說上帝愛所有人。他被釘十字架後，門徒繼續傳，信徒越來越多。經典是《聖經》。","395年羅馬帝國拆成東、西兩半。西半部越來越弱，日耳曼人大量移入。476年，一位日耳曼將領直接廢掉最後一位西羅馬皇帝。","東羅馬後來被叫做「拜占庭帝國」，首都君士坦丁堡。查士丁尼皇帝時最強：他請學者把羅馬幾百年的法律整理成一套法典，還蓋了超壯觀的聖索菲亞大教堂。","唐朝首都長安（今天的西安）。唐太宗李世民時政治清明，叫「貞觀之治」；各國商人、留學生、僧侶都擠到長安來。","穆罕默德是麥加城的商人，約610年開始傳教：只有一位真神「阿拉」。622年帶信徒搬到麥地那（聖遷），這年就是伊斯蘭曆元年。穆斯林要做到五功：唸清真言、禮拜、齋戒、天課、朝聖；經典是《古蘭經》。他死後，繼承人（哈里發）帶著阿拉伯人向外征服。","穆罕默德走了，接班人是誰？多數人：大家推選的哈里發就好（遜尼派）。另一派：要阿里和他的後代才行（什葉派）。這一吵，吵到今天。","查理曼是法蘭克王國的國王（法蘭克人是日耳曼人的一支），打下西歐大部分地區。800年聖誕節，教宗親自在羅馬的教堂替他戴上皇冠。","封建制度：國王把土地分給貴族，貴族答應幫國王打仗；農奴在貴族的莊園種田。維京人：住在北歐（今天的挪威、瑞典、丹麥）的航海民族，開著長船到處搶劫也到處做生意。","中世紀西歐人從出生到死亡都跟教會綁在一起。修道院的修士抄古書、照顧病人、辦學校；教宗還能開除國王的教籍，權威一度比國王大。","1054年，基督教正式分家：西邊是天主教，東邊是以拜占庭為中心的東正教。","塞爾柱人是從中亞一路往西遷的突厥人，信伊斯蘭教。1071年在曼齊刻爾特戰役大敗拜占庭，占領小亞細亞。","1095年教宗號召西歐的騎士和平民去「奪回聖地」耶路撒冷，大家衣服上縫十字架，所以叫「十字軍」。前前後後打了大約兩百年。","蒙古人是蒙古草原上的遊牧民族，騎馬射箭超強。鐵木真在1206年統一各部落，被尊稱為「成吉思汗」（意思是偉大的統治者）。","馬可波羅是義大利威尼斯的商人，跟著爸爸和叔叔沿絲路來到中國，在忽必烈的朝廷待了十幾年，回去後的見聞被寫成《馬可波羅遊記》。","西非有黃金，北非有鹽，中間隔著撒哈拉沙漠？騎駱駝穿過去就好！靠這條「黃金換鹽」的路，馬利帝國超有錢。","一種由老鼠身上的跳蚤傳染的鼠疫。1347年從黑海一帶傳進歐洲，幾年內大約三分之一的歐洲人死亡。","文藝復興＝讓古希臘、羅馬文化「復活」。核心是人文主義：重新重視人的價值與現世生活。舞臺在14世紀的義大利城市（像佛羅倫斯）：靠地中海貿易賺大錢，梅迪奇家族這種富商出錢贊助。文學有但丁、佩脫拉克，藝術有達文西的《蒙娜麗莎》、米開朗基羅的《大衛像》。","鄭和是明朝的宦官。明成祖派他帶兩百多艘船、兩萬多人的超大船隊，七次航行到東南亞、印度、阿拉伯和非洲東岸。","以前歐洲的書都靠手抄，貴到不行。德國人古騰堡做出可以重複排的金屬字塊，再把壓葡萄的壓榨機改成印刷機，一次印很多頁。第一本大書：《聖經》。","鄂圖曼帝國的蘇丹穆罕默德二世包圍君士坦丁堡，用巨型大砲轟破城牆。撐了一千多年的拜占庭帝國就此滅亡，這座城後來改名伊斯坦堡。","義大利航海家哥倫布拿到西班牙女王的贊助，想往西橫越大西洋去印度和中國。結果他到的是加勒比海的島嶼（美洲），卻以為到了印度，所以美洲原住民被叫成「印第安人」。","陸路被鄂圖曼擋住？葡萄牙：那就繞非洲一圈！1488年狄亞士先摸到非洲南端的好望角，1498年達伽馬繞過去，一路開到印度。","當時天主教會在賣贖罪券。德國修士馬丁路德在1517年寫了《九十五條論綱》嗆教會，主張信仰只看《聖經》。支持他的人另外成立教會，叫「新教」。","歐洲人到達美洲後，阿茲特克、印加等文明被西班牙等國征服，原住民大量死於天花等傳染病，天主教也跟著傳入。","新教分出去之後：英王亨利八世想離婚、教宗不准，他乾脆自己當英國教會的老大（英國國教）。天主教也開始自我改革，開特倫特大公會議，成立耶穌會到亞洲、美洲傳教。","16世紀起統治印度大部分地區的伊斯蘭帝國。皇帝信伊斯蘭教，大部分人民信印度教。18世紀帝國衰弱、四分五裂，英國東印度公司就趁機進來了。","西班牙一手握著美洲銀礦，一手占著菲律賓。於是大帆船橫跨太平洋：白銀從墨西哥運到馬尼拉，換中國的絲綢和瓷器運回去。","16～17世紀，學者開始用觀察、實驗和數學研究自然：哥白尼說地球繞著太陽轉，伽利略用望遠鏡看星空，牛頓提出萬有引力。","歐洲、非洲與美洲之間形成三角貿易：歐洲輸出製成品，從非洲運走奴隸，再從美洲運回農產和原料。","香料在歐洲貴到不行，荷蘭乾脆成立一家「有軍隊的公司」：荷蘭東印度公司。總部設在巴達維亞，把香料生意整個抓在手上。","鄭成功是明末將領，爸爸是海商鄭芝龍，媽媽是日本人。明朝滅亡後他繼續抗清，1661年渡海攻打臺灣，隔年趕走統治臺灣38年的荷蘭人。","「啟蒙」＝用理性照亮無知。孟德斯鳩主張三權分立；盧梭主張國家的權力來自人民；伏爾泰狂酸專制和宗教迫害；亞當斯密說市場自由最有效率。17世紀末興起、主要在18世紀，剛好跨過近代與現代的交界（1700）。","英國東印度公司本來只是來做生意，後來連軍隊都有了。1757年普拉西戰役打贏，從孟加拉開始，一步步把印度吃下來。","18世紀中期從英國開始：先有珍妮紡紗機讓紡紗變快，再來瓦特改良蒸汽機當動力，工廠大量生產；19世紀初又有火車和輪船。生產方式從「手工」升級成「機器」。","英國：要加稅。北美13個殖民地：我們在國會沒代表，不繳！1773年波士頓茶葉事件、1775年開戰、1776年發表《獨立宣言》，1783年英國承認美國獨立。1787年的美國憲法，把孟德斯鳩的三權分立真的寫進國家制度。","1788年，英國把一整支艦隊的罪犯送到澳洲蓋殖民地。原本住在這裡的原住民：土地被拿走、人口大減，孩子還曾被強制帶走。","1789年，法國人民攻占巴士底監獄，國民議會發表《人權宣言》。1792年廢除王政，1793年連國王路易十六都上了斷頭臺，接著是殺紅了眼的恐怖統治。最後1799年，拿破崙出來收拾局面。","拿破崙倒了，歐洲各國在維也納開會收拾殘局：讓被推翻的國王回來、重畫地圖、約好一起鎮壓革命。主持人是奧地利首相梅特涅。","拉丁美洲剛獨立，美國總統門羅就對歐洲喊話：美洲的事，歐洲不要插手；歐洲的事，我們也不管。","鄂圖曼也想追上西方：改法律、練新軍、辦新學校。可惜改革走走停停，還是被叫成「歐洲病夫」。","英國人想買中國的茶，卻沒有中國想要的商品，就把印度種的鴉片（一種毒品）賣到中國。清朝派林則徐禁菸、燒鴉片，英國就出兵打中國（1840～1842）。","工廠變多、問題更多：童工、超時、住得擠。馬克思喊出社會主義，狄更斯用寫實小說把窮人的苦寫出來；浪漫主義則說：理性之外，也要有情感和自然。","工業革命後，列強為了原料和市場瓜分亞洲、非洲（柏林會議後非洲幾乎被分光）。社會達爾文主義被拿來合理化殖民。英、法、德之外，日本後來也加入。","1857年，英國東印度公司的印度傭兵受夠了：待遇差，又聽說子彈包裝塗了牛油和豬油，直接起兵反抗英國。","19世紀最流行的一句話：同一個民族，就該有自己的國家。拉丁美洲獨立；義大利靠馬志尼、加富爾、加里波底三傑統一；普魯士先用關稅同盟把經濟綁在一起，再由俾斯麥用鐵血政策統一德意志。","美國北方：奴隸制度不行。南方：我們種棉花就靠這個。林肯一當選，南方直接退出聯邦，打了四年。北方贏，奴隸制度廢除，國家也沒分裂。","被美國船艦敲開大門之後，日本決定：全面學西方。推翻幕府、廢藩、蓋工廠、練新軍，幾十年就變成強國，接著打贏甲午戰爭，拿走臺灣。","以前從歐洲去亞洲要繞整個非洲。1869年蘇伊士運河一開，從地中海直接切進紅海，航程一下子少了好幾千公里。","工業革命第二彈：動力從煤和蒸汽升級成電力和石油。電燈、電話、汽車陸續登場，德國和美國的工業直接追過英國。","19世紀末，東南亞幾乎被瓜分完：英國拿緬甸、馬來亞，法國拿越南、柬埔寨、寮國，荷蘭管印尼，美國拿菲律賓。只有暹羅（泰國）靠改革和外交，夾在英法中間活下來。","1896年義大利打過來，衣索比亞在阿杜瓦直接把義軍打退。非洲被瓜分的年代，這是最有名的一次反擊。","德國統一後越來越壯，威廉二世還搞大海軍、搶殖民地。英國坐不住了，放棄「光榮孤立」，跟法國、俄國站一起。歐洲正式分成兩隊。","1911年10月10日革命黨人在武昌起義（所以這天叫「雙十節」），各省紛紛響應，叫辛亥革命。1912年1月1日中華民國成立，孫中山當臨時大總統；同年2月清朝皇帝退位。","1914年6月，奧匈帝國皇儲在塞拉耶佛被一名塞爾維亞民族主義青年槍殺。三國同盟和三國協約早就結好隊，一國宣戰就把盟友拖下水。西線雙方挖壕溝對峙（壕溝戰），東線德、奧對上俄國；1917年俄國退出，但德國的無限制潛艇戰擊沉美國船隻，美國加入協約國，1918年德國投降。","1917年俄國連來兩次革命：二月革命，人民受不了戰爭和饑餓，推翻沙皇；十月革命，列寧帶共產黨直接奪權。","一戰結束後，戰勝國1919年在法國凡爾賽宮和德國簽的和約：德國要承擔戰爭責任、割地、賠巨款、限制軍隊。","一戰打完，日子沒變好，大恐慌又來。義大利跟了墨索里尼（法西斯），蘇聯被史達林掌控，德國選了希特勒（納粹），日本由軍人當家。共通點：只准一個黨，誰反對就抓誰。","1929年，美國紐約股市突然崩盤，大量銀行和公司倒閉，很多人失業。危機擴散到全世界，持續好幾年。","1931年9月18日，日軍在中國東北製造事件後占領東北（九一八事變）。1937年7月7日，日軍在北平（今北京）附近的盧溝橋和中國軍隊衝突（七七事變），中日全面開戰。","大恐慌，滿街失業。1933年羅斯福上任：政府直接下場！蓋水壩、修道路創造工作，管好銀行，還建立退休金和失業保險。重點是：美國沒有放棄民主。","英法：再打一次大戰？不要啦。於是在慕尼黑把捷克斯洛伐克的蘇臺德區讓給德國，希望希特勒就此滿足。結果並沒有。","1939年8月，德國先和蘇聯簽《德蘇互不侵犯條約》，私下約好一起分波蘭。9月1日德國用「閃電戰」（飛機、戰車快速突擊）攻打波蘭。兩天後，英國和法國對德國宣戰，第二次世界大戰在歐洲開始。","珍珠港是美國海軍在夏威夷的基地。1941年12月7日，日本派飛機偷襲，炸毀許多美國軍艦，美國隔天就對日本宣戰。","二戰期間，納粹德國有計畫地殺害歐洲的猶太人，大約600萬人遇害，羅姆人、身心障礙者也被迫害。這是人類史上最嚴重的種族滅絕之一。","二戰還沒打完，同盟國老大們先開會喬戰後。1943年開羅會議：蔣中正、羅斯福、邱吉爾見面。1945年雅爾達會議：羅斯福、邱吉爾、史達林決定德國怎麼分、聯合國怎麼組、蘇聯什麼時候打日本。","二戰轉捩點兩連發：東邊，蘇聯在史達林格勒把德軍打趴；西邊，盟軍渡海在法國諾曼第登陸。德國東西兩面挨打，撐不住了。","1945年5月德國投降。8月美國在日本的廣島、長崎投下兩顆原子彈，8月15日日本宣布投降，二戰結束。","二戰後，美國帶頭的民主陣營和蘇聯帶頭的共產陣營互相對抗。兩邊沒有直接開打（所以叫「冷」戰），而是比軍備、比太空科技。1991年蘇聯解體，冷戰結束。","二戰才結束，美國就發現蘇聯在東歐一直插旗。杜魯門：那就把共產勢力圍起來！一邊用馬歇爾計畫出錢幫西歐重建，一邊組北約一起防守。","1947年英國終於撤出印度，但依宗教切成兩國：印度（印度教徒為主）和巴基斯坦（穆斯林為主）。上千萬人逃離家園，衝突死傷慘重，喀什米爾到今天還在吵。","二戰的暴行讓全世界嚇到了。1948年聯合國寫下《世界人權宣言》：不管你是誰，生來就有自由和尊嚴。","1948年蘇聯把通往西柏林的路全部封死。美英：那就用飛的！每天空運食物和煤，撐到蘇聯放棄。1949年，德國正式裂成西德和東德。","1948年，猶太人在巴勒斯坦建立以色列。周圍的阿拉伯國家不承認，立刻開打，之後又打了好幾次，大批巴勒斯坦人變成難民。以阿衝突，從這裡開始。","1950年北韓打過38度線。美國帶聯合國軍來救南韓，中共派兵幫北韓。打了三年，最後幾乎在原地停戰，南北韓到今天都沒簽和平條約。","美蘇要大家選邊站？剛獨立的亞非國家說：我們不選！1955年在印尼萬隆開會，後來組成不結盟運動。","1960年，奈及利亞、剛果、索馬利亞等17個非洲國家在同一年脫離殖民統治獨立，這一年被叫做「非洲年」。","1962年，美國發現蘇聯在古巴偷蓋飛彈基地，離佛羅里達只有約150公里。甘迺迪下令封鎖古巴，美蘇互瞪13天，全世界都怕核戰，最後各退一步。","20世紀的關鍵字：平等。女性爭到投票權；美國黑人用非暴力抗爭爭取民權（金恩：「我有一個夢」）；南非推翻種族隔離，曼德拉坐牢27年後當上總統。","1969年7月，美國阿波羅11號載著阿姆斯壯等太空人登陸月球，阿姆斯壯成為第一個踏上月球的人。","1989年11月9日，分隔東、西柏林28年的柏林圍牆開放，人們爬上牆頭慶祝，接著把圍牆一塊一塊敲下來。","1991年12月，蘇聯最後一位領導人戈巴契夫辭職，蘇聯正式解散，分成俄羅斯、烏克蘭等15個國家。","歐洲聯盟依《馬斯垂克條約》在1993年成立，前身是1950年代的歐洲煤鋼共同體和歐洲經濟共同體。","1996年3月，臺灣舉行第一次總統直接選舉，公民一人一票選出總統和副總統。","世界各國的貿易、資訊、文化越綁越緊。網際網路從冷戰時美國的軍事網路發展而來，1990年代開始普及到一般人。","2001年9月11日，恐怖分子劫持民航機撞毀紐約世界貿易中心雙塔，約3000人死亡。","2008年美國房地產泡沫破裂，大型投資銀行雷曼兄弟倒閉，危機很快擴散到全世界。","2015年各國在法國巴黎通過氣候協定（2016年起開放簽署），承諾一起減少溫室氣體排放。","2019年底出現的新型冠狀病毒（COVID-19），2020年蔓延全球，世界衛生組織宣布為全球大流行。","2022年2月24日，俄羅斯對烏克蘭發動全面入侵。","2022年底，能用文字對話的 AI 聊天機器人推出，短短兩個月使用者就破億，全球掀起 AI 熱潮。"];
+const CH=["冰河期結束、氣候變暖 → 學會種田 → 可以定居、人口變多，村落慢慢長成城市。","兩河流域發明楔形文字 → 事情能被記下來 → 「歷史」從這裡開始。","尼羅河每年氾濫帶來肥沃泥土 → 糧食充足 → 法老能動員大量人力建金字塔；埃及人觀察天狼星和氾濫時間，訂出太陽曆。","印度河帶來肥沃土地 → 出現規劃整齊的城市 → 雅利安人移入後形成種姓制度，影響印度幾千年。","島多、海路方便 → 靠航海貿易致富 → 發展出宮殿、城市和文字，是後來希臘文明的基礎。","國家變大，需要大家都遵守的規則 → 法律寫成條文、公開讓人知道。今天的法律也是這樣。","周朝用分封制度治理天下，提出「天命」觀念：君主失德就會被取代，影響中國兩千多年。","做生意需要好學的文字 → 字母傳給希臘人、再傳給羅馬人 → 變成拉丁字母，英文 ABC 就是這樣來的。","希伯來人信奉唯一的神 → 猶太教 → 後來的基督教、伊斯蘭教都從這個一神信仰發展出來。","希臘多山、交通不便 → 很難統一 → 分成幾百個城邦，各自發展不同制度。","第一個橫跨亞、非、歐三洲的大帝國；修道路、設驛站，寬容對待被征服的民族。","羅馬政治發展：王政 → 共和 → 帝國。「共和國」這個詞和觀念，就是從羅馬來的。","戰亂、社會變動大 → 人們開始思考「怎樣才是好的生活與好的國家」→ 儒家、佛教、希臘哲學出現。","波斯向西擴張 → 希臘城邦聯手在馬拉松、薩拉米斯擊退波斯 → 雅典成為海上霸主，進入全盛。","「人民自己做決定」的觀念出現；今天的投票選舉，源頭可以追到這裡。","平民要求法律公開，不再讓貴族想怎麼解釋就怎麼解釋 → 條文公布 → 成為後來羅馬法的重要基礎。","雅典太強、斯巴達不安 → 城邦內戰將近30年 → 希臘衰弱，被馬其頓控制，接著亞歷山大東征。","希臘文化傳到西亞、埃及、印度邊境，形成「希臘化文化」。","爭奪西地中海 → 三次布匿克戰爭 → 羅馬成為地中海霸主 → 財富和奴隸湧入、貧富差距變大，共和走向危機。","阿育王皈依佛教、派人傳教 → 南傳到東南亞、北傳經絲路到東亞 → 佛教成為亞洲的重要宗教。","統一文字、貨幣、度量衡，建立皇帝制度；漢字因此能在廣大地區通用。","漢朝派張騫出使西域 → 絲綢西傳，葡萄、佛教傳入中國，東西交流開始變頻繁。","羅馬法、道路、拉丁文傳遍歐洲；今天歐美的法律和法文、西班牙文都受羅馬影響。","基督教在羅馬帝國萌芽；313年《米蘭詔書》承認基督教，392年成為國教（也常舉380年的《帖撒羅尼迦詔書》）。","西羅馬滅亡（476）＝古典時期結束；西歐分裂成許多小王國，教會成為生活中心。","君士坦丁堡易守難攻、貿易富裕，東羅馬沒跟著滅亡；《查士丁尼法典》是歐洲各國民法的源頭。","長安成為國際大都市，日本、新羅派人來學習；日本的建築、服裝、漢字都深受唐朝影響。","伊斯蘭教讓阿拉伯各部族團結 → 帝國擴張到三大洲；保存並翻譯希臘學問，把阿拉伯數字傳到歐洲。","繼承人之爭 → 伊斯蘭分成遜尼派和什葉派 → 兩派對立，到今天仍影響中東局勢。","西羅馬滅亡後法蘭克崛起 → 查理曼統一西歐、800年加冕 → 推動加洛林文藝復興（辦學校、用拉丁文抄寫聖經與古籍）→ 843年帝國分成三塊，後來發展成法、德、義。","查理曼帝國分裂、維京人四處劫掠、國王保護不了人民 → 地方貴族蓋城堡保護農民 → 形成封建制度。","西羅馬滅亡、政治分裂 → 教會成為最有組織的力量 → 修道院保存古書，教宗權威一度高過國王。","羅馬教宗和君士坦丁堡的教會領袖互不服 → 分成天主教與東正教。今天俄羅斯、希臘多信東正教，西歐、拉丁美洲多信天主教。","拜占庭失去小亞細亞 → 向教宗求救 → 直接引發十字軍東征。","東西方貿易增加，義大利城市變有錢 → 後來成為文藝復興的起點。","歐亞大陸被連成一片，火藥、指南針等傳到西方，東西交流達到高峰。","蒙古打通歐亞、道路安全 → 遊記讓歐洲人嚮往東方的財富 → 後來吸引哥倫布找新航路。","西非產金、北非產鹽 → 駱駝商隊穿越撒哈拉 → 馬利帝國致富 → 伊斯蘭教傳入西非，廷巴克圖成為學術中心。","歐洲人口大減 → 勞力變貴 → 封建莊園開始瓦解。","義大利城市靠貿易致富、贊助藝術 → 重新重視「人」和理性 → 藝術與科學發達，近代從這裡開始。","目的是宣揚國威、建立朝貢關係；之後明朝停止遠航，歐洲後來居上。","書變便宜 → 知識和新想法快速傳播 → 成為宗教改革和科學革命的推手。","拜占庭滅亡；鄂圖曼控制東西貿易路線 → 逼得歐洲人往海上找新航路；學者帶著古書逃到義大利。","陸路被擋＋指南針、造船進步 → 歐洲人從海上找新航路 → 開始殖民全世界；番茄、辣椒、地瓜、玉米都來自美洲。","鄂圖曼擋住東西陸路 → 葡萄牙繞非洲找新航路 → 狄亞士到好望角（1488）、達伽馬到印度（1498）→ 歐洲直通亞洲。","教會腐敗＋印刷術讓批評快速流傳 → 基督教分裂出新教 → 政治：國王擺脫教宗、宗教戰爭；經濟：肯定努力工作賺錢；文化：聖經翻成各地語言，識字的人變多。","阿茲特克（1521）、印加（1533）被西班牙征服；今天中南美洲大多說西班牙語、葡萄牙語，信天主教。","宗教改革讓天主教失去大量信徒 → 天主教改革：特倫特大公會議整頓教會、成立耶穌會 → 耶穌會士把天主教傳到亞洲和美洲。","巴卑爾用火砲打進北印度 → 蒙兀兒帝國統治印度 → 18世紀衰弱分裂，英國東印度公司趁機擴張。","西班牙控制美洲銀礦、占領菲律賓 → 大帆船往返馬尼拉與墨西哥 → 美洲白銀大量流入中國 → 亞洲、美洲、歐洲第一次被貿易連在一起。","文藝復興的理性精神＋印刷術 → 哥白尼提出日心說，挑戰托勒密的地心說 → 伽利略、牛頓用觀察和實驗證明 → 留下「實驗、驗證」的科學方法。","美洲的甘蔗、菸草園需要大量勞力 → 上千萬非洲人被當成奴隸賣到美洲，是人類史上的重大悲劇。","歐洲搶東南亞香料 → 荷蘭成立東印度公司（1602）→ 以巴達維亞為總部控制香料貿易 → 1624年占領臺灣南部當貿易據點。","以臺灣作為反清基地 → 趕走荷蘭人，漢人大量移入；1683年臺灣歸清朝。","科學這麼成功 → 人們相信理性也能改善社會 → 提出人權、三權分立、人民主權 → 有些國王推動改革（開明專制），也鼓舞了後來的革命。","蒙兀兒衰弱 → 普拉西戰役，英國東印度公司控制孟加拉 → 逐步控制印度 → 1857年兵變後由英國政府直接統治。","英國有煤礦、市場和資金，又改良蒸汽機 → 工廠、鐵路、城市快速發展，生產力暴增。","英國向殖民地加稅 → 「無代表，不納稅」、波士頓茶葉事件 → 獨立戰爭 → 建立美國，憲法落實三權分立 → 鼓舞了法國大革命。","美國獨立，英國失去送罪犯的地方 → 1788年開始殖民澳洲 → 原住民失去土地，人口大減。","財政破產＋平民不滿重稅 → 三級會議引爆革命 → 人權宣言、廢除王政 → 恐怖統治 → 拿破崙奪權，把革命觀念帶到全歐洲。","拿破崙征服歐洲又戰敗 → 維也納會議恢復舊王室、壓制自由與民族主義 → 革命思想沒被壓住，1848年各地再起革命。","拉丁美洲獨立 → 美國怕歐洲列強回來 → 1823年門羅宣言 → 美國後來藉此干預拉丁美洲的政治與經濟。","鄂圖曼衰弱、列強逼近 → 坦志麥特改革學習西方 → 成效有限，巴爾幹各國陸續獨立 → 一戰後凱末爾建立土耳其共和國。","英國用鴉片換茶、清朝禁菸 → 鴉片戰爭 → 清朝戰敗簽《南京條約》，開港通商、割讓香港。","工業革命 → 工人生活困苦、貧富差距變大 → 社會主義（馬克思、恩格斯）、寫實主義（狄更斯）出現；浪漫主義重視情感與民族傳統（代表：歌德、拜倫、貝多芬）。","工業國家需要原料和市場、又有先進武器 → 歐美列強殖民亞非；許多國界就是那時劃的。","東印度公司統治＋傭兵不滿 → 1857年反英兵變 → 英國改由政府直接統治印度，1877年維多利亞女王成為印度女皇。","法國大革命和拿破崙傳開民族主義 → 拉丁美洲獨立、義大利統一（1861）、德意志統一（1871）→ 德國崛起，改變歐洲的力量平衡。","南北為奴隸制度對立 → 林肯當選、南方脫離聯邦 → 南北戰爭 → 北方勝利，廢除奴隸制度、維持統一。","培里叩關、被迫開港 → 推翻幕府、全面學習西方 → 日本成為強國 → 甲午戰爭打敗清朝，《馬關條約》取得臺灣。","歐亞航線要繞好望角 → 開鑿蘇伊士運河（1869）→ 歐洲到亞洲航程大減 → 英國把運河當成通往印度的生命線。","科學結合工業 → 電力、石油成為新動力 → 電燈、電話、汽車出現 → 德、美工業超越英國，列強競爭更激烈。","列強爭奪原料和市場 → 東南亞幾乎全被殖民 → 只有暹羅靠改革和外交保持獨立。","列強瓜分非洲 → 義大利入侵 → 衣索比亞在阿杜瓦獲勝，保住獨立，成為非洲反殖民的象徵。","德國崛起、威廉二世爭殖民地 → 英國放棄光榮孤立 → 三國同盟（德奧義）對上三國協約（英法俄）→ 一點火花就引爆一戰。","辛亥革命推翻清朝，結束兩千多年的帝制，建立共和國。","三國同盟對上三國協約 → 塞拉耶佛事件點燃戰爭 → 壕溝戰讓戰事膠著 → 美國參戰後協約國勝利；德、奧匈、俄、鄂圖曼四大帝國瓦解。","一戰讓俄國死傷慘重、糧食不足 → 二月革命推翻沙皇 → 十月革命列寧奪權（德國曾安排他從瑞士回國）→ 1918年退出一戰 → 建立蘇聯，埋下冷戰的種子。","美國總統威爾遜提出十四點原則（民族自決、成立國際聯盟）→ 巴黎和會、凡爾賽條約嚴懲德國 → 德國人非常不滿，成為二戰的重要原因。","一戰後經濟困難、不滿和約 → 大恐慌讓人對民主失望 → 法西斯、納粹、史達林、日本軍國主義掌權 → 走向二戰。","大量失業 → 人民對民主政府失去信心 → 極端政黨崛起，1933年希特勒在德國掌權。","日本想向外擴張 → 九一八事變（1931）占領東北 → 七七事變（1937）中國全面抗戰，持續到1945年。","大恐慌造成大量失業 → 羅斯福推出新政，政府出手救經濟 → 美國在民主制度下逐步復甦，和走向獨裁的德、義形成對比。","英法怕戰爭 → 姑息政策、慕尼黑協定（1938）→ 希特勒野心更大 → 1939年入侵波蘭，二戰爆發。","希特勒想推翻凡爾賽條約、向東擴張 → 先和蘇聯簽互不侵犯條約 → 入侵波蘭，二戰在歐洲爆發，是人類史上死傷最多的戰爭。","美國對日本禁運石油 → 日本先發制人 → 美國參戰，二戰真正擴大成世界大戰。","種族主義、把猶太人當代罪羔羊 → 剝奪權利、送進集中營 → 約600萬人被殺害 → 戰後各國推動世界人權宣言。","同盟國協調作戰、安排戰後 → 開羅宣言談到臺灣、澎湖；雅爾達會議決定分區占領德國、籌組聯合國 → 影響戰後的東亞與歐洲。","德國進攻蘇聯陷入苦戰 → 史達林格勒大敗 → 盟軍諾曼第登陸開闢西線 → 德國兩面受敵，1945年投降。","德、日投降；臺灣由中華民國接收；成立聯合國（安全理事會負責維護國際和平）；殖民地紛紛獨立。","美蘇制度與思想對立 → 核武競賽、太空競賽；美國為國防發展的網路技術，是今天網際網路的前身。","蘇聯在東歐扶植共產政權 → 美國圍堵政策（杜魯門主義、馬歇爾計畫）→ 1949年北約 → 1955年蘇聯組華沙公約 → 冷戰兩大陣營成形。","英國國力衰退＋甘地的非暴力抗爭 → 印度獨立 → 依宗教分成印度和巴基斯坦，大量人口遷移、衝突 → 喀什米爾爭議到今天。","二戰大屠殺等暴行 → 聯合國通過《世界人權宣言》（1948）→ 成為各國保障人權的共同標準。","戰後德國分區占領 → 蘇聯封鎖西柏林、美英大空運 → 1949年德國分裂成東西德 → 冷戰對立在歐洲定型。","大屠殺後猶太人要建國＋聯合國分治方案 → 1948年以色列建國 → 以阿戰爭、巴勒斯坦難民 → 中東衝突延續到今天。","朝鮮半島南北分立 → 北韓南侵，美、中都參戰 → 1953年停戰、維持分裂 → 美國第七艦隊巡防臺灣海峽，恢復援助臺灣。","亞非國家剛獨立、不想捲入冷戰 → 萬隆會議（1955）→ 不結盟運動（1961）→ 第三世界成為國際上的一股力量。","二戰後歐洲列強變弱、民族主義高漲 → 殖民帝國快速瓦解。","蘇聯在古巴部署飛彈 → 美國封鎖，對峙13天 → 蘇聯撤飛彈、美國承諾不入侵古巴 → 美蘇設立熱線，避免誤判。","人權觀念擴大 → 女性參政、黑人民權運動、反種族隔離 → 平等投票權成為民主社會的基本價值。","美蘇在冷戰中比太空技術 → 太空競賽讓衛星導航、氣象衛星等技術快速進步。","東歐掀起改革浪潮 → 東歐共產政權接連垮台 → 1990年東西德統一。","蘇聯解體＝冷戰結束，美國成為唯一的超級強權。","二戰後西歐想用經濟合作取代打仗 → 人員、貨物自由往來，二十多國一起用歐元。","1987年解除戒嚴後逐步開放言論、組黨與選舉 → 人民第一次直接選總統。","交流越來越快：絲路 → 大航海 → 全世界；你現在用手機讀這頁，就是這條路的終點。","美國發動「反恐戰爭」，出兵阿富汗和伊拉克；搭飛機的安全檢查變得非常嚴格。","銀行借太多錢給還不起房貸的人 → 房價下跌、銀行接連出事 → 全球經濟衰退。","近200個國家同意一起減排，把全球升溫控制在2°C以內；各國推動綠能和「淨零排放」。","在全球化的世界裡快速擴散 → 各國封城、停課；口罩、線上上課變成日常。","二戰後歐洲規模最大的戰爭，數百萬人成為難民；到2026年仍在打，各方持續談判。","運算能力大增＋網路上大量資料 → AI 能寫文章、畫圖、寫程式，正在改變學習和工作的方式。"];
 if(CP.length!==C.length||CH.length!==C.length)console.error('CP/CH length');
 
 // 名詞小辭典
-const TERM={"法老":"古埃及國王的稱號。","楔形文字":"兩河流域的文字，用蘆葦筆在泥板上壓出楔子（三角形）形狀的筆畫。","象形文字":"用圖畫表示意思的文字，古埃及文字和最早的漢字都是。","城邦":"一座城市加上周圍的鄉村，就是一個獨立的國家。古希臘有幾百個城邦。","共和國":"國家不由國王統治，而是由選出來的人治理。","帝國":"由皇帝統治、包含很多不同民族和地區的大國家。","諸侯":"被國王分封土地、管理一個地方的貴族。","分封":"國王把土地分給親戚和功臣去管理。","哈里發":"穆罕默德的繼承人，伊斯蘭世界的領袖。","蘇丹":"伊斯蘭國家國王的稱號。","沙皇":"俄國皇帝的稱號，這個字來自羅馬的「凱撒」。","教宗":"天主教會的最高領袖，住在羅馬。中世紀時權力很大，可以替國王加冕。","封建制度":"國王把土地分給貴族，貴族效忠國王、替他打仗的制度。","莊園":"貴族擁有的大片土地，農奴在上面耕種。","農奴":"不能隨便離開土地、要替貴族種田的農民。","日耳曼人":"原本住在羅馬帝國北方森林的民族，後來在西歐建立許多王國，是英國人、德國人等的祖先。","突厥":"中亞草原的遊牧民族，土耳其人的祖先之一。","遊牧":"不定居，趕著牛羊到處找草地的生活方式。","殖民地":"被外國占領、統治的地方。","希臘化":"亞歷山大東征後，希臘文化和東方文化混合在一起。","贖罪券":"天主教會賣的一種證書，聲稱買了可以減少死後的懲罰。","新教":"宗教改革後從天主教分出來的基督教派，就是臺灣常說的「基督教」。","天主教":"以羅馬教宗為領袖的基督教派。","東正教":"以拜占庭為中心的基督教派，俄羅斯、希臘的人大多信仰它。","三權分立":"把國家權力分成立法（訂法律）、行政（執行）、司法（審判）三部分，互相監督。","共產":"主張財產歸大家共有、由國家統一分配的思想。","民主":"由人民決定國家大事。","兩河流域":"西亞的底格里斯河和幼發拉底河之間，就是今天的伊拉克。","小亞細亞":"今天土耳其的亞洲部分。","巴爾幹":"歐洲東南部的半島，有希臘、塞爾維亞、保加利亞等國。","宦官":"在皇宮裡服務的男性官員。","軸心國":"二戰時德國、義大利、日本這一方。","協約國":"一戰時英國、法國、俄國這一方。","聖地":"耶路撒冷。猶太教、基督教、伊斯蘭教都把它當成神聖的城市。","君士坦丁堡":"拜占庭帝國的首都，就是今天土耳其的伊斯坦堡。","科舉":"用考試選拔官員的制度。","朝貢":"外國派使節帶禮物向中國皇帝表示臣服，皇帝回贈更多禮物。","原子彈":"利用原子核分裂產生巨大爆炸的武器。","皇儲":"王位的繼承人。","公民大會":"雅典成年男性公民一起開會、投票決定國事的地方。","肥沃月彎":"西亞一塊彎月形的肥沃土地，從兩河流域延伸到地中海東岸，是農業最早出現的地方之一。","鼠疫":"由細菌引起的傳染病，經由老鼠身上的跳蚤傳給人。","穆斯林":"信仰伊斯蘭教的人。","維京人":"住在北歐的航海民族，8到11世紀四處劫掠和貿易。","騎士":"中世紀歐洲騎馬作戰的武士，替貴族打仗。"};
+const TERM={"法老":"古埃及國王的稱號。","楔形文字":"兩河流域的文字，用蘆葦筆在泥板上壓出楔子（三角形）形狀的筆畫。","象形文字":"用圖畫表示意思的文字，古埃及文字和最早的漢字都是。","城邦":"一座城市加上周圍的鄉村，就是一個獨立的國家。古希臘有幾百個城邦。","共和國":"國家不由國王統治，而是由選出來的人治理。","帝國":"由皇帝統治、包含很多不同民族和地區的大國家。","諸侯":"被國王分封土地、管理一個地方的貴族。","分封":"國王把土地分給親戚和功臣去管理。","哈里發":"穆罕默德的繼承人，伊斯蘭世界的領袖。","蘇丹":"伊斯蘭國家國王的稱號。","沙皇":"俄國皇帝的稱號，這個字來自羅馬的「凱撒」。","教宗":"天主教會的最高領袖，住在羅馬。中世紀時權力很大，可以替國王加冕。","封建制度":"國王把土地分給貴族，貴族效忠國王、替他打仗的制度。","莊園":"貴族擁有的大片土地，農奴在上面耕種。","農奴":"不能隨便離開土地、要替貴族種田的農民。","日耳曼人":"原本住在羅馬帝國北方森林的民族，後來在西歐建立許多王國，是英國人、德國人等的祖先。","突厥":"中亞草原的遊牧民族，土耳其人的祖先之一。","遊牧":"不定居，趕著牛羊到處找草地的生活方式。","殖民地":"被外國占領、統治的地方。","希臘化":"亞歷山大東征後，希臘文化和東方文化混合在一起。","贖罪券":"天主教會賣的一種證書，聲稱買了可以減少死後的懲罰。","新教":"宗教改革後從天主教分出來的基督教派，就是臺灣常說的「基督教」。","天主教":"以羅馬教宗為領袖的基督教派。","東正教":"以拜占庭為中心的基督教派，俄羅斯、希臘的人大多信仰它。","三權分立":"把國家權力分成立法（訂法律）、行政（執行）、司法（審判）三部分，互相監督。","共產":"主張財產歸大家共有、由國家統一分配的思想。","民主":"由人民決定國家大事。","兩河流域":"西亞的底格里斯河和幼發拉底河之間，就是今天的伊拉克。","小亞細亞":"今天土耳其的亞洲部分。","巴爾幹":"歐洲東南部的半島，有希臘、塞爾維亞、保加利亞等國。","宦官":"被閹割（去勢）後在皇宮裡服侍皇帝和后妃的男性，有時會掌握大權。","軸心國":"二戰時德國、義大利、日本這一方。","協約國":"一戰時英國、法國、俄國這一方。","聖地":"耶路撒冷。猶太教、基督教、伊斯蘭教都把它當成神聖的城市。","君士坦丁堡":"拜占庭帝國的首都，就是今天土耳其的伊斯坦堡。","科舉":"用考試選拔官員的制度。","朝貢":"外國派使節帶禮物向中國皇帝表示臣服，皇帝回贈更多禮物。","原子彈":"利用原子核分裂產生巨大爆炸的武器。","皇儲":"王位的繼承人。","公民大會":"雅典成年男性公民一起開會、投票決定國事的地方。","肥沃月彎":"西亞一塊彎月形的肥沃土地，從兩河流域延伸到地中海東岸，是農業最早出現的地方之一。","鼠疫":"由細菌引起的傳染病，經由老鼠身上的跳蚤傳給人。","穆斯林":"信仰伊斯蘭教的人。","維京人":"住在北歐的航海民族，8到11世紀四處劫掠和貿易。","騎士":"中世紀歐洲騎馬作戰的武士，替貴族打仗。"};
 // 名詞辭典擴充：地名、民族、國家、文明、朝代
+Object.assign(TERM,{"太陽曆":"古埃及人觀察天狼星和尼羅河氾濫，訂出一年365天的曆法，是今天陽曆的源頭。","加洛林文藝復興":"查理曼時期在西歐推動的文化復興：辦學校、用拉丁文抄寫聖經和古代典籍。","開普殖民地":"1652年荷蘭在非洲南端開普敦建立的補給站，後來成為殖民地，19世紀初轉歸英國。","地心說":"認為地球是宇宙中心、日月星辰繞地球轉的說法，由托勒密集大成，在歐洲流傳一千多年。","日心說":"認為太陽才是中心、地球繞太陽轉的說法，1543年由哥白尼提出。","馬尼拉大帆船":"16～19世紀初往返菲律賓馬尼拉和墨西哥的西班牙大帆船，用美洲白銀交換中國商品。","南蠻貿易":"16～17世紀日本和葡萄牙、西班牙之間的貿易；日本人稱這些歐洲人為「南蠻」。天婦羅據說就是那時從葡萄牙傳入。","恩格斯":"德國思想家，和馬克思一起寫《共產黨宣言》，也寫書描述英國工人困苦的生活。","停戰紀念日":"每年11月11日，紀念1918年一戰停戰；英國和大英國協國家會配戴紅色罌粟花。","撒哈拉貿易":"穿越撒哈拉沙漠的駱駝商隊貿易，西非的黃金和北非的鹽是主要商品。","香料群島":"今天印尼的摩鹿加群島，盛產丁香、肉豆蔻，是歐洲人航海東來的重要目標。","麻六甲":"馬來半島西岸的港口，控制麻六甲海峽，先後被葡萄牙、荷蘭、英國占領。","巴達維亞":"今天印尼的首都雅加達，17世紀起是荷蘭東印度公司的亞洲總部。","坦志麥特改革":"19世紀鄂圖曼帝國學習西方的改革，整頓法律、軍隊和教育，意思是「重整」。","世界人權宣言":"1948年聯合國大會通過的文件，列出每個人都應享有的基本權利。","不結盟運動":"冷戰時許多國家組成的團體，不加入美國或蘇聯任何一方。","萬隆會議":"1955年亞非國家在印尼萬隆召開的會議，主張反殖民、和平共處。","東協":"東南亞國家協會，1967年成立，是東南亞的區域合作組織。","黑死病":"14世紀傳入歐洲的鼠疫，幾年內約三分之一的歐洲人死亡。","天花":"一種致命的傳染病，歐洲人帶到美洲後造成原住民大量死亡；1980年人類宣布消滅天花。","盤尼西林":"1928年弗萊明發現的第一種抗生素，二戰時開始大量使用，救了無數人。","權利法案":"1689年英國光榮革命後通過的法案，限制國王的權力，國王要尊重國會。"});
+Object.assign(TERM,{"羅斯福新政":"1933年起美國總統小羅斯福推出的政策：政府興建公共工程、管理銀行、建立社會安全制度，幫美國度過經濟大恐慌。","開羅宣言":"1943年開羅會議後中、美、英發表的聲明，寫明日本應把東北、臺灣、澎湖歸還中華民國；它對臺灣主權的效力，至今有不同看法。","開羅會議":"1943年蔣中正、羅斯福、邱吉爾在埃及開羅舉行的會議，討論對日作戰與戰後安排。","雅爾達會議":"1945年羅斯福、邱吉爾、史達林在克里米亞半島的雅爾達開會，決定分區占領德國、籌組聯合國、蘇聯對日參戰。","上座部佛教":"往南傳到斯里蘭卡、緬甸、泰國等地的佛教，也叫南傳佛教，重視個人修行。","大乘佛教":"往北經中亞、絲路傳到中國、朝鮮、日本的佛教，也叫北傳佛教，主張普度眾生。","遜尼派":"伊斯蘭教人數最多的一派，接受推選出來的哈里發。","什葉派":"伊斯蘭教的一派，認為應由穆罕默德的堂弟兼女婿阿里和他的後代領導；伊朗以什葉派為主。","聖遷":"622年穆罕默德帶信徒從麥加遷到麥地那，這一年是伊斯蘭曆的元年。","五功":"穆斯林的五項功課：唸清真言、禮拜、齋戒、天課（濟貧）、朝聖。","英國國教":"1534年英王亨利八世脫離教宗後成立的教會，也叫安立甘宗，英國國王是最高領袖。","特倫特大公會議":"1545～1563年天主教會召開的會議，重申天主教教義、整頓教會的腐敗。","天主教改革":"宗教改革後天主教會的自我改革：召開特倫特大公會議、成立耶穌會到海外傳教。","普拉西戰役":"1757年英國東印度公司在印度孟加拉打敗當地統治者的戰役，英國從此逐步控制印度。","波士頓茶葉事件":"1773年北美殖民地人民反對英國的茶稅，把東印度公司的茶葉倒進波士頓港，成為美國獨立戰爭的導火線。","恐怖統治":"法國大革命時，羅伯斯比等人大量處決被認為反革命的人（1793～1794年）。","第二次工業革命":"19世紀後期以電力、石油為新動力的工業發展，出現電燈、電話、汽車。","解放奴隸宣言":"1863年美國南北戰爭時林肯總統發表，宣布南方叛亂各州的奴隸獲得自由。","馬關條約":"1895年甲午戰爭後清朝和日本簽訂的條約，清朝把臺灣、澎湖割讓給日本。","甲午戰爭":"1894～1895年清朝和日本的戰爭，日本獲勝，簽訂《馬關條約》取得臺灣。","阿杜瓦戰役":"1896年衣索比亞在阿杜瓦打敗入侵的義大利軍隊，保住獨立。","極權主義":"由一個政黨或領袖掌握全部權力，控制政治、經濟、教育和言論，不允許反對聲音的統治方式。","開明專制":"18世紀一些君主接受啟蒙思想的部分主張，推動法律、教育等改革，但仍由國王掌握大權。","猶太人大屠殺":"二戰時納粹德國有計畫地殺害約600萬名歐洲猶太人。","集中營":"納粹關押、強迫勞動和殺害猶太人與其他被迫害者的營區，例如奧斯威辛。","諾曼第登陸":"1944年6月6日美、英等盟軍在法國諾曼第海岸登陸，開闢對德作戰的西線。","史達林格勒":"蘇聯城市（今俄羅斯伏爾加格勒），1942～1943年德軍在此大敗，是二戰東線的轉捩點。","柏林封鎖":"1948～1949年蘇聯封鎖西柏林的陸路交通，美、英用飛機空運物資支援。","印巴分治":"1947年英國撤出印度時，依宗教分成印度和巴基斯坦兩國。","喀什米爾":"印度北部的山區，印巴分治後兩國都宣稱擁有，至今仍有爭議。","種族隔離":"南非過去依膚色把人分開、限制黑人權利的制度，1994年結束。","民權運動":"1950～1960年代美國黑人爭取平等權利的運動，以非暴力抗爭為主，代表人物是金恩博士。","波希戰爭":"西元前5世紀波斯帝國和希臘城邦之間的戰爭，希臘獲勝。","伯羅奔尼撒戰爭":"前431～前404年雅典和斯巴達兩大陣營的戰爭，斯巴達獲勝，希臘從此衰弱。","布匿克戰爭":"前264～前146年羅馬和迦太基的三次戰爭，羅馬獲勝，成為地中海霸主。","什一稅":"中世紀歐洲人要把收入（多半是收成）的十分之一交給教會。","米蘭詔書":"313年羅馬皇帝君士坦丁頒布，承認基督教合法，也譯作米蘭敕令。","五年計畫":"蘇聯史達林從1928年起推動的經濟計畫，由國家集中力量發展重工業。","德蘇互不侵犯條約":"1939年8月德國和蘇聯簽訂的條約，私下約定瓜分波蘭；一週後德國入侵波蘭。","無限制潛艇戰":"一戰時德國用潛艇攻擊所有駛向英國的船隻，連中立國的船也不放過，促使美國參戰。","聯邦制":"中央政府和各州（地方）分享權力的制度，美國是代表。","梅特涅":"奧地利首相，主持1814～1815年的維也納會議，主張恢復舊秩序、壓制革命。","暹羅":"泰國的舊名，19世紀靠改革和外交，成為東南亞唯一沒被西方殖民的國家。","珍妮紡紗機":"1760年代英國人哈格里夫斯發明的紡紗機，一次能紡好幾條紗，是工業革命初期的重要發明。","非軍事區":"南北韓之間依1953年停戰協定劃出的緩衝地帶，雙方不能駐軍。","哈拉帕":"印度河流域文明的重要城市遺址，在今天的巴基斯坦。","摩亨約達羅":"印度河流域文明的重要城市遺址，街道整齊、有完善的排水系統。","滑鐵盧":"今天比利時的地名，1815年拿破崙在這裡被英國、普魯士聯軍打敗。","修道院":"修士、修女集體生活和修行的地方；中世紀時也負責抄書、辦學校、照顧病人。"});
+Object.assign(TERM,{"好望角":"非洲最南端附近的海角。1488年葡萄牙的狄亞士航行到這裡，證明可以繞過非洲到印度洋。","新航路":"15世紀末歐洲人開闢的海上航線：葡萄牙繞過非洲到印度，西班牙支持哥倫布往西橫越大西洋。","門羅宣言":"1823年美國總統門羅發表，反對歐洲列強干涉美洲；美國後來藉此擴大對拉丁美洲的影響。","寫實主義":"19世紀的文藝風格，描寫社會的真實樣貌和窮人的生活，代表作家如英國的狄更斯。","浪漫主義":"18世紀末到19世紀的文藝風格，重視個人情感、大自然和民族傳統，代表人物如歌德、拜倫、貝多芬。","反英兵變":"1857年印度傭兵反抗英國東印度公司的起事；之後英國改由政府直接統治印度。","東印度公司":"歐洲國家特許成立、負責亞洲貿易的公司，有軍隊、能管理殖民地，例如英國東印度公司、荷蘭東印度公司。","三國同盟":"1882年德國、奧匈帝國、義大利組成的同盟。一戰時義大利改投另一邊。","三國協約":"英國、法國、俄國在1907年形成的合作關係，一戰時這一方被稱為「協約國」。","光榮孤立":"19世紀英國不和歐洲其他國家結盟的外交政策；德國崛起後，英國放棄這個政策。","十四點原則":"一戰末美國總統威爾遜提出的和平主張，包括廢除秘密外交、民族自決、成立國際聯盟等。","巴黎和會":"1919年一戰戰勝國在巴黎召開的會議，決定戰後安排，簽下凡爾賽條約等和約。","壕溝戰":"一戰西線雙方挖掘長長的壕溝互相對峙，誰也攻不過去，戰事因此拖了四年。","閃電戰":"二戰初期德軍的戰術：用飛機和戰車集中快速突擊，短時間內擊潰對手。","姑息政策":"二戰前英、法對希特勒一再讓步的政策，希望避免戰爭，結果反而讓德國更大膽。","慕尼黑協定":"1938年英、法、義、德在慕尼黑簽訂，把捷克斯洛伐克的蘇臺德區割給德國，是姑息政策的代表。","二月革命":"1917年（俄曆二月）俄國人民推翻沙皇的革命。","十月革命":"1917年（俄曆十月）列寧領導共產黨奪取政權的革命，之後建立蘇聯。","圍堵政策":"冷戰時美國阻止共產勢力擴張的政策，包括杜魯門主義、馬歇爾計畫和組織北約。","杜魯門主義":"1947年美國總統杜魯門提出，援助受共產勢力威脅的國家，是圍堵政策的開始。","馬歇爾計畫":"二戰後美國援助西歐各國重建經濟的計畫，也是圍堵共產勢力的一部分。","安全理事會":"聯合國負責維護國際和平與安全的機構，可以決定對侵略國實施制裁。","南京條約":"1842年鴉片戰爭後清朝和英國簽訂的條約：開放通商口岸、割讓香港島、賠款。","關稅同盟":"19世紀普魯士帶頭和德意志各邦取消彼此的關稅，經濟先整合，為德意志統一打下基礎。","鐵血政策":"普魯士首相俾斯麥的主張：國家統一要靠「鐵」（武器）和「血」（戰爭）。","建國三傑":"義大利統一的三位關鍵人物：馬志尼、加富爾、加里波底。","同盟國":"小心！一戰的「同盟國」是德國、奧匈這一方；二戰的「同盟國」卻是英、美、蘇、中這一方。","凱末爾":"土耳其共和國的建立者（1923年），推動政教分離、改用拉丁字母等改革。","笛卡兒":"法國哲學家、數學家，名言「我思故我在」，強調用理性推論。","蘇臺德區":"捷克斯洛伐克（今捷克）靠近德國的邊境地區，住著許多說德語的居民；1938年被割給德國。"});
 Object.assign(TERM,{
 "十二表法":"羅馬共和初期刻在十二塊表上公布的法律條文，約前450年，是後來羅馬法的重要基礎。",
 "人文主義":"文藝復興的核心精神：重新重視人的價值與現世生活，並向古希臘、羅馬文化學習。",
@@ -1523,13 +1866,13 @@ Object.assign(TERM,{
 "印度河":"流經今天巴基斯坦的大河，印度河流域文明在它兩岸發展。",
 "地中海":"歐洲、亞洲、非洲之間的大內海。希臘、羅馬、埃及都在它周圍，是古代貿易和文化交流的中心。",
 "大西洋":"歐洲、非洲和美洲之間的大洋。",
-"加勒比海":"北美洲和南美洲之間的海，有很多島嶼，哥倫布最早抵達的就是這裡。",
+"加勒比海":"北美洲和南美洲之間的海，有很多島嶼，哥倫布第一次航行先登陸巴哈馬，接著就抵達這一帶的古巴等島。",
 "黑海":"歐洲東南部和西亞之間的內海，北岸是今天的烏克蘭、俄羅斯。",
 "巴勒斯坦":"地中海東岸的地區，耶路撒冷就在這裡，是猶太教和基督教的發源地。",
 "耶路撒冷":"地中海東岸的古城，猶太教、基督教、伊斯蘭教都把它當成聖地；十字軍就是為了它出兵。",
 "麥加":"阿拉伯半島西部的城市，穆罕默德的出生地，伊斯蘭教最神聖的城市。",
 "阿拉伯半島":"西亞南部的大半島，大部分是沙漠，今天沙烏地阿拉伯所在地，伊斯蘭教的發源地。",
-"長安":"今天的陝西西安。漢朝、唐朝的首都，唐朝時是國際大都市。",
+"長安":"今天的陝西西安。西漢、唐朝的首都，唐朝時是國際大都市。",
 "巴格達":"今天伊拉克的首都。阿拉伯帝國（阿拔斯王朝）的首都，當時世界的學術中心。",
 "開羅":"今天埃及的首都，法蒂瑪王朝在969年建立。",
 "伊斯坦堡":"土耳其最大的城市，就是以前的君士坦丁堡，橫跨歐亞兩洲。",
@@ -1563,7 +1906,7 @@ Object.assign(TERM,{
 "武昌":"今天湖北武漢的一部分，1911年辛亥革命從這裡開始。",
 "巴士底監獄":"巴黎的監獄，象徵國王的專制；1789年7月14日被人民攻占，這天成為法國國慶日。",
 "蘇伊士運河":"埃及境內連接地中海和紅海的運河，1869年開通，讓歐洲到亞洲不必繞過非洲。",
-"美洲":"南、北美洲的合稱。哥倫布1492年抵達後，歐洲人才知道它存在。",
+"美洲":"南、北美洲的合稱。1492年哥倫布抵達後，歐洲人才開始大規模認識並殖民美洲（約西元1000年維京人曾短暫到過北美）。",
 "蘇美人":"最早住在兩河流域南部的民族，發明楔形文字，建立最早的城市。",
 "腓尼基人":"住在地中海東岸（今天黎巴嫩）的航海商業民族，發明了字母。",
 "猶太人":"源自巴勒斯坦地區的民族，信仰猶太教；耶穌也是猶太人。二戰時遭納粹大屠殺。",
@@ -1664,7 +2007,7 @@ Object.assign(TERM,{
 "土耳其":"橫跨歐亞的國家，鄂圖曼帝國的後繼者。",
 "波蘭":"東歐的國家，1939年被德國入侵，引發二戰。",
 "塞爾維亞":"巴爾幹半島上的國家，一戰的導火線和它有關。",
-"臺灣":"東亞的島嶼，原住民族之後，先後經歷荷蘭、鄭氏、清朝、日本統治，1945年起由中華民國治理。"
+"臺灣":"東亞的島嶼，原住民族之後，先後經歷荷蘭與西班牙（荷西時期）、鄭氏、清朝、日本統治，1945年起由中華民國治理。"
 });
 Object.assign(TERM,{
 "愛琴文明":"約前2000～前1100年地中海東部愛琴海一帶的古文明，包括克里特島的米諾斯和希臘本土的邁錫尼，是希臘文明的前身。",
@@ -1714,7 +2057,7 @@ Object.assign(TERM,{
 "阿拔斯王朝":"750～1258年的阿拉伯帝國王朝，首都巴格達，學術最發達的時期。",
 "法蒂瑪王朝":"909～1171年的什葉派伊斯蘭王朝，建立開羅。",
 "馬木路克王朝":"1250～1517年奴隸出身的軍人在埃及建立的王朝。",
-"西哥德王國":"日耳曼人的西哥德人在伊比利半島建立的王國，711年被阿拉伯人消滅。",
+"西哥德王國":"日耳曼人的西哥德人建立的王國，先在高盧南部，後以伊比利半島為中心，711年被伊斯蘭勢力消滅。",
 "東哥德王國":"日耳曼人的東哥德人在義大利建立的王國。",
 "倫巴底人":"日耳曼人的一支，6世紀進入義大利北部建國，「倫巴底」地名就是從他們來的。",
 "卡佩王朝":"987～1328年統治法國的王朝，慢慢把權力集中到國王手上。",
@@ -1725,7 +2068,7 @@ Object.assign(TERM,{
 "基輔羅斯":"9～13世紀維京人在東歐建立的國家，俄羅斯、烏克蘭、白俄羅斯的共同源頭。",
 "德里蘇丹國":"1206～1526年以德里為首都、統治北印度的伊斯蘭國家。",
 "吠陀時代":"約前1500～前500年，雅利安人在印度的時代，留下宗教經典《吠陀》，形成種姓制度。",
-"卡扎爾王朝":"1789～1925年統治伊朗的王朝。",
+"卡扎爾王朝":"1796～1925年統治伊朗的王朝（1794年起實際掌權）。",
 "阿卡德帝國":"約前2300年統一兩河流域的帝國，史上最早的帝國之一。",
 "新巴比倫":"前626～前539年再度興起的巴比倫王國，被波斯消滅。",
 "托勒密王朝":"亞歷山大的將軍托勒密在埃及建立的希臘人王朝，埃及豔后是最後一位統治者。",
@@ -1818,23 +2161,23 @@ const GL=[
 const glFind=n=>n?GL.find(g=>g[1].test(n)):null;
 
 // ===== 一課一課學 =====
-const CY=[-8000,-3500,-2560,-2000,-1750,-1046,-1000,-800,-550,-509,-500,-450,-450,-334,-221,-150,-27,30,476,527,618,610,800,850,1054,1071,1096,1206,1271,1347,1400,1405,1450,1453,1492,1517,1521,1600,1600,1662,1690,1760,1776,1840,1850,1860,1912,1914,1917,1919,1929,1931,1939,1941,1945,1947,1960,1969,1989,1991,1993,1996,2000,2001,2008,2015,2020,2022,2022];
-const PY=[-2560,-1750,-1046,-499,-499,-430,-550,-334,-260,-221,-140,-50,0,313,527,610,626,800,1095,1206,1271,1405,1450,1480,1492,1519,1517,1687,1662,1769,1776,1804,1912,1917,1930,1933,1940,1985,1989];
+const CY=[-8000,-3500,-2560,-2500,-2000,-1750,-1046,-1000,-1000,-800,-550,-509,-500,-490,-450,-450,-431,-334,-264,-260,-221,-150,-27,30,476,527,618,610,661,800,850,910,1054,1071,1096,1206,1271,1324,1347,1400,1405,1450,1453,1492,1498,1517,1521,1545,1556,1565,1600,1600,1602,1662,1690,1757,1760,1776,1788,1789,1814,1823,1839,1840,1848,1850,1857,1860,1861,1868,1869,1870,1885,1896,1907,1912,1914,1917,1919,1922,1929,1931,1933,1938,1939,1941,1942,1943,1944,1945,1947,1947,1947,1948,1948,1948,1950,1955,1960,1962,1963,1969,1989,1991,1993,1996,2000,2001,2008,2015,2020,2022,2022];
+const PY=[-2560,-1750,-1046,-499,-499,-430,-550,-334,-260,-221,-140,-50,0,313,527,610,626,800,1095,1206,1271,1405,1450,1480,1492,1498,1519,1517,1620,1637,1687,1662,1750,1776,1769,1776,1804,1861,1871,1912,1918,1917,1923,1930,1933,1940,1985,1989];
 const myN=y=>y.startsWith('bc')?-(+y.slice(2)):+y;
 const LS=[
-["大河文明：文字的誕生", "約前8000～前1000", -9000, -1000, 0, ["農業｜人類終於不用再追著獵物跑了：學會種田、定居，大河旁邊開始冒出城市", "文字｜兩河流域與尼羅河流域發明文字，從此事情可以存檔，是世界文明的起源之一", "古文明｜西亞、埃及、愛琴、印度河、黃河，五個古文明各自開局", "國家｜法律、國王、宗教陸續上線"]],
-["希臘興起與波斯帝國", "前1000～前500", -1000, -500, 0, ["字母｜腓尼基人發明字母：只要22個符號，比楔形文字好學太多", "城邦｜希臘人建立許多城邦，一座城就是一個國家", "波斯｜成為第一個橫跨三洲的大帝國，地圖直接開到亞非歐", "羅馬｜趕走國王，從王政變成共和", "一神信仰｜希伯來人的猶太教只信一神；波斯人信仰祆教"]],
-["希臘的光輝與思想家", "前500～前200", -500, -200, 1, ["思想家｜孔子、佛陀、希臘哲學家幾乎同時出現，人類集體開啟思考模式", "佛教｜印度有種姓制度（和婆羅門教關係密切），佛陀卻說：眾生平等", "雅典｜發展出民主，公民自己投票決定國家大事", "十二表法｜羅馬把法律刻在十二塊表上公布，是羅馬法的基礎", "希臘化｜亞歷山大東征，一路把希臘文化帶到東方", "中國｜秦統一中國，文字、貨幣、度量衡全部統一規格"]],
-["羅馬帝國與漢朝", "前200～500", -200, 500, 1, ["絲路｜漢朝連接東西方，絲綢、紙、佛教一路流傳", "羅馬｜依序是王政、共和、帝國；帝國統治整個地中海", "基督教｜在羅馬帝國萌芽，392年成為國教", "476年｜西羅馬帝國滅亡，古典時期結束"]],
-["三大世界：拜占庭、伊斯蘭、西歐", "500～1000", 500, 1000, 2, ["拜占庭｜東羅馬沒倒，繼續延續羅馬傳統", "伊斯蘭｜阿拉伯帝國擴張到三大洲；經典是可蘭經", "伊斯蘭文化｜翻譯希臘典籍，還把阿拉伯數字傳到歐洲（就是你每天寫的 0、1、2、3）", "西歐｜日耳曼人建國，查理曼加冕，進入封建社會", "唐朝｜成為東亞文化中心，日本、新羅都派人來學"]],
-["十字軍與蒙古", "1000～1400", 1000, 1400, 2, ["1054年｜基督教分家：西邊天主教、東邊東正教", "十字軍｜塞爾柱打敗拜占庭，拜占庭求救，引發十字軍東征", "蒙古｜帝國橫跨歐亞，東西交流衝到高峰", "黑死病｜重創歐洲，封建制度開始瓦解"]],
-["文藝復興與大航海時代", "1400～1550", 1400, 1550, 3, ["人文主義｜文藝復興的核心：人很重要，現世生活也很重要", "印刷術｜書變便宜，知識開始高速傳播", "大航海｜鄂圖曼擋住陸路？那歐洲人就從海上找新航路", "宗教改革｜馬丁路德、喀爾文出場，新教從天主教分出", "美洲｜阿茲特克、印加被征服，原住民大量死於傳染病"]],
-["科學革命與理性", "1550～1700", 1550, 1700, 3, ["科學革命｜不再只聽古人說：用觀察、實驗和數學了解自然", "啟蒙開始｜用理性改造社會（洛克：人有天生的權利）", "南亞與東南亞｜印度由蒙兀兒帝國統治；歐洲人跑來爭奪香料和據點", "三角貿易｜歐洲製成品→非洲奴隸→美洲農產原料", "傳教｜耶穌會的利瑪竇把西方科學帶到明朝", "臺灣｜荷蘭1624年占領南部，後來被鄭成功趕走"]],
-["雙元革命", "1700～1815", 1700, 1815, 4, ["工業革命｜機器取代手工，世界開始加速，是邁向現代的重大指標", "美國獨立｜13個殖民地發表獨立宣言：我們要自己來", "法國大革命｜三級會議引爆革命，發表人權宣言", "拿破崙｜把革命觀念傳遍歐洲；戰敗後各國召開維也納會議收拾局面", "澳洲｜英國1788年開始殖民"]],
-["帝國主義的世界", "1815～1914", 1815, 1914, 4, ["民族主義｜「同一個民族就該有自己的國家」：拉丁美洲獨立；義大利、德意志（俾斯麥）統一", "帝國主義｜列強瓜分亞洲、非洲（柏林會議）", "社會達爾文主義｜被拿來替殖民找藉口", "社會主義｜工人生活太苦，馬克思提出", "東亞｜鴉片戰爭、明治維新、1912年中華民國建立，東亞大洗牌"]],
-["兩次世界大戰", "1914～1945", 1914, 1946, 4, ["一戰｜帝國主義競爭形成兩大集團，一個火花就引爆大戰", "俄國革命｜推翻沙皇，建立共產國家", "戰間期｜凡爾賽條約、國際聯盟、民族自決，努力了，卻沒能維持和平", "極端政權｜經濟大恐慌後，法西斯、納粹崛起", "二戰｜規模最大的戰爭之一，1945年結束"]],
-["冷戰：美蘇對立", "1945～1991", 1946, 1991, 4, ["冷戰｜美國帶領北約、蘇聯帶領華沙公約，兩邊互瞪四十多年", "熱戰｜韓戰、越戰（古巴飛彈危機差點引發核戰）", "第三世界｜亞非殖民地紛紛獨立，許多新國家：我不選邊", "1989年｜柏林圍牆倒下，東歐共產政權接連垮台"]],
-["冷戰後到今天", "1991～2026", 1991, 2100, 4, ["1991年｜蘇聯解體，冷戰正式結束", "歐盟｜歐洲走向整合，很多國家之間不用再查護照", "臺灣｜1996年首次總統直選，一人一票選總統", "今日補充｜全球化、疫情、AI、氣候變遷、俄烏戰爭（不是會考必考，是你正在經歷的歷史）"]]
+["大河文明：文字的誕生","約前3500～前1000",-9000,-1000,0,["農業｜人類終於不用再追著獵物跑了：學會種田、定居，大河旁邊開始冒出城市","文字｜兩河流域與尼羅河流域發明文字，從此事情可以存檔，是世界文明的起源之一","古文明｜兩河流域、埃及（太陽曆）、印度河、黃河四大古文明都在大河旁；海上還有愛琴文明","愛琴｜克里特島和希臘本土靠航海貿易致富，是希臘文明的前身","印度河｜規劃整齊的城市有下水道；雅利安人移入後形成種姓制度","國家｜法律、國王、宗教陸續上線"]],
+["希臘興起與波斯帝國","前1000～前500",-1000,-500,0,["字母｜腓尼基人發明字母：只要22個符號，比楔形文字好學太多","城邦｜希臘人建立許多城邦，一座城就是一個國家","波斯｜成為第一個橫跨三洲的大帝國，地圖直接開到亞非歐","羅馬｜趕走國王，從王政變成共和","一神信仰｜希伯來人建立以色列王國，猶太教只信唯一的神", "祆教｜波斯人崇拜火與光明，相信善神與惡神對抗"]],
+["希臘的光輝與思想家","前500～前200",-500,-200,1,["思想家｜孔子、佛陀、希臘哲學家幾乎同時出現，人類集體開啟思考模式","佛教｜印度有種姓制度（和婆羅門教關係密切），佛陀卻說：眾生平等","波希戰爭｜希臘城邦聯手在馬拉松、薩拉米斯擋下波斯","雅典｜發展出民主，公民自己投票決定國家大事","伯羅奔尼撒戰爭｜雅典對上斯巴達，城邦內鬥兩敗俱傷","十二表法｜羅馬把法律刻在十二塊表上公布，是羅馬法的基礎","希臘化｜亞歷山大東征，一路把希臘文化帶到東方","布匿克戰爭｜羅馬消滅迦太基，成為地中海霸主","佛教傳播｜阿育王推廣，南傳東南亞（上座部）、北傳東亞（大乘）","中國｜秦統一中國，文字、貨幣、度量衡全部統一規格"]],
+["羅馬帝國與漢朝","前200～500",-200,500,1,["絲路｜漢朝連接東西方，絲綢西傳，葡萄、佛教傳入中國","羅馬｜依序是王政、共和、帝國；帝國統治整個地中海","基督教｜在羅馬帝國萌芽，313年《米蘭詔書》承認，392年成為國教","476年｜西羅馬帝國滅亡，古典時期結束"]],
+["三大世界：拜占庭、伊斯蘭、西歐","500～1000",500,1000,2,["拜占庭｜東羅馬沒倒，繼續延續羅馬傳統","伊斯蘭｜622年聖遷，信徒遵守五功；阿拉伯帝國擴張到三大洲；經典是《古蘭經》（又譯可蘭經）","遜尼派與什葉派｜穆罕默德死後為了繼承人吵翻，分成兩派","伊斯蘭文化｜翻譯希臘典籍，還把阿拉伯數字傳到歐洲（就是你每天寫的 0、1、2、3）","西歐｜日耳曼人建國；查理曼加冕，推動加洛林文藝復興；進入封建社會","教會｜修道院抄書、辦學，教宗權威一度高過國王","唐朝｜成為東亞文化中心，日本、新羅都派人來學"]],
+["十字軍與蒙古","1000～1400",1000,1400,2,["1054年｜基督教分家：西邊天主教、東邊東正教","十字軍｜塞爾柱打敗拜占庭，拜占庭求救，引發十字軍東征","蒙古｜帝國橫跨歐亞，東西交流衝到高峰","黑死病｜重創歐洲，封建制度開始瓦解","非洲｜西非馬利帝國靠撒哈拉的黃金換鹽貿易致富"]],
+["文藝復興與大航海時代","1400～1550",1400,1550,3,["人文主義｜文藝復興的核心：人很重要，現世生活也很重要","印刷術｜書變便宜，知識開始高速傳播","新航路｜鄂圖曼擋住陸路，葡萄牙繞非洲開到印度（狄亞士、達伽馬）","大航海｜哥倫布往西橫越大西洋，到了美洲","宗教改革｜馬丁路德、喀爾文出場，新教從天主教分出","天主教改革｜天主教整頓自己、成立耶穌會；英國另外成立英國國教","美洲｜阿茲特克、印加被征服，原住民大量死於傳染病"]],
+["科學革命與理性","1550～1700",1550,1700,3,["科學革命｜不再只聽古人說：用觀察、實驗和數學了解自然（培根：知識就是力量；笛卡兒：我思故我在）","啟蒙開始｜用理性改造社會（洛克：人有天生的權利）","蒙兀兒｜來自中亞的伊斯蘭王朝統治印度，阿克巴對印度教寬容","東南亞｜荷蘭東印度公司以巴達維亞為總部搶香料","三角貿易｜歐洲製成品→非洲奴隸→美洲農產原料","全球貿易｜馬尼拉大帆船把美洲白銀運到亞洲，換中國的絲綢和瓷器","傳教｜耶穌會的利瑪竇把西方科學帶到明朝","臺灣｜荷蘭1624年占領南部，後來被鄭成功趕走"]],
+["雙元革命","1700～1815",1700,1815,4,["工業革命｜機器取代手工，世界開始加速，是邁向現代的重大指標","英國控制印度｜1757年普拉西戰役後，英國東印度公司一步步吞下印度","美國獨立｜無代表，不納稅！發表獨立宣言，憲法落實三權分立","啟蒙思想家｜伏爾泰批評專制；亞當斯密主張自由市場；有些國王推動開明專制","法國大革命｜三級會議引爆革命，發表人權宣言，接著是恐怖統治","拿破崙｜把革命觀念傳遍歐洲；戰敗後各國召開維也納會議收拾局面","澳洲｜英國1788年開始殖民，原住民失去土地"]],
+["帝國主義的世界","1815～1914",1815,1914,4,["民族主義｜「同一個民族就該有自己的國家」：拉丁美洲獨立；義大利（建國三傑）、德意志（俾斯麥）統一","門羅宣言｜拉丁美洲剛獨立，美國就對歐洲喊話：美洲的事你們別插手","帝國主義｜列強瓜分亞洲、非洲（柏林會議）","印度｜1857年反英兵變後，英國改由政府直接統治","社會達爾文主義｜被拿來替殖民找藉口","新思潮｜工人生活太苦：馬克思提出社會主義；寫實主義寫社會真相，浪漫主義重情感","兩大集團｜三國同盟對上三國協約，英國放棄光榮孤立","第二次工業革命｜電力、石油、汽車、電話上場，德美工業追過英國","南北戰爭｜美國為奴隸制度打內戰，林肯廢奴","明治維新｜日本全面學西方，甲午戰爭打敗清朝、取得臺灣","東南亞｜幾乎全被殖民，只有暹羅（泰國）保住獨立","衣索比亞｜在阿杜瓦打敗義大利，保住獨立","東亞｜鴉片戰爭、1912年中華民國建立，東亞大洗牌"]],
+["兩次世界大戰","1914～1945",1914,1946,4,["一戰｜三國同盟對上三國協約，西線打成壕溝戰；美國被潛艇戰激怒而參戰","俄國革命｜二月革命推翻沙皇，十月革命列寧奪權，建立共產國家","戰間期｜巴黎和會簽下凡爾賽條約；十四點原則（民族自決）、國際聯盟，努力了，卻沒能維持和平","大恐慌｜1929年美國股市崩盤，失業潮擴散到全世界","極權｜經濟大恐慌後，義大利法西斯、德國納粹、史達林、日本軍人掌權：只准一個黨","新政｜大恐慌後，美國羅斯福總統用政府的力量救經濟","姑息政策｜英法在慕尼黑一再讓步，希特勒越要越多","二戰｜德蘇互不侵犯條約後，德軍閃電戰橫掃歐洲；史上規模最大、死傷最多的戰爭","大屠殺｜納粹殺害約600萬猶太人","反攻｜史達林格勒、諾曼第登陸，德國兩面受敵","戰時會議｜開羅會議、雅爾達會議安排戰後世界"]],
+["冷戰：美蘇對立","1945～1991",1946,1991,4,["冷戰｜美國用圍堵政策（杜魯門主義、馬歇爾計畫）、組北約；蘇聯組華沙公約，兩邊互瞪四十多年","聯合國｜二戰後成立，安全理事會負責維護國際和平","印巴分治｜英國撤出，印度、巴基斯坦依宗教分成兩國","柏林封鎖｜蘇聯封鎖西柏林，德國分裂成東西德","以色列建國｜以阿衝突從這裡開始","熱戰｜韓戰、越戰","危機｜1962年古巴飛彈危機，美蘇差點爆發核戰","第三世界｜亞非殖民地紛紛獨立；萬隆會議（1955）後組成不結盟運動，不選邊","爭取平等｜女性參政、黑人民權運動、南非廢除種族隔離","1989年｜柏林圍牆倒下，東歐共產政權接連垮台"]],
+["冷戰後到今天","1991～2026",1991,2100,4,["1991年｜蘇聯解體，冷戰正式結束","歐盟｜歐洲走向整合，很多國家之間不用再查護照","臺灣｜1996年首次總統直選，一人一票選總統","今日補充｜全球化、疫情、AI、氣候變遷、俄烏戰爭（不是會考必考，是你正在經歷的歷史）"]]
 ];
 const STEPS=["這一課的重點","地圖與事件","關鍵人物","小測驗（3題）"];
 let ls=0,lstep=0,lmax=0;
@@ -1862,7 +2205,8 @@ function bestEv(li,bi){
  let best=-1,bs=0;C.forEach((c,i)=>{if(!inL(i))return;let sc=0;if(k&&(c[2].includes(k)||k.includes(CS[i])||CS[i].includes(k)))sc+=5;if(v.includes(c[2])||v.includes(CS[i]))sc+=4;terms.forEach(t=>{if(c[2].includes(t))sc+=2;if(CW[i].includes(t))sc+=1});if(sc>bs){bs=sc;best=i}});
  return [best,bs];
 }
-const evBody=i=>`<div>${T(CP[i])}</div><div class="ddr hot"><span>🔥 熱知識</span>${T(CH[i])}</div>${CT[i]?`<div class="ddr"><span>🧊 冷知識</span>${T(CT[i])}</div>`:''}`;
+const chainHTML=t=>{const st=t.split(/\s*→\s*/);return st.length>1?`<ol class="chain">${st.map(x=>`<li>${T(x)}</li>`).join('')}</ol>`:`<p>${T(t)}</p>`};
+const evBody=i=>`<p class="evp">${T(CP[i])}</p><div class="hotbox"><i>🔥 熱知識</i>${chainHTML(CH[i])}</div>${CT[i]?`<div class="coldbox"><i>🧊 冷知識</i><p>${T(CT[i])}</p></div>`:''}`;
 function deepHTML(li,bi){
  const L=LS[li],[k,v]=L[5][bi].includes('｜')?L[5][bi].split('｜'):['',L[5][bi]],txt=k+' '+v;
  const terms=[...new Set((txt.match(TRE)||[]))].slice(0,4);
@@ -1870,9 +2214,9 @@ function deepHTML(li,bi){
  const [best,bs]=bestEv(li,bi);
  const pp=PP.map((x,i)=>({x,i})).filter(o=>o.x[1].split(/[、，]/).some(n=>n.length>1&&txt.includes(n))).slice(0,2);
  let h='';
- if(terms.length)h+=`<div class="dd"><i>名詞</i>${terms.map(t=>`<div><b>${t}</b>：${TERM[t]}</div>`).join('')}</div>`;
- if(best>=0&&bs>=3){const c=C[best];h+=`<div class="dd"><i>相關事件</i><div><b>${c[2]}</b>（${c[1]}）</div>${evBody(best)}</div>`}
- pp.forEach(o=>{h+=`<div class="dd"><i>相關人物</i><div><b>${o.x[1]}</b>（${o.x[2]}）：${T(o.x[3])}</div><div class="ddr"><span>影響</span>${T(o.x[4])}</div></div>`});
+ if(best>=0&&bs>=3){const c=C[best];h+=`<div class="dd"><div class="ddh"><b>${c[2]}</b><span>${c[1]}</span></div>${evBody(best)}</div>`}
+ pp.forEach(o=>{h+=`<div class="dd"><div class="ddh"><b>${o.x[1]}</b><span>${o.x[2]}</span></div><p class="evp">${T(o.x[3])}</p><p class="evp mute">→ ${T(o.x[4])}</p></div>`});
+ if(terms.length)h+=`<div class="dd"><i>名詞（點開看解釋）</i><div class="ddterms">${terms.map(t=>`<details><summary>${t}</summary><p>${TERM[t]}</p></details>`).join('')}</div></div>`;
  return h;
 }
 document.addEventListener('click',e=>{
@@ -1984,7 +2328,7 @@ function gNext(){
  if(gPos>=gDeck.length){const last=gDeck[gDeck.length-1];gDeck=shuffle(gamePool());if(last&&gDeck[0].t===last.t)gDeck.push(gDeck.shift());gPos=0}
  return gDeck[gPos++];
 }
-function openGame(){$('home').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('tlpage').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;sCnt=0;sOk=0;exS=null;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
+function openGame(){$('home').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('tlpage').hidden=true;$('pplp').hidden=true;$('guidep').hidden=true;$('srcp').hidden=true;$('feedp').hidden=true;$('game').hidden=false;window.scrollTo(0,0);gOk=0;gDone=0;sCnt=0;sOk=0;exS=null;gWrong=[];gRetry=[];gN=0;if(!gDeck.length||gPos>=gDeck.length){gDeck=shuffle(gamePool());gPos=0}renderGame(true)}
 window.__game=()=>({p:gq&&gq.p,deck:gDeck.length});
 function closeGame(){$('game').hidden=true;$('home').hidden=false;window.scrollTo(0,0)}
 const gAns=w=>`<b class="gans" style="color:${pc[w.p]}">${P[w.p].n}（${P[w.p].y}）</b>`;
@@ -2134,8 +2478,8 @@ function gPick(force){
  setYear(y);
 }
 // ===== 首頁 =====
-function goHome(){bigMode=false;document.body.classList.remove('tlmode','bigv');$('app').hidden=true;$('game').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('tlpage').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();window.scrollTo(0,0)}
-function enterApp(lesson){bigMode=false;document.body.classList.remove('bigv');$('home').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('tlpage').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
+function goHome(){bigMode=false;document.body.classList.remove('tlmode','bigv');$('app').hidden=true;$('game').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('tlpage').hidden=true;$('pplp').hidden=true;$('guidep').hidden=true;$('srcp').hidden=true;$('feedp').hidden=true;$('home').hidden=false;document.body.classList.add('home');renderHome();setHTab(hTab);window.scrollTo(0,0)}
+function enterApp(lesson){bigMode=false;document.body.classList.remove('bigv');$('home').hidden=true;$('frame').hidden=true;$('chainp').hidden=true;$('tlpage').hidden=true;$('pplp').hidden=true;$('guidep').hidden=true;$('srcp').hidden=true;$('feedp').hidden=true;$('app').hidden=false;document.body.classList.remove('home');
  if(lesson!=null&&lesson!==ls){ls=lesson;lstep=0;lmax=0;saveL()}setTab('learn');renderRail();renderSync();window.scrollTo(0,0)}
 
 // 首頁：課本式橫向總覽時間軸（色帶＋中國朝代＋臺灣史＋文明／政權／大事／宗教）
@@ -2184,7 +2528,7 @@ function renderEras(){
  $('eras').querySelectorAll('button').forEach(b=>b.onclick=()=>{eraSel=+b.dataset.i;renderEras()});
  const p=P[eraSel];
  $('erap').style.setProperty('--pc',p.c);
- $('erap').innerHTML=`<div class="erak">${FR[eraSel].k.join('・')}<small>${p.y}</small></div>${LS.map((l,j)=>l[4]===eraSel?`<button data-j="${j}"><span>${j+1}</span><b>${l[0]}</b><small>${l[1]}</small></button>`:'').join('')}`;
+ $('erap').innerHTML=`<div class="erak">${FR[eraSel].k.join('・')}<small>${p.y}</small></div>${LS.map((l,j)=>l[4]===eraSel?`<button data-j="${j}"><span>${j+1}</span><b>${l[0]}</b><small>${l[1]}${lDone.includes(j)?'　✓ 讀完了':''}</small><em>${l[5].map(x=>x.split('｜')[0]).join('・')}</em></button>`:'').join('')}`;
  $('erap').querySelectorAll('button').forEach(b=>b.onclick=()=>enterApp(+b.dataset.j));fadeIn($('erap'));
 }
 function renderHome(){
@@ -2256,22 +2600,22 @@ function renderFCheck(){
 
 // ===== 因果鏈大頁面：六條主線 =====
 let cpK=0,cpFrom='home';
-function openChain(k,from){['home','app','game','frame','tlpage'].forEach(id=>$(id).hidden=true);$('chainp').hidden=false;document.body.classList.add('home');cpK=k||0;cpFrom=from||'home';renderChainP();window.scrollTo(0,0)}
+function openChain(k,from){['home','app','game','frame','tlpage','pplp','guidep','srcp','feedp'].forEach(id=>$(id).hidden=true);$('chainp').hidden=false;document.body.classList.add('home');cpK=k||0;cpFrom=from||'home';renderChainP();window.scrollTo(0,0)}
 function renderChainP(){
  $('cpnav').innerHTML=ML.map((l,k)=>`<button class="${k===cpK?'on':''}" data-k="${k}"><b>${k+1}</b><span>${l[0]}</span><div class="mlp">${mlPer(l).map((y,j)=>`<i class="${y?'y':''}" style="background:${pc[j]}"></i>`).join('')}</div></button>`).join('');
  $('cpnav').querySelectorAll('button').forEach(b=>b.onclick=()=>{cpK=+b.dataset.k;renderChainP();const t=$('cpbody').getBoundingClientRect().top+scrollY-(innerWidth<900?$('cpnav').offsetHeight+8:16);window.scrollTo({top:Math.max(0,t),behavior:'smooth'})});
  const L=ML[cpK],ids=mlIdx(L),lk=L[3];
  $('cpbody').innerHTML=`<header class="cpt"><small>主線 ${cpK+1} / ${ML.length}</small><h2>${L[0]}</h2><p>${L[1]}</p><div class="mlp cpper">${mlPer(L).map((y,j)=>`<i class="${y?'y':''}" style="background:${pc[j]}">${P[j].n}</i>`).join('')}</div></header>`+
- ids.map((i,n)=>{const c=C[i];return `${n?`<div class="cplink"><span>↓</span><div>${T(lk[n-1])}</div></div>`:''}<article class="cpe" style="--pc:${pc[c[0]]}"><div class="cpeh"><span class="cpy">${c[1]}</span><span class="cpp">${P[c[0]].n}</span></div><h3>${c[2]}</h3><p>${T(CP[i])}</p><div class="ddr hot"><span>🔥 熱知識</span>${T(CH[i])}</div>${CT[i]?`<div class="ddr"><span>🧊 冷知識</span>${T(CT[i])}</div>`:''}${c[9]?`<div class="ddr"><span>關鍵人物</span>${c[9]}</div>`:''}</article>`}).join('')+
+ ids.map((i,n)=>{const c=C[i];return `${n?`<div class="cplink"><span>↓</span><div>${T(lk[n-1])}</div></div>`:''}<article class="cpe" style="--pc:${pc[c[0]]}"><div class="cpeh"><span class="cpy">${c[1]}</span><span class="cpp">${P[c[0]].n}</span></div><h3>${c[2]}</h3>${evBody(i)}${c[9]?`<div class="ddr"><span>關鍵人物</span>${c[9]}</div>`:''}</article>`}).join('')+
  `<div class="cpend">${cpK<ML.length-1?`<button class="primary" id="cpnext">下一條主線：${ML[cpK+1][0]} →</button>`:`<button class="primary" id="cpnext">從第 1 條再看一次</button>`}</div>`;
  fadeIn($('cpbody'));
  $('cpnext').onclick=()=>{cpK=(cpK+1)%ML.length;renderChainP();window.scrollTo(0,0)};
 }
 $('cback').onclick=()=>{if(cpFrom==='app')enterApp(null);else goHome()};
-$('hchain').onclick=()=>openChain(0,'home');$('htl').onclick=openTL;$('hmap').onclick=()=>openBig('mapv');$('hrg').onclick=()=>openBig('rgv');
+$('hchain').onclick=()=>openChain(0,'home');$('htl').onclick=openTL;$('hmap').onclick=()=>openBig('mapv');$('hrg').onclick=()=>openBig('rgv');$('hppl').onclick=openPeople;
 
 // ===== 轉場：切換畫面時滑入；手機返回鍵回首頁 =====
-(()=>{const V=['home','app','game','frame','chainp','tlpage'];
+(()=>{const V=['home','app','game','frame','chainp','tlpage','pplp','guidep','srcp','feedp'];
  const play=(el,cls)=>{el.classList.remove('vin','vback');void el.offsetWidth;el.classList.add(cls);setTimeout(()=>el.classList.remove(cls),320)};
  const mo=new MutationObserver(ms=>ms.forEach(m=>{const el=m.target;if(!el.hidden&&m.oldValue!==null){play(el,el.id==='home'?'vback':'vin');
    try{if(el.id!=='home'){if(!history.state||!history.state.v)history.pushState({v:1},'')}else if(history.state&&history.state.v)history.back()}catch(e){}}}));
@@ -2279,10 +2623,167 @@ $('hchain').onclick=()=>openChain(0,'home');$('htl').onclick=openTL;$('hmap').on
  addEventListener('popstate',()=>{if($('home').hidden)goHome()});
 })();
 const fadeIn=el=>{if(!el)return;el.classList.remove('fin');void el.offsetWidth;el.classList.add('fin')};
+
+// ===== 人物大頁面：依領域／依時代，附時間軸 =====
+const PBIG=[["政治與軍事", ["統治者", "政治家", "革命與社運", "軍事家"]], ["思想與宗教", ["思想家", "宗教人物"]], ["科學與技術", ["科學家", "化學家", "醫學家", "發明家"]], ["文學與藝術", ["文學家", "史學家", "畫家與雕刻家", "音樂家"]], ["探險與交流", ["探險家"]]];
+const PCAT=PBIG.flatMap(b=>b[1]);
+// 課本人物的類別
+const PT0={"古夫法老": "統治者", "漢摩拉比": "統治者", "周武王": "統治者", "孔子": "思想家", "釋迦牟尼": "宗教人物、思想家", "蘇格拉底、柏拉圖、亞里斯多德": "思想家", "居魯士大帝": "統治者", "亞歷山大大帝": "統治者、軍事家", "阿育王": "統治者", "秦始皇": "統治者", "漢武帝、張騫": "統治者、探險家", "凱撒、屋大維": "統治者、軍事家", "耶穌": "宗教人物", "君士坦丁大帝": "統治者", "查士丁尼": "統治者", "穆罕默德": "宗教人物", "唐太宗": "統治者", "查理曼": "統治者", "教宗烏爾班二世": "宗教人物", "成吉思汗": "統治者、軍事家", "忽必烈": "統治者", "鄭和": "探險家", "古騰堡": "發明家", "達文西": "畫家與雕刻家、發明家", "哥倫布": "探險家", "狄亞士、達伽馬": "探險家", "麥哲倫": "探險家", "馬丁路德": "宗教人物", "培根": "思想家、科學家", "伏爾泰": "思想家、文學家", "亞當斯密": "思想家", "笛卡兒": "思想家、科學家", "牛頓": "科學家", "鄭成功": "軍事家", "瓦特": "發明家", "華盛頓": "革命與社運、政治家", "拿破崙": "統治者、軍事家", "馬志尼、加富爾、加里波底": "革命與社運", "俾斯麥": "政治家", "孫中山": "革命與社運", "威爾遜": "政治家", "列寧": "革命與社運", "凱末爾": "革命與社運、政治家", "甘地": "革命與社運", "希特勒": "統治者", "邱吉爾、羅斯福": "政治家", "戈巴契夫": "政治家", "提姆・柏納李": "發明家、科學家"};
+// 延伸人物（只在人物頁）：[時期, 類別, 名字, 年代, 地區, 做了什麼, 影響, 排序年]
+const PX=[[0, "統治者", "薩爾貢", "約前24～前23世紀", "兩河流域", "阿卡德的國王，統一兩河流域各城邦", "建立人類史上最早的帝國之一", -2300], [0, "統治者", "拉美西斯二世", "約前1303～前1213", "埃及", "在位約66年，興建阿布辛貝神廟等大型建築", "和西臺簽訂的和約，是已知最早的國際和約之一", -1270], [0, "統治者", "圖坦卡門", "約前1341～前1323", "埃及", "年少即位、很早過世的法老", "1922年他的陵墓被完整發現，大量陪葬品讓世界更了解古埃及", -1330], [0, "文學家", "荷馬", "約前8世紀", "希臘", "相傳寫下史詩《伊利亞德》《奧德賽》", "希臘神話和西方文學的重要源頭", -750], [0, "政治家", "梭倫", "約前638～前558", "雅典", "推動改革，廢除欠債就淪為奴隸的制度", "為後來的雅典民主鋪路", -594], [0, "思想家", "老子", "約前6世紀", "中國", "相傳著《道德經》，主張順應自然、無為而治", "道家思想的源頭，影響中國人兩千多年", -520], [0, "科學家、思想家", "畢達哥拉斯", "約前570～前495", "希臘", "數學家、哲學家，認為萬物背後都有數的規律", "「畢氏定理」以他命名", -530], [1, "政治家", "伯里克利", "約前495～前429", "雅典", "雅典全盛時期的領袖，擴大公民參政，興建帕德嫩神廟", "雅典民主與文化達到高峰", -450], [1, "史學家", "希羅多德", "約前484～前425", "希臘", "寫下《歷史》，記錄希臘和波斯之間的戰爭", "被稱為「歷史之父」", -440], [1, "思想家", "孟子", "約前372～前289", "中國", "繼承孔子思想，主張性善、「民為貴，君為輕」", "儒家的重要代表，被稱為「亞聖」", -320], [1, "科學家", "歐幾里得", "約前300年", "埃及亞歷山大城", "整理出《幾何原本》，用推理一步步證明幾何定理", "兩千年來一直是學幾何的基本教材", -300], [1, "科學家、發明家", "阿基米德", "約前287～前212", "西西里島", "發現浮力原理、槓桿原理", "名言「給我一個支點，我就能舉起地球」", -250], [1, "軍事家", "漢尼拔", "前247～約前183", "迦太基", "帶著戰象翻越阿爾卑斯山，在義大利多次大敗羅馬軍", "最後迦太基仍輸給羅馬，羅馬成為地中海霸主", -218], [1, "革命與社運", "斯巴達克斯", "？～前71", "羅馬", "角鬥士出身，帶領奴隸起義", "起義被鎮壓，但成為反抗壓迫的象徵", -73], [1, "統治者", "克麗奧佩脫拉七世", "前69～前30", "埃及", "托勒密王朝最後的女王，先後與凱撒、安東尼結盟", "她死後埃及成為羅馬的一個省", -40], [1, "史學家", "司馬遷", "約前145～約前86", "中國", "寫成《史記》，從黃帝寫到漢武帝", "開創紀傳體史書，影響中國歷代修史", -100], [1, "發明家", "蔡倫", "東漢，約2世紀初", "中國", "約105年改良造紙術，用樹皮、破布等做出便宜的紙", "紙後來傳到阿拉伯和歐洲，改變了知識的傳播", 105], [1, "科學家、發明家", "張衡", "78～139", "中國", "製作渾天儀和偵測地震方向的地動儀", "展現東漢的天文與工程技術", 132], [1, "科學家", "托勒密", "約100～170", "埃及亞歷山大城", "把「地球是宇宙中心」的地心說整理成完整的天文體系（《天文學大成》）", "地心說在歐洲流傳一千多年，直到哥白尼提出日心說", 150], [1, "政治家、軍事家", "諸葛亮", "181～234", "中國", "三國時代蜀漢的丞相，輔佐劉備和劉禪", "忠誠和智慧的形象，透過《三國演義》廣為人知", 220], [2, "宗教人物、探險家", "玄奘", "602～664", "中國", "西行到印度學佛十多年，帶回大量佛經並翻譯", "口述成《大唐西域記》，是研究中亞和印度的重要資料", 629], [2, "統治者", "武則天", "624～705", "中國", "中國歷史上唯一的女皇帝", "重用科舉出身的人才", 690], [2, "文學家", "李白", "701～762", "中國", "唐朝詩人，詩風豪放浪漫，被稱為「詩仙」", "作品至今是華人必讀的經典", 740], [2, "科學家", "花拉子米", "約780～850", "巴格達", "在巴格達的「智慧宮」研究數學，寫出代數學的重要著作", "英文的「演算法（algorithm）」就是從他的名字變來的", 820], [2, "醫學家、思想家", "伊本・西那", "980～1037", "波斯", "醫生和哲學家，寫成《醫典》", "《醫典》在歐洲被當作醫學教科書用了好幾百年", 1020], [2, "發明家", "畢昇", "北宋，約11世紀", "中國", "發明泥活字印刷", "比古騰堡的金屬活字早約四百年", 1045], [2, "統治者、軍事家", "征服者威廉", "約1028～1087", "法國諾曼第", "1066年渡海征服英格蘭，成為英格蘭國王", "英語從此吸收了大量法語詞彙", 1066], [2, "軍事家", "岳飛", "1103～1142", "中國", "南宋將領，多次打敗金兵", "被冤殺後成為忠臣的象徵", 1140], [2, "統治者、軍事家", "薩拉丁", "1137～1193", "埃及、敘利亞", "伊斯蘭世界的蘇丹，1187年從十字軍手中收復耶路撒冷", "在第三次十字軍時和英王理查一世對峙，以寬厚聞名", 1187], [2, "統治者", "約翰王", "1166～1216", "英格蘭", "1215年被貴族逼迫簽下《大憲章》", "「國王也要守法」的觀念開始出現", 1215], [2, "宗教人物、思想家", "阿奎那", "1225～1274", "義大利", "神學家，用亞里斯多德的哲學解釋基督教信仰", "讓理性和信仰可以並存，影響天主教神學", 1265], [2, "文學家", "但丁", "1265～1321", "義大利", "用義大利文寫成長詩《神曲》", "被視為文藝復興的先驅", 1310], [2, "統治者", "曼薩・穆薩", "約1280～1337", "西非馬利帝國", "馬利帝國國王，1324年前往麥加朝聖時帶了大量黃金", "讓歐洲和阿拉伯世界知道西非的富裕", 1324], [2, "探險家", "伊本・巴杜達", "1304～約1369", "摩洛哥", "花了近三十年旅行，走遍伊斯蘭世界，還到過印度和中國", "他的遊記是了解14世紀世界的重要資料", 1340], [2, "統治者", "朱元璋", "1328～1398", "中國", "出身貧農，推翻元朝，建立明朝", "廢除宰相，皇帝權力更集中", 1368], [3, "軍事家", "貞德", "約1412～1431", "法國", "英法百年戰爭時帶領法軍解救奧爾良", "被俘後遭燒死，後來被封為聖人，是法國的民族英雄", 1429], [3, "思想家", "馬基維利", "1469～1527", "義大利", "寫《君王論》，討論統治者如何取得和保住權力", "被視為近代政治學的開端", 1513], [3, "畫家與雕刻家", "米開朗基羅", "1475～1564", "義大利", "雕刻《大衛像》，繪製西斯汀禮拜堂天頂畫", "文藝復興藝術的代表人物", 1508], [3, "探險家、軍事家", "科提斯", "1485～1547", "西班牙", "帶領西班牙軍隊在1521年征服阿茲特克帝國", "墨西哥成為西班牙殖民地「新西班牙」", 1521], [3, "探險家、軍事家", "皮薩羅", "約1478～1541", "西班牙", "征服南美洲的印加帝國", "秘魯一帶成為西班牙殖民地", 1533], [3, "統治者", "亨利八世", "1491～1547", "英格蘭", "為了離婚和教宗決裂，成立英國國教會", "英格蘭脫離羅馬教會的管轄", 1534], [3, "科學家", "哥白尼", "1473～1543", "波蘭", "提出地球繞著太陽轉的「日心說」", "揭開科學革命的序幕", 1543], [3, "宗教人物", "喀爾文", "1509～1564", "日內瓦", "宗教改革家，主張「預定論」，在日內瓦推動改革", "喀爾文教派傳到荷蘭、英國和北美", 1541], [3, "統治者", "蘇萊曼一世", "1494～1566", "鄂圖曼帝國", "鄂圖曼帝國最強盛時的蘇丹，又稱「立法者」", "帝國疆域橫跨歐、亞、非三洲", 1550], [3, "統治者", "阿克巴", "1542～1605", "印度", "蒙兀兒帝國皇帝，對印度教徒採取宗教寬容", "帝國在他手中穩定強盛", 1580], [3, "統治者", "伊莉莎白一世", "1533～1603", "英格蘭", "1588年英國擊敗西班牙無敵艦隊", "英國開始走向海上強國", 1588], [3, "統治者、軍事家", "豐臣秀吉", "1537～1598", "日本", "結束戰國時代、統一日本，後來出兵朝鮮", "戰國時代結束", 1590], [3, "文學家", "莎士比亞", "1564～1616", "英格蘭", "寫出《羅密歐與茱麗葉》《哈姆雷特》等劇本", "被視為英語世界最偉大的劇作家", 1600], [3, "宗教人物、探險家", "利瑪竇", "1552～1610", "義大利→中國", "耶穌會傳教士，在明朝傳教，和徐光啟合譯《幾何原本》", "把西方的數學、天文、地圖帶到中國", 1601], [3, "統治者", "德川家康", "1543～1616", "日本", "1603年建立江戶幕府", "日本進入兩百多年相對和平的江戶時代", 1603], [3, "文學家", "塞萬提斯", "1547～1616", "西班牙", "寫出小說《唐吉訶德》", "被視為近代小說的開端之一", 1605], [3, "科學家", "伽利略", "1564～1642", "義大利", "用望遠鏡觀察星空，支持日心說", "被宗教法庭審判，但成為用觀察和實驗研究科學的代表", 1610], [3, "統治者", "沙賈汗", "1592～1666", "印度", "蒙兀兒帝國皇帝，為過世的皇后興建泰姬瑪哈陵", "泰姬瑪哈陵成為世界文化遺產", 1640], [3, "革命與社運、軍事家", "克倫威爾", "1599～1658", "英格蘭", "英國內戰中率領國會軍擊敗國王，查理一世被處死", "英國一度成為共和國", 1649], [3, "統治者", "路易十四", "1638～1715", "法國", "自稱「太陽王」，興建凡爾賽宮，實行君主專制", "法國成為歐洲最強的國家之一，但也欠下大筆債務", 1661], [3, "統治者", "康熙", "1654～1722", "中國", "清朝皇帝，1683年取得臺灣", "清朝進入盛世", 1683], [3, "思想家", "洛克", "1632～1704", "英格蘭", "主張人天生擁有生命、自由、財產的權利", "影響美國《獨立宣言》和近代民主思想", 1689], [3, "統治者", "彼得大帝", "1672～1725", "俄國", "親自到西歐學習，回國推動西化改革，興建聖彼得堡", "俄國成為歐洲強國", 1697], [4, "音樂家", "巴哈", "1685～1750", "德意志", "巴洛克時期作曲家", "被稱為「音樂之父」", 1720], [4, "思想家", "孟德斯鳩", "1689～1755", "法國", "在《論法的精神》中主張三權分立", "美國憲法依照三權分立設計", 1748], [4, "思想家", "盧梭", "1712～1778", "法國", "寫《社會契約論》，主張國家權力來自人民", "影響法國大革命", 1762], [4, "革命與社運、政治家", "傑佛遜", "1743～1826", "美國", "起草美國《獨立宣言》，後來成為第三任總統", "「人人生而平等」寫進了美國的建國文件", 1776], [4, "音樂家", "莫札特", "1756～1791", "奧地利", "五歲就會作曲，寫下大量交響曲和歌劇", "古典音樂的代表人物", 1780], [4, "革命與社運", "羅伯斯比", "1758～1794", "法國", "法國大革命時的領袖，實施「恐怖統治」", "大量處決反對者，最後自己也被送上斷頭臺", 1793], [4, "軍事家", "納爾遜", "1758～1805", "英國", "1805年特拉法加海戰擊敗法國和西班牙艦隊", "英國從此掌握海上優勢，他本人也在戰役中陣亡", 1805], [4, "音樂家", "貝多芬", "1770～1827", "德意志", "後半生失聰，仍寫出《命運》《合唱》等交響曲", "被視為浪漫主義音樂的先驅", 1805], [4, "軍事家", "威靈頓", "1769～1852", "英國", "1815年在滑鐵盧戰役擊敗拿破崙", "拿破崙時代結束", 1815], [4, "革命與社運、軍事家", "玻利瓦", "1783～1830", "南美洲", "領導南美洲多國脫離西班牙獨立，被稱為「解放者」", "玻利維亞的國名就是以他命名", 1819], [4, "發明家", "史蒂文生", "1781～1848", "英國", "製造蒸汽火車頭，1825年第一條公共蒸汽鐵路通車", "鐵路時代開始", 1825], [4, "科學家、化學家", "法拉第", "1791～1867", "英國", "發現電磁感應", "發電機和電動機都靠這個原理", 1831], [4, "政治家", "林則徐", "1785～1850", "中國", "奉命到廣州禁鴉片，1839年在虎門銷毀鴉片", "英國以此為藉口發動鴉片戰爭", 1839], [4, "文學家", "狄更斯", "1812～1870", "英國", "寫《孤雛淚》《雙城記》等小說，描寫窮人的生活", "寫實主義文學的代表", 1850], [4, "醫學家", "南丁格爾", "1820～1910", "英國", "克里米亞戰爭時照顧傷兵，改善醫院衛生", "建立現代護理制度，被稱為「提燈天使」", 1854], [4, "科學家", "達爾文", "1809～1882", "英國", "出版《物種起源》，提出演化論", "改變人類對生命的看法；後來有人把它扭曲成社會達爾文主義", 1859], [4, "文學家", "雨果", "1802～1885", "法國", "寫《悲慘世界》《鐘樓怪人》", "浪漫主義文學的代表", 1862], [4, "政治家", "林肯", "1809～1865", "美國", "南北戰爭時的總統，1863年發表解放奴隸宣言", "美國廢除奴隸制度，維持國家統一", 1863], [4, "化學家、醫學家", "巴斯德", "1822～1895", "法國", "證明細菌會讓食物腐壞和讓人生病，發明巴氏消毒法、研發狂犬病疫苗", "奠定微生物學和疫苗的基礎", 1865], [4, "化學家、發明家", "諾貝爾", "1833～1896", "瑞典", "發明比較安全的炸藥，賺進大筆財富", "遺囑設立諾貝爾獎", 1867], [4, "統治者", "明治天皇", "1852～1912", "日本", "在位時推動明治維新，學習西方制度", "日本快速現代化，成為亞洲強國", 1868], [4, "發明家", "貝爾", "1847～1922", "美國", "1876年取得電話的專利", "聲音可以透過電線傳到遠方", 1876], [4, "統治者", "維多利亞女王", "1819～1901", "英國", "在位六十多年，1877年成為印度女皇", "英國成為「日不落帝國」", 1877], [4, "發明家", "愛迪生", "1847～1931", "美國", "改良電燈、發明留聲機，一生取得上千項專利", "電力走進一般家庭", 1879], [4, "畫家與雕刻家", "梵谷", "1853～1890", "荷蘭", "畫家，作品有《向日葵》《星夜》", "生前幾乎賣不出畫，死後成為最受歡迎的畫家之一", 1888], [4, "政治家", "李鴻章", "1823～1901", "中國", "推動洋務運動，代表清朝簽下《馬關條約》", "臺灣割讓給日本", 1895], [4, "化學家、科學家", "居禮夫人", "1867～1934", "波蘭→法國", "研究放射性，發現釙和鐳", "第一位獲得諾貝爾獎的女性，也是唯一在兩個不同科學領域得獎的人", 1903], [4, "發明家", "萊特兄弟", "1867～1912／1871～1948", "美國", "1903年完成第一次有動力的載人飛行", "人類進入飛行時代", 1903], [4, "科學家", "愛因斯坦", "1879～1955", "德國→美國", "提出相對論", "改變人類對時間、空間的理解", 1905], [4, "畫家與雕刻家", "畢卡索", "1881～1973", "西班牙", "和其他畫家一起開創立體派", "現代藝術最有影響力的畫家之一", 1907], [4, "發明家", "福特", "1863～1947", "美國", "用流水線大量生產汽車", "汽車變便宜，一般家庭也買得起", 1913], [4, "統治者", "墨索里尼", "1883～1945", "義大利", "1922年掌權，建立法西斯獨裁政權", "二戰時和德國結盟，最後兵敗被處決", 1922], [4, "醫學家、科學家", "弗萊明", "1881～1955", "英國", "1928年發現盤尼西林（青黴素）", "第一種抗生素，救了無數人的性命", 1928], [4, "統治者", "史達林", "1878～1953", "蘇聯", "列寧之後的蘇聯領導人，推動五年計畫，實行獨裁統治", "蘇聯工業化，但也有大量人民被整肅或餓死", 1928], [4, "政治家", "蔣中正", "1887～1975", "中國→臺灣", "國民政府領導人，領導對日抗戰；1949年後政府遷到臺灣", "長期擔任中華民國總統", 1937], [4, "軍事家、政治家", "艾森豪", "1890～1969", "美國", "二戰盟軍統帥，指揮1944年諾曼第登陸", "後來當選美國總統", 1944], [4, "政治家", "杜魯門", "1884～1972", "美國", "二戰末期的美國總統，提出杜魯門主義，並推動國務卿馬歇爾提出的馬歇爾計畫", "冷戰時美國的圍堵政策由他開始", 1947], [4, "政治家、革命與社運", "毛澤東", "1893～1976", "中國", "中國共產黨領導人，1949年建立中華人民共和國", "發動大躍進、文化大革命", 1949], [4, "探險家", "加加林", "1934～1968", "蘇聯", "1961年成為第一個進入太空的人", "美蘇太空競賽升溫", 1961], [4, "政治家", "甘迺迪", "1917～1963", "美國", "美國總統，處理1962年古巴飛彈危機", "推動登月計畫；1963年遇刺身亡", 1962], [4, "革命與社運", "金恩", "1929～1968", "美國", "帶領非暴力的民權運動，發表演說〈我有一個夢〉", "美國通過民權法案，廢除種族隔離", 1963], [4, "探險家", "阿姆斯壯", "1930～2012", "美國", "1969年成為第一個踏上月球的人", "名言：「這是個人的一小步，人類的一大步。」", 1969], [4, "政治家", "鄧小平", "1904～1997", "中國", "1978年後推動改革開放", "中國經濟快速成長", 1978], [4, "政治家", "柴契爾夫人", "1925～2013", "英國", "英國第一位女首相（1979～1990）", "推動民營化，被稱為「鐵娘子」", 1979], [4, "政治家", "雷根", "1911～2004", "美國", "美國總統，對蘇聯採取強硬政策", "任內美蘇關係轉向和解，冷戰走向結束", 1981], [4, "政治家", "蔣經國", "1910～1988", "臺灣", "推動十大建設，1987年宣布解除戒嚴", "臺灣走向政治開放", 1987], [4, "革命與社運、政治家", "曼德拉", "1918～2013", "南非", "反對種族隔離，坐牢27年", "1994年成為南非第一位黑人總統", 1994], [4, "政治家", "李登輝", "1923～2020", "臺灣", "推動修憲與國會改選，1996年當選第一位民選總統", "臺灣完成總統直選", 1996], [4, "發明家", "賈伯斯", "1955～2011", "美國", "蘋果公司共同創辦人，2007年推出 iPhone", "智慧型手機改變了全世界的生活", 2007], [1, "醫學家", "希波克拉底", "約前460～前370", "希臘", "主張疾病有自然的原因，不是神的懲罰", "被稱為「醫學之父」，醫學生至今仍宣讀「希波克拉底誓詞」", -430], [3, "醫學家", "李時珍", "1518～1593", "中國", "花了近三十年寫成《本草綱目》", "中國藥物學的集大成之作", 1578], [3, "化學家、科學家", "波以耳", "1627～1691", "愛爾蘭、英格蘭", "提出氣體壓力和體積的關係（波以耳定律），主張化學要靠實驗", "被視為近代化學的開創者之一", 1662], [4, "音樂家", "韋瓦第", "1678～1741", "義大利", "寫出小提琴協奏曲《四季》", "巴洛克音樂的代表", 1725], [4, "化學家", "拉瓦節", "1743～1794", "法國", "證明燃燒是物質和氧結合，提出質量守恆定律", "被稱為「近代化學之父」；法國大革命時被送上斷頭臺", 1789], [4, "化學家", "道耳吞", "1766～1844", "英國", "提出原子說：物質都是由原子組成", "奠定近代化學的基礎", 1808], [4, "音樂家", "蕭邦", "1810～1849", "波蘭", "寫了大量鋼琴曲，被稱為「鋼琴詩人」", "作品充滿對祖國波蘭的思念", 1835], [4, "化學家", "門得列夫", "1834～1907", "俄國", "排出元素週期表，還預測了當時還沒發現的元素", "週期表至今是學化學的基本工具", 1869], [4, "音樂家", "柴可夫斯基", "1840～1893", "俄國", "寫出芭蕾舞劇《天鵝湖》《胡桃鉗》", "最受歡迎的俄國作曲家之一", 1876], [3, "科學家", "克卜勒", "1571～1630", "德意志", "發現行星繞太陽的軌道是橢圓形", "為牛頓的萬有引力打下基礎", 1609], [3, "醫學家", "哈維", "1578～1657", "英格蘭", "發現血液由心臟推動、在全身循環", "現代生理學的開端", 1628], [4, "科學家", "林奈", "1707～1778", "瑞典", "建立用「屬名＋種名」為生物命名的方法", "全世界科學家到今天仍用這套方法命名生物", 1753], [4, "醫學家", "詹納", "1749～1823", "英國", "1796年用牛痘預防天花，開創疫苗接種", "人類在1980年宣布消滅天花", 1796], [4, "科學家", "孟德爾", "1822～1884", "奧地利", "用豌豆實驗發現遺傳的規律", "被稱為「遺傳學之父」，是今天基因研究的起點", 1865], [4, "科學家", "馬克士威", "1831～1879", "蘇格蘭", "用一組方程式統一了電和磁，預言電磁波存在", "無線電、手機、Wi-Fi 都建立在電磁波理論上", 1865], [4, "醫學家", "李斯特", "1827～1912", "英國", "手術時用消毒劑殺菌", "手術後的死亡率大幅下降，現代外科消毒從他開始", 1867], [4, "發明家", "摩斯", "1791～1872", "美國", "發展電報和摩斯電碼", "訊息第一次能在幾分鐘內傳到遠方", 1844], [4, "發明家", "賓士", "1844～1929", "德國", "1886年造出實用的汽油汽車", "汽車時代開始", 1886], [4, "發明家、科學家", "特斯拉", "1856～1943", "塞爾維亞裔美國人", "發展交流電系統和交流馬達", "今天家家戶戶用的電，大多是交流電", 1888], [4, "發明家", "馬可尼", "1874～1937", "義大利", "發展無線電通訊，1901年首次把無線電訊號送過大西洋", "廣播、無線通訊的開端", 1901], [4, "化學家", "哈伯", "1868～1934", "德國", "發明用空氣中的氮製造氨的方法", "化學肥料能大量生產，養活了數十億人；但他也主導了一戰的毒氣戰", 1909], [4, "科學家、發明家", "圖靈", "1912～1954", "英國", "提出「圖靈機」的概念，二戰時協助破解德軍密碼", "被稱為「電腦科學之父」", 1936], [4, "科學家", "歐本海默", "1904～1967", "美國", "主持曼哈頓計畫中的洛斯阿拉莫斯實驗室，帶領研發原子彈", "人類進入核武時代", 1945], [4, "科學家", "華生與克里克", "1953年發表", "英國", "根據富蘭克林拍的 X 光照片等資料，提出 DNA 雙股螺旋結構", "開啟了現代基因科學", 1953], [2, "思想家", "朱熹", "1130～1200", "中國", "集理學之大成，編注《四書章句集注》", "《四書》成為科舉考試的標準教材，影響東亞數百年", 1180], [3, "思想家", "王陽明", "1472～1529", "中國", "提出「知行合一」「致良知」", "影響中國和日本的思想", 1508], [4, "思想家", "康德", "1724～1804", "普魯士", "主張人要勇於運用自己的理性，也提出「永久和平」的構想", "影響近代哲學，也被視為國際和平組織理念的先驅", 1784], [4, "思想家、革命與社運", "沃斯通克拉夫特", "1759～1797", "英國", "寫《女權辯護》，主張女性也應該受教育", "女權運動的先驅", 1792], [4, "思想家", "佛洛伊德", "1856～1939", "奧地利", "創立精神分析，提出潛意識的概念", "深刻影響心理學、文學和藝術", 1900], [4, "思想家", "凱因斯", "1883～1946", "英國", "主張經濟不景氣時，政府應該出手增加支出", "各國政府救經濟的做法，很多來自他的理論", 1936], [2, "文學家", "紫式部", "約10～11世紀", "日本", "寫出《源氏物語》", "被認為是世界上最早的長篇小說之一", 1008], [3, "畫家與雕刻家", "林布蘭", "1606～1669", "荷蘭", "擅長用光影作畫，代表作《夜巡》", "荷蘭黃金時代最重要的畫家", 1642], [4, "文學家", "曹雪芹", "約1715～約1763", "中國", "寫出小說《紅樓夢》", "中國古典小說的高峰", 1750], [4, "文學家", "歌德", "1749～1832", "德意志", "寫《少年維特的煩惱》和《浮士德》", "德國最偉大的文學家之一", 1774], [4, "文學家", "拜倫", "1788～1824", "英國", "浪漫主義詩人，還親自參加希臘獨立戰爭", "浪漫主義文學的代表", 1812], [4, "文學家", "安徒生", "1805～1875", "丹麥", "寫《醜小鴨》《賣火柴的小女孩》等童話", "全世界孩子都讀過的童話", 1835], [4, "文學家", "托爾斯泰", "1828～1910", "俄國", "寫《戰爭與和平》", "世界文學經典", 1869], [4, "畫家與雕刻家", "莫內", "1840～1926", "法國", "印象派畫家，代表作《印象・日出》", "「印象派」的名字就是從這幅畫來的", 1872], [4, "文學家", "魯迅", "1881～1936", "中國", "寫《狂人日記》《阿Q正傳》，用白話文批判社會", "中國現代文學的代表", 1921], [4, "探險家", "庫克船長", "1728～1779", "英國", "三次航行太平洋，繪製澳洲東岸和紐西蘭的地圖", "英國後來在澳洲建立殖民地", 1770], [4, "探險家", "阿蒙森", "1872～1928", "挪威", "1911年帶隊第一個抵達南極點", "人類到達地球最南端", 1911], [4, "統治者", "凱薩琳大帝", "1729～1796", "俄國", "俄國女皇，把領土擴張到黑海，支持啟蒙思想", "俄國成為歐洲強權", 1770], [4, "革命與社運", "潘克斯特", "1858～1928", "英國", "帶領英國婦女爭取投票權", "英國女性從1918年起逐步取得投票權", 1903], [4, "政治家、軍事家", "戴高樂", "1890～1970", "法國", "二戰時領導「自由法國」抵抗德國，戰後建立法國第五共和", "法國今天的政治制度就是第五共和", 1958]];
+// 之後的統治者（做為銜接，小字顯示）
+const PSUC={"古夫法老": "杰德夫拉 → 哈夫拉；後來的孟卡拉也在吉薩建金字塔", "薩爾貢": "兒子里穆什、瑪尼什圖蘇 → 孫子納拉姆辛繼續擴張帝國", "漢摩拉比": "兒子薩姆蘇伊路納；約前1595年巴比倫被西臺攻破", "圖坦卡門": "阿伊、霍倫希布", "拉美西斯二世": "兒子麥倫普塔", "周武王": "周成王（周公輔政）", "居魯士大帝": "岡比西斯二世（征服埃及）→ 短暫動亂後大流士一世即位", "亞歷山大大帝": "帝國被部將瓜分：托勒密（埃及）、塞琉古（西亞）等", "阿育王": "孔雀帝國逐漸衰落，約前185年滅亡", "秦始皇": "秦二世；秦朝前206年滅亡，楚漢相爭後劉邦於前202年建立漢朝", "漢武帝、張騫": "漢昭帝 → 漢宣帝", "克麗奧佩脫拉七世": "埃及併入羅馬，歸屋大維統治", "凱撒、屋大維": "屋大維之後是提比略", "君士坦丁大帝": "三個兒子分治帝國；395年東西羅馬分裂", "查士丁尼": "查士丁二世", "唐太宗": "唐高宗 → 武則天", "武則天": "唐中宗、唐睿宗 → 唐玄宗（開元之治）", "查理曼": "兒子虔誠者路易；843年帝國一分為三", "征服者威廉": "兒子威廉二世 → 亨利一世", "薩拉丁": "家族分治各地（阿尤布王朝）", "約翰王": "亨利三世", "成吉思汗": "窩闊台汗；孫子忽必烈建立元朝", "忽必烈": "元成宗；元朝1368年被明朝取代", "曼薩・穆薩": "兒子馬甘一世", "朱元璋": "孫子建文帝 → 被朱棣（明成祖）奪位", "亨利八世": "愛德華六世 → 瑪麗一世 → 伊莉莎白一世", "蘇萊曼一世": "塞利姆二世，帝國開始走下坡", "阿克巴": "賈漢吉爾 → 沙賈汗", "伊莉莎白一世": "詹姆斯一世（斯圖亞特王朝）", "豐臣秀吉": "德川家康掌權，1603年建立江戶幕府", "德川家康": "德川秀忠；德川家統治日本到1867年", "沙賈汗": "被兒子奧朗則布奪位", "路易十四": "曾孫路易十五 → 路易十六（死於法國大革命）", "康熙": "雍正 → 乾隆（康雍乾盛世）", "彼得大帝": "妻子凱薩琳一世；後來的凱薩琳二世（凱薩琳大帝）繼續擴張", "凱薩琳大帝": "兒子保羅一世", "拿破崙": "路易十八，波旁王朝復辟", "維多利亞女王": "愛德華七世", "明治天皇": "大正天皇 → 昭和天皇", "希特勒": "1945年德國戰敗，被分區占領，1949年分成東西德", "墨索里尼": "1943年下臺；義大利1946年改為共和國", "史達林": "短暫的集體領導（馬林可夫）→ 赫魯雪夫，批評史達林的個人崇拜", "毛澤東": "華國鋒 → 鄧小平改革開放", "林肯": "遇刺後由副總統安德魯・詹森繼任", "華盛頓": "約翰・亞當斯", "邱吉爾、羅斯福": "羅斯福1945年病逝，由杜魯門繼任；邱吉爾同年大選落敗，由艾德禮接任首相", "戈巴契夫": "蘇聯解體，俄羅斯由葉爾欽領導", "蔣中正": "嚴家淦 → 蔣經國", "蔣經國": "1988年過世，由李登輝繼任", "李登輝": "2000年陳水扁接任，首次政黨輪替", "列寧": "史達林", "杜魯門": "艾森豪", "甘迺迪": "遇刺後由林登・詹森繼任", "柴契爾夫人": "梅傑", "雷根": "老布希"};
+const ALLP=()=>PP.map((x,i)=>({p:x[0],t:PT0[x[1]]||'',n:x[1],yl:x[2],r:'',d:x[3],m:x[4],y:PY[i],core:1})).concat(PX.map(x=>({p:x[0],t:x[1],n:x[2],yl:x[3],r:x[4],d:x[5],m:x[6],y:x[7],core:0})));
+let pSel=-1,pBig=0;
+function openPeople(){['home','app','game','frame','chainp','tlpage','guidep','srcp','feedp'].forEach(id=>$(id).hidden=true);$('pplp').hidden=false;document.body.classList.add('home');renderPeople();window.scrollTo(0,0)}
+const EASTP=new Set(["周武王","孔子","秦始皇","漢武帝、張騫","唐太宗","成吉思汗","忽必烈","鄭和","鄭成功","孫中山"]);
+const isEast=o=>EASTP.has(o.n)||/中國|日本|臺灣|朝鮮/.test(o.r);
+const cent=y=>y<0?Math.floor(y/100):Math.floor(y/100);
+const centTxt=c=>c<0?`西元前${-c}世紀`:`${c+1}世紀`;
+function renderPeople(){
+ const AP=ALLP(),has=(o,c)=>o.t.split('、').includes(c);
+ $('pbig').innerHTML=PBIG.map((g,i)=>`<button aria-pressed="${i===pBig}">${g[0]}</button>`).join('');
+ $('pbig').querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{pBig=i;pSel=-1;renderPeople()});
+ const subs=PBIG[pBig][1],inBig=o=>subs.some(c=>has(o,c));
+ $('pchips').innerHTML=(subs.length>1?`<button aria-pressed="${pSel<0}">全部<small>${AP.filter(inBig).length}</small></button>`:'')+subs.map((c,i)=>`<button aria-pressed="${i===pSel||subs.length===1}" data-i="${i}">${c}<small>${AP.filter(o=>has(o,c)).length}</small></button>`).join('');
+ $('pchips').querySelectorAll('button').forEach(b=>b.onclick=()=>{pSel=b.dataset.i==null?-1:+b.dataset.i;renderPeople()});
+ const list=AP.filter(o=>pSel<0?inBig(o):has(o,subs[pSel])).sort((a,b)=>a.y-b.y);
+ const rows=[];list.forEach(o=>{const c=cent(o.y);let r=rows[rows.length-1];if(!r||r.c!==c){r={c,p:o.p,L:[],R:[]};rows.push(r)}(isEast(o)?r.L:r.R).push(o)});
+ const card=o=>`<details class="pti" style="--pc:${pc[o.p]}"><summary><span class="pty">${o.yl}${o.core?'<i class="pcore">課本</i>':''}</span><b>${o.n}</b>${o.r?`<em class="ptr">${o.r}</em>`:''}<span class="ptd">${T(o.d)}</span>${PSUC[o.n]?`<span class="psuc">接著：${PSUC[o.n]}</span>`:''}</summary><p class="pto">→ ${T(o.m)}</p></details>`;
+ let lastP=-1;
+ $('ptl').innerHTML=`<div class="pth"><span>中國與東亞</span><span>世界其他地方</span></div>`+rows.map(r=>{const div=r.p!==lastP?`<div class="ptp" style="--pc:${pc[r.p]}">${P[r.p].n}<small>${P[r.p].y}</small></div>`:'';lastP=r.p;
+  return `${div}<div class="ptrow" style="--pc:${pc[r.p]}"><div class="ptc">${centTxt(r.c)}</div><div class="ptl2">${r.L.map(card).join('')}</div><div class="ptl2">${r.R.map(card).join('')}</div></div>`}).join('');
+ fadeIn($('ptl'));
+}
+$('pback').onclick=goHome;
+
+// ===== 專題導讀：主題線、同一年的世界、臺灣在世界裡、易混淆對照；史料判讀 =====
+const GCMP=[["一戰的同盟國 vs 二戰的同盟國", ["", "一戰（1914～1918）", "二戰（1939～1945）"], [["「同盟國」是誰", "德國、奧匈帝國、鄂圖曼帝國、保加利亞", "英國、美國、蘇聯、中華民國等"], ["對手", "協約國（英、法、俄，後來加上義大利、日本、美國等）", "軸心國（德國、義大利、日本）"], ["結果", "戰敗", "戰勝"]], "同一個名字、相反的兩邊：一戰的同盟國輸，二戰的同盟國贏。"], ["雅典 vs 斯巴達", ["", "雅典", "斯巴達"], [["政治", "民主：成年男性公民在公民大會投票", "少數人統治，同時有兩位國王"], ["最重視", "文化、哲學、商業", "軍事訓練"], ["男孩的教育", "學讀寫、音樂、體育", "七歲就離家，進軍營受訓"], ["女性", "大多留在家中，幾乎沒有政治權利", "地位相對較高，可以擁有土地"]], "雅典動腦，斯巴達練身。"], ["天主教 vs 東正教 vs 新教", ["", "天主教", "東正教", "新教"], [["怎麼來的", "西歐原本的教會", "1054年東西教會分裂", "1517年宗教改革"], ["中心", "羅馬（教宗）", "君士坦丁堡", "沒有共同中心"], ["今天主要分布", "南歐、拉丁美洲", "俄羅斯、希臘、東歐", "北歐、英國、美國"]], "1054 先分東西，1517 西邊再分出新教。"], ["文藝復興 vs 啟蒙運動", ["", "文藝復興", "啟蒙運動"], [["時間", "14～16世紀", "17世紀末～18世紀"], ["起點", "義大利城市", "英國、法國"], ["核心", "人文主義：重視人和現世生活", "理性：用理性改造政治和社會"], ["代表人物", "達文西、米開朗基羅", "洛克、孟德斯鳩、盧梭"], ["影響", "藝術與科學發達", "美國獨立、法國大革命"]], "文藝復興把「人」找回來，啟蒙運動把「理性」用到政治上。"], ["寫實主義 vs 浪漫主義", ["", "寫實主義", "浪漫主義"], [["重視", "社會的真實樣貌、窮人的生活", "個人情感、大自然、民族傳統"], ["背景", "工業社會的問題", "反對只講理性"], ["代表人物", "狄更斯", "歌德、拜倫、貝多芬"]], "寫實寫「社會」，浪漫寫「心情」。"], ["三國同盟 vs 三國協約", ["", "三國同盟", "三國協約"], [["成員", "德國、奧匈帝國、義大利", "英國、法國、俄國"], ["形成", "1882年", "1907年"], ["一戰時", "義大利改投另一邊，剩下的成為「同盟國」", "成為「協約國」，美國後來加入"]], "同盟（德奧義）對協約（英法俄）；三國協約就是一戰的協約國。"], ["國際聯盟 vs 聯合國", ["", "國際聯盟", "聯合國"], [["成立", "1920年，一戰後", "1945年，二戰後"], ["誰提倡", "美國總統威爾遜", "羅斯福等同盟國領袖"], ["美國", "沒有加入", "創始會員，安理會常任理事國"], ["能不能制裁", "沒有軍隊，難以制裁侵略", "安全理事會可以決定制裁、派維和部隊"]], "國聯擋不住二戰，所以二戰後重新成立更有力的聯合國。"], ["北約 vs 華沙公約", ["", "北約", "華沙公約"], [["帶頭國家", "美國", "蘇聯"], ["成立", "1949年", "1955年"], ["今天", "仍然存在，還有新國家加入", "1991年解散"]], "北約先成立，華沙公約是蘇聯的回應。"], ["美國獨立 vs 法國大革命", ["", "美國獨立", "法國大革命"], [["時間", "1776年", "1789年"], ["反對的是", "英國的殖民統治和課稅", "法國國王和貴族、教士的特權"], ["重要文件", "《獨立宣言》", "《人權宣言》"], ["結果", "建立美利堅合眾國", "推翻君主制度，後來拿破崙崛起"]], "美國是「殖民地脫離母國」，法國是「人民推翻自己的國王」。"], ["楔形文字 vs 象形文字", ["", "楔形文字", "象形文字"], [["地區", "兩河流域（蘇美人）", "埃及"], ["怎麼寫", "用蘆葦筆在濕泥板上壓出符號", "刻在石頭上或寫在莎草紙上"], ["最早用途", "記帳", "行政紀錄，以及宗教和法老的事蹟"]], "兩河壓泥板，埃及畫圖案。"], ["地心說 vs 日心說", ["", "地心說", "日心說"], [["中心", "地球", "太陽"], ["代表人物", "托勒密", "哥白尼（伽利略支持）"], ["流行時間", "古代到16世紀", "1543年提出，17世紀起逐漸被接受"]], "從地心說換到日心說，是科學革命的起點。"], ["英國東印度公司 vs 荷蘭東印度公司", ["", "英國東印度公司", "荷蘭東印度公司"], [["成立", "1600年", "1602年"], ["亞洲重心", "印度", "印尼（總部巴達維亞）"], ["和臺灣", "沒有直接統治", "1624年占領臺灣南部"]], "英國抓印度，荷蘭抓香料群島和臺灣。"]],GTHEME=[["民主與人權怎麼來", "從少數公民投票，到人人都有權利", [["前5世紀", "雅典民主：成年男性公民直接投票，但女性、奴隸不能參加"], ["約前450", "羅馬《十二表法》把法律公開"], ["1215", "英國《大憲章》：國王也要守法"], ["1688／1689", "英國光榮革命（1688）、《權利法案》（1689）：國王要尊重國會"], ["18世紀", "啟蒙運動：天賦人權、三權分立、人民主權"], ["1776／1789", "美國《獨立宣言》、法國《人權宣言》"], ["1918", "威爾遜提出民族自決"], ["1948", "聯合國《世界人權宣言》"], ["1996", "臺灣首次總統直選"]]], ["交通與貿易", "世界怎麼一步步被連在一起", [["前2世紀", "絲路連接中國和地中海"], ["14世紀", "撒哈拉的黃金與鹽貿易"], ["1405", "鄭和下西洋"], ["1488", "狄亞士航行到非洲南端的好望角"], ["1498", "達伽馬繞過好望角抵達印度"], ["1492", "哥倫布抵達美洲"], ["1565", "馬尼拉大帆船：美洲白銀換中國絲綢"], ["1602", "荷蘭東印度公司控制香料貿易"], ["18～19世紀", "工業革命帶來火車和輪船"], ["1869", "蘇伊士運河通航"], ["今天", "網路與全球化"]]], ["疾病與醫學", "疾病改變歷史，醫學改變疾病", [["1347", "黑死病：歐洲約三分之一人口死亡，封建制度開始瓦解"], ["16世紀", "天花：美洲原住民大量死亡，阿茲特克、印加被征服"], ["1796", "詹納用牛痘預防天花，開創疫苗"], ["1865前後", "巴斯德證明細菌致病"], ["1867", "李斯特在手術中消毒"], ["1928", "弗萊明發現盤尼西林"], ["1980", "人類宣布消滅天花"], ["2020", "新冠肺炎疫情全球大流行"]]], ["宗教的誕生與分合", "世界幾大宗教從哪裡來、怎麼分開", [["約前500", "佛陀在印度創立佛教"], ["1世紀", "基督教在羅馬帝國萌芽"], ["392", "基督教成為羅馬帝國國教"], ["7世紀", "穆罕默德創立伊斯蘭教"], ["1054", "東西教會分裂：天主教、東正教"], ["1096", "十字軍東征"], ["1517", "馬丁路德宗教改革：新教出現"], ["16世紀", "天主教隨西班牙、葡萄牙傳到美洲和亞洲"]]], ["科技改變生活", "每一次新技術，都讓生活大翻轉", [["約前3500", "文字出現"], ["約105", "蔡倫改良造紙術"], ["約1450", "古騰堡活字印刷"], ["1543", "哥白尼提出日心說"], ["1687", "牛頓提出萬有引力"], ["約1760", "英國工業革命開始"], ["1769", "瓦特改良蒸汽機取得專利"], ["1876／1879", "電話、電燈"], ["1903", "萊特兄弟飛上天"], ["1945", "原子彈"], ["1969", "人類登陸月球"], ["1989", "全球資訊網（WWW）被提出"], ["2022", "生成式人工智慧"]]], ["戰爭與和平", "每次大戰之後，人類都試著建立和平", [["1815", "維也納會議：拿破崙戰爭後重整歐洲"], ["1914～1918", "第一次世界大戰"], ["1920", "國際聯盟成立"], ["1938", "慕尼黑協定、姑息政策"], ["1939～1945", "第二次世界大戰"], ["1945", "聯合國成立"], ["1949／1955", "北約、華沙公約，冷戰對立"], ["1950", "韓戰爆發"], ["1962", "古巴飛彈危機，美蘇差點核戰"], ["1991", "蘇聯解體，冷戰結束"], ["1993", "歐盟成立"]]], ["女性的地位", "女性怎麼爭取到和男性一樣的權利", [["前5世紀", "雅典女性不能參與政治"], ["1792", "沃斯通克拉夫特寫《女權辯護》"], ["19世紀", "南丁格爾、居禮夫人等女性在專業領域發光"], ["1903起", "英國潘克斯特帶領婦女爭取投票權"], ["1918", "英國30歲以上女性取得投票權"], ["1928", "英國女性和男性一樣，21歲就能投票"], ["1948", "《世界人權宣言》：男女權利平等"], ["1979", "柴契爾夫人成為英國第一位女首相"]]]],GYEAR=[["前221", "秦統一中國", [["中國", "秦王嬴政統一六國，自稱始皇帝"], ["地中海", "羅馬共和和迦太基爭霸；前218年漢尼拔進攻義大利"], ["印度", "孔雀帝國在阿育王之後逐漸衰落"], ["埃及", "由希臘人建立的托勒密王朝統治"], ["臺灣", "史前時代"]]], ["476", "西羅馬帝國滅亡", [["西歐", "西羅馬帝國滅亡，日耳曼人建立許多王國"], ["東歐、西亞", "東羅馬（拜占庭）帝國繼續存在"], ["中國", "南北朝時期"], ["臺灣", "史前時代"]]], ["800", "查理曼加冕", [["西歐", "查理曼被教宗加冕為皇帝"], ["西亞", "阿拉伯帝國以巴格達為首都，學術興盛"], ["中國", "唐朝中後期"], ["日本", "平安時代剛開始"], ["臺灣", "史前時代"]]], ["1206", "成吉思汗統一蒙古", [["蒙古", "鐵木真統一各部，被尊為成吉思汗"], ["中國", "南宋和金朝南北對峙"], ["歐洲", "第四次十字軍剛攻下君士坦丁堡（1204）；不久英國簽下《大憲章》（1215）"], ["日本", "鎌倉幕府時代"], ["臺灣", "史前時代"]]], ["1405", "鄭和第一次下西洋", [["中國", "明成祖派鄭和率船隊遠航"], ["義大利", "文藝復興正在興起"], ["英法", "百年戰爭還沒結束"], ["鄂圖曼", "還沒攻下君士坦丁堡"], ["臺灣", "原住民族社會"]]], ["1492", "哥倫布抵達美洲", [["美洲", "哥倫布登陸加勒比海島嶼"], ["西班牙", "收復格拉納達，趕走半島上最後的伊斯蘭政權"], ["義大利", "文藝復興的高峰，達文西正活躍"], ["中國", "明朝中期"], ["臺灣", "原住民族社會"]]], ["1776", "美國獨立", [["北美", "13個殖民地發表《獨立宣言》"], ["英國", "工業革命進行中；亞當斯密出版《國富論》"], ["法國", "13年後爆發大革命"], ["中國", "清朝乾隆皇帝在位"], ["臺灣", "清帝國統治"]]], ["1840", "鴉片戰爭", [["中國", "鴉片戰爭爆發，1842年簽《南京條約》"], ["英國", "維多利亞女王在位，鐵路快速擴張"], ["鄂圖曼", "剛開始推動坦志麥特改革"], ["日本", "江戶幕府鎖國"], ["臺灣", "清帝國統治"]]], ["1914", "第一次世界大戰爆發", [["歐洲", "一戰爆發"], ["中國", "中華民國初年"], ["日本", "加入協約國一方參戰"], ["美洲", "巴拿馬運河通航；美國到1917年才參戰"], ["臺灣", "日本統治時期"]]], ["1945", "二戰結束", [["歐洲", "德國投降，被分區占領"], ["日本", "投降，被盟軍占領"], ["中國", "抗戰勝利，接著爆發國共內戰"], ["朝鮮半島", "以北緯38度線分成美、蘇占領區"], ["臺灣", "由中華民國接收"], ["世界", "聯合國成立"]]], ["1989", "柏林圍牆倒下", [["歐洲", "柏林圍牆倒下，東歐共產政權接連垮台"], ["蘇聯", "戈巴契夫推動改革"], ["中國", "北京天安門廣場的民主運動遭到鎮壓"], ["臺灣", "解嚴後政治逐步開放"], ["科技", "全球資訊網（WWW）被提出"]]]],GTW=[["大航海時代", "歐洲人到東亞找貿易據點", "1624年荷蘭占領臺灣南部，1626年西班牙占領北部；1642年荷蘭趕走西班牙（荷西時期）"], ["荷蘭東印度公司", "荷蘭控制東亞與東南亞的貿易", "大員（今臺南）成為轉運站，輸出鹿皮、蔗糖"], ["明清交替", "明朝滅亡，鄭成功反清", "1662年鄭成功趕走荷蘭人；1683年鄭氏降清，1684年臺灣納入清帝國版圖"], ["鴉片戰爭、英法聯軍", "列強逼清朝開港", "1860年代臺灣開港通商，茶、糖、樟腦大量出口"], ["帝國主義與明治維新", "日本學習西方後向外擴張", "1874年牡丹社事件；1895年甲午戰爭後簽《馬關條約》，臺灣割讓給日本"], ["一戰後的民族自決", "殖民地人民爭取自治", "1920年代臺灣議會設置請願運動"], ["第二次世界大戰", "日本發動太平洋戰爭", "皇民化運動、徵兵，美軍空襲臺灣；1945年由中華民國接收"], ["冷戰與韓戰", "美國圍堵共產勢力", "1950年美國第七艦隊協防臺灣海峽，之後有美援；1971年中華民國退出聯合國"], ["全球化", "世界分工合作生產", "臺灣成為電子與半導體產業的重要基地"], ["民主化浪潮", "許多國家走向民主", "1987年解嚴，1996年首次總統直選"]],GSRC=[["「我們認為這些真理是不言而喻的：人人生而平等，造物主賦予他們若干不可剝奪的權利，包括生命、自由和追求幸福的權利。」", "這段話最可能出自哪份文件？", ["美國《獨立宣言》（1776）", "法國《人權宣言》（1789）", "英國《大憲章》（1215）", "《世界人權宣言》（1948）"], "「造物主」「追求幸福」是美國《獨立宣言》的關鍵句，受洛克天賦人權思想影響。"], ["「人生來是自由的，在權利上是平等的。」", "這是1789年某國革命時發表的宣言第一條。這個國家是？", ["法國", "美國", "英國", "俄國"], "法國大革命時發表《人權宣言》，第一條就是這句。"], ["「任何自由人，若未經同等身分者依法審判，或依國家法律，都不得被逮捕、監禁或剝奪財產。」", "這份文件最重要的意義是什麼？", ["國王的權力也要受到法律限制", "人民可以直接選舉國王", "廢除貴族的特權", "宣布殖民地獨立"], "這是1215年英國《大憲章》的條文，代表「國王也要守法」的觀念。"], ["「他們說，錢幣一落進錢箱叮噹作響，靈魂就從煉獄飛出來了。」", "寫下這段批評的人，最可能在批評什麼？", ["教會販賣贖罪券", "國王徵收重稅", "伊斯蘭教的擴張", "貴族的封建特權"], "這是1517年馬丁路德《九十五條論綱》中批評贖罪券的句子，引發宗教改革。"], ["「全世界無產者，聯合起來！」", "這句口號最可能出現在什麼背景下？", ["工業革命後工人生活困苦", "大航海時代香料貿易", "中世紀十字軍東征", "古希臘城邦戰爭"], "這是1848年馬克思和恩格斯《共產黨宣言》的結語，背景是工業社會的貧富差距。"], ["「如果一個人弄瞎了另一個貴族的眼睛，他的眼睛也要被弄瞎。」", "這條法律出自哪一個古文明？", ["兩河流域（古巴比倫）", "古埃及", "古印度", "古中國"], "這是《漢摩拉比法典》的條文，「以眼還眼」，但處罰會看身分。"], ["「……民有、民治、民享的政府，永遠不會從地球上消失。」", "發表這段演說的人，當時正在面對什麼事？", ["美國南北戰爭", "美國獨立戰爭", "第二次世界大戰", "冷戰"], "這是1863年林肯的蓋茨堡演說，當時美國正在打南北戰爭。"], ["「人人生而自由，在尊嚴和權利上一律平等。」", "這句話出自1948年的文件。這份文件產生的背景是？", ["二戰中發生大屠殺等嚴重侵害人權的暴行", "法國人民推翻國王", "北美殖民地反抗英國", "工人要求八小時工作制"], "這是聯合國《世界人權宣言》第一條；小心不要和1789年的《人權宣言》搞混。"], ["「人生而自由，卻無往不在枷鎖之中。」", "這句話的作者主張國家的權力來自哪裡？", ["人民", "上帝", "國王", "教會"], "這是盧梭《社會契約論》（1762）第一卷第一章的開頭，他主張人民主權，影響法國大革命。"], ["「如果立法權和行政權集中在同一個人或同一個機關手中，自由就不存在了。」", "這位思想家最有名的主張是什麼？", ["三權分立", "君權神授", "社會主義", "人文主義"], "這是孟德斯鳩《論法的精神》的觀點，美國憲法依此設計三權分立。"], ["「應該成立一個由各國組成的普遍性組織，彼此保證政治獨立和領土完整，不論國家大小。」", "這項主張後來促成了什麼組織？", ["國際聯盟", "聯合國", "北約", "歐盟"], "這是1918年威爾遜十四點原則的最後一點，促成了國際聯盟。"], ["「從波羅的海的斯德丁到亞得里亞海的的里雅斯特，一道鐵幕已經落下，橫貫歐洲大陸。」", "這段1946年的演說，描述的是什麼局勢？", ["歐洲分成美蘇兩大陣營", "一戰的壕溝戰", "拿破崙的大陸封鎖", "鄂圖曼帝國的擴張"], "這是邱吉爾的「鐵幕演說」，「鐵幕」成為冷戰的代名詞。"]];
+let gdKind='theme',gdSel=0;
+const gdY=t=>{if(t==="今天")return 2026;const m=t.match(/(前)?(\d+)/);if(!m)return 2000;let y=+m[2];if(/世紀/.test(t))y=y*100-50;return m[1]?-y:y};
+const GTITLE={theme:'主題線',year:'同一年的世界',tw:'臺灣在世界裡',cmp:'易混淆對照'};
+function openGuide(k){['home','app','game','frame','chainp','tlpage','pplp','srcp','feedp'].forEach(id=>$(id).hidden=true);$('guidep').hidden=false;document.body.classList.add('home');gdKind=k;gdSel=0;renderGuide();window.scrollTo(0,0)}
+function renderGuide(){
+ $('gdh').textContent=GTITLE[gdKind];
+ const opts=gdKind==='theme'?GTHEME.map(t=>t[0]):gdKind==='year'?GYEAR.map(y=>y[0]):[];
+ $('gdchips').hidden=!opts.length;
+ $('gdchips').innerHTML=opts.map((o,i)=>`<button aria-pressed="${i===gdSel}">${o}</button>`).join('');
+ $('gdchips').querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{gdSel=i;renderGuide();b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
+ let h='';
+ if(gdKind==='theme'){const t=GTHEME[gdSel];h=`<p class="gdsub">${t[1]}</p><ol class="gdline">${t[2].map(st=>`<li style="--pc:${pc[pOfY(gdY(st[0]))]}"><span>${st[0]}</span><div>${T(st[1])}</div></li>`).join('')}</ol>`}
+ else if(gdKind==='year'){const y=GYEAR[gdSel];h=`<div class="gdyh"><b>${y[0]}</b><span>${y[1]}</span></div><div class="gdgrid">${y[2].map(r=>`<div class="gdcell"><i>${r[0]}</i><div>${T(r[1])}</div></div>`).join('')}</div>`}
+ else if(gdKind==='tw'){h=`<div class="gdtwh"><span>世界發生</span><span>臺灣跟著改變</span></div>`+GTW.map(r=>`<div class="gdtw"><div><b>${r[0]}</b><small>${T(r[1])}</small></div><div class="gdar">→</div><div>${T(r[2])}</div></div>`).join('')}
+ else{h=GCMP.map((c,i)=>`<details class="gdcmp" ${i===0?'open':''}><summary>${c[0]}</summary><div class="gdtbl" style="--n:${c[1].length-1}">${c[1].map(x=>`<b>${x}</b>`).join('')}${c[2].map(r=>`<i>${r[0]}</i>${r.slice(1).map(x=>`<span>${T(x)}</span>`).join('')}`).join('')}</div><p class="gdtip">記法：${c[3]}</p></details>`).join('')}
+ $('gdbody').innerHTML=h;fadeIn($('gdbody'));
+}
+document.querySelectorAll('#hz25 .htest').forEach(b=>b.onclick=()=>openGuide(b.dataset.g));
+$('gdback').onclick=goHome;
+let srQ=null;
+function openSrc(){['home','app','game','frame','chainp','tlpage','pplp','guidep','feedp'].forEach(id=>$(id).hidden=true);$('srcp').hidden=false;document.body.classList.add('home');srQ=null;renderSrc();window.scrollTo(0,0)}
+function renderSrc(){
+ if(!srQ)srQ={q:shuffle(GSRC.map((x,i)=>i)).slice(0,5),i:0,ok:0,a:null,o:null};
+ const Q=srQ;
+ if(Q.i>=Q.q.length){$('srbody').innerHTML=`<section class="fr fc"><h2>這一輪完成</h2><p class="fcs">答對 <b>${Q.ok}</b> / ${Q.q.length}</p><button class="primary" id="sragain">再來一輪</button><button id="srhome">回首頁</button></section>`;$('sragain').onclick=()=>{srQ=null;renderSrc()};$('srhome').onclick=goHome;return}
+ const x=GSRC[Q.q[Q.i]];if(!Q.o)Q.o=shuffle(x[2].slice());const done=Q.a!=null,ans=x[2][0];
+ $('srbody').innerHTML=`<section class="fr fc"><div class="fcn">第 ${Q.i+1} 題 / ${Q.q.length}</div><blockquote class="srq">${x[0]}</blockquote><h2>${x[1]}</h2><div class="sropt">${Q.o.map(o=>`<button class="${done?(o===ans?'right':o===Q.a?'wrong':''):''}" ${done?'disabled':''}>${o}</button>`).join('')}</div>${done?`<div class="fres ${Q.a===ans?'ok':'no'}"><b>${Q.a===ans?'答對了！':'正確答案：'+ans}</b>${T(x[3])}</div><button class="primary" id="srnext">${Q.i<Q.q.length-1?'下一題 →':'看結果 →'}</button>`:''}</section>`;
+ $('srbody').querySelectorAll('.sropt button').forEach((b,i)=>b.onclick=()=>{Q.a=Q.o[i];if(Q.a===ans)Q.ok++;renderSrc()});
+ if($('srnext'))$('srnext').onclick=()=>{Q.i++;Q.a=null;Q.o=null;renderSrc();window.scrollTo(0,0)};
+ fadeIn($('srbody'));
+}
+$('hsrc').onclick=openSrc;$('srback').onclick=goHome;
+
+// ===== App 化：底部導覽、今天、搜尋、我的、古人在發文 =====
+const FEED=[[0, "蘇美書記學徒", "clay_student", "約前2000・烏爾", "泥", "今天又在泥板上壓了一整天楔形文字，手好痠。老師說字寫不好要打手心😭", "#泥板之家 #楔形文字"], [0, "尼羅河邊的農夫", "nile_farmer", "約前2500・埃及", "農", "天狼星清晨又出現了，河水快氾濫！先把東西搬高。等水退了，田裡會留下黑黑的肥沃泥土，又可以種麥子🌾", "#尼羅河 #太陽曆"], [0, "金字塔工人", "pyramid_crew", "約前2560・吉薩", "石", "今天又拖了一塊大石頭上斜坡。聽說這座金字塔要用兩百多萬塊……有麵包和啤酒配給，但真的好累。", "#古夫金字塔"], [0, "巴比倫商人", "babylon_trader", "約前1750・巴比倫", "商", "國王把法律刻在石柱上了！以後誰騙我，就指著石柱講道理。不過傷了貴族和傷了奴隸，賠的完全不一樣耶🤔", "#漢摩拉比法典"], [0, "腓尼基水手", "phoenician_sail", "約前1000・地中海東岸", "帆", "做生意要記帳，楔形文字太難學。我們只用22個字母，超快！希臘人也來跟我們學了。", "#字母 #航海貿易"], [1, "雅典公民", "athens_citizen", "前5世紀・雅典", "雅", "今天去公民大會投票，決定要不要出兵。我太太問能不能一起去……不行，女性、奴隸、外國人都不能投。", "#雅典民主"], [1, "斯巴達少年", "sparta_boy", "前5世紀・斯巴達", "盾", "七歲就離家住進軍營，每天訓練，飯還吃不飽。教官說能偷到食物又不被抓到也是本事😅", "#斯巴達 #軍事訓練"], [1, "秦朝讀書人", "qin_scholar", "前221・咸陽", "竹", "天下統一了，文字、錢、度量衡都只能用秦的版本。我家那些用六國文字寫的竹簡怎麼辦……", "#秦統一 #書同文"], [1, "絲路商人", "silkroad_trader", "前2世紀・河西走廊", "駝", "從長安帶絲綢往西走，沙漠真的會要人命。聽說西方的人超愛絲綢，運到那邊價錢翻好幾倍🐫", "#絲路"], [1, "羅馬市民", "roma_civis", "2世紀初・羅馬", "羅", "今天競技場有表演，皇帝發的糧食也領到了。詩人說我們只要「麵包和馬戲」，好像也沒說錯。", "#羅馬帝國"], [1, "羅馬的基督徒", "early_christian", "313・羅馬帝國", "魚", "皇帝終於承認我們的信仰了！以後不用偷偷聚會。", "#基督教 #米蘭詔書"], [2, "法蘭克修道士", "frank_monk", "9世紀・法蘭克王國", "抄", "查理曼要辦學校，我們整天用拉丁文抄聖經，還要寫得工整好讀。抄完一本要好幾個月📜", "#加洛林文藝復興"], [2, "巴格達學者", "baghdad_scholar", "9世紀・巴格達", "書", "智慧宮又收到一批希臘文的書，我們負責翻成阿拉伯文。亞里斯多德、歐幾里得，都在這裡被保存下來。", "#伊斯蘭文化 #智慧宮"], [2, "長安的日本留學生", "japan_in_changan", "8世紀・長安", "唐", "長安街上有波斯人、阿拉伯人、新羅人。這裡的制度、文字、建築，我都要學回日本！", "#唐朝 #遣唐使"], [2, "莊園農奴", "manor_serf", "11世紀・西歐", "田", "田是領主的，我只能替他種；想搬家、想結婚都要他同意。至少維京人來的時候，可以躲進城堡。", "#封建制度"], [2, "十字軍騎士", "crusade_knight", "1096・往耶路撒冷的路上", "劍", "教宗說去耶路撒冷可以贖罪，我賣了家當出發。路好遠，一路上不少同伴病死……", "#十字軍東征"], [2, "黑死病倖存者", "plague_survivor", "1348・佛羅倫斯", "鐘", "城裡死了好多人。現在地主找不到人種田，終於願意多付工錢了。", "#黑死病"], [3, "佛羅倫斯畫家學徒", "florence_apprentice", "15世紀・佛羅倫斯", "畫", "老師要我們研究古羅馬雕像，人體要畫得像真的一樣。原來「人」本身就值得好好畫！", "#文藝復興 #人文主義"], [3, "德國印刷工", "mainz_printer", "1518・德意志", "印", "這週印了好幾千份馬丁路德批評贖罪券的文章，根本印不完，整個德國都在討論。", "#宗教改革 #活字印刷"], [3, "葡萄牙水手", "porto_sailor", "1497・好望角外海", "船", "繞過好望角了！浪大到以為會沉。下一站：印度，香料我來了🌶️", "#新航路 #達伽馬"], [3, "阿茲特克人", "tenochtitlan", "1520・特諾奇提特蘭", "羽", "長著鬍子的西班牙人帶來一種病，身上長滿膿包，好多人倒下了……", "#天花 #美洲文明被征服"], [3, "荷蘭東印度公司職員", "voc_clerk", "1630年代・大員（臺南）", "荷", "公司在大員蓋了熱蘭遮城。這裡的鹿皮運到日本很好賣，蔗糖也越種越多。", "#荷蘭東印度公司 #臺灣"], [3, "伽利略的學生", "padua_student", "1610・帕多瓦", "鏡", "老師用望遠鏡看到木星有四顆衛星繞著它轉。所以不是所有東西都繞著地球轉吧？", "#科學革命 #日心說"], [4, "巴黎市民", "paris_1789", "1789・巴黎", "帽", "巴士底監獄被攻下了！自由萬歲！", "#法國大革命"], [4, "曼徹斯特童工", "mill_kid", "1820年代・曼徹斯特", "廠", "每天在紡織廠工作十幾個小時，機器好吵，空氣裡都是棉絮。我才十歲。", "#工業革命 #童工"], [4, "西線的士兵", "western_front", "1916・法國", "壕", "挖壕溝、躲砲彈，泥巴淹到膝蓋。開戰時大家說聖誕節前就能回家……", "#一戰 #壕溝戰"], [4, "守在電視前的觀眾", "tv_1969", "1969・臺北", "月", "全世界好幾億人一起看阿姆斯壯踏上月球，我一早就守在電視機前！", "#登陸月球"], [4, "柏林市民", "berlin_1989", "1989・柏林", "牆", "圍牆開了！我第一次走到西柏林，大家都在牆上敲一塊帶回家。", "#柏林圍牆"], [4, "國中生", "student_2021", "2021・臺灣", "課", "停課改成線上上課，打開鏡頭才發現大家都穿睡衣😂", "#新冠肺炎"]];
+let hTab='today';try{hTab=sessionStorage.getItem('histTab')||'today'}catch(e){}
+function setHTab(t){hTab=t;try{sessionStorage.setItem('histTab',t)}catch(e){}
+ document.querySelectorAll('#home .tab').forEach(x=>x.hidden=x.dataset.tab!==t);
+ $('bnav').querySelectorAll('button').forEach(b=>b.setAttribute('aria-current',b.dataset.t===t?'page':'false'));
+ if(t==='today')renderToday();if(t==='me')renderMe();
+ const el=document.querySelector(`#home .tab[data-tab="${t}"]`);if(el)fadeIn(el);window.scrollTo(0,0)}
+$('bnav').querySelectorAll('button').forEach(b=>b.onclick=()=>setHTab(b.dataset.t));
+const exWrong=()=>{try{return JSON.parse(localStorage.getItem('histExWrong')||'[]')}catch(e){return[]}};
+function renderToday(){
+ let saved=null;try{saved=JSON.parse(localStorage.getItem('histLearn')||'null')}catch(e){}
+ const li=saved&&LS[saved[0]]?saved[0]:0,st=saved?saved[1]||0:0,L=LS[li],w=exWrong().length;
+ const d=new Date(),day=Math.floor((d-new Date(d.getFullYear(),0,0))/864e5),old=C.map((c,i)=>i).filter(i=>CY[i]<2000),k=old[day%old.length],f=FEED[Math.floor((d-new Date(d.getFullYear(),0,0))/864e5)%FEED.length];
+ $('tdcards').innerHTML=`<div class="tdc" style="--pc:${pc[L[4]]}"><i>${saved?'繼續上次':'從這裡開始'}</i><b>第 ${li+1} 課・${L[0]}</b><small>${saved?`第 ${st+1} 步：${STEPS[st]}`:P[L[4]].n+'・'+L[1]}</small><div class="tdbar"><span style="width:${saved?Math.round((st+1)/STEPS.length*100):0}%"></span></div><button class="primary" id="tdgo">${saved?'繼續學':'開始第 1 課'} →</button></div>`+
+ (w?`<div class="tdc" style="--pc:#d1495b"><i>今天要複習</i><b>${w} 題錯題</b><small>會考練習裡答錯過的題目</small><button class="primary tdred" id="tdwr">開始複習 →</button></div>`:'')+
+ `<div class="tdc" style="--pc:${pc[C[k][0]]}"><i>今日一則・🧊 冷知識</i><p>${T(CT[k])}</p><small>出自：${C[k][2]}（${C[k][1]}）</small></div>`+
+ `<button class="tdc tdfeed" id="tdfeed" style="--pc:${pc[f[0]]}"><i>古人在發文・${P[f[0]].n}</i><span class="fdmini">${avatar(AVS[f[2]],pc[f[0]])}<span><b>${f[1]}</b>${f[5]}</span></span><small>看更多 →</small></button>`;
+ $('tdgo').onclick=()=>enterApp(saved?null:0);
+ if($('tdwr'))$('tdwr').onclick=()=>{gm='exam';openGame()};
+ $('tdfeed').onclick=()=>openFeed(f[0]);
+ const n=$('bqn');n.hidden=!w;n.textContent=w;
+}
+function renderMe(){
+ const done=lDone.length,w=exWrong().length;
+ $('mecards').innerHTML=`<div class="mestat"><div><b>${done}</b><small>課讀完</small></div><div><b>${LS.length-done}</b><small>課還沒讀</small></div><div><b>${w}</b><small>題錯題</small></div></div>`+
+ `<div class="tdc"><i>各時期進度</i>${P.map((p,i)=>{const t=LS.filter(l=>l[4]===i).length,dn=LS.filter((l,j)=>l[4]===i&&lDone.includes(j)).length;return `<div class="mep" style="--pc:${p.c}"><span>${p.n}</span><div class="tdbar"><span style="width:${Math.round(dn/t*100)}%"></span></div><small>${dn}/${t}</small></div>`}).join('')}</div>`;
+}
+// 搜尋
+const sIndex=()=>{const r=[];C.forEach((c,i)=>r.push({k:'事件',n:c[2],y:c[1],d:CP[i],p:c[0],h:CH[i]}));ALLP().forEach(o=>r.push({k:'人物',n:o.n,y:o.yl,d:o.d,p:o.p,h:'→ '+o.m}));Object.keys(TERM).forEach(t=>r.push({k:'名詞',n:t,y:'',d:TERM[t],p:-1}));LS.forEach((l,i)=>r.push({k:'課程',n:`第 ${i+1} 課・${l[0]}`,y:l[1],d:l[5].map(x=>x.split('｜')[0]).join('・'),p:l[4],li:i}));return r};
+let SIX=null;
+$('sq').addEventListener('input',()=>{const q=$('sq').value.trim();if(!q){$('sres').innerHTML='';$('tdcards').hidden=false;return}
+ SIX=SIX||sIndex();const hit=SIX.filter(o=>o.n.includes(q)||(o.d&&o.d.includes(q))).sort((a,b)=>((b.n===q)*2+b.n.startsWith(q)+b.n.includes(q))-((a.n===q)*2+a.n.startsWith(q)+a.n.includes(q))).slice(0,20);
+ $('tdcards').hidden=true;
+ $('sres').innerHTML=hit.length?hit.map(o=>o.li!=null?`<button class="sr srl" data-li="${o.li}" style="--pc:${pc[o.p]}"><i>${o.k}</i><b>${o.n}</b><small>${o.y}</small></button>`:`<details class="sr" style="--pc:${o.p<0?'var(--mute)':pc[o.p]}"><summary><i>${o.k}</i><b>${o.n}</b>${o.y?`<small>${o.y}</small>`:''}</summary><p>${T(o.d)}</p>${o.h?`<p class="srh">${T(o.h)}</p>`:''}</details>`).join(''):'<p class="srnone">找不到，換個關鍵字試試</p>';
+ $('sres').querySelectorAll('.srl').forEach(b=>b.onclick=()=>enterApp(+b.dataset.li));
+});
+// 古人在發文
+let fdP=0;
+function openFeed(p){['home','app','game','frame','chainp','tlpage','pplp','guidep','srcp'].forEach(id=>$(id).hidden=true);$('feedp').hidden=false;document.body.classList.add('home');fdP=p||0;renderFeed();window.scrollTo(0,0)}
+function renderFeed(){
+ $('fderas').innerHTML=P.map((p,i)=>`<button class="${i===fdP?'on':''}" style="--pc:${p.c}"><b>${p.n}</b><small>${p.y.replace('約','').split('～')[0]}起</small></button>`).join('');
+ $('fderas').querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{fdP=i;renderFeed()});
+ $('fdlist').innerHTML=FEED.filter(f=>f[0]===fdP).map(f=>`<article class="post" style="--pc:${pc[f[0]]}">${avatar(AVS[f[2]],pc[f[0]])}<div><div class="ph"><b>${f[1]}</b><span>@${f[2]}・${f[3]}</span></div><p>${T(f[5])}</p><div class="tags">${f[6]}</div></div></article>`).join('');
+ fadeIn($('fdlist'));
+}
+$('fdback').onclick=()=>{goHome()};
+$('hfeed').onclick=()=>openFeed(0);
+
+// ===== 古人頭貼（SVG 繪製）與卡片小圖示 =====
+const AVS={clay_student:'scribe',nile_farmer:'farmer',pyramid_crew:'worker',babylon_trader:'merchant',phoenician_sail:'sailor',athens_citizen:'greek',sparta_boy:'spartan',qin_scholar:'chinese',silkroad_trader:'traveler',roma_civis:'roman',early_christian:'veil',frank_monk:'monk',baghdad_scholar:'arab',japan_in_changan:'tang',manor_serf:'straw',crusade_knight:'knight',plague_survivor:'hood',florence_apprentice:'beret',mainz_printer:'cap',porto_sailor:'sailor2',tenochtitlan:'feather',voc_clerk:'dutch',padua_student:'scholar',paris_1789:'phrygian',mill_kid:'flatcap',western_front:'helmet',tv_1969:'modern',berlin_1989:'beanie',student_2021:'student'};
+function avatar(k,bg){
+ const skin={feather:'#b9835a',egypt:'#c58b5e',farmer:'#c58b5e',worker:'#c58b5e',arab:'#c9926a',merchant:'#c9926a',scribe:'#c9926a'}[k]||'#e9c39f';
+ const cloth={monk:'#6b4f3a',knight:'#9aa3ad',helmet:'#6d7346',dutch:'#222',scholar:'#333',phrygian:'#2f4f8f'}[k]||'#f4efe6';
+ const H={
+  scribe:'<path d="M11 17q9-9 18 0v2H11z" fill="#3a2a1f"/><rect x="12" y="16" width="16" height="2.5" rx="1" fill="#c99a3a"/>',
+  farmer:'<path d="M10 19l10-9 10 9z" fill="#e8d9a8"/><path d="M10 19h20" stroke="#b79a52" stroke-width="1.5"/>',
+  worker:'<path d="M11 18q9-8 18 0" fill="#3a2a1f"/><rect x="11" y="16.5" width="18" height="2.5" fill="#f4efe6"/>',
+  merchant:'<ellipse cx="20" cy="15" rx="10" ry="5" fill="#8a3b2e"/><path d="M14 30q6 5 12 0v-3H14z" fill="#3a2a1f"/>',
+  sailor:'<path d="M11 17q9-7 18 0z" fill="#4a3b8f"/><path d="M14 29q6 4 12 0" stroke="#3a2a1f" stroke-width="2" fill="none"/>',
+  greek:'<path d="M11 19q1-10 9-10t9 10q-3-4-9-4t-9 4z" fill="#3a2a1f"/><path d="M13 29q7 6 14 0v-2H13z" fill="#3a2a1f"/>',
+  spartan:'<path d="M10 24V16q10-12 20 0v8h-4v-6H14v6z" fill="#b8862e"/><path d="M15 7q5-5 10 0v3H15z" fill="#c0392b"/>',
+  chinese:'<path d="M11 19q2-9 9-9t9 9q-4-4-9-4t-9 4z" fill="#1d1d1d"/><circle cx="20" cy="9" r="3.2" fill="#1d1d1d"/><path d="M15 9h10" stroke="#c99a3a" stroke-width="1.2"/>',
+  traveler:'<path d="M10 20q0-11 10-11t10 11q-4-3-10-3t-10 3z" fill="#e2c48a"/><path d="M28 18q4 6 1 12" stroke="#e2c48a" stroke-width="3" fill="none"/>',
+  roman:'<path d="M11 19q2-9 9-9t9 9q-4-4-9-4t-9 4z" fill="#3a2a1f"/><path d="M11 17q9-6 18 0" stroke="#4f8a3c" stroke-width="2.4" fill="none" stroke-dasharray="2 1.5"/>',
+  veil:'<path d="M9 34V20q0-12 11-12t11 12v14h-4V21q0-6-7-6t-7 6v13z" fill="#d9cdb8"/>',
+  monk:'<path d="M8 34V20q0-13 12-13t12 13v14h-4V22q0-7-8-7t-8 7v12z" fill="#6b4f3a"/>',
+  arab:'<path d="M10 18q0-9 10-9t10 9z" fill="#f4efe6"/><path d="M10 18h20" stroke="#c99a3a" stroke-width="1.5"/><path d="M14 29q6 6 12 0v-2H14z" fill="#3a2a1f"/>',
+  tang:'<path d="M12 17q0-8 8-8t8 8z" fill="#1d1d1d"/><path d="M12 15h-5M28 15h5" stroke="#1d1d1d" stroke-width="2"/>',
+  straw:'<ellipse cx="20" cy="16" rx="13" ry="3" fill="#d9b45a"/><path d="M14 16q6-9 12 0z" fill="#d9b45a"/>',
+  knight:'<path d="M10 31V17q10-12 20 0v14z" fill="#9aa3ad"/><rect x="13" y="20" width="14" height="2.5" fill="#333"/><path d="M20 24v6M17 27h6" stroke="#c0392b" stroke-width="1.6"/>',
+  hood:'<path d="M8 34V19q0-12 12-12t12 12v15h-4V21q0-6-8-6t-8 6v13z" fill="#4a4a4a"/>',
+  beret:'<ellipse cx="18" cy="13.5" rx="10" ry="4" fill="#8a2c3a"/><path d="M12 19q2-5 8-5" stroke="#3a2a1f" stroke-width="3" fill="none"/>',
+  cap:'<path d="M11 17q9-7 18 0z" fill="#5a4a3a"/><path d="M27 17h5" stroke="#5a4a3a" stroke-width="2"/>',
+  sailor2:'<path d="M10 16h20l-3-5H13z" fill="#7a2f2a"/><path d="M14 29q6 4 12 0" stroke="#3a2a1f" stroke-width="2" fill="none"/>',
+  feather:'<path d="M10 17q10-4 20 0" stroke="#2a7a5a" stroke-width="3" fill="none"/><path d="M13 15l-2-9M17 13l-1-10M20 13V2M23 13l1-10M27 15l2-9" stroke="#2fa37a" stroke-width="2.4"/><path d="M20 13V4" stroke="#e0b23a" stroke-width="2.4"/>',
+  dutch:'<ellipse cx="20" cy="15" rx="13" ry="2.6" fill="#222"/><rect x="14" y="6" width="12" height="9" rx="2" fill="#222"/><ellipse cx="20" cy="31.5" rx="9" ry="2.6" fill="#fff" stroke="#bbb" stroke-width=".6"/>',
+  scholar:'<path d="M9 13l11-5 11 5-11 5z" fill="#333"/><path d="M28 14v6" stroke="#c99a3a" stroke-width="1.2"/>',
+  phrygian:'<path d="M10 18q0-11 11-11 8 0 9 6-5-2-6 3z" fill="#c0392b"/><circle cx="22" cy="17" r="1.4" fill="#2f4f8f"/>',
+  flatcap:'<path d="M11 17q9-6 18 0z" fill="#6b5b4b"/><path d="M27 17q4 0 5 1" stroke="#6b5b4b" stroke-width="2"/>',
+  helmet:'<ellipse cx="20" cy="15.5" rx="13" ry="3" fill="#6d7346"/><path d="M12 15q8-10 16 0z" fill="#6d7346"/>',
+  modern:'<path d="M11 20q-1-11 9-11t9 11q-2-5-9-5-6 0-9 5z" fill="#3a2a1f"/>',
+  beanie:'<path d="M11 18q0-10 9-10t9 10z" fill="#d9483b"/><rect x="11" y="16.5" width="18" height="3" fill="#b53a2f"/><circle cx="20" cy="7.5" r="2" fill="#d9483b"/>',
+  student:'<path d="M11 20q-1-11 9-11t9 11q-2-5-9-5-6 0-9 5z" fill="#1d1d1d"/><path d="M10 22q0-12 10-12t10 12" stroke="#555" stroke-width="1.5" fill="none"/><rect x="8" y="20" width="4" height="6" rx="1.5" fill="#555"/><rect x="28" y="20" width="4" height="6" rx="1.5" fill="#555"/>'}[k]||'';
+ return `<svg viewBox="0 0 40 40" class="avs" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="${bg}"/><path d="M6 40c1-7 7-9 14-9s13 2 14 9z" fill="${cloth}"/><circle cx="20" cy="21" r="8.5" fill="${skin}"/><circle cx="17" cy="21" r="1" fill="#2a2a2a"/><circle cx="23" cy="21" r="1" fill="#2a2a2a"/><path d="M17.5 25q2.5 1.6 5 0" stroke="#7a4a3a" stroke-width="1" fill="none" stroke-linecap="round"/>${H}</svg>`;
+}
+const HIC={htl:'<path d="M4 7h10M4 12h16M4 17h8"/>',hchain:'<path d="M9 15l6-6"/><path d="M10 6l1-1a4 4 0 0 1 6 6l-1 1M14 18l-1 1a4 4 0 0 1-6-6l1-1"/>',hmap:'<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/>',hrg:'<path d="M5 21V4M5 4h11l-2 3 2 3H5"/>',hppl:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c1-4 4-5 6-5s5 1 6 5M15 15c3 0 5 1 6 4"/>',hfeed:'<path d="M4 5h16v10H9l-5 4z"/>',theme:'<path d="M4 18c4 0 4-12 8-12s4 12 8 12"/><circle cx="4" cy="18" r="1.5"/><circle cx="20" cy="18" r="1.5"/>',year:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',tw:'<path d="M14 3c3 3 4 8 2 13s-6 6-7 4 1-5 1-9 2-7 4-8z"/>',cmp:'<path d="M12 4v16M5 20h14M5 8h14M7 8l-3 6h6zM17 8l-3 6h6z"/>',hexam:'<path d="M4 20l4-1 11-11-3-3L5 16z"/>',hsrc:'<path d="M6 4h10l3 3v13H6z"/><path d="M9 10h7M9 14h7"/>',hgame:'<rect x="4" y="4" width="7" height="7" rx="1"/><circle cx="16.5" cy="7.5" r="3.5"/><path d="M4 20l3.5-6 3.5 6z"/><rect x="13" y="13" width="7" height="7" rx="3.5"/>'};
+document.querySelectorAll('#home .htest').forEach(b=>{const k=b.id||b.dataset.g;if(HIC[k]&&!b.querySelector('.hic'))b.insertAdjacentHTML('afterbegin',`<svg class="hic" viewBox="0 0 24 24" aria-hidden="true">${HIC[k]}</svg>`)});
 $('fback').onclick=goHome;
 $('backhome').onclick=goHome;
-function openBig(w){['home','game','frame','chainp','tlpage'].forEach(id=>$(id).hidden=true);$('app').hidden=false;bigMode=true;document.body.classList.add('bigv','home');{const wg=$('mwar');wg.hidden=false;wg.previousElementSibling.hidden=false}setTab(w);$('backhome').textContent='← 回首頁';$('bigh').textContent=w==='mapv'?'版圖演變':'列國分合';if(w==='rgv'){renderRG();requestAnimationFrame(()=>wheelTo(false))}window.scrollTo(0,0)}
-function openTL(){['home','app','game','frame','chainp'].forEach(id=>$(id).hidden=true);$('tlpage').hidden=false;document.body.classList.add('home');renderHov();window.scrollTo(0,0)}
+function openBig(w){['home','game','frame','chainp','tlpage','pplp','guidep','srcp','feedp'].forEach(id=>$(id).hidden=true);$('app').hidden=false;bigMode=true;document.body.classList.add('bigv','home');{const wg=$('mwar');wg.hidden=false;wg.previousElementSibling.hidden=false}setTab(w);$('backhome').textContent='← 回首頁';$('bigh').textContent=w==='mapv'?'版圖演變':'列國分合';if(w==='rgv'){renderRG();requestAnimationFrame(()=>wheelTo(false))}window.scrollTo(0,0)}
+function openTL(){['home','app','game','frame','chainp','pplp','guidep','srcp','feedp'].forEach(id=>$(id).hidden=true);$('tlpage').hidden=false;document.body.classList.add('home');renderHov();window.scrollTo(0,0)}
 $('tlback').onclick=goHome;
 $('gsel').addEventListener('click',e=>{if(!e.target.closest('.term,.gevi'))$('gsel').hidden=true});
 // 所有小窗：點空白處或按 Esc 關閉
@@ -2299,7 +2800,7 @@ const yToF=y=>{y=Math.max(-8000,Math.min(2026,y));for(let i=0;i<SEG.length;i++){
 const fToY=f=>{f=Math.max(0,Math.min(.9999,f));const i=Math.floor(f*SEG.length),[a,b]=SEG[i];return Math.round(a+(f*SEG.length-i)*(b-a))};
 const yLabel=y=>y<=-8000?"前8000":y<0?'前'+(-y):y>=2027?"今日":String(y);
 let curY=-3500;
-const CS=["農業","文字","金字塔","愛琴","法典","周朝","字母","希臘城邦","波斯","羅馬共和","思想家","民主","十二表法","亞歷山大","秦統一","絲路","羅馬帝國","基督教","西羅馬亡","拜占庭","唐朝","伊斯蘭","查理曼","封建","東西分裂","塞爾柱","十字軍","蒙古","馬可波羅","黑死病","文藝復興","鄭和","印刷術","拜占庭亡","大航海","宗教改革","美洲被征服","科學革命","三角貿易","鄭成功","啟蒙","工業革命","美法革命","鴉片戰爭","帝國主義","民族主義","民國建立","一戰","俄國革命","凡爾賽","大恐慌","日本侵華","二戰爆發","珍珠港","二戰結束","冷戰","非洲年","登月","柏林圍牆","蘇聯解體","歐盟","總統直選","網路","九一一","金融海嘯","巴黎協定","新冠疫情","俄烏戰爭","AI"];
+const CS=["農業","文字","金字塔","印度河","愛琴","法典","周朝","字母","希伯來","希臘城邦","波斯","羅馬共和","思想家","波希戰爭","民主","十二表法","伯羅奔尼撒","亞歷山大","布匿克戰爭","佛教傳播","秦統一","絲路","羅馬帝國","基督教","西羅馬亡","拜占庭","唐朝","伊斯蘭","遜尼什葉","查理曼","封建","中世紀教會","東西分裂","塞爾柱","十字軍","蒙古","馬可波羅","撒哈拉貿易","黑死病","文藝復興","鄭和","印刷術","拜占庭亡","大航海","新航路","宗教改革","美洲被征服","天主教改革","蒙兀兒","大帆船","科學革命","三角貿易","荷蘭東印度公司","鄭成功","啟蒙","英控印度","工業革命","美國獨立","澳洲","法國大革命","維也納會議","門羅宣言","鄂圖曼改革","鴉片戰爭","新思潮","帝國主義","反英兵變","民族主義","南北戰爭","明治維新","蘇伊士運河","二次工業","東南亞殖民","衣索比亞","兩大集團","民國建立","一戰","俄國革命","凡爾賽","極權","大恐慌","日本侵華","新政","姑息政策","二戰爆發","珍珠港","大屠殺","戰時會議","反攻","二戰結束","冷戰","圍堵","印巴分治","世界人權","柏林封鎖","以色列建國","韓戰","不結盟","非洲年","古巴危機","爭取平等","登月","柏林圍牆","蘇聯解體","歐盟","總統直選","網路","九一一","金融海嘯","巴黎協定","新冠疫情","俄烏戰爭","AI"];
 let railL=-1,railMin=innerWidth<900;try{const v=localStorage.getItem('histRailMin');if(v!==null)railMin=v==='1'}catch(e){}
 function setRailMin(v){railMin=v;try{localStorage.setItem('histRailMin',v?'1':'0')}catch(e){}document.body.classList.toggle('railmin',v);renderRail()}
 document.body.classList.toggle('railmin',railMin);
@@ -2543,7 +3044,7 @@ function pick3(ans,ay,cands){
   .sort((x,y)=>x.s-y.s).slice(0,3).map(c=>c.v);
 }
 // 會考題型：給一段情境，推斷是哪件事、哪個人或什麼影響。[課, 題幹, 選項(第一個是正解), 解說]
-const KQ=[[0, "某古文明的人用蘆葦筆在泥板上壓出三角形筆畫記帳，還把一部法典刻在石柱上，規定「以眼還眼、以牙還牙」。這個文明最可能在哪裡？", ["兩河流域", "尼羅河流域", "黃河流域", "愛琴海"], "楔形文字和漢摩拉比法典都出自兩河流域（今伊拉克）。"], [0, "這條河每年定期氾濫，退水後留下肥沃泥土。人們為了重新丈量田地發展出幾何學，也訂出一年365天的曆法。這是哪條河？", ["尼羅河", "底格里斯河", "恆河", "黃河"], "尼羅河定期氾濫，古埃及因此發展出測量技術和太陽曆。"], [1, "這個民族住在今天的以色列一帶，只崇拜唯一的神，他們的經典後來成為基督教《舊約聖經》的一部分。這是哪個民族？", ["希伯來人", "腓尼基人", "波斯人", "蘇美人"], "希伯來人創立一神信仰的猶太教，是猶太人的祖先。"], [1, "某古希臘城邦的男孩七歲就離開家裡接受軍事訓練，生活非常嚴格，這個城邦以強大的陸軍聞名。這是哪個城邦？", ["斯巴達", "雅典", "羅馬", "迦太基"], "斯巴達重視軍事教育；雅典則以民主和哲學聞名。"], [2, "在這個城邦，成年男性公民可以到公民大會直接投票決定戰爭和法律，但女性、奴隸和外邦人不能參加。這段話描述的是什麼？", ["雅典的民主", "斯巴達的軍事訓練", "羅馬的共和", "波斯的君主統治"], "雅典是直接民主，但只有成年男性公民有權參與。"], [2, "博物館裡有一尊佛像，臉孔和衣服的皺褶卻很像希臘雕像。這種東西方混合的藝術，源頭最可能是哪件事？", ["亞歷山大東征", "十字軍東征", "新航路發現", "蒙古西征"], "亞歷山大東征把希臘文化帶到東方，形成希臘化文化，後來影響了佛教藝術。"], [3, "某帝國的皇帝原本迫害這個宗教，西元313年卻下令允許人民信仰它，後來它還成為帝國的國教。這個宗教是？", ["基督教", "伊斯蘭教", "佛教", "猶太教"], "羅馬皇帝君士坦丁承認基督教，後來基督教成為羅馬國教。"], [3, "老師在黑板上寫下「476年」，說這一年代表古典時期結束。這一年發生了什麼事？", ["西羅馬帝國滅亡", "東羅馬帝國滅亡", "羅馬建立共和", "基督教成為國教"], "476年西羅馬帝國被日耳曼人滅亡；東羅馬（拜占庭）要到1453年才滅亡。"], [4, "這本經典用阿拉伯文寫成，信徒相信它記錄了真主透過穆罕默德傳下的話；信徒每天禮拜五次，齋戒月白天不吃東西。這是哪個宗教？", ["伊斯蘭教", "基督教", "猶太教", "祆教"], "伊斯蘭教的經典是可蘭經，創立者是穆罕默德。"], [4, "博物館展出一本用拉丁文抄寫的《新約聖經》，由修道院僧侶抄寫，和一位在西元800年被教宗加冕的國王提倡學問有關。這本書最可能來自哪裡、什麼時候？", ["9世紀的西歐", "9世紀的阿拉伯帝國", "2世紀的漢朝", "9世紀的唐朝"], "查理曼在800年被教宗加冕，中世紀西歐用拉丁文寫宗教和學術文字。"], [5, "教宗號召西歐的騎士出發，到東方奪回聖地耶路撒冷，前後打了將近兩百年。這是哪件事？", ["十字軍東征", "亞歷山大東征", "蒙古西征", "大航海時代"], "十字軍東征（1096～1291年）是拜占庭向教宗求救引起的。"], [5, "14世紀中期，一種經由老鼠身上的跳蚤傳染的疾病，讓歐洲約三分之一的人死亡；種田的人變少，貴族只好提高工資留住農民。這件事帶來什麼影響？", ["封建莊園制度開始瓦解", "羅馬帝國分裂", "伊斯蘭教興起", "工業革命開始"], "黑死病讓勞力變得珍貴，農奴地位提高，封建莊園制度逐漸鬆動。"], [6, "香料商人發現，15世紀中期以後，從地中海東岸陸路運到歐洲的香料越來越少、越來越貴。這最可能和哪件事有關？", ["鄂圖曼帝國控制往東方的陸路", "工業革命興起", "法國大革命", "冷戰開始"], "鄂圖曼帝國1453年攻下君士坦丁堡，控制東西貿易路線，歐洲人只好從海上找新航路。"], [6, "一位德國修士反對教會販賣贖罪券，發表九十五條論綱，主張人得救靠信仰、聖經才是最高權威。這件事引發了什麼？", ["宗教改革", "文藝復興", "啟蒙運動", "十字軍東征"], "馬丁路德在1517年引發宗教改革，新教從天主教分出來。"], [7, "17世紀，某國的一家公司可以自己組軍隊、和外國簽約，壟斷東南亞香料貿易，並在1624年占領臺灣南部。這是哪家公司？", ["荷蘭東印度公司", "英國東印度公司", "西班牙無敵艦隊", "鄂圖曼帝國"], "荷蘭東印度公司在臺灣南部建立熱蘭遮城，統治到1662年被鄭成功趕走。"], [7, "這位科學家提出萬有引力，用同一套數學公式解釋蘋果落地和行星繞著太陽轉。他的研究屬於什麼？", ["科學革命", "文藝復興", "宗教改革", "工業革命"], "牛頓是科學革命的代表人物，用觀察、實驗和數學來了解自然。"], [8, "1789年，法王為了解決國家財政困難，召開一個停開一百多年、由教士、貴族、平民三種人組成的會議，平民代表卻另外組成國民議會。這個會議是？", ["三級會議", "維也納會議", "公民大會", "國際聯盟"], "三級會議是法國大革命的導火線。"], [8, "一份1776年的文件寫著：人人生而平等，擁有生命、自由和追求幸福的權利；政府如果違背人民，人民有權推翻它。這份文件是？", ["美國獨立宣言", "法國人權宣言", "漢摩拉比法典", "九十五條論綱"], "美國13個殖民地在1776年發表獨立宣言，脫離英國。"], [9, "19世紀末有人認為「適者生存」不只適用於動植物，也適用於國家：強國統治弱小民族是自然的事，還能把「文明」帶給他們。這種想法叫什麼？", ["社會達爾文主義", "社會主義", "民族主義", "啟蒙思想"], "社會達爾文主義被列強用來合理化帝國主義的殖民行動。"], [9, "1871年，一位普魯士首相主張「現在的大問題要用鐵和血來解決」，打敗法國後，在法國的凡爾賽宮宣布成立新國家。這個新國家是？", ["德意志帝國", "義大利王國", "奧匈帝國", "法蘭西共和國"], "俾斯麥用鐵血政策完成德意志統一，這是民族主義的成果。"], [9, "工業革命後，許多工人每天工作十幾小時，童工也很普遍。一位德國思想家寫書呼籲：全世界的工人團結起來！這位思想家是誰？", ["馬克思", "牛頓", "盧梭", "哥倫布"], "馬克思提出共產主義，是社會主義中最激進的一派。"], [10, "1931年的報紙漫畫：一群人圍在關門的銀行外，手裡的存摺變成廢紙。這幅漫畫最可能反映什麼？", ["經濟大恐慌", "工業革命", "冷戰", "第一次世界大戰爆發"], "1929年美國股市崩盤，引發全球經濟大恐慌，大量銀行倒閉。"], [10, "一戰結束後，各國在1920年成立一個國際組織，想用談判代替戰爭；但美國沒有加入、組織也沒有軍隊，最後沒能阻止下一場大戰。這個組織是？", ["國際聯盟", "聯合國", "北約", "歐盟"], "國際聯盟失敗後，二戰結束時改成立聯合國。"], [11, "1955年，蘇聯和東歐共產國家組成一個軍事同盟，對抗美國和西歐國家組成的另一個軍事同盟。這兩個同盟依序是？", ["華沙公約、北約", "北約、華沙公約", "協約國、同盟國", "軸心國、同盟國"], "冷戰時，蘇聯陣營是華沙公約，美國陣營是北約。"], [11, "1955年，印度、埃及、印尼等亞非國家在萬隆開會，表示不加入美國或蘇聯任何一邊。這類國家常被稱為什麼？", ["第三世界", "軸心國", "協約國", "歐盟"], "第三世界多是二戰後才獨立的亞洲、非洲、拉丁美洲國家。"], [12, "今天許多歐洲國家用同一種貨幣，人和貨物跨國往來不必檢查。這是哪個組織促成的？", ["歐盟", "北約", "國際聯盟", "華沙公約"], "歐盟從二戰後的經濟合作開始，1993年正式成立，成員國多使用歐元。"], [12, "1991年12月，一個由15個加盟共和國組成的國家正式解散，美蘇對抗的時代也跟著結束。這個國家是？", ["蘇聯", "南斯拉夫", "奧匈帝國", "鄂圖曼帝國"], "蘇聯解體後分成俄羅斯、烏克蘭等15國，冷戰結束。"], [12, "2001年，恐怖分子劫持民航機撞毀紐約兩棟摩天大樓，美國隨後出兵阿富汗。這是哪件事？", ["九一一事件", "珍珠港事件", "柏林圍牆倒下", "經濟大恐慌"], "九一一事件後，美國發動反恐戰爭，各國機場安檢也變得嚴格。"], [12, "2020年起，許多國家封城、學校改成線上上課，搭飛機出國前還要做病毒檢測。造成這些現象的是什麼？", ["新冠肺炎疫情", "黑死病", "全球金融海嘯", "第一次世界大戰"], "新冠肺炎在全球化的世界裡快速傳播，2020年被宣布為全球大流行。"], [2, "羅馬共和初期，平民要求把法律寫下來公開，於是把條文刻在十二塊表上公布。這套法律是什麼？", ["《十二表法》", "《漢摩拉比法典》", "《查士丁尼法典》", "《大憲章》"], "《十二表法》約前450年公布，是後來羅馬法的重要基礎。"], [5, "某年，基督教的西方教會和東方教會互相開除對方領袖的教籍，從此分成兩派，東邊這一派以君士坦丁堡為中心。這是哪件事？", ["東西教會分裂", "宗教改革", "十字軍東征", "米蘭詔書"], "1054年基督教分裂成西邊的天主教和東邊的東正教。"], [7, "一艘船從英國載著槍枝和布料到非洲，換到被抓來的非洲人後運往美洲，再從美洲載著蔗糖和菸草回到英國。這段描述的是什麼？", ["三角貿易", "絲路貿易", "朝貢貿易", "香料貿易"], "歐洲、非洲、美洲之間的三角貿易，讓上千萬非洲人被賣到美洲當奴隸。"]];
+const KQ=[[0,"某古文明的人用蘆葦筆在泥板上壓出三角形筆畫記帳，還把一部法典刻在石柱上，規定「以眼還眼、以牙還牙」。這個文明最可能在哪裡？",["兩河流域","尼羅河流域","黃河流域","愛琴海"],"楔形文字和漢摩拉比法典都出自兩河流域（今伊拉克）。"],[0,"這條河每年定期氾濫，退水後留下肥沃泥土。人們為了重新丈量田地發展出幾何學，也訂出一年365天的曆法。這是哪條河？",["尼羅河","底格里斯河","恆河","黃河"],"尼羅河定期氾濫，古埃及因此發展出測量技術和太陽曆。"],[1,"這個民族住在今天的以色列一帶，只崇拜唯一的神，他們的經典後來成為基督教《舊約聖經》的一部分。這是哪個民族？",["希伯來人","腓尼基人","波斯人","蘇美人"],"希伯來人創立一神信仰的猶太教，是猶太人的祖先。"],[1,"某古希臘城邦的男孩七歲就離開家裡接受軍事訓練，生活非常嚴格，這個城邦以強大的陸軍聞名。這是哪個城邦？",["斯巴達","雅典","羅馬","迦太基"],"斯巴達重視軍事教育；雅典則以民主和哲學聞名。"],[2,"在這個城邦，成年男性公民可以到公民大會直接投票決定戰爭和法律，但女性、奴隸和外邦人不能參加。這段話描述的是什麼？",["雅典的民主","斯巴達的軍事訓練","羅馬的共和","波斯的君主統治"],"雅典是直接民主，但只有成年男性公民有權參與。"],[2,"博物館裡有一尊佛像，臉孔和衣服的皺褶卻很像希臘雕像。這種東西方混合的藝術，源頭最可能是哪件事？",["亞歷山大東征","十字軍東征","新航路發現","蒙古西征"],"亞歷山大東征把希臘文化帶到東方，形成希臘化文化，後來影響了佛教藝術。"],[3,"某帝國原本迫害這個宗教，西元313年皇帝卻下令允許人民信仰它，後來它還成為帝國的國教。這個宗教是？",["基督教","伊斯蘭教","佛教","猶太教"],"羅馬皇帝君士坦丁承認基督教，後來基督教成為羅馬國教。"],[3,"老師在黑板上寫下「476年」，說這一年代表古典時期結束。這一年發生了什麼事？",["西羅馬帝國滅亡","東羅馬帝國滅亡","羅馬建立共和","基督教成為國教"],"476年西羅馬帝國被日耳曼人滅亡；東羅馬（拜占庭）要到1453年才滅亡。"],[4,"這本經典用阿拉伯文寫成，信徒相信它記錄了真主透過穆罕默德傳下的話；信徒每天禮拜五次，齋戒月白天不吃東西。這是哪個宗教？",["伊斯蘭教","基督教","猶太教","祆教"],"伊斯蘭教的經典是《古蘭經》，創立者是穆罕默德。"],[4,"博物館展出一本用拉丁文抄寫的《新約聖經》，由修道院僧侶抄寫，和一位在西元800年被教宗加冕的國王提倡學問有關。這本書最可能來自哪裡、什麼時候？",["9世紀的西歐","9世紀的阿拉伯帝國","2世紀的漢朝","9世紀的唐朝"],"查理曼在800年被教宗加冕，中世紀西歐用拉丁文寫宗教和學術文字。"],[5,"教宗號召西歐的騎士出發，到東方奪回聖地耶路撒冷，前後打了將近兩百年。這是哪件事？",["十字軍東征","亞歷山大東征","蒙古西征","大航海時代"],"十字軍東征（1096～1291年）是拜占庭向教宗求救引起的。"],[5,"14世紀中期，一種經由老鼠身上的跳蚤傳染的疾病，讓歐洲約三分之一的人死亡；種田的人變少，貴族只好提高工資留住農民。這件事帶來什麼影響？",["封建莊園制度開始瓦解","羅馬帝國分裂","伊斯蘭教興起","工業革命開始"],"黑死病讓勞力變得珍貴，農奴地位提高，封建莊園制度逐漸鬆動。"],[6,"香料商人發現，15世紀中期以後，從地中海東岸陸路運到歐洲的香料越來越少、越來越貴。這最可能和哪件事有關？",["鄂圖曼帝國控制往東方的陸路","工業革命興起","法國大革命","冷戰開始"],"鄂圖曼帝國1453年攻下君士坦丁堡，控制東西貿易路線，歐洲人只好從海上找新航路。"],[6,"一位德國修士反對教會販賣贖罪券，發表九十五條論綱，主張人得救靠信仰、聖經才是最高權威。這件事引發了什麼？",["宗教改革","文藝復興","啟蒙運動","十字軍東征"],"馬丁路德在1517年引發宗教改革，新教從天主教分出來。"],[7,"17世紀，某國的一家公司可以自己組軍隊、和外國簽約，壟斷東南亞香料貿易，並在1624年占領臺灣南部。這是哪家公司？",["荷蘭東印度公司","英國東印度公司","西班牙無敵艦隊","鄂圖曼帝國"],"荷蘭東印度公司在臺灣南部建立熱蘭遮城，統治到1662年被鄭成功趕走。"],[7,"這位科學家提出萬有引力，用同一套數學公式解釋蘋果落地和行星繞著太陽轉。他的研究屬於什麼？",["科學革命","文藝復興","宗教改革","工業革命"],"牛頓是科學革命的代表人物，用觀察、實驗和數學來了解自然。"],[8,"1789年，法王為了解決國家財政困難，召開一個停開一百多年、由教士、貴族、平民三種人組成的會議，平民代表卻另外組成國民議會。這個會議是？",["三級會議","維也納會議","公民大會","國際聯盟"],"三級會議是法國大革命的導火線。"],[8,"一份1776年的文件寫著：人人生而平等，擁有生命、自由和追求幸福的權利；政府如果違背人民，人民有權推翻它。這份文件是？",["美國獨立宣言","法國人權宣言","漢摩拉比法典","九十五條論綱"],"美國13個殖民地在1776年發表獨立宣言，脫離英國。"],[9,"19世紀末有人認為「適者生存」不只適用於動植物，也適用於國家：強國統治弱小民族是自然的事，還能把「文明」帶給他們。這種想法叫什麼？",["社會達爾文主義","社會主義","民族主義","啟蒙思想"],"社會達爾文主義被列強用來合理化帝國主義的殖民行動。"],[9,"一位普魯士首相曾主張「現在的大問題要用鐵和血來解決」，1871年打敗法國後，在法國的凡爾賽宮宣布成立新國家。這個新國家是？",["德意志帝國","義大利王國","奧匈帝國","法蘭西共和國"],"俾斯麥用鐵血政策完成德意志統一，這是民族主義的成果。"],[9,"工業革命後，許多工人每天工作十幾小時，童工也很普遍。一位德國思想家寫書呼籲：全世界的工人團結起來！這位思想家是誰？",["馬克思","牛頓","盧梭","哥倫布"],"馬克思提出共產主義，是社會主義中最激進的一派。"],[10,"1931年的報紙漫畫：一群人圍在關門的銀行外，手裡的存摺變成廢紙。這幅漫畫最可能反映什麼？",["經濟大恐慌","工業革命","冷戰","第一次世界大戰爆發"],"1929年美國股市崩盤，引發全球經濟大恐慌，大量銀行倒閉。"],[10,"一戰結束後，各國在1920年成立一個國際組織，想用談判代替戰爭；但美國沒有加入、組織也沒有軍隊，最後沒能阻止下一場大戰。這個組織是？",["國際聯盟","聯合國","北約","歐盟"],"國際聯盟失敗後，二戰結束時改成立聯合國。"],[11,"1955年，蘇聯和東歐共產國家組成一個軍事同盟，對抗美國和西歐國家組成的另一個軍事同盟。這兩個同盟依序是？",["華沙公約、北約","北約、華沙公約","協約國、同盟國","軸心國、同盟國"],"冷戰時，蘇聯陣營是華沙公約，美國陣營是北約。"],[11,"1955年，印度、埃及、印尼等亞非國家在萬隆開會，表示不加入美國或蘇聯任何一邊。這類國家常被稱為什麼？",["第三世界","軸心國","協約國","歐盟"],"第三世界多是二戰後才獨立的亞洲、非洲、拉丁美洲國家。"],[12,"今天許多歐洲國家用同一種貨幣，人和貨物跨國往來不必檢查。這是哪個組織促成的？",["歐盟","北約","國際聯盟","華沙公約"],"歐盟從二戰後的經濟合作開始，1993年正式成立，成員國多使用歐元。"],[12,"1991年12月，一個由15個加盟共和國組成的國家正式解散，美蘇對抗的時代也跟著結束。這個國家是？",["蘇聯","南斯拉夫","奧匈帝國","鄂圖曼帝國"],"蘇聯解體後分成俄羅斯、烏克蘭等15國，冷戰結束。"],[12,"2001年，恐怖分子劫持民航機撞毀紐約兩棟摩天大樓，美國隨後出兵阿富汗。這是哪件事？",["九一一事件","珍珠港事件","柏林圍牆倒下","經濟大恐慌"],"九一一事件後，美國發動反恐戰爭，各國機場安檢也變得嚴格。"],[12,"2020年起，許多國家封城、學校改成線上上課，搭飛機出國前還要做病毒檢測。造成這些現象的是什麼？",["新冠肺炎疫情","黑死病","全球金融海嘯","第一次世界大戰"],"新冠肺炎在全球化的世界裡快速傳播，2020年被宣布為全球大流行。"],[2,"羅馬共和初期，平民要求把法律寫下來公開，於是把條文刻在十二塊表上公布。這套法律是什麼？",["《十二表法》","《漢摩拉比法典》","《查士丁尼法典》","《大憲章》"],"《十二表法》約前450年公布，是後來羅馬法的重要基礎。"],[5,"某年，基督教的西方教會的代表和東方教會的牧首互相開除教籍，從此分成兩派，東邊這一派以君士坦丁堡為中心。這是哪件事？",["東西教會分裂","宗教改革","十字軍東征","米蘭詔書"],"1054年基督教分裂成西邊的天主教和東邊的東正教。"],[7,"一艘船從英國載著槍枝和布料到非洲，換到被抓來的非洲人後運往美洲，再從美洲載著蔗糖和菸草回到英國。這段描述的是什麼？",["三角貿易","絲路貿易","朝貢貿易","香料貿易"],"歐洲、非洲、美洲之間的三角貿易，讓上千萬非洲人被賣到美洲當奴隸。"],[6,"一位航海家在1498年繞過非洲南端，抵達印度的卡利卡特，讓他的國家能直接從海上買到香料。這位航海家最可能來自哪個國家？",["葡萄牙","西班牙","英國","荷蘭"],"達伽馬是葡萄牙人；葡萄牙沿非洲西岸南下，經好望角開通到印度的新航路。"],[9,"某份宣言說：「歐洲列強今後不得再把美洲大陸當成殖民的對象。」這份宣言發表後，最可能出現哪種影響？",["美國對拉丁美洲的影響力變大","拉丁美洲重新成為西班牙殖民地","歐洲各國聯合出兵美國","美國放棄干涉美洲事務"],"這是1823年的門羅宣言；美國後來藉此干預拉丁美洲的政治與經濟。"],[9,"某小說描寫倫敦工廠童工的悲慘生活，作者希望讀者看見工業社會的不公平。這部作品最可能屬於哪一種文藝風格？",["寫實主義","浪漫主義","人文主義","古典主義"],"寫實主義描寫社會的真實問題，代表作家如狄更斯。"],[9,"20世紀初，英國放棄「光榮孤立」，先後與法國、俄國改善關係。造成這項改變的主要原因是什麼？",["德國崛起並擴張海軍、爭奪殖民地","拉丁美洲爆發獨立運動","經濟大恐慌重創英國","俄國發生共產革命"],"德國統一後在威廉二世時向外擴張，英國感到威脅，最後形成三國協約。"],[10,"某文件主張：廢除秘密外交、裁減軍備、成立國際和平組織，並讓各民族自己決定前途。這份文件最可能是？",["威爾遜的十四點原則","門羅宣言","人權宣言","杜魯門主義"],"一戰末美國總統威爾遜提出十四點原則，民族自決最受重視，也促成國際聯盟。"],[10,"1938年，英、法同意把捷克斯洛伐克的蘇臺德區讓給德國，希望換來和平。這種做法被稱為什麼？結果如何？",["姑息政策；德國隔年入侵波蘭，二戰爆發","圍堵政策；蘇聯解體","門羅主義；美國參戰","鐵血政策；德意志統一"],"英法一再讓步（姑息政策），反而讓希特勒的野心更大，1939年二戰爆發。"],[11,"二戰後，美國提出一項計畫，援助西歐各國重建經濟，希望阻止共產勢力擴張。這項計畫是？",["馬歇爾計畫","十四點原則","新政","門羅宣言"],"馬歇爾計畫是美國圍堵政策的一部分，用經濟援助幫西歐重建。"],[11,"聯合國中，可以決定對侵略國實施制裁、派遣維和部隊的是哪個機構？",["安全理事會","大會","國際法院","經濟暨社會理事會"],"安全理事會負責維護國際和平與安全。"],[0,"古埃及人發現，每年天狼星在黎明前重新出現在東方天空時，尼羅河就快要氾濫了，於是依此訂出一年的長度。這套曆法後來發展成什麼？",["太陽曆（陽曆）","陰曆","干支紀年","伊斯蘭曆"],"古埃及人觀察天狼星與尼羅河氾濫，訂出一年365天的太陽曆，是今天陽曆的源頭。"],[1,"某古希臘城邦由公民大會投票決定國家大事，哲學、戲劇和建築都很發達，帕德嫩神廟就在這裡。這個城邦最可能是？",["雅典","斯巴達","羅馬","迦太基"],"雅典發展出民主和燦爛的文化；斯巴達則重視軍事訓練。"],[4,"九世紀時，西歐的修道院學校大量用拉丁文抄寫聖經和古代典籍，字體也變得工整好讀。這最可能和哪一位統治者推動的文化運動有關？",["查理曼","查士丁尼","穆罕默德","成吉思汗"],"查理曼推動加洛林文藝復興，辦學校、用拉丁文抄寫聖經和古籍。"],[5,"十四世紀時，有位西非國王到麥加朝聖，一路送出大量黃金。他的國家主要靠什麼致富？",["穿越撒哈拉沙漠的黃金與鹽貿易","大西洋的奴隸貿易","印度洋的香料貿易","絲路上的絲綢貿易"],"馬利帝國靠撒哈拉沙漠的黃金換鹽貿易致富，國王是曼薩・穆薩。"],[7,"十六世紀後期，一種大帆船每年往返菲律賓的馬尼拉和墨西哥。船上最主要的貨物交換是什麼？",["美洲白銀換中國絲綢、瓷器","非洲黃金換印度棉布","歐洲毛織品換日本白銀","東南亞香料換美洲菸草"],"馬尼拉大帆船把美洲白銀運到亞洲，換中國的絲綢和瓷器，大量白銀因此流入中國。"],[7,"中世紀歐洲人相信地球是宇宙的中心，太陽和星星都繞著地球轉。這種看法由哪位學者整理成完整的天文體系？後來被誰挑戰？",["托勒密；哥白尼","阿基米德；達文西","伽利略；牛頓","哥白尼；托勒密"],"托勒密的地心說流傳一千多年，哥白尼提出日心說挑戰它。"],[9,"1869年某條運河通航後，英國人從倫敦到印度孟買的航程縮短了將近一半。這條運河最可能是？",["蘇伊士運河","巴拿馬運河","基爾運河","大運河"],"蘇伊士運河連接地中海和紅海，歐洲到亞洲不必再繞過非洲。"],[11,"1955年，許多剛獨立的亞洲、非洲國家在印尼開會，主張反殖民、和平共處，不想加入美蘇任何一方。這場會議和後來的發展是？",["萬隆會議；不結盟運動","雅爾達會議；聯合國","巴黎和會；國際聯盟","慕尼黑會議；姑息政策"],"萬隆會議後，許多國家組成不結盟運動，被稱為第三世界。"]];
 function genQs(li){
  const L=LS[li],A=L[2],B=L[3],inL=y=>y>=A&&y<B;
  const evAll=C.map(c=>({c,y:c[11]})),ev=evAll.filter(e=>inL(e.y));
